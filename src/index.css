@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Mobile-first base styles */
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+  }
+  
+  body {
+    @apply text-base;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  
+  /* Ensure touch targets are at least 44x44px for interactive elements */
+  button:not(.no-touch-target),
+  a:not(.no-touch-target),
+  input[type="button"],
+  input[type="submit"],
+  select {
+    min-height: 44px;
+  }
+  
+  /* Form inputs should be touch-friendly */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  textarea {
+    min-height: 44px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  /* Improve text readability on mobile */
+  p, li {
+    @apply leading-relaxed;
+  }
+  
+  /* Better mobile typography */
+  h1 {
+    @apply text-3xl sm:text-4xl md:text-5xl;
+  }
+  
+  h2 {
+    @apply text-2xl sm:text-3xl;
+  }
+  
+  h3 {
+    @apply text-xl sm:text-2xl;
+  }
+  
+  /* Prevent horizontal scroll for tables */
+  table {
+    table-layout: fixed;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Prevent images and media from causing overflow */
+  img, video, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-lg shadow-md p-4;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors min-h-[44px] min-w-[44px];
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors min-h-[44px] min-w-[44px];
+  }
+  
+  /* Mobile-optimized table wrapper */
+  .table-wrapper {
+    @apply overflow-x-auto -mx-4 sm:mx-0;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Mobile card view for tables */
+  .mobile-card {
+    @apply block sm:hidden bg-white border border-gray-200 rounded-lg p-4 mb-4;
+  }
+  
+  /* Responsive container */
+  .container-mobile {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Touch-friendly buttons */
+  .btn-touch {
+    @apply min-h-[44px] px-4 py-2 text-base;
+  }
+}

@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B1MLPB5SJB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B1MLPB5SJB', {
+        'send_page_view': true,
+        'anonymize_ip': false,
+        'cookie_flags': 'SameSite=None;Secure'
+      });
+      
+      // Track all page views
+      gtag('event', 'page_view', {
+        'page_title': document.title,
+        'page_location': window.location.href,
+        'page_path': window.location.pathname
+      });
+    </script>
+    
+    <!-- Facebook Pixel - Add when you have Pixel ID -->
+    <!-- 
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'YOUR_PIXEL_ID');
+      fbq('track', 'PageView');
+    </script>
+    -->
+    
+    <!-- Performance Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://wa.me" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/og-image.jpg" as="image" type="image/jpeg" />
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    
+    <!-- Language: Standardized to English only -->
+    <meta http-equiv="content-language" content="en" />
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="NextGen Learning - Tech & IT Courses | Computer Science, AI/ML, Data Science" />
+    <meta name="description" content="Your gateway to tech and IT education. Compare computer science, data science, AI/ML, cybersecurity, cloud computing, and more tech courses." />
+    <meta name="keywords" content="tech courses, IT courses, computer science courses, data science courses, AI ML courses, cybersecurity courses, cloud computing courses, B.Tech CSE, B.Tech IT, BCA, MCA, tech education" />
+    <meta name="author" content="NextGen Learning" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="expires" content="never" />
+    <meta name="coverage" content="Worldwide" />
+    <meta name="target" content="all" />
+    <meta name="audience" content="all" />
+    
+    <!-- Enhanced SEO Meta Tags -->
+    <meta name="application-name" content="NextGen Learning" />
+    <meta name="apple-mobile-web-app-title" content="NextGen Learning" />
+    <meta name="msapplication-TileColor" content="#2563eb" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="format-detection" content="telephone=yes" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <!-- Geo-targeting -->
+    <meta name="geo.region" content="IN" />
+    <meta name="geo.placename" content="India" />
+    <meta name="ICBM" content="28.6139, 77.2090" />
+    
+    <!-- Open Graph Enhanced -->
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:secure_url" content="https://nextgenlearning.dev/og-image.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="en_IN" />
+    
+    <!-- Twitter Card Enhanced -->
+    <meta name="twitter:site" content="@NextGenLearning" />
+    <meta name="twitter:creator" content="@NextGenLearning" />
+    <meta name="twitter:domain" content="nextgenlearning.dev" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nextgenlearning.dev/" />
+    <meta property="og:title" content="NextGen Learning - Tech & IT Courses | Computer Science, AI/ML, Data Science" />
+    <meta property="og:description" content="Your gateway to tech and IT education. Compare computer science, data science, AI/ML, cybersecurity, cloud computing, and more tech courses." />
+    <meta property="og:image" content="https://nextgenlearning.dev/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="NextGen Learning - Tech & IT Courses" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://nextgenlearning.dev/" />
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json" id="website-schema">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "NextGen Learning",
+      "alternateName": "NextGen Learning - Tech & IT Courses",
+      "url": "https://nextgenlearning.dev",
+      "description": "Your gateway to tech and IT education. Compare computer science, data science, AI/ML, cybersecurity, cloud computing, and more tech courses.",
+      "inLanguage": "en",
+      "publisher": {
+        "@type": "Organization",
+        "name": "NextGen Learning",
+        "alternateName": "NextGen Learning",
+        "url": "https://nextgenlearning.dev"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://nextgenlearning.dev/courses?search={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json" id="organization-schema">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "NextGen Learning",
+      "alternateName": "NextGen Learning - Tech & IT Courses",
+      "description": "Your gateway to tech and IT education. Compare computer science, data science, AI/ML, cybersecurity, cloud computing, and more tech courses.",
+      "url": "https://nextgenlearning.dev"
+    }
+    </script>
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NextGen Learning - Tech & IT Courses | Computer Science, AI/ML, Data Science" />
+    <meta name="twitter:description" content="Your gateway to tech and IT education. Compare computer science, data science, AI/ML, cybersecurity, cloud computing, and more tech courses." />
+    
+    <title>NextGen Learning - Tech & IT Courses | Computer Science, AI/ML, Data Science</title>
+  </head>
+  <body>
+    <!-- Initial content for SEO crawlers - visible before React loads -->
+    <div id="root">
+      <main>
+        <header class="seo-header">
+          <h2 class="seo-h2">NextGen Learning - Tech & IT Courses</h2>
+          <p class="seo-p">Your gateway to tech and IT education. Compare computer science, data science, AI/ML, cybersecurity, and more.</p>
+          <nav class="seo-nav">
+            <a href="/courses" class="seo-link">Browse Tech Courses</a>
+            <a href="/universities" class="seo-link">View Universities</a>
+            <a href="/compare" class="seo-link">Compare Courses</a>
+          </nav>
+        </header>
+        
+        <section class="seo-section">
+          <h2 class="seo-h2">Why Choose Tech Education?</h2>
+          <p class="seo-p">The technology industry is one of the fastest-growing sectors globally, with increasing demand for skilled professionals. Tech education opens doors to exciting career opportunities in software development, data science, artificial intelligence, cybersecurity, cloud computing, and many other fields. Our platform features detailed information about tech programs including computer science, data science, AI/ML, cybersecurity, cloud computing, full stack development, blockchain, IoT, and more. All featured universities have excellent track records for tech education with modern labs, industry partnerships, and high placement rates.</p>
+          
+          <h2 class="seo-h3">Key Benefits of Tech Education</h2>
+          <ul class="seo-ul">
+            <li><strong>High Demand:</strong> Tech professionals are in high demand across industries. Compare tech courses using our <a href="/compare" class="seo-link-inline">comprehensive comparison tool</a>.</li>
+            <li><strong>Scholarships Available:</strong> Generous scholarships for tech programs (up to 50% at some universities). Check our <a href="/scholarships" class="seo-link-inline">scholarship page</a> for detailed eligibility criteria.</li>
+            <li><strong>World-Class Programs:</strong> Top-ranked institutions with industry partnerships and modern labs. View <a href="/universities" class="seo-link-inline">university rankings</a> and accreditation details.</li>
+            <li><strong>Career Opportunities:</strong> Excellent placement opportunities in tech companies. All featured universities have strong industry partnerships and high placement rates.</li>
+            <li><strong>Future-Proof Skills:</strong> Learn cutting-edge technologies like AI, ML, cloud computing, and cybersecurity.</li>
+            <li><strong>Diverse Specializations:</strong> Choose from computer science, data science, AI/ML, cybersecurity, cloud computing, full stack development, blockchain, and more.</li>
+          </ul>
+          
+          <h2 class="seo-h3">How to Get Started</h2>
+          <p class="seo-p">Getting started is easy! Browse our <a href="/courses" class="seo-link-inline">complete tech course catalog</a> to explore all available programs. Use our <a href="/compare" class="seo-link-inline">comparison tool</a> to compare courses side-by-side. Read our comprehensive <a href="/guides" class="seo-link-inline">learning guides</a> covering tech careers, programming, and more. Check out our <a href="/faq" class="seo-link-inline">FAQ section</a> for answers to common questions about tech education.</p>
+          
+          <h2 class="seo-h3">About NextGen Learning</h2>
+          <p class="seo-p">NextGen Learning is your comprehensive platform for exploring tech and IT education. We help students compare computer science, data science, artificial intelligence, machine learning, cybersecurity, cloud computing, and other tech courses across top universities. Our mission is to make tech education accessible and transparent. We provide detailed information about tech programs, including fees, scholarships, rankings, placement records, and career prospects.</p>
+          
+          <h2 class="seo-h3">Contact Information</h2>
+          <p class="seo-p"><strong>Email:</strong> <a href="/contact" class="seo-link-inline">Contact Us</a></p>
+        </section>
+      </main>
+    </div>
+    <noscript>
+      <div class="seo-section">
+        <h2 class="seo-h2">NextGen Learning - Tech & IT Courses</h2>
+        <p class="seo-p">Your gateway to tech and IT education. Compare computer science, data science, AI/ML, cybersecurity, cloud computing, and more tech courses.</p>
+        <h2 class="seo-h3">Why Choose Tech Education?</h2>
+        <p class="seo-p">The technology industry is one of the fastest-growing sectors globally, with increasing demand for skilled professionals. Tech education opens doors to exciting career opportunities in software development, data science, artificial intelligence, cybersecurity, cloud computing, and many other fields.</p>
+        <p class="seo-p">Our platform features detailed information about tech programs including computer science, data science, AI/ML, cybersecurity, cloud computing, full stack development, blockchain, IoT, and more. All featured universities have excellent track records for tech education with modern labs, industry partnerships, and high placement rates.</p>
+        <h2 class="seo-h3">Key Benefits</h2>
+        <ul class="seo-ul">
+          <li>High Demand: Tech professionals are in high demand across industries</li>
+          <li>Scholarships Available: Generous scholarships for tech programs (up to 50% at some universities)</li>
+          <li>World-Class Programs: Top-ranked institutions with industry partnerships and modern labs</li>
+          <li>Career Opportunities: Excellent placement opportunities in tech companies</li>
+          <li>Future-Proof Skills: Learn cutting-edge technologies like AI, ML, cloud computing, and cybersecurity</li>
+          <li>Diverse Specializations: Choose from computer science, data science, AI/ML, cybersecurity, cloud computing, full stack development, blockchain, and more</li>
+        </ul>
+        <h2 class="seo-h3">How to Get Started</h2>
+        <p class="seo-p">Browse our complete tech course catalog to explore all available programs. Use our comparison tool to compare courses side-by-side. Read our comprehensive learning guides covering tech careers, programming, and more. Check out our FAQ section for answers to common questions about tech education.</p>
+        <p class="seo-p"><strong>Contact:</strong> <a href="/contact" class="seo-link-inline">Contact Us</a></p>
+      </div>
+    </noscript>
+    <style>
+      .seo-header{background:linear-gradient(to right,#2563eb,#1e40af);color:#fff;padding:3rem 1rem;text-align:center}
+      .seo-h2{font-size:2rem;font-weight:700;margin-bottom:1rem;color:#fff}
+      .seo-p{font-size:1.125rem;line-height:1.75;margin-bottom:1.5rem;color:#374151}
+      .seo-nav{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+      .seo-link{background:#fff;color:#2563eb;padding:0.75rem 1.5rem;border-radius:0.5rem;text-decoration:none;font-weight:600}
+      .seo-section{max-width:1200px;margin:0 auto;padding:3rem 1rem}
+      .seo-h3{font-size:1.75rem;font-weight:700;margin-top:2rem;margin-bottom:1rem;color:#374151}
+      .seo-ul{list-style:disc;padding-left:2rem;line-height:1.75;color:#374151;margin-bottom:1.5rem}
+      .seo-ul li{margin-bottom:0.75rem}
+      .seo-link-inline{color:#2563eb;font-weight:600;text-decoration:none}
+    </style>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

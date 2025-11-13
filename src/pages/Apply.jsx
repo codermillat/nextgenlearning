@@ -1,0 +1,236 @@
+import { useState } from 'react';
+import { useData } from '../context/DataContext';
+import SEOHead from '../components/SEO/SEOHead';
+import StructuredData from '../components/SEO/StructuredData';
+import Breadcrumbs from '../components/Common/Breadcrumbs';
+import FAQSection from '../components/SEO/FAQSection';
+import { generateBreadcrumbSchema, generateFAQSchema } from '../components/SEO/StructuredData';
+import { redirectToWhatsApp, generateApplicationMessage } from '../utils/whatsappRedirect';
+import { trackFormSubmission } from '../utils/analytics';
+
+export default function Apply() {
+  const { universities, allPrograms } = useData();
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    gpa: '',
+    courseInterest: '',
+    universityPreference: ''
+  });
+
+  const breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Apply', url: '/apply' }
+  ];
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // Track form submission as lead generation
+    trackFormSubmission('Application Form', {
+      hasName: !!formData.name,
+      hasPhone: !!formData.phone,
+      hasEmail: !!formData.email,
+      hasGPA: !!formData.gpa,
+      courseInterest: formData.courseInterest,
+      universityPreference: formData.universityPreference
+    });
+    
+    const message = generateApplicationMessage(formData);
+    redirectToWhatsApp(message, 'apply_page', formData.courseInterest || '', formData.universityPreference || '');
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const faqs = [
+    {
+      question: 'Is the counseling service really free?',
+      answer: 'Yes, Western Bangla Education provides all counseling and application assistance completely free of charge. We help with course selection, university applications, visa processing, and document verification at no cost to students.'
+    },
+    {
+      question: 'What documents do I need to apply?',
+      answer: 'You will need your academic transcripts, passport, passport-size photographs, and other documents as required by the university. WBE will guide you through the complete document preparation process.'
+    },
+    {
+      question: 'How long does the application process take?',
+      answer: 'The application process typically takes 2-4 weeks, depending on the university and course. WBE will help expedite the process and ensure all documents are submitted correctly.'
+    },
+    {
+      question: 'Do I need to pay any fees to WBE?',
+      answer: 'No, WBE provides all services completely free. You only pay the university fees directly to the university. WBE earns through university partnerships, not from students.'
+    }
+  ];
+
+  return (
+    <>
+      <SEOHead
+        title="Apply to Study in India 2025-26 - Free Counseling, Visa & Admission Assistance | WBE"
+        description="Apply to study in India through Western Bangla Education (WBE). Get 100% free counseling, visa assistance, document verification, and admission support. WhatsApp: +8801611533385. No fees for counseling. Apply to Chandigarh University, Sharda University, Galgotias University, NIU."
+        keywords={[
+          'apply to study in India',
+          'admission in India from Bangladesh',
+          'visa assistance for India',
+          'free counseling for study in India',
+          'Western Bangla Education',
+          'WBE application',
+          'study in India application form',
+          'admission process India',
+          'student visa India',
+          'document verification India',
+          'free education counseling',
+          'Bangladeshi students India admission',
+          'apply Indian universities',
+          'WBE WhatsApp',
+          'study abroad counseling free'
+        ]}
+        url="/apply"
+        canonical="/apply"
+      />
+      {generateBreadcrumbSchema(breadcrumbs) && <StructuredData data={generateBreadcrumbSchema(breadcrumbs)} />}
+      {generateFAQSchema(faqs) && <StructuredData data={generateFAQSchema(faqs)} />}
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div className="container mx-auto px-4 py-8 max-w-3xl">
+        <h1 className="text-4xl font-bold mb-4">Apply to Study in India</h1>
+        <p className="text-lg text-gray-600 mb-8">
+          Get free counseling and application assistance from Western Bangla Education. 
+          Fill out the form below and we'll contact you via WhatsApp to help you with your application.
+        </p>
+
+        <form onSubmit={handleSubmit} className="bg-white p-4 sm:p-8 rounded-lg shadow-md border border-gray-200 mb-8">
+          <div className="space-y-6">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                Full Name *
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Enter your full name"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                Phone Number (WhatsApp) *
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="+880XXXXXXXXX"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                Email Address
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="your.email@example.com"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="gpa" className="block text-sm font-medium text-gray-700 mb-2">
+                GPA (HSC/SSC)
+              </label>
+              <input
+                type="number"
+                id="gpa"
+                name="gpa"
+                min="0"
+                max="5"
+                step="0.01"
+                value={formData.gpa}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="4.5"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="courseInterest" className="block text-sm font-medium text-gray-700 mb-2">
+                Course Interest *
+              </label>
+              <input
+                type="text"
+                id="courseInterest"
+                name="courseInterest"
+                required
+                value={formData.courseInterest}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="e.g., B.Tech Computer Science, BBA, MBA"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="universityPreference" className="block text-sm font-medium text-gray-700 mb-2">
+                Preferred University (Optional)
+              </label>
+              <select
+                id="universityPreference"
+                name="universityPreference"
+                value={formData.universityPreference}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              >
+                <option value="">Select a university (optional)</option>
+                {universities.map(uni => (
+                  <option key={uni.id} value={uni.name}>{uni.name}</option>
+                ))}
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors min-h-[44px] text-base"
+            >
+              Send via WhatsApp
+            </button>
+          </div>
+        </form>
+
+        <FAQSection faqs={faqs} title="Frequently Asked Questions about Application Process" />
+
+        <section className="bg-blue-50 p-8 rounded-lg text-center mt-8">
+          <h2 className="text-2xl font-bold mb-4">Need Immediate Help?</h2>
+          <p className="text-gray-600 mb-6">
+            Contact us directly on WhatsApp for instant assistance
+          </p>
+          <a
+            href="https://wa.me/8801611533385"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors inline-block"
+          >
+            Chat on WhatsApp
+          </a>
+        </section>
+      </div>
+    </>
+  );
+}
+

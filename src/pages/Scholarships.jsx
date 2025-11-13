@@ -1,0 +1,258 @@
+import { Link } from 'react-router-dom';
+import { useData } from '../context/DataContext';
+import SEOHead from '../components/SEO/SEOHead';
+import StructuredData from '../components/SEO/StructuredData';
+import Breadcrumbs from '../components/Common/Breadcrumbs';
+import FAQSection from '../components/SEO/FAQSection';
+import { generateBreadcrumbSchema, generateFAQSchema } from '../components/SEO/StructuredData';
+
+export default function Scholarships() {
+  const { universities, loading } = useData();
+
+  const breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Scholarships', url: '/scholarships' }
+  ];
+
+  const getUniversityScholarships = (university) => {
+    const scholarships = [];
+    
+    if (university.id === 'niu') {
+      scholarships.push({
+        name: 'Bangladeshi Student Scholarship',
+        percentage: 50,
+        eligibility: 'All Bangladeshi students - No GPA requirement',
+        description: 'NIU offers a flat 50% scholarship to all Bangladeshi students regardless of their GPA.',
+        programs: 'All programs'
+      });
+    } else if (university.id === 'sharda') {
+      scholarships.push(
+        {
+          name: 'High Performance Scholarship',
+          percentage: 50,
+          eligibility: 'GPA 3.5 - 5.0',
+          description: '50% scholarship for high-performing students in Category 1 programs (B.Tech, BBA, MBA, etc.)',
+          programs: 'B.Tech, BBA, MBA, BCA, MCA, B.Com, B.Arch, B.Design, BA Film/TV, LLB, BJMC, MJMC, M.Advertising, B.Sc. (Radiology, BMLT, CVT, Forensic, Optometry, Nutrition, Dialysis), M.Sc. (Clinical Research, Forensic, Nutrition)'
+        },
+        {
+          name: 'Standard Scholarship',
+          percentage: 20,
+          eligibility: 'GPA 3.0 - 3.49',
+          description: '20% scholarship for students with good academic performance in Category 1 programs',
+          programs: 'Same as High Performance Scholarship'
+        },
+        {
+          name: 'Nursing Scholarship',
+          percentage: 25,
+          eligibility: 'GPA 3.0 and above',
+          description: '25% scholarship for B.Sc. Nursing program',
+          programs: 'B.Sc. Nursing'
+        },
+        {
+          name: 'Standard Scholarship (Category 3)',
+          percentage: 20,
+          eligibility: 'GPA 3.0 and above',
+          description: '20% scholarship for other B.Sc., B.A., M.Sc., M.A. programs',
+          programs: 'Other B.Sc., B.A., M.Sc., M.A. programs'
+        },
+        {
+          name: 'Enhanced Scholarship (Category 3)',
+          percentage: 30,
+          eligibility: 'GPA 3.0 and above',
+          description: '30% scholarship for select Category 3 programs',
+          programs: 'Select B.Sc., B.A., M.Sc., M.A. programs'
+        }
+      );
+    } else if (university.id === 'chandigarh') {
+      scholarships.push(
+        {
+          name: 'High Performance Scholarship',
+          percentage: 50,
+          eligibility: 'GPA 3.5 and above',
+          description: '50% scholarship for high-performing Bangladeshi students',
+          programs: 'All programs'
+        },
+        {
+          name: 'Standard Scholarship',
+          percentage: 35,
+          eligibility: 'GPA below 3.5',
+          description: '35% scholarship for all other Bangladeshi students',
+          programs: 'All programs'
+        }
+      );
+    } else if (university.id === 'galgotias') {
+      scholarships.push(
+        {
+          name: 'B.Tech Scholarship',
+          percentage: 60,
+          eligibility: 'All Bangladeshi students - No GPA requirement',
+          description: '60% scholarship for all B.Tech programs',
+          programs: 'All B.Tech programs'
+        },
+        {
+          name: 'Other Programs Scholarship',
+          percentage: 50,
+          eligibility: 'All Bangladeshi students - No GPA requirement',
+          description: '50% scholarship for all non-B.Tech programs',
+          programs: 'All programs except B.Tech'
+        }
+      );
+    }
+
+    return scholarships;
+  };
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What scholarships are available for Bangladeshi students in India?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bangladeshi students can avail scholarships ranging from 20% to 60% depending on the university and program. NIU offers 50% flat scholarship, Sharda offers 20-50% based on GPA, Chandigarh University offers 35-50% based on GPA, and Galgotias offers 50-60% based on program type."
+        }
+      }
+    ]
+  };
+
+  const faqs = [
+    {
+      question: "What scholarships are available for Bangladeshi students?",
+      answer: "Bangladeshi students can avail generous scholarships at top Indian universities. NIU offers 50% flat scholarship to all students, Sharda offers 20-50% based on GPA, Chandigarh University offers 35-50% based on GPA, and Galgotias offers 50-60% based on program type. All scholarships are applied automatically upon admission."
+    },
+    {
+      question: "Do I need a high GPA to get scholarships?",
+      answer: "Not necessarily. NIU and Galgotias offer scholarships without GPA requirements. Sharda and Chandigarh University offer higher scholarships for students with GPA 3.5+, but also provide scholarships for students with lower GPAs. Check each university's specific eligibility criteria."
+    },
+    {
+      question: "How do I apply for scholarships?",
+      answer: "Scholarships are automatically applied when you apply through Western Bangla Education (WBE). No separate scholarship application is needed. WBE will help you understand which scholarship tier you qualify for based on your academic performance."
+    },
+    {
+      question: "Are scholarships renewable every year?",
+      answer: "Yes, most scholarships are applied annually throughout your program duration, as long as you maintain satisfactory academic performance. The scholarship percentage remains consistent each year."
+    },
+    {
+      question: "What fees do scholarships cover?",
+      answer: "Scholarships typically apply to tuition fees only. One-time admission fees, examination fees, and other charges are usually not covered by scholarships. Check the detailed fee breakdown for each program to understand what's included."
+    }
+  ];
+
+  if (loading) {
+    return <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">Loading scholarships...</div>;
+  }
+
+  return (
+    <>
+      <SEOHead
+        title="Scholarships for Bangladeshi Students in India 2025-26 - Up to 60% Off Tuition Fees | WBE"
+        description="Complete guide to scholarships for Bangladeshi students at top Indian universities. NIU: 50% flat (no GPA required), Sharda: 20-50% (GPA-based), Chandigarh: 35-50% (GPA-based), Galgotias: 50-60% (program-based). Eligibility criteria, application process, and renewal terms. Free counseling by Western Bangla Education."
+        keywords={[
+          'scholarships for Bangladeshi students in India',
+          'India scholarships for Bangladeshi students',
+          'university scholarships India',
+          'study in India scholarships',
+          'WBE scholarships',
+          'Western Bangla Education scholarships',
+          'NIU scholarship',
+          'Sharda University scholarship',
+          'Chandigarh University scholarship',
+          'Galgotias University scholarship',
+          'free education India',
+          'scholarship eligibility',
+          'GPA based scholarship',
+          'tuition fee discount India',
+          'affordable education India'
+        ]}
+        url="/scholarships"
+        canonical="/scholarships"
+      />
+      <StructuredData data={structuredData} />
+      {generateBreadcrumbSchema(breadcrumbs) && <StructuredData data={generateBreadcrumbSchema(breadcrumbs)} />}
+      {generateFAQSchema(faqs) && <StructuredData data={generateFAQSchema(faqs)} />}
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h1 className="text-4xl font-bold mb-4">Scholarships for Bangladeshi Students in India</h1>
+        <p className="text-lg text-gray-600 mb-8">
+          Comprehensive guide to all available scholarships for Bangladeshi students at top Indian universities. 
+          Get up to 60% scholarship on tuition fees. Apply through Western Bangla Education for free counseling and scholarship assistance.
+        </p>
+
+        {/* University Scholarships */}
+        <div className="space-y-8 mb-12">
+          {universities.map(university => {
+            const scholarships = getUniversityScholarships(university);
+            if (scholarships.length === 0) return null;
+
+            return (
+              <div key={university.id} className="bg-white border-2 border-blue-200 rounded-lg p-6">
+                <div className="mb-4">
+                  <h2 className="text-2xl font-bold mb-2">{university.name}</h2>
+                  <p className="text-gray-600">{university.location}</p>
+                </div>
+
+                <div className="space-y-4">
+                  {scholarships.map((scholarship, index) => (
+                    <div key={index} className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                      <div className="flex justify-between items-start mb-2">
+                        <div>
+                          <h3 className="text-xl font-bold">{scholarship.name}</h3>
+                          <p className="text-gray-700 mt-1">{scholarship.description}</p>
+                        </div>
+                        <div className="text-right ml-4">
+                          <div className="text-3xl font-bold text-green-600">{scholarship.percentage}%</div>
+                          <div className="text-sm text-gray-600">Scholarship</div>
+                        </div>
+                      </div>
+                      <div className="mt-3 pt-3 border-t border-gray-200">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                          <div>
+                            <span className="font-semibold">Eligibility:</span> {scholarship.eligibility}
+                          </div>
+                          <div>
+                            <span className="font-semibold">Applicable Programs:</span> {scholarship.programs}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-4">
+                  <Link
+                    to={`/universities/${university.slug}`}
+                    className="text-blue-600 hover:text-blue-800 font-semibold"
+                  >
+                    View {university.name} Details →
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* FAQ Section */}
+        <FAQSection faqs={faqs} title="Frequently Asked Questions about Scholarships" />
+
+        {/* CTA Section */}
+        <section className="bg-blue-50 p-8 rounded-lg text-center mt-12">
+          <h2 className="text-2xl font-bold mb-4">Ready to Apply for Scholarships?</h2>
+          <p className="text-gray-600 mb-6">
+            Get free counseling and scholarship assistance from Western Bangla Education. 
+            We'll help you understand which scholarships you qualify for and guide you through the application process.
+          </p>
+          <Link
+            to="/apply"
+            className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block"
+          >
+            Apply Now - Free Consultation
+          </Link>
+        </section>
+      </div>
+    </>
+  );
+}
+

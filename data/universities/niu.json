@@ -1,0 +1,2413 @@
+{
+  "id": "niu",
+  "name": "Noida International University",
+  "shortName": "NIU",
+  "location": "Greater Noida, Uttar Pradesh, India",
+  "established": 2010,
+  "profile": {
+    "rankings": {
+      "nirf": "201-250",
+      "nirf2025": "201-250",
+      "naac": "A+",
+      "naacScore": "3.44/4",
+      "type": "Private University"
+    },
+    "highlights": [
+      "75-acre modern campus with lush greenery",
+      "NAAC A+ accreditation (Score: 3.44/4 - Highest among private state universities)",
+      "Industry partnerships with TCS, IBM",
+      "Students from 64+ countries",
+      "100% placement assistance",
+      "Modern labs and infrastructure",
+      "International collaborations with Malaysian universities",
+      "12 schools offering 100+ programs",
+      "NIRF 2025: Participating institution with strong academic excellence"
+    ],
+    "location_benefits": [
+      "1 hour from Delhi Airport",
+      "Well-connected by metro",
+      "Safe and secure campus",
+      "Close to IT hub"
+    ],
+    "facilities": {
+      "campus": {
+        "size": "75 acres",
+        "type": "Modern campus with lush greenery",
+        "description": "Beautiful campus with distinctive architecture, green spaces, and modern infrastructure"
+      },
+      "academic": {
+        "schools": 12,
+        "programs": "100+ programs across various disciplines",
+        "disciplines": [
+          "Engineering & Technology",
+          "Computer Science",
+          "Information Technology",
+          "Computing",
+          "Data Science",
+          "Artificial Intelligence"
+        ],
+        "classrooms": "Modern classrooms with advanced teaching aids and smart boards",
+        "labs": "Well-equipped laboratories for all disciplines including specialized computer labs",
+        "library": "Central library with extensive collection and digital resources",
+        "computingLabs": [
+          "Advanced computer labs",
+          "Coding labs with latest tools",
+          "AI/ML labs",
+          "Data Science labs",
+          "Cybersecurity labs",
+          "Network labs",
+          "Software development labs"
+        ],
+        "industryPartnerships": [
+          "TCS (Tata Consultancy Services)",
+          "IBM",
+          "Infosys",
+          "Wipro",
+          "HCL",
+          "Tech Mahindra"
+        ],
+        "cbcs": "Choice Based Credit System (CBCS) implementation",
+        "valueAdded": "Value-added courses and industry certifications",
+        "ict": "ICT facilities with modern infrastructure"
+      },
+      "medical": {
+        "hospital": "Noida International Institute of Medical Sciences (NIIMS) - 800+ bedded hospital",
+        "mbbs": "150 MBBS seats recognized by NMC",
+        "md": "Postgraduate MD programs available",
+        "description": "Centre of Excellence for medical education with practical training"
+      },
+      "accommodation": {
+        "hostels": "Modern hostels with separate facilities for boys and girls",
+        "facilities": [
+          "24/7 security",
+          "Wi-Fi connectivity",
+          "Mess facilities",
+          "Recreation areas",
+          "Medical facilities"
+        ]
+      },
+      "sports": {
+        "facilities": [
+          "Cricket ground",
+          "Football field",
+          "Basketball courts",
+          "Tennis courts",
+          "Badminton courts",
+          "Indoor sports complex",
+          "Gymnasium"
+        ]
+      },
+      "international": {
+        "students": "Students from 64+ countries",
+        "support": [
+          "International Student Support Office",
+          "Visa assistance",
+          "Airport pickup",
+          "FRRO registration help",
+          "Cultural integration programs"
+        ],
+        "collaborations": "MoUs with 6 Malaysian universities for research and academic exchange"
+      },
+      "placement": {
+        "assistance": "100% placement assistance",
+        "companies": [
+          "TCS",
+          "IBM",
+          "Infosys",
+          "Wipro",
+          "HCL",
+          "Tech Mahindra",
+          "Capgemini",
+          "Accenture",
+          "Cognizant",
+          "Deloitte"
+        ],
+        "description": "Strong industry connections and placement support",
+        "techPlacements": {
+          "cse": "Excellent placement opportunities in top tech companies",
+          "it": "Strong demand for IT graduates",
+          "dataScience": "Growing opportunities in data science roles",
+          "cybersecurity": "High demand for cybersecurity professionals",
+          "aiMl": "Cutting-edge opportunities in AI/ML companies"
+        }
+      },
+      "technology": {
+        "wifi": "Campus-wide Wi-Fi connectivity",
+        "labs": "Modern computer labs and specialized equipment",
+        "online": "Centre for Distance and Online Education (CDOE) - 9 UGC-entitled online programs",
+        "lms": "Learning Management System for online learning",
+        "cbcs": "Choice Based Credit System (CBCS) implementation",
+        "valueAdded": "Value-added courses and industry certifications",
+        "ict": "ICT facilities with modern infrastructure",
+        "smartClassrooms": "Smart classrooms with advanced teaching aids"
+      },
+      "studentSupport": {
+        "clubs": "Student clubs and societies",
+        "activities": "Extra-curricular and technical activities, industrial visits",
+        "workshops": "Regular workshops, seminars, and guest lectures",
+        "conferences": "Industry conferences and technical events",
+        "internships": "Industry internship opportunities",
+        "projects": "Industry-aligned project opportunities"
+      },
+      "research": {
+        "focus": "Strong emphasis on research and innovation",
+        "collaborations": "International research collaborations"
+      }
+    }
+  },
+  "scholarships": {
+    "type": "flat",
+    "bangladeshStudents": {
+      "percentage": 50,
+      "conditions": "No GPA requirement - All Bangladeshi students get 50% scholarship",
+      "gpaMin": 0,
+      "gpaMax": 5
+    }
+  },
+  "additionalFees": {
+    "oneTime": {
+      "amount": 36000,
+      "name": "One-Time Charge (First Year Only)",
+      "services": [
+        "Registration",
+        "Admission Letter",
+        "Visa Assistance Letter",
+        "Airport Pickup",
+        "FRRO Assistance",
+        "Unlimited Internet"
+      ]
+    }
+  },
+  "programs": [
+    {
+      "id": "btech-cse",
+      "name": "B.Tech in Computer Science & Engineering",
+      "specialization": "Computer Science & Engineering",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        206000,
+        206000,
+        206000,
+        206000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Industry-aligned curriculum",
+        "Coding labs with latest tools",
+        "IBM & TCS partnerships",
+        "100% placement assistance"
+      ],
+      "curriculum": {
+        "totalCredits": 160,
+        "syllabusUrl": "https://niu.edu.in/set/B.Tech/B.tech-Cse-AICTE.pdf",
+        "description": "B.Tech Computer Science & Engineering program with industry-aligned curriculum, Choice Based Credit System (CBCS), and focus on Industry 4.0 requirements.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CSE101",
+                "name": "Introduction to Computer Science & Engineering",
+                "credits": 2,
+                "type": "Theory"
+              },
+              {
+                "code": "CSE102",
+                "name": "Programming Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSE103",
+                "name": "Mathematics for Computer Science",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSE104",
+                "name": "Engineering Physics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSE105",
+                "name": "Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 2,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CSE201",
+                "name": "Data Structures",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSE202",
+                "name": "Object-Oriented Programming",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSE203",
+                "name": "Discrete Mathematics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSE204",
+                "name": "Data Structures Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CSE501",
+                "name": "Database Management Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSE502",
+                "name": "Operating Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSE503",
+                "name": "Computer Networks",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSE504",
+                "name": "DBMS Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 6,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CSE601",
+                "name": "Software Engineering",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSE602",
+                "name": "Web Technologies",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSE603",
+                "name": "Project Phase I",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "btech-cse-aiml-tcs",
+      "name": "B.Tech CSE (AI&ML in collaboration with TCS)",
+      "specialization": "Artificial Intelligence & Machine Learning with TCS",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        246000,
+        246000,
+        246000,
+        246000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "TCS collaboration",
+        "Industry-partnered curriculum",
+        "AI/ML specialization",
+        "Direct industry exposure"
+      ],
+      "curriculum": {
+        "totalCredits": 160,
+        "syllabusUrl": "https://niu.edu.in/set/B.Tech/B.tech-Cse-AICTE.pdf",
+        "description": "B.Tech CSE with AI & ML specialization in collaboration with TCS, featuring industry-partnered curriculum and direct industry exposure.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "AIML101",
+                "name": "Introduction to AI & ML",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML102",
+                "name": "Programming Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML103",
+                "name": "Mathematics for AI",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML104",
+                "name": "Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 4,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "AIML401",
+                "name": "Machine Learning",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML402",
+                "name": "Deep Learning",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML403",
+                "name": "Python for AI/ML",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML404",
+                "name": "ML Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "AIML501",
+                "name": "Neural Networks",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML502",
+                "name": "Natural Language Processing",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML503",
+                "name": "AI Project",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "btech-cse-cyber-ibm",
+      "name": "B.Tech CSE (Cyber Security in collaboration with IBM)",
+      "specialization": "Cyber Security with IBM",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        306000,
+        306000,
+        306000,
+        306000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "IBM collaboration",
+        "Industry-partnered curriculum",
+        "Advanced cybersecurity",
+        "Premium specialization"
+      ],
+      "curriculum": {
+        "totalCredits": 160,
+        "syllabusUrl": "https://niu.edu.in/set/B.Tech/B.tech-Cse-AICTE.pdf",
+        "description": "B.Tech CSE with Cyber Security specialization in collaboration with IBM, featuring industry-partnered curriculum and advanced cybersecurity training.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CYBER101",
+                "name": "Introduction to Cybersecurity",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER102",
+                "name": "Programming Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER103",
+                "name": "Computer Networks Basics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER104",
+                "name": "Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 4,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CYBER401",
+                "name": "Network Security",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER402",
+                "name": "Cryptography",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER403",
+                "name": "Ethical Hacking",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER404",
+                "name": "Security Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CYBER501",
+                "name": "Digital Forensics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER502",
+                "name": "Penetration Testing",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER503",
+                "name": "Cybersecurity Project",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "btech-cse-ds",
+      "name": "B.Tech CSE (Data Science)",
+      "specialization": "Data Science",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        206000,
+        206000,
+        206000,
+        206000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Big Data analytics",
+        "Python & R programming",
+        "Industry-relevant projects",
+        "Analytics lab"
+      ],
+      "curriculum": {
+        "totalCredits": 160,
+        "syllabusUrl": "https://niu.edu.in/set/B.Tech/B.tech-Cse-AICTE.pdf",
+        "description": "B.Tech CSE with Data Science specialization, covering big data analytics, Python & R programming, and industry-relevant projects.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "DS101",
+                "name": "Introduction to Data Science",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS102",
+                "name": "Programming Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS103",
+                "name": "Statistics & Probability",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS104",
+                "name": "Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 4,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "DS401",
+                "name": "Database Management Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS402",
+                "name": "Python for Data Science",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS403",
+                "name": "R Programming",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS404",
+                "name": "Data Science Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "DS501",
+                "name": "Machine Learning",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS502",
+                "name": "Big Data Analytics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS503",
+                "name": "Data Visualization",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS504",
+                "name": "Data Science Project",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "btech-cse-aiml",
+      "name": "B.Tech CSE (AI&ML)",
+      "specialization": "Artificial Intelligence & Machine Learning",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        206000,
+        206000,
+        206000,
+        206000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "AI/ML curriculum",
+        "Deep Learning labs",
+        "Industry projects",
+        "High demand specialization"
+      ]
+    },
+    {
+      "id": "btech-cse-cyber",
+      "name": "B.Tech CSE (Cyber Security)",
+      "specialization": "Cyber Security",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        206000,
+        206000,
+        206000,
+        206000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Network security focus",
+        "Ethical hacking labs",
+        "Cybersecurity certifications",
+        "Growing career field"
+      ]
+    },
+    {
+      "id": "btech-ce-smart",
+      "name": "B.Tech Civil Engineering (Smart Cities)",
+      "specialization": "Smart Cities",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        200000,
+        200000,
+        200000,
+        200000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Smart city planning",
+        "Urban development",
+        "Sustainable infrastructure",
+        "Modern city solutions"
+      ]
+    },
+    {
+      "id": "btech-ce-green",
+      "name": "B.Tech Civil Engineering (Green Technology & Sustainability)",
+      "specialization": "Green Technology & Sustainability",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        200000,
+        200000,
+        200000,
+        200000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Green construction",
+        "Sustainable materials",
+        "Environmental engineering",
+        "Eco-friendly design"
+      ]
+    },
+    {
+      "id": "btech-biotech",
+      "name": "B.Tech in Biotechnology",
+      "specialization": "Biotechnology",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        200000,
+        200000,
+        200000,
+        200000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Genetic engineering",
+        "Biotech labs",
+        "Industry exposure",
+        "Research career path"
+      ]
+    },
+    {
+      "id": "btech-lateral-cse",
+      "name": "B.Tech Lateral Entry (Computer Science & Engineering)",
+      "specialization": "Computer Science & Engineering",
+      "degree": "B.Tech Lateral",
+      "field": "Engineering",
+      "duration": 3,
+      "annualFees": [
+        240000,
+        240000,
+        240000
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Direct 2nd year entry",
+        "For diploma holders",
+        "Computer Science & Engineering specialization",
+        "Same curriculum as regular B.Tech CSE",
+        "Fast-track completion"
+      ]
+    },
+    {
+      "id": "btech-lateral-data-sciences",
+      "name": "B.Tech Lateral Entry (Data Sciences)",
+      "specialization": "Data Sciences",
+      "degree": "B.Tech Lateral",
+      "field": "Engineering",
+      "duration": 3,
+      "annualFees": [
+        240000,
+        240000,
+        240000
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Direct 2nd year entry",
+        "For diploma holders",
+        "Data Sciences specialization",
+        "Same curriculum as regular B.Tech Data Sciences",
+        "Fast-track completion"
+      ]
+    },
+    {
+      "id": "mtech-biotech",
+      "name": "M.Tech Biotechnology",
+      "specialization": "Biotechnology",
+      "degree": "M.Tech",
+      "field": "Engineering",
+      "duration": 2,
+      "annualFees": [
+        128000,
+        128000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Advanced biotechnology",
+        "Research projects",
+        "Industrial applications",
+        "Bioprocess engineering"
+      ]
+    },
+    {
+      "id": "mtech-cse-software",
+      "name": "M.Tech Computer Science Engg. (Software Engineering)",
+      "specialization": "Software Engineering",
+      "degree": "M.Tech",
+      "field": "Engineering",
+      "duration": 2,
+      "annualFees": [
+        128000,
+        128000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Software development",
+        "System design",
+        "Software architecture",
+        "Industry projects"
+      ],
+      "curriculum": {
+        "totalCredits": 80,
+        "syllabusUrl": "https://niu.edu.in/set/M.Tech/",
+        "description": "M.Tech Computer Science Engineering with Software Engineering specialization, focusing on advanced software development, system design, and software architecture.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MTECH101",
+                "name": "Advanced Algorithms",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MTECH102",
+                "name": "Software Architecture",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MTECH103",
+                "name": "Research Methodology",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MTECH104",
+                "name": "Advanced Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 2,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MTECH201",
+                "name": "Software Design Patterns",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MTECH202",
+                "name": "DevOps & Agile Methodologies",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MTECH203",
+                "name": "Elective I",
+                "credits": 3,
+                "type": "Elective"
+              },
+              {
+                "code": "MTECH204",
+                "name": "Software Engineering Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 3,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MTECH301",
+                "name": "Advanced Topics in Software Engineering",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MTECH302",
+                "name": "Research Project Phase I",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          },
+          {
+            "semester": 4,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MTECH401",
+                "name": "Thesis/Dissertation",
+                "credits": 8,
+                "type": "Project"
+              },
+              {
+                "code": "MTECH402",
+                "name": "Comprehensive Viva",
+                "credits": 2,
+                "type": "Viva"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "diploma-cse",
+      "name": "Diploma in Computer Science & Engineering",
+      "specialization": "Computer Science & Engineering",
+      "degree": "Diploma",
+      "field": "Engineering",
+      "duration": 3,
+      "annualFees": [
+        108000,
+        108000,
+        108000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Programming fundamentals",
+        "Software development",
+        "Computer applications",
+        "IT skills"
+      ]
+    },
+    {
+      "id": "bpt",
+      "name": "Bachelor in Physiotherapy",
+      "specialization": "Physiotherapy",
+      "degree": "BPT",
+      "field": "Health Sciences",
+      "duration": 4.5,
+      "annualFees": [
+        190000,
+        190000,
+        190000,
+        190000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Rehabilitation therapy",
+        "Modern physio labs",
+        "Hospital internships",
+        "Sports physiotherapy"
+      ]
+    },
+    {
+      "id": "bsc-cardiac",
+      "name": "B.Sc. Cardiac Care Technology",
+      "specialization": "Cardiac Care Technology",
+      "degree": "B.Sc.",
+      "field": "Health Sciences",
+      "duration": 4,
+      "annualFees": [
+        150000,
+        150000,
+        150000,
+        150000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Heart care specialist",
+        "ECG, Echo training",
+        "Cardiac catheterization",
+        "Critical care focus"
+      ]
+    },
+    {
+      "id": "bsc-nutrition",
+      "name": "B.Sc. Nutrition & Dietetics",
+      "specialization": "Nutrition & Dietetics",
+      "degree": "B.Sc.",
+      "field": "Health Sciences",
+      "duration": 3,
+      "annualFees": [
+        154000,
+        154000,
+        154000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Clinical nutrition",
+        "Diet planning",
+        "Food science",
+        "Health promotion"
+      ]
+    },
+    {
+      "id": "mpt",
+      "name": "Master of Physiotherapy",
+      "specialization": "Physiotherapy (Multiple Specializations)",
+      "degree": "MPT",
+      "field": "Health Sciences",
+      "duration": 2,
+      "annualFees": [
+        200000,
+        200000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Advanced physiotherapy",
+        "Specialization areas",
+        "Research projects",
+        "Clinical expertise"
+      ]
+    },
+    {
+      "id": "bcom-hons-3year",
+      "name": "B.Com (Hons.) - 3 Year",
+      "specialization": "Commerce (Hons.)",
+      "degree": "B.Com",
+      "field": "Commerce & Business",
+      "duration": 3,
+      "annualFees": [
+        144000,
+        144000,
+        144000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "3-year degree program",
+        "Commerce specialization",
+        "Professional preparation",
+        "Career focused"
+      ]
+    },
+    {
+      "id": "bcom-hons-4year",
+      "name": "B.Com (Hons.) - 4 Year",
+      "specialization": "Commerce (Hons.)",
+      "degree": "B.Com",
+      "field": "Commerce & Business",
+      "duration": 4,
+      "annualFees": [
+        144000,
+        144000,
+        144000,
+        144000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced commerce",
+        "Higher education pathway"
+      ]
+    },
+    {
+      "id": "bba-general-3year",
+      "name": "BBA General - 3 Year",
+      "specialization": "General Management",
+      "degree": "BBA",
+      "field": "Commerce & Business",
+      "duration": 3,
+      "annualFees": [
+        158000,
+        158000,
+        158000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "3-year degree program",
+        "Management fundamentals",
+        "Business skills",
+        "Industry internships"
+      ]
+    },
+    {
+      "id": "bba-general-4year",
+      "name": "BBA General - 4 Year",
+      "specialization": "General Management",
+      "degree": "BBA",
+      "field": "Commerce & Business",
+      "duration": 4,
+      "annualFees": [
+        158000,
+        158000,
+        158000,
+        158000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "4-year honors program",
+        "Advanced management",
+        "Research component",
+        "Leadership development"
+      ]
+    },
+    {
+      "id": "bba-hospital-3year",
+      "name": "BBA Hospital & Health Management - 3 Year",
+      "specialization": "Hospital & Health Management",
+      "degree": "BBA",
+      "field": "Commerce & Business",
+      "duration": 3,
+      "annualFees": [
+        158000,
+        158000,
+        158000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Healthcare management",
+        "Hospital administration",
+        "Health sector focus",
+        "Industry exposure"
+      ]
+    },
+    {
+      "id": "bba-hospital-4year",
+      "name": "BBA Hospital & Health Management - 4 Year",
+      "specialization": "Hospital & Health Management",
+      "degree": "BBA",
+      "field": "Commerce & Business",
+      "duration": 4,
+      "annualFees": [
+        158000,
+        158000,
+        158000,
+        158000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "4-year healthcare management",
+        "Advanced hospital administration",
+        "Research in health management",
+        "Leadership in healthcare"
+      ]
+    },
+    {
+      "id": "bba-aviation-3year",
+      "name": "BBA Aviation - 3 Year",
+      "specialization": "Aviation Management",
+      "degree": "BBA-AV",
+      "field": "Commerce & Business",
+      "duration": 3,
+      "annualFees": [
+        158000,
+        158000,
+        158000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Aviation industry focus",
+        "Airport management",
+        "Airline operations",
+        "Aviation careers"
+      ]
+    },
+    {
+      "id": "bba-aviation-4year",
+      "name": "BBA Aviation - 4 Year",
+      "specialization": "Aviation Management",
+      "degree": "BBA-AV",
+      "field": "Commerce & Business",
+      "duration": 4,
+      "annualFees": [
+        158000,
+        158000,
+        158000,
+        158000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "4-year aviation management",
+        "Advanced aviation operations",
+        "Research in aviation",
+        "Leadership in aviation industry"
+      ]
+    },
+    {
+      "id": "mba-dual",
+      "name": "MBA (Dual Specialization)",
+      "specialization": "Marketing/Finance/HR/Retail/Int'l Marketing",
+      "degree": "MBA",
+      "field": "Commerce & Business",
+      "duration": 2,
+      "annualFees": [
+        250000,
+        250000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Two specializations",
+        "Comprehensive training",
+        "Corporate internships",
+        "Enhanced career prospects"
+      ]
+    },
+    {
+      "id": "mba-data-analytics",
+      "name": "MBA Data Analytics (with IBM)",
+      "specialization": "Data Analytics with IBM",
+      "degree": "MBA",
+      "field": "Commerce & Business",
+      "duration": 2,
+      "annualFees": [
+        446600,
+        446600
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "IBM partnership",
+        "Big data analytics",
+        "Industry certifications",
+        "Premium program"
+      ]
+    },
+    {
+      "id": "mba-pharma",
+      "name": "MBA Pharmaceuticals Management",
+      "specialization": "Pharmaceuticals Management",
+      "degree": "MBA",
+      "field": "Commerce & Business",
+      "duration": 2,
+      "annualFees": [
+        340700,
+        340700
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Pharmaceutical industry",
+        "Drug development",
+        "Regulatory affairs",
+        "Healthcare focus"
+      ]
+    },
+    {
+      "id": "mba-hhm",
+      "name": "MBA Hospital & Health Management",
+      "specialization": "Hospital & Health Management",
+      "degree": "MBA-HHM",
+      "field": "Commerce & Business",
+      "duration": 2,
+      "annualFees": [
+        340700,
+        340700
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Healthcare management",
+        "Hospital administration",
+        "Health policy",
+        "Healthcare leadership"
+      ]
+    },
+    {
+      "id": "mba-elite",
+      "name": "MBA Elite",
+      "specialization": "Marketing/Digital Marketing/Finance/Analytics/HR/IB/IT",
+      "degree": "MBA",
+      "field": "Commerce & Business",
+      "duration": 2,
+      "annualFees": [
+        644000,
+        644000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Premium MBA program",
+        "Elite curriculum",
+        "Industry leadership",
+        "Executive training"
+      ]
+    },
+    {
+      "id": "bsc-biotech-3year",
+      "name": "B.Sc. Biotechnology - 3 Year",
+      "specialization": "Biotechnology",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 3,
+      "annualFees": [
+        124000,
+        124000,
+        124000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Biotechnology fundamentals",
+        "Lab techniques",
+        "Research opportunities",
+        "Industry applications"
+      ]
+    },
+    {
+      "id": "bsc-biotech-4year",
+      "name": "B.Sc. Biotechnology - 4 Year",
+      "specialization": "Biotechnology",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 4,
+      "annualFees": [
+        124000,
+        124000,
+        124000,
+        124000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "4-year honors program",
+        "Advanced biotechnology",
+        "Research component",
+        "PhD preparation"
+      ]
+    },
+    {
+      "id": "bsc-microbiology-3year",
+      "name": "B.Sc. Microbiology - 3 Year",
+      "specialization": "Microbiology",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 3,
+      "annualFees": [
+        124000,
+        124000,
+        124000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Microbial studies",
+        "Laboratory techniques",
+        "Healthcare applications",
+        "Research opportunities"
+      ]
+    },
+    {
+      "id": "bsc-microbiology-4year",
+      "name": "B.Sc. Microbiology - 4 Year",
+      "specialization": "Microbiology",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 4,
+      "annualFees": [
+        124000,
+        124000,
+        124000,
+        124000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "4-year honors program",
+        "Advanced microbiology",
+        "Research focus",
+        "Professional preparation"
+      ]
+    },
+    {
+      "id": "bsc-it-3year",
+      "name": "B.Sc. Information Technology - 3 Year",
+      "specialization": "Information Technology",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 3,
+      "annualFees": [
+        124000,
+        124000,
+        124000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "IT fundamentals",
+        "Programming skills",
+        "System administration",
+        "Network management"
+      ],
+      "curriculum": {
+        "totalCredits": 120,
+        "syllabusUrl": "https://niu.edu.in/sos/",
+        "description": "B.Sc Information Technology 3-year program covering IT fundamentals, programming skills, system administration, and network management.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "IT101",
+                "name": "Introduction to IT",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IT102",
+                "name": "Programming Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IT103",
+                "name": "Computer Networks Basics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IT104",
+                "name": "Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 2,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "IT201",
+                "name": "Database Management Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IT202",
+                "name": "Web Technologies",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IT203",
+                "name": "Network Administration",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IT204",
+                "name": "DBMS Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "IT501",
+                "name": "System Administration",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IT502",
+                "name": "IT Security",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IT503",
+                "name": "IT Project",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          },
+          {
+            "semester": 6,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "IT601",
+                "name": "Final Project",
+                "credits": 6,
+                "type": "Project"
+              },
+              {
+                "code": "IT602",
+                "name": "Internship",
+                "credits": 4,
+                "type": "Internship"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "bsc-it-4year",
+      "name": "B.Sc. Information Technology - 4 Year",
+      "specialization": "Information Technology",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 4,
+      "annualFees": [
+        124000,
+        124000,
+        124000,
+        124000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "4-year honors program",
+        "Advanced IT concepts",
+        "Research component",
+        "Industry preparation"
+      ]
+    },
+    {
+      "id": "bsc-cs-3year",
+      "name": "B.Sc. Computer Science - 3 Year",
+      "specialization": "Computer Science",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 3,
+      "annualFees": [
+        124000,
+        124000,
+        124000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Computer science fundamentals",
+        "Programming concepts",
+        "Software development",
+        "Algorithm design"
+      ],
+      "curriculum": {
+        "totalCredits": 120,
+        "syllabusUrl": "https://niu.edu.in/sos/",
+        "description": "B.Sc Computer Science 3-year program covering computer science fundamentals, programming concepts, software development, and algorithm design.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CS101",
+                "name": "Programming Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CS102",
+                "name": "Mathematics for Computer Science",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CS103",
+                "name": "Computer Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CS104",
+                "name": "Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 2,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CS201",
+                "name": "Data Structures",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CS202",
+                "name": "Python Programming",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CS203",
+                "name": "Discrete Mathematics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CS204",
+                "name": "Data Structures Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CS501",
+                "name": "Algorithms",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CS502",
+                "name": "Operating Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CS503",
+                "name": "Software Development Project",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          },
+          {
+            "semester": 6,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CS601",
+                "name": "Final Project",
+                "credits": 6,
+                "type": "Project"
+              },
+              {
+                "code": "CS602",
+                "name": "Internship",
+                "credits": 4,
+                "type": "Internship"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "bsc-cs-4year",
+      "name": "B.Sc. Computer Science - 4 Year",
+      "specialization": "Computer Science",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 4,
+      "annualFees": [
+        124000,
+        124000,
+        124000,
+        124000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "4-year honors program",
+        "Advanced computer science",
+        "Research projects",
+        "Higher education pathway"
+      ]
+    },
+    {
+      "id": "bsc-forensic-3year",
+      "name": "B.Sc. Forensic Science - 3 Year",
+      "specialization": "Forensic Science",
+      "degree": "B.Sc-FS",
+      "field": "Basic Sciences",
+      "duration": 3,
+      "annualFees": [
+        124000,
+        124000,
+        124000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Crime investigation",
+        "Evidence analysis",
+        "Laboratory techniques",
+        "Legal applications"
+      ]
+    },
+    {
+      "id": "bsc-forensic-4year",
+      "name": "B.Sc. Forensic Science - 4 Year",
+      "specialization": "Forensic Science",
+      "degree": "B.Sc-FS",
+      "field": "Basic Sciences",
+      "duration": 4,
+      "annualFees": [
+        124000,
+        124000,
+        124000,
+        124000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "4-year honors program",
+        "Advanced forensic science",
+        "Research component",
+        "Professional preparation"
+      ]
+    },
+    {
+      "id": "msc-it",
+      "name": "M.Sc. Information Technology",
+      "specialization": "Information Technology",
+      "degree": "M.Sc.",
+      "field": "Basic Sciences",
+      "duration": 2,
+      "annualFees": [
+        140000,
+        140000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Advanced IT concepts",
+        "Research methodology",
+        "System design",
+        "Technology management"
+      ],
+      "curriculum": {
+        "totalCredits": 80,
+        "syllabusUrl": "https://niu.edu.in/sos/",
+        "description": "M.Sc Information Technology program covering advanced IT concepts, research methodology, system design, and technology management.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MSCIT101",
+                "name": "Advanced Data Structures",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MSCIT102",
+                "name": "Advanced Database Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MSCIT103",
+                "name": "Research Methodology",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MSCIT104",
+                "name": "Advanced Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 2,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MSCIT201",
+                "name": "System Design",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MSCIT202",
+                "name": "Technology Management",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MSCIT203",
+                "name": "Elective I",
+                "credits": 3,
+                "type": "Elective"
+              },
+              {
+                "code": "MSCIT204",
+                "name": "System Design Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 3,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MSCIT301",
+                "name": "Advanced Topics in IT",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MSCIT302",
+                "name": "Research Project Phase I",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          },
+          {
+            "semester": 4,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MSCIT401",
+                "name": "Research Project Phase II",
+                "credits": 6,
+                "type": "Project"
+              },
+              {
+                "code": "MSCIT402",
+                "name": "Thesis",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "msc-sciences",
+      "name": "M.Sc. Computer Science/Biotechnology/Microbiology",
+      "specialization": "Multiple Sciences",
+      "degree": "M.Sc.",
+      "field": "Basic Sciences",
+      "duration": 2,
+      "annualFees": [
+        128000,
+        128000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Advanced scientific study",
+        "Research projects",
+        "Specialization options",
+        "PhD preparation"
+      ]
+    },
+    {
+      "id": "bca-3year",
+      "name": "BCA - 3 Year",
+      "specialization": "Computer Applications",
+      "degree": "BCA",
+      "field": "Computer Science & IT",
+      "duration": 3,
+      "annualFees": [
+        139000,
+        139000,
+        139000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Programming focus",
+        "Software development",
+        "IT career pathway",
+        "MCA preparation"
+      ],
+      "curriculum": {
+        "totalCredits": 120,
+        "syllabusUrl": "https://niu.edu.in/sos/",
+        "description": "BCA 3-year program focusing on programming fundamentals, software development, and IT career preparation.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "BCA101",
+                "name": "Programming Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BCA102",
+                "name": "Computer Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BCA103",
+                "name": "Mathematics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BCA104",
+                "name": "Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 2,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "BCA201",
+                "name": "Data Structures",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BCA202",
+                "name": "Object-Oriented Programming",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BCA203",
+                "name": "Database Management Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BCA204",
+                "name": "DBMS Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "BCA501",
+                "name": "Web Technologies",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BCA502",
+                "name": "Software Engineering",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BCA503",
+                "name": "Project",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          },
+          {
+            "semester": 6,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "BCA601",
+                "name": "Final Project",
+                "credits": 6,
+                "type": "Project"
+              },
+              {
+                "code": "BCA602",
+                "name": "Internship",
+                "credits": 4,
+                "type": "Internship"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "bca-4year",
+      "name": "BCA - 4 Year",
+      "specialization": "Computer Applications",
+      "degree": "BCA",
+      "field": "Computer Science & IT",
+      "duration": 4,
+      "annualFees": [
+        139000,
+        139000,
+        139000,
+        139000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "4-year honors program",
+        "Advanced programming",
+        "Research component",
+        "Industry preparation"
+      ]
+    },
+    {
+      "id": "mca",
+      "name": "Master of Computer Applications",
+      "specialization": "Computer Applications",
+      "degree": "MCA",
+      "field": "Computer Science & IT",
+      "duration": 2,
+      "annualFees": [
+        198000,
+        198000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Advanced programming",
+        "Software engineering",
+        "Industry projects",
+        "High-paying careers"
+      ],
+      "curriculum": {
+        "totalCredits": 80,
+        "syllabusUrl": "https://niu.edu.in/online-mca/",
+        "description": "Master of Computer Applications program covering advanced programming, software engineering, AI & Data Science, cloud computing, cybersecurity, and industry projects.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MCA101",
+                "name": "Advanced Data Structures",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MCA102",
+                "name": "Database Management Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MCA103",
+                "name": "Object-Oriented Programming (Java)",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MCA104",
+                "name": "Software Engineering",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MCA105",
+                "name": "Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 2,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MCA201",
+                "name": "Web Technologies",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MCA202",
+                "name": "Computer Networks",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MCA203",
+                "name": "Python Programming",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MCA204",
+                "name": "Web Development Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 3,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MCA301",
+                "name": "Artificial Intelligence & Machine Learning",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MCA302",
+                "name": "Cloud Computing",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MCA303",
+                "name": "Project Phase I",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          },
+          {
+            "semester": 4,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MCA401",
+                "name": "Project Phase II",
+                "credits": 6,
+                "type": "Project"
+              },
+              {
+                "code": "MCA402",
+                "name": "Internship",
+                "credits": 4,
+                "type": "Internship"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "bfa-painting",
+      "name": "BFA Painting/Sculpture & Applied Arts",
+      "specialization": "Painting/Sculpture & Applied Arts",
+      "degree": "BFA",
+      "field": "Design & Arts",
+      "duration": 4,
+      "annualFees": [
+        128000,
+        128000,
+        128000,
+        128000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Traditional & modern art",
+        "Studio facilities",
+        "Creative expression",
+        "Artistic career"
+      ]
+    },
+    {
+      "id": "mfa",
+      "name": "MFA Painting/Sculpture & Applied Arts",
+      "specialization": "Painting/Sculpture & Applied Arts",
+      "degree": "MFA",
+      "field": "Design & Arts",
+      "duration": 2,
+      "annualFees": [
+        112000,
+        112000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Advanced fine arts",
+        "Master level techniques",
+        "Creative research",
+        "Professional artistry"
+      ]
+    },
+    {
+      "id": "bdes-game",
+      "name": "B.Des. Game Art/Film Art",
+      "specialization": "Game Art/Film Art",
+      "degree": "B.DES.",
+      "field": "Design & Arts",
+      "duration": 4,
+      "annualFees": [
+        270000,
+        270000,
+        270000,
+        270000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Game design",
+        "Film production",
+        "Digital media",
+        "Entertainment industry"
+      ]
+    },
+    {
+      "id": "bpharm",
+      "name": "Bachelor of Pharmacy",
+      "specialization": "Pharmacy",
+      "degree": "B.Pharm",
+      "field": "Pharmacy",
+      "duration": 4,
+      "annualFees": [
+        350000,
+        350000,
+        350000,
+        350000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "PCI approved",
+        "Modern pharma labs",
+        "Drug development",
+        "Hospital training"
+      ]
+    },
+    {
+      "id": "dpharm",
+      "name": "Diploma in Pharmacy",
+      "specialization": "Pharmacy",
+      "degree": "D.Pharm",
+      "field": "Pharmacy",
+      "duration": 2,
+      "annualFees": [
+        270000,
+        270000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "PCI approved",
+        "Quick pharmacy career",
+        "Practical training",
+        "Retail pharmacy"
+      ]
+    },
+    {
+      "id": "ba-jmc-3year",
+      "name": "BA Journalism & Mass Communication - 3 Year",
+      "specialization": "Journalism & Mass Communication",
+      "degree": "BA-JMC",
+      "field": "Media & Communication",
+      "duration": 3,
+      "annualFees": [
+        150000,
+        150000,
+        150000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Media production",
+        "News reporting",
+        "Digital journalism",
+        "Industry internships"
+      ]
+    },
+    {
+      "id": "ba-jmc-4year",
+      "name": "BA Journalism & Mass Communication - 4 Year",
+      "specialization": "Journalism & Mass Communication",
+      "degree": "BA-JMC",
+      "field": "Media & Communication",
+      "duration": 4,
+      "annualFees": [
+        150000,
+        150000,
+        150000,
+        150000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "4-year honors program",
+        "Advanced journalism",
+        "Research component",
+        "Media leadership"
+      ]
+    },
+    {
+      "id": "ballb",
+      "name": "BA LLB (Hons.)",
+      "specialization": "Arts & Law",
+      "degree": "BA LLB",
+      "field": "Law",
+      "duration": 5,
+      "annualFees": [
+        165000,
+        165000,
+        165000,
+        165000,
+        165000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "5-year integrated",
+        "BCI approved",
+        "Arts + Law",
+        "Comprehensive training"
+      ]
+    },
+    {
+      "id": "ba-liberal-3year",
+      "name": "BA Liberal Arts - 3 Year",
+      "specialization": "Liberal Arts (Multiple Specializations)",
+      "degree": "BA",
+      "field": "Arts & Humanities",
+      "duration": 3,
+      "annualFees": [
+        120000,
+        120000,
+        120000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Liberal arts education",
+        "Critical thinking",
+        "Communication skills",
+        "Versatile career options"
+      ]
+    },
+    {
+      "id": "ba-liberal-4year",
+      "name": "BA Liberal Arts - 4 Year",
+      "specialization": "Liberal Arts (Multiple Specializations)",
+      "degree": "BA",
+      "field": "Arts & Humanities",
+      "duration": 4,
+      "annualFees": [
+        120000,
+        120000,
+        120000,
+        120000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "4-year honors program",
+        "Advanced liberal arts",
+        "Research component",
+        "Higher education pathway"
+      ]
+    },
+    {
+      "id": "ma-liberal",
+      "name": "MA Liberal Arts",
+      "specialization": "Liberal Arts (Multiple Specializations)",
+      "degree": "MA",
+      "field": "Arts & Humanities",
+      "duration": 2,
+      "annualFees": [
+        112000,
+        112000
+      ],
+      "scholarshipEligible": true,
+      "highlights": [
+        "Advanced liberal arts",
+        "Research focus",
+        "Specialization options",
+        "Academic excellence"
+      ]
+    },
+    {
+      "id": "english-cert-1year",
+      "name": "1 Year English Certificate",
+      "specialization": "English Language",
+      "degree": "Certificate",
+      "field": "Certifications",
+      "duration": 1,
+      "annualFees": [
+        50000
+      ],
+      "scholarshipEligible": false,
+      "highlights": [
+        "Advanced English proficiency",
+        "Comprehensive training",
+        "Professional communication",
+        "Career advancement"
+      ]
+    }
+  ]
+}

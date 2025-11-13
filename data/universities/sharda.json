@@ -1,0 +1,4398 @@
+{
+  "id": "sharda",
+  "name": "Sharda University",
+  "shortName": "Sharda",
+  "location": "Greater Noida, Uttar Pradesh, India",
+  "established": 2009,
+  "profile": {
+    "rankings": {
+      "nirf": "101-150",
+      "nirf2025": "101-150",
+      "nirfCategory": "87 (Universities)",
+      "naac": "A+",
+      "qsAsian2026": "=658",
+      "qsAsianSouthernAsia2026": "195",
+      "qsSustainability": "1501+",
+      "theWorld2026": "601-800",
+      "theIndia2025": "59",
+      "theImpact2024": "301-400",
+      "timesBSchool2025": "4 (Top 40 Universities in India)",
+      "type": "Private University"
+    },
+    "highlights": [
+      "63-acre modern campus in Greater Noida with 14 specialized schools",
+      "NIRF 2025 Rank: 87th in Universities Category, 101-150 Overall",
+      "QS Asian University Rankings 2026: #=658 (Improved from #701-750)",
+      "Times Higher Education 2026: Top 601-800 Globally, 59th in India",
+      "Ranked 1st Private University in India with highest international students (2000+ from 85+ countries)",
+      "5th Overall in India by Association of Indian Universities",
+      "17,000+ total students with 1,200+ academic staff",
+      "QS I-Gauge Platinum Rating for Journalism & Media Studies",
+      "Times B School Management Ranking 2025: 4th among top 40 Universities in India",
+      "Research Excellence Ranking 2024: Diamond Band in India",
+      "ESER 2024: Diamond Band for Employability and Startup Ecosystem",
+      "Industry tie-ups with Microsoft, Oracle",
+      "NAAC A+ accreditation",
+      "State-of-the-art infrastructure with e-learning integrated classrooms",
+      "Category Rankings: Pharmacy (69th), Engineering (125-150), Management (101-125)",
+      "UGC approved, part of Sharda Group of Institutions (established 1996)"
+    ],
+    "location_benefits": [
+      "Close to Delhi-Noida expressway",
+      "Metro connectivity",
+      "International environment",
+      "Near major IT companies"
+    ],
+    "facilities": {
+      "campus": {
+        "size": "63 acres",
+        "type": "Urban campus with modern architecture",
+        "description": "Sprawling campus with lush greenery, state-of-the-art buildings, and world-class infrastructure"
+      },
+      "academic": {
+        "schools": 14,
+        "programs": "135+ undergraduate, postgraduate, diploma, and Ph.D. programs",
+        "disciplines": [
+          "Engineering & Technology",
+          "Computer Science",
+          "Information Technology",
+          "Computing",
+          "Data Science",
+          "Artificial Intelligence"
+        ],
+        "classrooms": "E-learning integrated smart classrooms with Wi-Fi and lecture capturing facility",
+        "labs": "16 specialized labs including macOS lab, smart classrooms, and state-of-the-art laboratories with modern equipment",
+        "library": "Central library with extensive collection of books, journals, e-resources, and digital databases",
+        "computingLabs": [
+          "16 specialized computing labs",
+          "macOS lab for iOS development",
+          "IoT lab with sensors",
+          "AI/ML lab with GPU clusters",
+          "Cloud computing lab with AWS infrastructure",
+          "Cybersecurity lab with EC-Council tools",
+          "Blockchain lab",
+          "AR/VR lab with immersive technology equipment",
+          "Full Stack Development lab",
+          "Data Science lab with Oracle tools"
+        ],
+        "industryPartnerships": [
+          "Microsoft",
+          "Oracle",
+          "AWS (Amazon Web Services)",
+          "EC-Council",
+          "Xebia Academic Alliance",
+          "AERIS Communications",
+          "IBM",
+          "Tech Mahindra",
+          "NASSCOM",
+          "NSDC"
+        ],
+        "research": {
+          "publications": "500+ publications, 50+ books/book chapters, 35+ patents",
+          "grants": "Extramural Research Grants from DST, DBT, DeitY",
+          "centers": "Business Incubation Centre accredited by Ministry of MSME",
+          "faculty": "11 faculty members recognized among top 2% scientists worldwide by Stanford University (2024)"
+        }
+      },
+      "accommodation": {
+        "hostels": "Separate hostels for boys and girls with modern amenities",
+        "capacity": "Accommodation for thousands of students",
+        "facilities": [
+          "24/7 security",
+          "Wi-Fi connectivity",
+          "Mess facilities with multi-cuisine options",
+          "Recreation rooms",
+          "Laundry services",
+          "Medical facilities"
+        ]
+      },
+      "healthcare": {
+        "hospital": "1,200-bed multi-specialty hospital on campus",
+        "medical": "24/7 medical facilities and health insurance coverage",
+        "services": "Comprehensive healthcare services for students"
+      },
+      "sports": {
+        "facilities": [
+          "Cricket ground",
+          "Football field",
+          "Basketball courts",
+          "Tennis courts",
+          "Volleyball courts",
+          "Badminton courts",
+          "Indoor sports complex",
+          "Gymnasium",
+          "Swimming pool"
+        ],
+        "description": "Extensive sports infrastructure for various indoor and outdoor activities"
+      },
+      "international": {
+        "students": "2,000+ international students from 85+ countries",
+        "support": [
+          "International Student Support Office",
+          "Visa assistance and documentation",
+          "Airport pickup and reception",
+          "FRRO registration help",
+          "Cultural integration programs",
+          "International food options",
+          "Multilingual support staff"
+        ],
+        "achievement": "Ranked 1st Private University in India with highest number of international students"
+      },
+      "research": {
+        "centers": "Multiple research centers and laboratories",
+        "recognition": "11 faculty members recognized among top 2% scientists worldwide by Stanford University (2024)",
+        "publications": "Active research publications and patents"
+      },
+      "placement": {
+        "recruiters": "600+ recruiters including 150+ multinational corporations",
+        "rate": "91% placement rate for B.Tech programs",
+        "packages": {
+          "highestInternational": "₹1 crore per annum",
+          "highestDomestic": "₹50 lakh per annum (Fortune 500 Companies)",
+          "averageCSE": "₹3-12 lakh per annum",
+          "averageIT": "₹3-10 lakh per annum",
+          "averageBCA": "₹2.5-8 lakh per annum",
+          "averageMCA": "₹4-15 lakh per annum"
+        },
+        "companies": [
+          "Microsoft",
+          "Oracle",
+          "TCS",
+          "Infosys",
+          "Wipro",
+          "Amazon",
+          "Google",
+          "IBM",
+          "Accenture",
+          "Cognizant",
+          "HCL",
+          "Capgemini",
+          "Deloitte",
+          "EY",
+          "PwC",
+          "Tech Mahindra",
+          "L&T",
+          "Huawei",
+          "Texas Instruments"
+        ],
+        "techPlacements": {
+          "cse": "Strong placement record with top tech companies",
+          "it": "Excellent opportunities in IT services and product companies",
+          "dataScience": "High demand for data science graduates",
+          "cybersecurity": "Growing opportunities in security roles",
+          "cloudComputing": "Strong demand for cloud professionals",
+          "aiMl": "Cutting-edge opportunities in AI/ML companies"
+        }
+      },
+      "technology": {
+        "wifi": "Campus-wide Wi-Fi connectivity",
+        "smartClassrooms": "E-learning integrated smart classrooms with lecture capturing facility",
+        "digitalLibrary": "Digital library resources and online databases",
+        "labs": "Advanced computer labs and specialized equipment",
+        "lms": "Student LMS Portal with LMS Based Test Series",
+        "outcomeBased": "Outcome Based Learning (OBE) and Choice-based Credit System (CBCS)",
+        "mentorMentee": "Mentor Mentee Portal for student guidance",
+        "tsep": "Technical Skill Enhancement Program (TSEP) Test Series",
+        "projectBased": "Project Based Learning with industry collaboration",
+        "industryProjects": "Student Involvement in Real Time Industry Projects"
+      },
+      "studentSupport": {
+        "clubs": "Student clubs and societies/chapters at school/department level",
+        "activities": "Extra-curricular and technical activities, industrial visits",
+        "funding": "University project funding policy for student projects",
+        "exchange": "International exchange programs with leading Global universities under credit transfer system",
+        "higherStudies": "Support for higher studies and research",
+        "hackathons": "Technovation Hackathon: India's Biggest Hackathon",
+        "conferences": "IEEE International Conferences with Interaction Speakers",
+        "competitions": "Annual National Level Project Competition"
+      }
+    }
+  },
+  "scholarships": {
+    "type": "category-based",
+    "bangladeshStudents": {
+      "categories": {
+        "category1": {
+          "name": "Category 1",
+          "description": "B.Tech, BBA, MBA, BCA, MCA, B.Com, B.Arch, B.Design, BA Film/TV, LLB, BJMC, MJMC, M.Advertising, B.Sc. (Radiology, BMLT, CVT, Forensic, Optometry, Nutrition, Dialysis), M.Sc. (Clinical Research, Forensic, Nutrition)",
+          "tiers": [
+            {
+              "name": "High Performance",
+              "percentage": 50,
+              "gpaMin": 3.5,
+              "gpaMax": 5,
+              "conditions": "GPA 3.5 and above"
+            },
+            {
+              "name": "Standard",
+              "percentage": 20,
+              "gpaMin": 3,
+              "gpaMax": 3.49,
+              "conditions": "GPA 3.0 - 3.49"
+            }
+          ]
+        },
+        "category2": {
+          "name": "Category 2",
+          "description": "B.Sc. Nursing",
+          "tiers": [
+            {
+              "name": "Nursing Scholarship",
+              "percentage": 25,
+              "gpaMin": 3,
+              "gpaMax": 5,
+              "conditions": "GPA 3.0 and above"
+            }
+          ]
+        },
+        "category3": {
+          "name": "Category 3",
+          "description": "Other B.Sc., B.A., M.Sc., M.A. programs",
+          "tiers": [
+            {
+              "name": "Standard Scholarship",
+              "percentage": 20,
+              "gpaMin": 3,
+              "gpaMax": 5,
+              "conditions": "GPA 3.0 and above"
+            },
+            {
+              "name": "Enhanced Scholarship",
+              "percentage": 30,
+              "gpaMin": 3,
+              "gpaMax": 5,
+              "conditions": "GPA 3.0 and above"
+            }
+          ]
+        },
+        "category4": {
+          "name": "Category 4",
+          "description": "Medical and Pharmacy programs",
+          "tiers": []
+        }
+      }
+    }
+  },
+  "additionalFees": {
+    "oneTime": {
+      "amount": 52000,
+      "name": "One-time Fees (Year 1 only)",
+      "services": [
+        "Registration Fee",
+        "Admission Processing",
+        "Visa Support Documents",
+        "Airport Reception",
+        "FRRO Registration Help",
+        "Student ID Card",
+        "Library Card",
+        "WiFi Access",
+        "Medical Check-up & Insurance (First Year)",
+        "Examination Fee (First Year)"
+      ]
+    },
+    "wbeAdditionalFees": {
+      "amount": 52000,
+      "name": "WBE Comprehensive Package (Non-Refundable)",
+      "breakdown": [
+        {
+          "item": "Admission Fee",
+          "amount": 30000,
+          "note": "First year only"
+        },
+        {
+          "item": "Medical Check-up & Insurance (Annually)",
+          "amount": 10000,
+          "note": "Second year onwards Rs.5,000"
+        },
+        {
+          "item": "Registration Fee (from 2nd year onwards)",
+          "amount": 15000,
+          "note": "Annual"
+        },
+        {
+          "item": "Examination Fee (Annually)",
+          "amount": 12000,
+          "note": "Per year"
+        }
+      ],
+      "wbeServices": [
+        "Free Visa Slot Arrangement (Worth 12,000-20,000 BDT)",
+        "Free Accommodation Assistance",
+        "Enhanced Scholarship Processing",
+        "Official Partnership Benefits"
+      ]
+    },
+    "recurring": {
+      "examination": {
+        "amount": 12000,
+        "frequency": "Annually",
+        "description": "Examination Fee"
+      },
+      "registration": {
+        "amount": 15000,
+        "frequency": "Annually from Second Year",
+        "description": "Registration Fee"
+      },
+      "medical": {
+        "amount": 5000,
+        "frequency": "Annually from Second Year",
+        "description": "Medical Check-up & Insurance (Reduced Rate)"
+      },
+      "alumni": {
+        "amount": 1500,
+        "frequency": "One-time in Final Year",
+        "description": "Alumni Association Contribution"
+      }
+    },
+    "wbeRecurring": {
+      "totalAnnual": 32000,
+      "description": "WBE Annual Fees from 2nd Year Onwards",
+      "breakdown": [
+        {
+          "item": "Medical Check-up & Insurance",
+          "amount": 5000,
+          "note": "Reduced rate from 2nd year"
+        },
+        {
+          "item": "Registration Fee",
+          "amount": 15000,
+          "note": "Annual from 2nd year"
+        },
+        {
+          "item": "Examination Fee",
+          "amount": 12000,
+          "note": "Annual"
+        }
+      ]
+    }
+  },
+  "programs": [
+    {
+      "id": "btech-cse",
+      "name": "B.Tech in Computer Science & Engineering",
+      "specialization": "Computer Science & Engineering",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        270000,
+        278100,
+        286443,
+        295036
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "AICTE approved",
+        "Microsoft partnership",
+        "Advanced computing labs",
+        "Industry-oriented curriculum"
+      ],
+      "curriculum": {
+        "totalCredits": 160,
+        "syllabusUrl": "http://ezone.sharda.ac.in/admin/manageprogrammecurricula/getpdfdetails/programme_curricula_pdf:2021 B-TECH (CS) SET0101.pdf",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CSP101",
+                "name": "Introduction to Computer Science and Engineering",
+                "credits": 2,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP102",
+                "name": "Programming for Problem Solving (C Language)",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP103",
+                "name": "Engineering Mathematics – I",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP104",
+                "name": "Physics for Computer Science",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP105",
+                "name": "Basic Electrical Engineering",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP106",
+                "name": "Engineering Graphics & Design",
+                "credits": 2,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP107",
+                "name": "Communication Skills & Personality Development",
+                "credits": 2,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP108",
+                "name": "C Programming Lab",
+                "credits": 1,
+                "type": "Practical"
+              },
+              {
+                "code": "CSP109",
+                "name": "Physics Lab",
+                "credits": 1,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 2,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CSP201",
+                "name": "Data Structures",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP202",
+                "name": "Engineering Mathematics – II",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP203",
+                "name": "Chemistry for Computer Science",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP204",
+                "name": "Electronics Engineering",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP205",
+                "name": "Workshop Practice",
+                "credits": 2,
+                "type": "Practical"
+              },
+              {
+                "code": "CSP206",
+                "name": "Data Structures Lab",
+                "credits": 1,
+                "type": "Practical"
+              },
+              {
+                "code": "CSP207",
+                "name": "Chemistry Lab",
+                "credits": 1,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 3,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CSP301",
+                "name": "Object-Oriented Programming using Java",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP302",
+                "name": "Computer Organization & Architecture",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP303",
+                "name": "Discrete Mathematics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP304",
+                "name": "Digital Logic Design",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP305",
+                "name": "Database Management Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP306",
+                "name": "Java Programming Lab",
+                "credits": 1,
+                "type": "Practical"
+              },
+              {
+                "code": "CSP307",
+                "name": "DBMS Lab",
+                "credits": 1,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 4,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CSP401",
+                "name": "Operating Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP402",
+                "name": "Design & Analysis of Algorithms",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP403",
+                "name": "Microprocessors & Microcontrollers",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP404",
+                "name": "Theory of Computation",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP405",
+                "name": "Web Technologies (HTML, CSS, JavaScript)",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP406",
+                "name": "Web Development Lab",
+                "credits": 1,
+                "type": "Practical"
+              },
+              {
+                "code": "CSP407",
+                "name": "OS & Microprocessor Lab",
+                "credits": 1,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CSP501",
+                "name": "Software Engineering",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP502",
+                "name": "Computer Networks",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP503",
+                "name": "Artificial Intelligence",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP504",
+                "name": "Elective I (Cloud Computing / Data Mining / Ethical Hacking)",
+                "credits": 3,
+                "type": "Elective"
+              },
+              {
+                "code": "CSP505",
+                "name": "Internet of Things (IoT)",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP506",
+                "name": "Networking Lab",
+                "credits": 1,
+                "type": "Practical"
+              },
+              {
+                "code": "CSP507",
+                "name": "AI & IoT Lab",
+                "credits": 1,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 6,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CSP601",
+                "name": "Machine Learning with Python",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP602",
+                "name": "Compiler Design",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP603",
+                "name": "Mobile Application Development",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP604",
+                "name": "Open Elective (Cybersecurity / Blockchain / AR-VR)",
+                "credits": 3,
+                "type": "Elective"
+              },
+              {
+                "code": "CSP605",
+                "name": "ML & App Development Lab",
+                "credits": 1,
+                "type": "Practical"
+              },
+              {
+                "code": "CSP606",
+                "name": "Industrial Training / Mini Project",
+                "credits": 2,
+                "type": "Project"
+              }
+            ]
+          },
+          {
+            "semester": 7,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CSP701",
+                "name": "Big Data Analytics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP702",
+                "name": "Natural Language Processing (NLP)",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP703",
+                "name": "Project Phase I",
+                "credits": 4,
+                "type": "Project"
+              },
+              {
+                "code": "CSP704",
+                "name": "Seminar & Technical Report Writing",
+                "credits": 2,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP705",
+                "name": "Soft Skills and Aptitude Training",
+                "credits": 2,
+                "type": "Theory"
+              },
+              {
+                "code": "CSP706",
+                "name": "Internship / Live Project",
+                "credits": 2,
+                "type": "Internship"
+              }
+            ]
+          },
+          {
+            "semester": 8,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CSP801",
+                "name": "Project Phase II",
+                "credits": 6,
+                "type": "Project"
+              },
+              {
+                "code": "CSP802",
+                "name": "Comprehensive Viva",
+                "credits": 2,
+                "type": "Viva"
+              },
+              {
+                "code": "CSP803",
+                "name": "Elective II (Advanced Topics in AI / Cloud Security / Advanced Data Analytics)",
+                "credits": 3,
+                "type": "Elective"
+              },
+              {
+                "code": "CSP804",
+                "name": "Entrepreneurship Development",
+                "credits": 2,
+                "type": "Theory"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "btech-cse-aiml",
+      "name": "B.Tech CSE (Artificial Intelligence & Machine Learning)",
+      "specialization": "Artificial Intelligence & Machine Learning",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        280000,
+        288400,
+        297052,
+        305964
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "AI/ML focused curriculum",
+        "Deep learning & neural networks",
+        "Industry partnerships",
+        "Cutting-edge research opportunities"
+      ],
+      "curriculum": {
+        "totalCredits": 160,
+        "syllabusUrl": "http://ezone.sharda.ac.in/admin/manageprogrammecurricula/getpdfdetails/programme_curricula_pdf:2021 B-TECH CSE (AI-ML) SET0101.pdf",
+        "description": "Specialized curriculum focusing on Artificial Intelligence and Machine Learning with advanced topics in deep learning, neural networks, and AI applications.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "AIML101",
+                "name": "Introduction to AI & ML",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML102",
+                "name": "Programming for Problem Solving",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML103",
+                "name": "Mathematics for AI",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML104",
+                "name": "Data Structures & Algorithms",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML105",
+                "name": "Python Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 2,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "AIML201",
+                "name": "Machine Learning Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML202",
+                "name": "Statistics & Probability",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML203",
+                "name": "Database Management Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML204",
+                "name": "ML Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "AIML501",
+                "name": "Deep Learning",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML502",
+                "name": "Neural Networks",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML503",
+                "name": "Computer Vision",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML504",
+                "name": "Deep Learning Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 6,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "AIML601",
+                "name": "Natural Language Processing",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML602",
+                "name": "Reinforcement Learning",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "AIML603",
+                "name": "AI Project",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "btech-cse-blockchain",
+      "name": "B.Tech CSE (Block Chain Technology)",
+      "specialization": "Block Chain Technology",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        280000,
+        288400,
+        297052,
+        305964
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Blockchain focused curriculum",
+        "Cryptocurrency & DeFi",
+        "Smart contracts",
+        "Industry certifications"
+      ],
+      "curriculum": {
+        "totalCredits": 160,
+        "syllabusUrl": "http://ezone.sharda.ac.in/admin/manageprogrammecurricula/getpdfdetails/programme_curricula_pdf:2021 B-TECH CSE (Blockchain) SET0101.pdf",
+        "description": "Blockchain Technology curriculum covering cryptocurrency, DeFi, smart contracts, distributed ledger technology, and blockchain applications.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "BLOCK101",
+                "name": "Introduction to Blockchain",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BLOCK102",
+                "name": "Cryptography Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BLOCK103",
+                "name": "Programming Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BLOCK104",
+                "name": "Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 4,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "BLOCK401",
+                "name": "Distributed Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BLOCK402",
+                "name": "Smart Contracts Development",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BLOCK403",
+                "name": "Cryptocurrency & DeFi",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BLOCK404",
+                "name": "Blockchain Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "BLOCK501",
+                "name": "Advanced Blockchain",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BLOCK502",
+                "name": "Blockchain Applications",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BLOCK503",
+                "name": "Blockchain Project",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "btech-cse-arvr",
+      "name": "B.Tech CSE (Augmented & Virtual Reality)",
+      "specialization": "Augmented & Virtual Reality",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        280000,
+        288400,
+        297052,
+        305964
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "AR/VR development",
+        "3D modeling & animation",
+        "Immersive technology labs",
+        "Gaming industry focus"
+      ],
+      "curriculum": {
+        "totalCredits": 160,
+        "syllabusUrl": "http://ezone.sharda.ac.in/admin/manageprogrammecurricula/getpdfdetails/programme_curricula_pdf:2021 B-TECH CSE (AR-VR) SET0101.pdf",
+        "description": "Augmented & Virtual Reality curriculum covering 3D modeling, animation, immersive technology development, and gaming applications.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "ARVR101",
+                "name": "Introduction to AR/VR",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "ARVR102",
+                "name": "3D Graphics Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "ARVR103",
+                "name": "Programming Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "ARVR104",
+                "name": "3D Modeling Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 4,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "ARVR401",
+                "name": "Virtual Reality Development",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "ARVR402",
+                "name": "Augmented Reality Development",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "ARVR403",
+                "name": "3D Animation",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "ARVR404",
+                "name": "AR/VR Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "ARVR501",
+                "name": "Game Development",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "ARVR502",
+                "name": "Immersive Technologies",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "ARVR503",
+                "name": "AR/VR Project",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "btech-cse-cyber",
+      "name": "B.Tech CSE - Cyber Security & Forensics (in association with EC-Council)",
+      "specialization": "Cyber Security & Forensics",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        280000,
+        288400,
+        297052,
+        305964
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "EC-Council partnership",
+        "Ethical hacking",
+        "Digital forensics",
+        "CEH preparation"
+      ],
+      "curriculum": {
+        "totalCredits": 160,
+        "syllabusUrl": "http://ezone.sharda.ac.in/admin/manageprogrammecurricula/getpdfdetails/programme_curricula_pdf:2021 B-TECH CSE (Cyber Security) SET0101.pdf",
+        "description": "Cybersecurity & Forensics curriculum in collaboration with EC-Council, covering ethical hacking, digital forensics, network security, and CEH certification preparation.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CYBER101",
+                "name": "Introduction to Cybersecurity",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER102",
+                "name": "Programming Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER103",
+                "name": "Computer Networks Basics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER104",
+                "name": "Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 4,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CYBER401",
+                "name": "Network Security",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER402",
+                "name": "Cryptography",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER403",
+                "name": "Ethical Hacking",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER404",
+                "name": "Security Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CYBER501",
+                "name": "Digital Forensics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER502",
+                "name": "Penetration Testing",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER503",
+                "name": "Security Management",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER504",
+                "name": "Forensics Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 6,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CYBER601",
+                "name": "Advanced Security",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER602",
+                "name": "CEH Preparation",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CYBER603",
+                "name": "Cybersecurity Project",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "btech-cse-iot",
+      "name": "B.Tech CSE - Artificial Intelligence for IoT Applications (in association with AERIS)",
+      "specialization": "AI for IoT Applications",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        280000,
+        288400,
+        297052,
+        305964
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "AERIS partnership",
+        "Smart devices programming",
+        "IoT lab with sensors",
+        "Industry 4.0 ready"
+      ],
+      "curriculum": {
+        "totalCredits": 160,
+        "syllabusUrl": "http://ezone.sharda.ac.in/admin/manageprogrammecurricula/getpdfdetails/programme_curricula_pdf:2021 B-TECH CSE (IoT-AI) SET0101.pdf",
+        "description": "AI for IoT Applications curriculum in collaboration with AERIS, combining artificial intelligence with Internet of Things for smart device development and Industry 4.0 applications.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "IOT101",
+                "name": "Introduction to IoT",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IOT102",
+                "name": "Introduction to AI",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IOT103",
+                "name": "Embedded Systems Basics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IOT104",
+                "name": "IoT Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 4,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "IOT401",
+                "name": "Sensor Networks",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IOT402",
+                "name": "AI for IoT",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IOT403",
+                "name": "Smart Device Programming",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IOT404",
+                "name": "AI-IoT Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "IOT501",
+                "name": "Industry 4.0 Applications",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IOT502",
+                "name": "Edge Computing",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IOT503",
+                "name": "IoT Project",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "btech-cse-cloud",
+      "name": "B.Tech CSE - Cloud Technology & Virtualization (in association with AWS)",
+      "specialization": "Cloud Technology & Virtualization",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        280000,
+        288400,
+        297052,
+        305964
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "AWS partnership",
+        "Cloud architecture",
+        "DevOps practices",
+        "Industry certifications"
+      ],
+      "curriculum": {
+        "totalCredits": 160,
+        "syllabusUrl": "http://ezone.sharda.ac.in/admin/manageprogrammecurricula/getpdfdetails/programme_curricula_pdf:2021 B-TECH CSE (Cloud) SET0101.pdf",
+        "description": "Cloud computing and virtualization curriculum developed in collaboration with AWS, focusing on cloud-based technologies, datacenter management, performance metrics, load balancing, and cost optimization.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CLOUD101",
+                "name": "Problem Solving Using C",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CLOUD102",
+                "name": "Digital Electronics & Computer Organization",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CLOUD103",
+                "name": "Introduction to IoT",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CLOUD104",
+                "name": "Ethics and Social Implications of AI",
+                "credits": 2,
+                "type": "Theory"
+              },
+              {
+                "code": "CLOUD105",
+                "name": "Problem Solving Using C Lab",
+                "credits": 1,
+                "type": "Practical"
+              },
+              {
+                "code": "CLOUD106",
+                "name": "Introduction to IoT Lab",
+                "credits": 1,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 4,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CLOUD401",
+                "name": "Database Management System",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CLOUD402",
+                "name": "Introduction to Cloud Computing",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CLOUD403",
+                "name": "AWS Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CLOUD404",
+                "name": "Cloud Computing Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CLOUD501",
+                "name": "Cloud Architecture & Design",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CLOUD502",
+                "name": "Virtualization Technologies",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CLOUD503",
+                "name": "AWS Services & Deployment",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CLOUD504",
+                "name": "DevOps Practices",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CLOUD505",
+                "name": "Cloud Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 6,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "CLOUD601",
+                "name": "Cloud Security",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CLOUD602",
+                "name": "Datacenter Management",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CLOUD603",
+                "name": "Performance Metrics & Load Balancing",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CLOUD604",
+                "name": "Cost Optimization Techniques",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "CLOUD605",
+                "name": "Cloud Project",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "btech-cse-ds",
+      "name": "B.Tech CSE - Data Science & Analytics (in association with Oracle)",
+      "specialization": "Data Science & Analytics",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        300000,
+        309000,
+        318270,
+        327818
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Oracle partnership",
+        "Big Data analytics",
+        "Python & R expertise",
+        "Industry projects"
+      ],
+      "curriculum": {
+        "totalCredits": 160,
+        "syllabusUrl": "http://ezone.sharda.ac.in/admin/manageprogrammecurricula/getpdfdetails/programme_curricula_pdf:2021 B-TECH CSE (Data Science) SET0101.pdf",
+        "description": "Data Science & Analytics curriculum in collaboration with Oracle, focusing on big data analytics, Python & R programming, and industry projects.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "DS101",
+                "name": "Introduction to Data Science",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS102",
+                "name": "Programming Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS103",
+                "name": "Statistics & Probability",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS104",
+                "name": "Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 4,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "DS401",
+                "name": "Database Management Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS402",
+                "name": "Python for Data Science",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS403",
+                "name": "R Programming",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS404",
+                "name": "Data Science Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "DS501",
+                "name": "Machine Learning",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS502",
+                "name": "Big Data Analytics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS503",
+                "name": "Data Visualization",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS504",
+                "name": "ML & Analytics Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 6,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "DS601",
+                "name": "Advanced Data Analytics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS602",
+                "name": "Data Mining",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "DS603",
+                "name": "Data Science Project",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "btech-cse-fullstack",
+      "name": "B.Tech CSE - Full Stack Development (in association with Xebia Academic Alliance)",
+      "specialization": "Full Stack Development",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        300000,
+        309000,
+        318270,
+        327818
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Xebia partnership",
+        "Frontend & backend development",
+        "Modern web technologies",
+        "Industry-ready skills"
+      ],
+      "curriculum": {
+        "totalCredits": 160,
+        "syllabusUrl": "http://ezone.sharda.ac.in/admin/manageprogrammecurricula/getpdfdetails/programme_curricula_pdf:2021 B-TECH CSE (Full Stack) SET0101.pdf",
+        "description": "Full Stack Development curriculum in collaboration with Xebia Academic Alliance, covering frontend and backend technologies, modern web frameworks, and industry-ready development skills.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "FS101",
+                "name": "Introduction to Web Development",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "FS102",
+                "name": "HTML, CSS & JavaScript",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "FS103",
+                "name": "Programming Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "FS104",
+                "name": "Web Development Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 4,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "FS401",
+                "name": "Frontend Frameworks (React/Vue)",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "FS402",
+                "name": "Backend Development (Node.js)",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "FS403",
+                "name": "Database Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "FS404",
+                "name": "Full Stack Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "FS501",
+                "name": "Advanced Frontend",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "FS502",
+                "name": "API Development",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "FS503",
+                "name": "DevOps & Deployment",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "FS504",
+                "name": "Full Stack Project",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          },
+          {
+            "semester": 6,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "FS601",
+                "name": "Mobile App Development",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "FS602",
+                "name": "Cloud Deployment",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "FS603",
+                "name": "Capstone Project",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "btech-ece-iot",
+      "name": "B.Tech Electronics & Computer Engg. (IoT)",
+      "specialization": "IoT Applications",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        185400,
+        190962,
+        196691,
+        202592
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "IoT applications",
+        "Embedded systems",
+        "Sensor networks",
+        "Smart devices"
+      ]
+    },
+    {
+      "id": "btech-ece-aiml",
+      "name": "B.Tech Electronics & Computer Engg. (AI and ML)",
+      "specialization": "AI and ML",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        185400,
+        190962,
+        196691,
+        202592
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "AI & ML integration",
+        "Embedded AI systems",
+        "Machine learning hardware",
+        "Intelligent systems"
+      ]
+    },
+    {
+      "id": "btech-ce-cs-minor",
+      "name": "B.Tech in Civil Engineering with minor in CS & Engg.",
+      "specialization": "Civil Engineering with Computer Science Minor",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        185400,
+        190962,
+        196691,
+        202592
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Structural engineering",
+        "Computer science applications",
+        "Construction management",
+        "BIM technology",
+        "Interdisciplinary approach"
+      ]
+    },
+    {
+      "id": "btech-biotech-stem",
+      "name": "B.Tech Biotechnology (Stem Cell & Tissue Engg.)",
+      "specialization": "Stem Cell & Tissue Engineering",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        206000,
+        212180,
+        218545,
+        225102
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Stem cell research",
+        "Tissue engineering",
+        "Regenerative medicine",
+        "Biomedical applications"
+      ]
+    },
+    {
+      "id": "btech-biotech-genetic",
+      "name": "B.Tech Biotechnology (Genetic Engineering)",
+      "specialization": "Genetic Engineering",
+      "degree": "B.Tech",
+      "field": "Engineering",
+      "duration": 4,
+      "annualFees": [
+        206000,
+        212180,
+        218545,
+        225102
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Genetic engineering",
+        "Gene therapy",
+        "CRISPR technology",
+        "Biotechnology research"
+      ]
+    },
+    {
+      "id": "bca-aiml",
+      "name": "BCA (AI and Machine Learning)",
+      "specialization": "AI and Machine Learning",
+      "degree": "BCA",
+      "field": "Computer Science & IT",
+      "duration": 3,
+      "annualFees": [
+        180000,
+        185400,
+        190962
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "AI/ML programming",
+        "Data science basics",
+        "Python & R",
+        "Machine learning projects"
+      ],
+      "curriculum": {
+        "totalCredits": 120,
+        "syllabusUrl": "http://ezone.sharda.ac.in/admin/manageprogrammecurricula/getpdfdetails/programme_curricula_pdf:2021 BCA SET0103.pdf",
+        "description": "BCA program with specialization in AI and Machine Learning, covering programming fundamentals, data structures, AI concepts, and ML algorithms.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "BCA101",
+                "name": "Programming Fundamentals (C)",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BCA102",
+                "name": "Mathematics for Computer Science",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BCA103",
+                "name": "Introduction to AI & ML",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BCA104",
+                "name": "C Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 2,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "BCA201",
+                "name": "Data Structures",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BCA202",
+                "name": "Python Programming",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BCA203",
+                "name": "Statistics for ML",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BCA204",
+                "name": "Python Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "BCA501",
+                "name": "Machine Learning",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BCA502",
+                "name": "Deep Learning Basics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BCA503",
+                "name": "ML Project",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          },
+          {
+            "semester": 6,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "BCA601",
+                "name": "AI Project",
+                "credits": 6,
+                "type": "Project"
+              },
+              {
+                "code": "BCA602",
+                "name": "Internship",
+                "credits": 4,
+                "type": "Internship"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "bca-cloud",
+      "name": "BCA (Cloud Computing and IoT)",
+      "specialization": "Cloud Computing and IoT",
+      "degree": "BCA",
+      "field": "Computer Science & IT",
+      "duration": 3,
+      "annualFees": [
+        180000,
+        185400,
+        190962
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Cloud computing",
+        "IoT applications",
+        "Distributed systems",
+        "Modern tech stack"
+      ]
+    },
+    {
+      "id": "bsc-cs-aiml",
+      "name": "B.Sc. Computer Science (AI and Machine Learning)",
+      "specialization": "AI and Machine Learning",
+      "degree": "B.Sc.",
+      "field": "Computer Science & IT",
+      "duration": 3,
+      "annualFees": [
+        116000,
+        119480,
+        123064
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "Computer science fundamentals",
+        "AI/ML concepts",
+        "Programming skills",
+        "Research opportunities"
+      ],
+      "curriculum": {
+        "totalCredits": 120,
+        "syllabusUrl": "http://ezone.sharda.ac.in/admin/manageprogrammecurricula/getpdfdetails/programme_curricula_pdf:2021 BSC (CS) SET0125.pdf",
+        "description": "B.Sc Computer Science with specialization in AI and Machine Learning, covering programming fundamentals, data structures, AI concepts, and ML algorithms.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "BSC101",
+                "name": "Programming Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BSC102",
+                "name": "Mathematics for Computer Science",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BSC103",
+                "name": "Introduction to AI & ML",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BSC104",
+                "name": "Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 2,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "BSC201",
+                "name": "Data Structures",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BSC202",
+                "name": "Python Programming",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BSC203",
+                "name": "Statistics for ML",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BSC204",
+                "name": "Python Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "BSC501",
+                "name": "Machine Learning",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BSC502",
+                "name": "Deep Learning Basics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "BSC503",
+                "name": "ML Project",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          },
+          {
+            "semester": 6,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "BSC601",
+                "name": "AI Project",
+                "credits": 6,
+                "type": "Project"
+              },
+              {
+                "code": "BSC602",
+                "name": "Internship",
+                "credits": 4,
+                "type": "Internship"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "bsc-cs-cloud",
+      "name": "B.Sc. Computer Science (Cloud Computing and IoT)",
+      "specialization": "Cloud Computing and IoT",
+      "degree": "B.Sc.",
+      "field": "Computer Science & IT",
+      "duration": 3,
+      "annualFees": [
+        116000,
+        119480,
+        123064
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "Computer science fundamentals",
+        "Cloud technologies",
+        "IoT development",
+        "Modern computing"
+      ]
+    },
+    {
+      "id": "bsc-it",
+      "name": "B.Sc. Information Technology",
+      "specialization": "Information Technology",
+      "degree": "B.Sc.",
+      "field": "Computer Science & IT",
+      "duration": 3,
+      "annualFees": [
+        116000,
+        119480,
+        123064
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "IT infrastructure",
+        "Network management",
+        "Database systems",
+        "System administration"
+      ],
+      "curriculum": {
+        "totalCredits": 120,
+        "syllabusUrl": "http://ezone.sharda.ac.in/admin/manageprogrammecurricula/getpdfdetails/programme_curricula_pdf:2021 BSC (IT) SET0126.pdf",
+        "description": "B.Sc Information Technology program covering IT infrastructure, network management, database systems, and system administration.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "IT101",
+                "name": "Introduction to IT",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IT102",
+                "name": "Programming Fundamentals",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IT103",
+                "name": "Computer Networks Basics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IT104",
+                "name": "Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 2,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "IT201",
+                "name": "Database Management Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IT202",
+                "name": "Web Technologies",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IT203",
+                "name": "Network Administration",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IT204",
+                "name": "DBMS Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 5,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "IT501",
+                "name": "System Administration",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IT502",
+                "name": "IT Security",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "IT503",
+                "name": "IT Project",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          },
+          {
+            "semester": 6,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "IT601",
+                "name": "Final Project",
+                "credits": 6,
+                "type": "Project"
+              },
+              {
+                "code": "IT602",
+                "name": "Internship",
+                "credits": 4,
+                "type": "Internship"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "mca",
+      "name": "Master of Computer Applications",
+      "specialization": "Computer Applications",
+      "degree": "MCA",
+      "field": "Computer Science & IT",
+      "duration": 2,
+      "annualFees": [
+        180000,
+        185400
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Advanced programming",
+        "Software engineering",
+        "Industry projects",
+        "High-paying careers"
+      ],
+      "curriculum": {
+        "totalCredits": 80,
+        "syllabusUrl": "http://ezone.sharda.ac.in/admin/manageprogrammecurricula/getpdfdetails/programme_curricula_pdf:2021 MCA SET0105.pdf",
+        "description": "Advanced MCA program covering software engineering, database systems, web technologies, and modern software development practices.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MCA101",
+                "name": "Advanced Data Structures",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MCA102",
+                "name": "Database Management Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MCA103",
+                "name": "Object-Oriented Programming",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MCA104",
+                "name": "Software Engineering",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MCA105",
+                "name": "Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 2,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MCA201",
+                "name": "Web Technologies",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MCA202",
+                "name": "Computer Networks",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MCA203",
+                "name": "Operating Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MCA204",
+                "name": "Web Development Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 3,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MCA301",
+                "name": "Advanced Database Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MCA302",
+                "name": "Mobile Application Development",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MCA303",
+                "name": "Project Phase I",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          },
+          {
+            "semester": 4,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MCA401",
+                "name": "Project Phase II",
+                "credits": 6,
+                "type": "Project"
+              },
+              {
+                "code": "MCA402",
+                "name": "Internship",
+                "credits": 4,
+                "type": "Internship"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "msc-cs",
+      "name": "M.Sc. Computer Science",
+      "specialization": "Computer Science",
+      "degree": "M.Sc.",
+      "field": "Computer Science & IT",
+      "duration": 2,
+      "annualFees": [
+        122000,
+        125660
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "Advanced computer science",
+        "Research methodology",
+        "Specialization options",
+        "PhD preparation"
+      ],
+      "curriculum": {
+        "totalCredits": 80,
+        "syllabusUrl": "http://ezone.sharda.ac.in/admin/manageprogrammecurricula/getpdfdetails/programme_curricula_pdf:2021 M-SC (CS) SET0131.pdf",
+        "description": "Advanced M.Sc Computer Science program covering advanced topics in computer science, research methodology, and specialization options for PhD preparation.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MSC101",
+                "name": "Advanced Data Structures",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MSC102",
+                "name": "Advanced Algorithms",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MSC103",
+                "name": "Research Methodology",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MSC104",
+                "name": "Advanced Programming Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 2,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MSC201",
+                "name": "Advanced Database Systems",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MSC202",
+                "name": "Machine Learning",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MSC203",
+                "name": "Elective I",
+                "credits": 3,
+                "type": "Elective"
+              },
+              {
+                "code": "MSC204",
+                "name": "ML Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 3,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MSC301",
+                "name": "Advanced Topics in CS",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MSC302",
+                "name": "Elective II",
+                "credits": 3,
+                "type": "Elective"
+              },
+              {
+                "code": "MSC303",
+                "name": "Research Project Phase I",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          },
+          {
+            "semester": 4,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MSC401",
+                "name": "Research Project Phase II",
+                "credits": 6,
+                "type": "Project"
+              },
+              {
+                "code": "MSC402",
+                "name": "Thesis",
+                "credits": 4,
+                "type": "Project"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "mtech-biotech",
+      "name": "M.Tech. - Biotechnology (Animal/Plant Biotechnology/Genetic Engineering/Bio-Engineering and Bio-Informatics)",
+      "specialization": "Biotechnology (Multiple Specializations)",
+      "degree": "M.Tech",
+      "field": "Engineering",
+      "duration": 2,
+      "annualFees": [
+        113000,
+        116390
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Advanced biotechnology",
+        "Research projects",
+        "Industry collaborations",
+        "Specialization options"
+      ]
+    },
+    {
+      "id": "mtech-cse",
+      "name": "M.Tech. - Computer Science & Engineering (Networking & Cyber Security/Software Engineering/Data Science)",
+      "specialization": "Computer Science & Engineering (Multiple Specializations)",
+      "degree": "M.Tech",
+      "field": "Engineering",
+      "duration": 2,
+      "annualFees": [
+        113000,
+        116390
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Advanced computing",
+        "Research opportunities",
+        "Industry projects",
+        "Specialization options"
+      ],
+      "curriculum": {
+        "totalCredits": 80,
+        "syllabusUrl": "http://ezone.sharda.ac.in/admin/manageprogrammecurricula/getpdfdetails/programme_curricula_pdf:2021 M-TECH (CS) SET0130.pdf",
+        "description": "Advanced M.Tech CSE program with specializations in Networking & Cyber Security, Software Engineering, or Data Science. Focus on research and industry projects.",
+        "semesters": [
+          {
+            "semester": 1,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MTECH101",
+                "name": "Advanced Computer Networks",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MTECH102",
+                "name": "Advanced Algorithms",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MTECH103",
+                "name": "Research Methodology",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MTECH104",
+                "name": "Specialization Core I",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MTECH105",
+                "name": "Advanced Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 2,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MTECH201",
+                "name": "Specialization Core II",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MTECH202",
+                "name": "Elective I",
+                "credits": 3,
+                "type": "Elective"
+              },
+              {
+                "code": "MTECH203",
+                "name": "Elective II",
+                "credits": 3,
+                "type": "Elective"
+              },
+              {
+                "code": "MTECH204",
+                "name": "Specialization Lab",
+                "credits": 2,
+                "type": "Practical"
+              }
+            ]
+          },
+          {
+            "semester": 3,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MTECH301",
+                "name": "Advanced Topics",
+                "credits": 3,
+                "type": "Theory"
+              },
+              {
+                "code": "MTECH302",
+                "name": "Research Project Phase I",
+                "credits": 4,
+                "type": "Project"
+              },
+              {
+                "code": "MTECH303",
+                "name": "Seminar",
+                "credits": 2,
+                "type": "Theory"
+              }
+            ]
+          },
+          {
+            "semester": 4,
+            "credits": 20,
+            "courses": [
+              {
+                "code": "MTECH401",
+                "name": "Thesis/Dissertation",
+                "credits": 8,
+                "type": "Project"
+              },
+              {
+                "code": "MTECH402",
+                "name": "Comprehensive Viva",
+                "credits": 2,
+                "type": "Viva"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "mtech-ece",
+      "name": "M.Tech. - Electronics & Communication Engg. (Digital Communication/VLSI Technology)",
+      "specialization": "Electronics & Communication Engineering (Multiple Specializations)",
+      "degree": "M.Tech",
+      "field": "Engineering",
+      "duration": 2,
+      "annualFees": [
+        113000,
+        116390
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Advanced electronics",
+        "Communication systems",
+        "VLSI design",
+        "Research projects"
+      ]
+    },
+    {
+      "id": "bcom-hons",
+      "name": "B.Com. (Hons./Research)",
+      "specialization": "Commerce (Hons./Research)",
+      "degree": "B.Com",
+      "field": "Commerce & Business",
+      "duration": 4,
+      "annualFees": [
+        175000,
+        180250,
+        185658,
+        191227
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced commerce",
+        "Higher education pathway"
+      ]
+    },
+    {
+      "id": "bcom-ica",
+      "name": "B.Com. - Finance & Accounting (with ICA)",
+      "specialization": "Finance & Accounting with ICA",
+      "degree": "B.Com",
+      "field": "Commerce & Business",
+      "duration": 3,
+      "annualFees": [
+        200000,
+        206000,
+        212180
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "ICA partnership",
+        "Professional accounting",
+        "Industry certification",
+        "Career-focused"
+      ]
+    },
+    {
+      "id": "bcom-international",
+      "name": "B.Com. - International Accounting & Finance (with ACCA, UK)",
+      "specialization": "International Accounting & Finance",
+      "degree": "B.Com",
+      "field": "Commerce & Business",
+      "duration": 3,
+      "annualFees": [
+        215000,
+        221450,
+        228094
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "ACCA, UK partnership",
+        "International focus",
+        "Global accounting standards",
+        "International career opportunities"
+      ]
+    },
+    {
+      "id": "bba",
+      "name": "BBA - Banking & Finance/International Business/Marketing Management/Entrepreneurship/HRM/Health Care Management/Supply Chain Management & Logistics",
+      "specialization": "Business Administration (Multiple Specializations)",
+      "degree": "BBA",
+      "field": "Commerce & Business",
+      "duration": 3,
+      "annualFees": [
+        231000,
+        237930,
+        245068
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Management fundamentals",
+        "Industry exposure",
+        "Business labs",
+        "Entrepreneurship cell",
+        "Multiple specialization options"
+      ]
+    },
+    {
+      "id": "bba-hons",
+      "name": "BBA (Hons./Research) - Banking & Finance/International Business/Marketing Management/Entrepreneurship/HRM/Health Care Management/Supply Chain Management & Logistics",
+      "specialization": "Business Administration (Hons./Research) (Multiple Specializations)",
+      "degree": "BBA",
+      "field": "Commerce & Business",
+      "duration": 4,
+      "annualFees": [
+        231000,
+        237930,
+        245068,
+        252420
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced management",
+        "Leadership development",
+        "Multiple specialization options"
+      ]
+    },
+    {
+      "id": "bba-finance",
+      "name": "BBA - Finance & Accounting (with ACCA, UK)",
+      "specialization": "Finance & Accounting",
+      "degree": "BBA",
+      "field": "Commerce & Business",
+      "duration": 3,
+      "annualFees": [
+        271000,
+        279130,
+        287504
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "ACCA, UK partnership",
+        "Financial management",
+        "International certification",
+        "Global career opportunities"
+      ]
+    },
+    {
+      "id": "mba",
+      "name": "MBA - Marketing/International Business/Business Analytics/Banking & Finance/HRM/Entrepreneurship/Supply Chain/Health Care",
+      "specialization": "Business Administration (Multiple Specializations)",
+      "degree": "MBA",
+      "field": "Commerce & Business",
+      "duration": 2,
+      "annualFees": [
+        396550,
+        408447
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "AICTE approved",
+        "Corporate internships",
+        "Case study methodology",
+        "Leadership development",
+        "Multiple specialization options"
+      ]
+    },
+    {
+      "id": "ballb",
+      "name": "BA LLB (Hons.) Integrated",
+      "specialization": "Arts & Law",
+      "degree": "BA LLB",
+      "field": "Law",
+      "duration": 5,
+      "annualFees": [
+        232000,
+        238960,
+        246129,
+        253513,
+        261118
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "5-year integrated",
+        "BCI approved",
+        "Arts + Law combination",
+        "Comprehensive legal training"
+      ]
+    },
+    {
+      "id": "ba",
+      "name": "B.A.",
+      "specialization": "Liberal Arts (Multiple Specializations)",
+      "degree": "BA",
+      "field": "Arts & Humanities",
+      "duration": 3,
+      "annualFees": [
+        125000,
+        128750,
+        132613
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "Liberal arts education",
+        "Multiple specializations",
+        "Critical thinking",
+        "Versatile career options"
+      ]
+    },
+    {
+      "id": "ba-hons",
+      "name": "B.A. (Hons./Research)",
+      "specialization": "Liberal Arts (Hons./Research)",
+      "degree": "BA",
+      "field": "Arts & Humanities",
+      "duration": 4,
+      "annualFees": [
+        125000,
+        128750,
+        132613,
+        136591
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced liberal arts",
+        "Higher education pathway"
+      ]
+    },
+    {
+      "id": "ba-psychology-hons",
+      "name": "B.A. (Hons./Research) Psychology",
+      "specialization": "Psychology (Hons./Research)",
+      "degree": "BA",
+      "field": "Arts & Humanities",
+      "duration": 4,
+      "annualFees": [
+        132000,
+        135960,
+        140039,
+        144240
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year psychology honors",
+        "Research component",
+        "Advanced psychology",
+        "Professional preparation"
+      ]
+    },
+    {
+      "id": "ba-economics-hons",
+      "name": "B.A. (Hons./Research) Economics",
+      "specialization": "Economics (Hons./Research)",
+      "degree": "BA",
+      "field": "Arts & Humanities",
+      "duration": 4,
+      "annualFees": [
+        115000,
+        118450,
+        122004,
+        125664
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year economics honors",
+        "Research component",
+        "Advanced economics",
+        "Policy analysis"
+      ]
+    },
+    {
+      "id": "ba-political-science",
+      "name": "B.A. - Political Science",
+      "specialization": "Political Science",
+      "degree": "BA",
+      "field": "Arts & Humanities",
+      "duration": 3,
+      "annualFees": [
+        125000,
+        128750,
+        132613
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "Political theory",
+        "Public policy",
+        "Government systems",
+        "Political analysis"
+      ]
+    },
+    {
+      "id": "ba-english-hons",
+      "name": "B.A. (Hons./Research) - English",
+      "specialization": "English (Hons./Research)",
+      "degree": "BA",
+      "field": "Arts & Humanities",
+      "duration": 4,
+      "annualFees": [
+        125000,
+        128750,
+        132613,
+        136591
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced English literature",
+        "Academic writing"
+      ]
+    },
+    {
+      "id": "ba-history-hons",
+      "name": "B.A. (Hons./Research) - History",
+      "specialization": "History (Hons./Research)",
+      "degree": "BA",
+      "field": "Arts & Humanities",
+      "duration": 4,
+      "annualFees": [
+        125000,
+        128750,
+        132613,
+        136591
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced historical research",
+        "Historical methodology"
+      ]
+    },
+    {
+      "id": "ba-sociology-hons",
+      "name": "B.A. (Hons./Research) - Sociology",
+      "specialization": "Sociology (Hons./Research)",
+      "degree": "BA",
+      "field": "Arts & Humanities",
+      "duration": 4,
+      "annualFees": [
+        125000,
+        128750,
+        132613,
+        136591
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced sociology",
+        "Social research methods"
+      ]
+    },
+    {
+      "id": "ba-political-science-hons",
+      "name": "B.A. (Hons./Research) - Political Science",
+      "specialization": "Political Science (Hons./Research)",
+      "degree": "BA",
+      "field": "Arts & Humanities",
+      "duration": 4,
+      "annualFees": [
+        125000,
+        128750,
+        132613,
+        136591
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced political science",
+        "Policy research"
+      ]
+    },
+    {
+      "id": "ba-geography-hons",
+      "name": "B.A. (Hons./Research) - Geography",
+      "specialization": "Geography (Hons./Research)",
+      "degree": "BA",
+      "field": "Arts & Humanities",
+      "duration": 4,
+      "annualFees": [
+        125000,
+        128750,
+        132613,
+        136591
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced geography",
+        "Geographic research"
+      ]
+    },
+    {
+      "id": "ba-international-relations-hons",
+      "name": "B.A. (Hons./Research) - International Relations",
+      "specialization": "International Relations (Hons./Research)",
+      "degree": "BA",
+      "field": "Arts & Humanities",
+      "duration": 4,
+      "annualFees": [
+        125000,
+        128750,
+        132613,
+        136591
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced international relations",
+        "Diplomatic studies"
+      ]
+    },
+    {
+      "id": "ma",
+      "name": "Master of Arts - Modern History/Sociology/Applied Psychology/Clinical Psychology",
+      "specialization": "Liberal Arts (Multiple Specializations)",
+      "degree": "MA",
+      "field": "Arts & Humanities",
+      "duration": 2,
+      "annualFees": [
+        100000,
+        103000
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "Advanced liberal arts",
+        "Research focus",
+        "Specialization options",
+        "PhD preparation"
+      ]
+    },
+    {
+      "id": "bsc-physics-hons",
+      "name": "B.Sc. (Hons./Research) - Physics",
+      "specialization": "Physics (Hons./Research)",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 4,
+      "annualFees": [
+        110000,
+        113300,
+        116699,
+        120200
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced physics",
+        "PhD preparation"
+      ]
+    },
+    {
+      "id": "bsc-chemistry-hons",
+      "name": "B.Sc. (Hons./Research) - Chemistry",
+      "specialization": "Chemistry (Hons./Research)",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 4,
+      "annualFees": [
+        110000,
+        113300,
+        116699,
+        120200
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced chemistry",
+        "PhD preparation"
+      ]
+    },
+    {
+      "id": "bsc-computational-chemistry-hons",
+      "name": "B.Sc. (Hons./Research) - Computational Chemistry",
+      "specialization": "Computational Chemistry (Hons./Research)",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 4,
+      "annualFees": [
+        110000,
+        113300,
+        116699,
+        120200
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced computational chemistry",
+        "PhD preparation"
+      ]
+    },
+    {
+      "id": "bsc-mathematics-hons",
+      "name": "B.Sc. (Hons/Research) - Mathematics",
+      "specialization": "Mathematics (Hons./Research)",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 4,
+      "annualFees": [
+        110000,
+        113300,
+        116699,
+        120200
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced mathematics",
+        "PhD preparation"
+      ]
+    },
+    {
+      "id": "bsc-zoology-hons",
+      "name": "B.Sc. (Hons/Research) - Zoology",
+      "specialization": "Zoology (Hons./Research)",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 4,
+      "annualFees": [
+        110000,
+        113300,
+        116699,
+        120200
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced zoology",
+        "PhD preparation"
+      ]
+    },
+    {
+      "id": "bsc-basic-hons",
+      "name": "B.Sc. (Hons./Research) - Physics/Chemistry/Computational Chemistry/Mathematics/Zoology",
+      "specialization": "Basic Sciences (Hons./Research)",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 4,
+      "annualFees": [
+        110000,
+        113300,
+        116699,
+        120200
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced sciences",
+        "PhD preparation",
+        "Multiple specialization options"
+      ]
+    },
+    {
+      "id": "bsc-bio",
+      "name": "B.Sc. - Bio Chemistry/Biotechnology/Microbiology/Food Science & Technology",
+      "specialization": "Bio Sciences (Biochemistry/Biotech/Microbiology/Food Science)",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 3,
+      "annualFees": [
+        140000,
+        144200,
+        148526
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "Biological sciences",
+        "Modern labs",
+        "Research opportunities",
+        "Industry applications"
+      ]
+    },
+    {
+      "id": "bsc-bio-hons",
+      "name": "B.Sc. (Hons/Research) - Bio Chemistry/Biotechnology/Microbiology/Food Science & Technology",
+      "specialization": "Bio Sciences (Hons./Research)",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 4,
+      "annualFees": [
+        140000,
+        144200,
+        148526,
+        152982
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year bio sciences honors",
+        "Research component",
+        "Advanced biology",
+        "Career preparation"
+      ]
+    },
+    {
+      "id": "msc-general",
+      "name": "M.Sc. - Biotechnology/Microbiology/Food Science & Technology",
+      "specialization": "Sciences (Multiple Specializations)",
+      "degree": "M.Sc.",
+      "field": "Basic Sciences",
+      "duration": 2,
+      "annualFees": [
+        130000,
+        133900
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "Advanced sciences",
+        "Research projects",
+        "Specialization options",
+        "PhD pathway"
+      ]
+    },
+    {
+      "id": "barch",
+      "name": "Bachelor of Architecture",
+      "specialization": "Architecture",
+      "degree": "B.Arch",
+      "field": "Architecture",
+      "duration": 5,
+      "annualFees": [
+        219000,
+        225570,
+        232337,
+        239307,
+        246486
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "COA approved",
+        "Design studios",
+        "3D modeling",
+        "Sustainable architecture"
+      ]
+    },
+    {
+      "id": "bpt",
+      "name": "Bachelor of Physiotherapy",
+      "specialization": "Physiotherapy",
+      "degree": "BPT",
+      "field": "Health Sciences",
+      "duration": 4,
+      "annualFees": [
+        225000,
+        231750,
+        238703,
+        245864
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category4",
+      "highlights": [
+        "Rehabilitation focus",
+        "Modern physio labs",
+        "Hospital internships",
+        "Sports physio"
+      ]
+    },
+    {
+      "id": "bpharm",
+      "name": "Bachelor of Pharmacy",
+      "specialization": "Pharmacy",
+      "degree": "B.Pharm",
+      "field": "Pharmacy",
+      "duration": 4,
+      "annualFees": [
+        240000,
+        247200,
+        254616,
+        262254
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category4",
+      "highlights": [
+        "PCI approved",
+        "Pharmaceutical labs",
+        "Drug development",
+        "Hospital training"
+      ]
+    },
+    {
+      "id": "dpharm",
+      "name": "Diploma in Pharmacy",
+      "specialization": "Pharmacy",
+      "degree": "D.Pharm",
+      "field": "Pharmacy",
+      "duration": 2,
+      "annualFees": [
+        124000,
+        127720
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category4",
+      "highlights": [
+        "PCI approved",
+        "Quick pharmacy career",
+        "Practical training",
+        "Retail pharmacy"
+      ]
+    },
+    {
+      "id": "btech-cse-lateral",
+      "name": "B.Tech Lateral Entry - Computer Science & Engineering",
+      "specialization": "Computer Science & Engineering",
+      "degree": "B.Tech Lateral",
+      "field": "Engineering",
+      "duration": 3,
+      "annualFees": [
+        278100,
+        286443,
+        295036
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Direct 2nd year entry",
+        "For diploma holders",
+        "AICTE approved",
+        "Microsoft partnership",
+        "Advanced computing labs",
+        "Industry-oriented curriculum"
+      ]
+    },
+    {
+      "id": "btech-cse-aiml-lateral",
+      "name": "B.Tech Lateral Entry - CSE (Artificial Intelligence & Machine Learning)",
+      "specialization": "Artificial Intelligence & Machine Learning",
+      "degree": "B.Tech Lateral",
+      "field": "Engineering",
+      "duration": 3,
+      "annualFees": [
+        288400,
+        297052,
+        305964
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Direct 2nd year entry",
+        "For diploma holders",
+        "AI/ML focused curriculum",
+        "Deep learning & neural networks",
+        "Industry partnerships"
+      ]
+    },
+    {
+      "id": "btech-cse-blockchain-lateral",
+      "name": "B.Tech Lateral Entry - CSE (Block Chain Technology)",
+      "specialization": "Block Chain Technology",
+      "degree": "B.Tech Lateral",
+      "field": "Engineering",
+      "duration": 3,
+      "annualFees": [
+        288400,
+        297052,
+        305964
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Direct 2nd year entry",
+        "For diploma holders",
+        "Blockchain focused curriculum",
+        "Cryptocurrency & DeFi",
+        "Smart contracts",
+        "Industry certifications"
+      ]
+    },
+    {
+      "id": "btech-cse-arvr-lateral",
+      "name": "B.Tech Lateral Entry - CSE (Augmented & Virtual Reality)",
+      "specialization": "Augmented & Virtual Reality",
+      "degree": "B.Tech Lateral",
+      "field": "Engineering",
+      "duration": 3,
+      "annualFees": [
+        288400,
+        297052,
+        305964
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Direct 2nd year entry",
+        "For diploma holders",
+        "AR/VR development",
+        "3D modeling & animation",
+        "Immersive technology labs",
+        "Gaming industry focus"
+      ]
+    },
+    {
+      "id": "btech-cse-cyber-lateral",
+      "name": "B.Tech Lateral Entry - CSE (Cyber Security & Forensics) (in association with EC-Council)",
+      "specialization": "Cyber Security & Forensics",
+      "degree": "B.Tech Lateral",
+      "field": "Engineering",
+      "duration": 3,
+      "annualFees": [
+        288400,
+        297052,
+        305964
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Direct 2nd year entry",
+        "For diploma holders",
+        "EC-Council partnership",
+        "Ethical hacking",
+        "Digital forensics",
+        "CEH preparation"
+      ]
+    },
+    {
+      "id": "btech-cse-iot-lateral",
+      "name": "B.Tech Lateral Entry - CSE (AI for IoT Applications) (in association with AERIS)",
+      "specialization": "AI for IoT Applications",
+      "degree": "B.Tech Lateral",
+      "field": "Engineering",
+      "duration": 3,
+      "annualFees": [
+        288400,
+        297052,
+        305964
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Direct 2nd year entry",
+        "For diploma holders",
+        "AERIS partnership",
+        "Smart devices programming",
+        "IoT lab with sensors",
+        "Industry 4.0 ready"
+      ]
+    },
+    {
+      "id": "btech-cse-cloud-lateral",
+      "name": "B.Tech Lateral Entry - CSE (Cloud Technology & Virtualization) (in association with AWS)",
+      "specialization": "Cloud Technology & Virtualization",
+      "degree": "B.Tech Lateral",
+      "field": "Engineering",
+      "duration": 3,
+      "annualFees": [
+        288400,
+        297052,
+        305964
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Direct 2nd year entry",
+        "For diploma holders",
+        "AWS partnership",
+        "Cloud architecture",
+        "DevOps practices",
+        "Industry certifications"
+      ]
+    },
+    {
+      "id": "btech-cse-ds-lateral",
+      "name": "B.Tech Lateral Entry - CSE (Data Science & Analytics) (in association with Oracle)",
+      "specialization": "Data Science & Analytics",
+      "degree": "B.Tech Lateral",
+      "field": "Engineering",
+      "duration": 3,
+      "annualFees": [
+        309000,
+        318270,
+        327818
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Direct 2nd year entry",
+        "For diploma holders",
+        "Oracle partnership",
+        "Big Data analytics",
+        "Python & R expertise",
+        "Industry projects"
+      ]
+    },
+    {
+      "id": "btech-cse-fullstack-lateral",
+      "name": "B.Tech Lateral Entry - CSE (Full Stack Development) (in association with Xebia Academic Alliance)",
+      "specialization": "Full Stack Development",
+      "degree": "B.Tech Lateral",
+      "field": "Engineering",
+      "duration": 3,
+      "annualFees": [
+        309000,
+        318270,
+        327818
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Direct 2nd year entry",
+        "For diploma holders",
+        "Xebia partnership",
+        "Frontend & backend development",
+        "Modern web technologies",
+        "Industry-ready skills"
+      ]
+    },
+    {
+      "id": "btech-ece-iot-lateral",
+      "name": "B.Tech Lateral Entry - Electronics & Computer Engg. (IoT)",
+      "specialization": "IoT Applications",
+      "degree": "B.Tech Lateral",
+      "field": "Engineering",
+      "duration": 3,
+      "annualFees": [
+        190962,
+        196691,
+        202592
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Direct 2nd year entry",
+        "For diploma holders",
+        "IoT applications",
+        "Embedded systems",
+        "Sensor networks",
+        "Smart devices"
+      ]
+    },
+    {
+      "id": "btech-ece-aiml-lateral",
+      "name": "B.Tech Lateral Entry - Electronics & Computer Engg. (AI and ML)",
+      "specialization": "AI and ML",
+      "degree": "B.Tech Lateral",
+      "field": "Engineering",
+      "duration": 3,
+      "annualFees": [
+        190962,
+        196691,
+        202592
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Direct 2nd year entry",
+        "For diploma holders",
+        "AI & ML integration",
+        "Embedded AI systems",
+        "Machine learning hardware",
+        "Intelligent systems"
+      ]
+    },
+    {
+      "id": "btech-biotech-stem-lateral",
+      "name": "B.Tech Lateral Entry - Biotechnology (Stem Cell & Tissue Engg.)",
+      "specialization": "Stem Cell & Tissue Engineering",
+      "degree": "B.Tech Lateral",
+      "field": "Engineering",
+      "duration": 3,
+      "annualFees": [
+        212180,
+        218545,
+        225102
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Direct 2nd year entry",
+        "For diploma holders",
+        "Stem cell research",
+        "Tissue engineering",
+        "Regenerative medicine",
+        "Biomedical applications"
+      ]
+    },
+    {
+      "id": "btech-biotech-genetic-lateral",
+      "name": "B.Tech Lateral Entry - Biotechnology (Genetic Engineering)",
+      "specialization": "Genetic Engineering",
+      "degree": "B.Tech Lateral",
+      "field": "Engineering",
+      "duration": 3,
+      "annualFees": [
+        212180,
+        218545,
+        225102
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Direct 2nd year entry",
+        "For diploma holders",
+        "Genetic engineering",
+        "Gene therapy",
+        "CRISPR technology",
+        "Biotechnology research"
+      ]
+    },
+    {
+      "id": "ba-film-tv-hons",
+      "name": "B.A. (Hons./Research) - Film Television & OTT Production",
+      "specialization": "Film Television & OTT Production (Hons./Research)",
+      "degree": "BA",
+      "field": "Media & Communication",
+      "duration": 4,
+      "annualFees": [
+        222000,
+        228660,
+        235520,
+        242585
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced film production",
+        "Industry exposure"
+      ]
+    },
+    {
+      "id": "bjmc-hons",
+      "name": "B.A. (Hons./Research) - Journalism & Mass Communication",
+      "specialization": "Journalism & Mass Communication (Hons./Research)",
+      "degree": "BJMC",
+      "field": "Media & Communication",
+      "duration": 4,
+      "annualFees": [
+        185000,
+        190550,
+        196267,
+        202154
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced journalism",
+        "Media industry preparation"
+      ]
+    },
+    {
+      "id": "bsc-animation-vfx-hons",
+      "name": "B.Sc. (Hons./Research) - Animation, VFX and Gaming Design (Specialisation in Animation & VFX/Specialisation in Gaming Design)",
+      "specialization": "Animation, VFX and Gaming Design (Hons./Research)",
+      "degree": "B.Sc.",
+      "field": "Media & Communication",
+      "duration": 4,
+      "annualFees": [
+        185000,
+        190550,
+        196267,
+        202154
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced animation techniques",
+        "Industry projects"
+      ]
+    },
+    {
+      "id": "ba-visual-arts",
+      "name": "Bachelor of Visual Arts (Applied Arts)",
+      "specialization": "Visual Arts (Applied Arts)",
+      "degree": "BVA",
+      "field": "Design & Arts",
+      "duration": 4,
+      "annualFees": [
+        110000,
+        113300,
+        116699,
+        120200
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Applied arts",
+        "Visual design",
+        "Creative expression",
+        "Art studios"
+      ]
+    },
+    {
+      "id": "bsc-bmlt",
+      "name": "B.Sc. in Medical Laboratory Technology (BMLT)",
+      "specialization": "Medical Laboratory Technology",
+      "degree": "B.Sc.",
+      "field": "Health Sciences",
+      "duration": 3,
+      "annualFees": [
+        170000,
+        175100,
+        180353
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Medical laboratory technology",
+        "Clinical diagnostics",
+        "Laboratory management",
+        "Hospital training"
+      ]
+    },
+    {
+      "id": "bsc-cvt",
+      "name": "B.Sc. - Cardiovascular Technology",
+      "specialization": "Cardiovascular Technology",
+      "degree": "B.Sc.",
+      "field": "Health Sciences",
+      "duration": 4,
+      "annualFees": [
+        185000,
+        190550,
+        196267,
+        202154
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Cardiovascular technology",
+        "Cardiac diagnostics",
+        "Hospital training",
+        "Cardiac care"
+      ]
+    },
+    {
+      "id": "bsc-nutrition",
+      "name": "Bachelor of Science (Nutrition & Dietetics)",
+      "specialization": "Nutrition & Dietetics",
+      "degree": "B.Sc.",
+      "field": "Health Sciences",
+      "duration": 3,
+      "annualFees": [
+        165000,
+        169950,
+        175049
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Nutrition & dietetics",
+        "Clinical nutrition",
+        "Food science",
+        "Health promotion"
+      ]
+    },
+    {
+      "id": "mpt",
+      "name": "Master of Physiotherapy (MPT) - Orthopaedics/Neurology/Cardiopulmonary/Sports",
+      "specialization": "Physiotherapy (Multiple Specializations)",
+      "degree": "MPT",
+      "field": "Health Sciences",
+      "duration": 2,
+      "annualFees": [
+        230000,
+        236900
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Advanced physiotherapy",
+        "Specialization options",
+        "Clinical research",
+        "Professional practice"
+      ]
+    },
+    {
+      "id": "msc-clinical-research",
+      "name": "M.Sc. (Clinical Research)",
+      "specialization": "Clinical Research",
+      "degree": "M.Sc.",
+      "field": "Health Sciences",
+      "duration": 2,
+      "annualFees": [
+        153000,
+        157590
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Clinical research",
+        "Research methodology",
+        "Pharmaceutical research",
+        "Industry opportunities"
+      ]
+    },
+    {
+      "id": "msc-nutrition",
+      "name": "M.Sc. (Nutrition & Dietetics) - Clinical Nutrition/Food Science and Nutrition/Public Health Nutrition",
+      "specialization": "Nutrition & Dietetics (Multiple Specializations)",
+      "degree": "M.Sc.",
+      "field": "Health Sciences",
+      "duration": 2,
+      "annualFees": [
+        164000,
+        168920
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category1",
+      "highlights": [
+        "Advanced nutrition",
+        "Clinical nutrition",
+        "Food science",
+        "Research focus"
+      ]
+    },
+    {
+      "id": "msc-nursing",
+      "name": "M.Sc. (Nursing) - Community Health/Obstetrics & Gynecology/Child Health/Medical Surgical/Psychiatric Nursing",
+      "specialization": "Nursing (Multiple Specializations)",
+      "degree": "M.Sc.",
+      "field": "Health Sciences",
+      "duration": 2,
+      "annualFees": [
+        202873,
+        208959
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category2",
+      "highlights": [
+        "Advanced nursing",
+        "Specialization options",
+        "Clinical research",
+        "Leadership development"
+      ]
+    },
+    {
+      "id": "pharmd",
+      "name": "Pharm D",
+      "specialization": "Pharmacy",
+      "degree": "Pharm.D",
+      "field": "Pharmacy",
+      "duration": 6,
+      "annualFees": [
+        370800,
+        381924,
+        393382,
+        405183,
+        417339,
+        429859
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category4",
+      "highlights": [
+        "Doctor of Pharmacy",
+        "Clinical pharmacy",
+        "Hospital training",
+        "Pharmaceutical care"
+      ]
+    },
+    {
+      "id": "mpharm",
+      "name": "M Pharm",
+      "specialization": "Pharmacy (Multiple Specializations)",
+      "degree": "M.Pharm",
+      "field": "Pharmacy",
+      "duration": 2,
+      "annualFees": [
+        180000,
+        185400
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category4",
+      "highlights": [
+        "Advanced pharmacy",
+        "Research focus",
+        "Specialization options",
+        "Industry opportunities"
+      ]
+    },
+    {
+      "id": "bsc-environmental-hons",
+      "name": "B.Sc. (Hons./Research) - Environmental Science",
+      "specialization": "Environmental Science (Hons./Research)",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 4,
+      "annualFees": [
+        140000,
+        144200,
+        148526,
+        152982
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced environmental science",
+        "Conservation focus"
+      ]
+    },
+    {
+      "id": "bsc-computational-math-hons",
+      "name": "B.Sc. (Hons/Research) - Computational Mathematics and Statistics",
+      "specialization": "Computational Mathematics and Statistics (Hons./Research)",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 4,
+      "annualFees": [
+        110000,
+        113300,
+        116699,
+        120200
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced mathematics",
+        "Statistical analysis"
+      ]
+    },
+    {
+      "id": "bsc-data-science",
+      "name": "B.Sc. - Data Science and Analytics",
+      "specialization": "Data Science and Analytics",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 3,
+      "annualFees": [
+        120000,
+        123600,
+        127308
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "Data science",
+        "Analytics",
+        "Machine learning",
+        "Big data"
+      ]
+    },
+    {
+      "id": "bsc-data-science-hons",
+      "name": "B.Sc. (Hons/Research) - Data Science and Analytics",
+      "specialization": "Data Science and Analytics (Hons./Research)",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 4,
+      "annualFees": [
+        120000,
+        123600,
+        127308,
+        131127
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced data science",
+        "Analytics expertise"
+      ]
+    },
+    {
+      "id": "bsc-physics-computational-hons",
+      "name": "B.Sc. (Hons./Research) - Physics (Computational Physics / Renewable Energy)",
+      "specialization": "Physics (Computational Physics / Renewable Energy) (Hons./Research)",
+      "degree": "B.Sc.",
+      "field": "Basic Sciences",
+      "duration": 4,
+      "annualFees": [
+        110000,
+        113300,
+        116699,
+        120200
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "4-year honors program",
+        "Research component",
+        "Advanced physics",
+        "Energy research"
+      ]
+    },
+    {
+      "id": "msc-data-science",
+      "name": "M.Sc. - Data Science & Analytics",
+      "specialization": "Data Science & Analytics",
+      "degree": "M.Sc.",
+      "field": "Basic Sciences",
+      "duration": 2,
+      "annualFees": [
+        130000,
+        133900
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "Data science",
+        "Analytics",
+        "Machine learning",
+        "Research projects"
+      ]
+    },
+    {
+      "id": "msc-medical",
+      "name": "M.Sc. - Medical Anatomy/Medical Bio Chemistry/Medical Microbiology/Medical Pharmacology/Medical Physiology",
+      "specialization": "Medical Sciences (Multiple Specializations)",
+      "degree": "M.Sc.",
+      "field": "Medical Sciences",
+      "duration": 3,
+      "annualFees": [
+        140000,
+        144200,
+        148526
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category4",
+      "highlights": [
+        "Medical sciences",
+        "Anatomy & physiology",
+        "Medical research",
+        "Clinical applications"
+      ]
+    },
+    {
+      "id": "ma-political-science",
+      "name": "Master of Arts - Political Science",
+      "specialization": "Political Science",
+      "degree": "MA",
+      "field": "Arts & Humanities",
+      "duration": 2,
+      "annualFees": [
+        100000,
+        103000
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "Political science",
+        "Public policy",
+        "International relations",
+        "Research focus"
+      ]
+    },
+    {
+      "id": "ma-international-relations",
+      "name": "Master of Arts - Political Science spc. in International Relations",
+      "specialization": "Political Science (International Relations)",
+      "degree": "MA",
+      "field": "Arts & Humanities",
+      "duration": 2,
+      "annualFees": [
+        100000,
+        103000
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "International relations",
+        "Diplomacy",
+        "Global politics",
+        "Foreign policy"
+      ]
+    },
+    {
+      "id": "ma-clinical-psychology",
+      "name": "Master of Arts - Clinical Psychology",
+      "specialization": "Clinical Psychology",
+      "degree": "MA",
+      "field": "Arts & Humanities",
+      "duration": 2,
+      "annualFees": [
+        100000,
+        103000
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "Clinical psychology",
+        "Mental health",
+        "Counseling",
+        "Therapeutic techniques"
+      ]
+    },
+    {
+      "id": "ma-applied-psychology",
+      "name": "Master of Arts - Applied Psychology",
+      "specialization": "Applied Psychology",
+      "degree": "MA",
+      "field": "Arts & Humanities",
+      "duration": 2,
+      "annualFees": [
+        100000,
+        103000
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "Applied psychology",
+        "Practical applications",
+        "Behavioral science",
+        "Research methods"
+      ]
+    },
+    {
+      "id": "ma-modern-history",
+      "name": "Master of Arts - Modern History",
+      "specialization": "Modern History",
+      "degree": "MA",
+      "field": "Arts & Humanities",
+      "duration": 2,
+      "annualFees": [
+        100000,
+        103000
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "Modern history",
+        "Historical research",
+        "Contemporary history",
+        "Research methodology"
+      ]
+    },
+    {
+      "id": "ma-sociology",
+      "name": "Master of Arts - Sociology",
+      "specialization": "Sociology",
+      "degree": "MA",
+      "field": "Arts & Humanities",
+      "duration": 2,
+      "annualFees": [
+        100000,
+        103000
+      ],
+      "scholarshipEligible": true,
+      "scholarshipCategory": "category3",
+      "highlights": [
+        "Advanced sociology",
+        "Social theory",
+        "Research methods",
+        "Social policy analysis"
+      ]
+    }
+  ]
+}
