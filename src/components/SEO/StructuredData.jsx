@@ -327,46 +327,71 @@ export function generateWBESchema() {
 /**
  * Generate Article schema for blog/guide pages
  */
-export function generateArticleSchema({ title, description, author, datePublished, dateModified, url, image }) {
+export function generateArticleSchema({ title, description, author, datePublished, dateModified, url, image, keywords, articleSection }) {
   const siteUrl = 'https://www.nextgenlearning.dev';
   const fullUrl = url ? (url.startsWith('http') ? url : `${siteUrl}${url}`) : siteUrl;
   const fullImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : `${siteUrl}/og-image.jpg`;
 
-  return {
+  const schema = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": title,
     "description": description,
     "author": {
       "@type": "Organization",
-      "name": author || "NextGen Learning"
+      "name": author || "NextGen Learning",
+      "url": siteUrl
     },
     "publisher": {
       "@type": "Organization",
       "name": "NextGen Learning",
+      "alternateName": "NextGen Learning - Tech & IT Courses",
+      "url": siteUrl,
       "logo": {
         "@type": "ImageObject",
-        "url": `${siteUrl}/og-image.jpg`
+        "url": `${siteUrl}/og-image.jpg`,
+        "width": 1200,
+        "height": 630
       }
     },
     "datePublished": datePublished || new Date().toISOString(),
     "dateModified": dateModified || datePublished || new Date().toISOString(),
-    "image": fullImage,
+    "image": {
+      "@type": "ImageObject",
+      "url": fullImage,
+      "width": 1200,
+      "height": 630
+    },
     "url": fullUrl,
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": fullUrl
     },
-    "inLanguage": "en-BD",
+    "inLanguage": "en",
     "audience": {
       "@type": "EducationalAudience",
-      "audienceType": "Students from Bangladesh",
-      "geographicArea": {
-        "@type": "Country",
-        "name": "Bangladesh"
-      }
-    }
+      "audienceType": "Students",
+      "educationalRole": "student"
+    },
+    "about": {
+      "@type": "Thing",
+      "name": "Tech Education",
+      "description": "Technology and IT education guides"
+    },
+    "keywords": keywords ? (Array.isArray(keywords) ? keywords.join(', ') : keywords) : "tech education, IT courses, study in India",
+    "articleSection": articleSection || "Education",
+    "wordCount": description ? description.split(' ').length * 50 : 1000, // Approximate
+    "timeRequired": "PT15M" // Approximate reading time
   };
+
+  // Remove undefined fields
+  Object.keys(schema).forEach(key => {
+    if (schema[key] === undefined) {
+      delete schema[key];
+    }
+  });
+
+  return schema;
 }
 
 /**

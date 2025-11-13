@@ -154,6 +154,59 @@ urls.push({
   lastmod: TODAY
 });
 
+// Guide article pages
+const guideArticles = [
+  {
+    slug: 'complete-guide-study-india-bangladesh',
+    date: '2025-01-15',
+    priority: '0.8'
+  },
+  {
+    slug: 'how-to-apply-indian-universities',
+    date: '2025-01-14',
+    priority: '0.8'
+  },
+  {
+    slug: 'scholarships-bangladeshi-students-india',
+    date: '2025-01-13',
+    priority: '0.8'
+  },
+  {
+    slug: 'visa-process-india-bangladesh',
+    date: '2025-01-12',
+    priority: '0.8'
+  },
+  {
+    slug: 'top-10-btech-programs-india',
+    date: '2025-01-11',
+    priority: '0.8'
+  },
+  {
+    slug: 'mba-india-bangladeshi-students',
+    date: '2025-01-10',
+    priority: '0.8'
+  },
+  {
+    slug: 'cost-living-india-bangladeshi-students',
+    date: '2025-01-09',
+    priority: '0.7'
+  },
+  {
+    slug: 'naac-a-plus-universities-india',
+    date: '2025-01-08',
+    priority: '0.7'
+  }
+];
+
+guideArticles.forEach(guide => {
+  urls.push({
+    loc: `/guides/${guide.slug}`,
+    changefreq: 'monthly',
+    priority: guide.priority,
+    lastmod: guide.date
+  });
+});
+
 urls.push({
   loc: '/faq',
   changefreq: 'weekly',
@@ -247,7 +300,8 @@ fs.writeFileSync(sitemapPath, xml, 'utf8');
 
 console.log(`✅ Sitemap generated successfully!`);
 console.log(`   Total URLs: ${urls.length}`);
-console.log(`   Static pages: 9`);
+console.log(`   Static pages: 12`);
+console.log(`   Guide articles: ${guideArticles.length}`);
 console.log(`   University pages: ${universities.length * 2}`);
 console.log(`   Course group pages: ${courseGroups.length}`);
 console.log(`   Individual course pages: ${allPrograms.length}`);
