@@ -10,10 +10,10 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center min-w-0 flex-shrink">
-            <span className="text-lg sm:text-xl font-bold text-blue-600 truncate">
+            <span className="text-base sm:text-lg md:text-xl font-bold text-blue-600 truncate">
               NextGen Learning
             </span>
-            <span className="ml-1 sm:ml-2 text-xs text-gray-600 hidden xs:inline">Tech & IT Courses</span>
+            <span className="ml-1 sm:ml-2 text-xs text-gray-600 hidden sm:inline">Tech & IT Courses</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -57,55 +57,55 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <nav className="md:hidden py-4 space-y-2">
+          <nav className="md:hidden py-4 space-y-1 border-t border-gray-200 mt-2">
             <Link
               to="/courses"
-              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+              className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors min-h-[44px] flex items-center"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Courses
+              📚 Courses
             </Link>
             <Link
               to="/universities"
-              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+              className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors min-h-[44px] flex items-center"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Universities
+              🏛️ Universities
             </Link>
             <Link
               to="/scholarships"
-              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+              className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors min-h-[44px] flex items-center"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Scholarships
+              💰 Scholarships
             </Link>
             <Link
               to="/guides"
-              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+              className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors min-h-[44px] flex items-center"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Guides
+              📖 Guides
             </Link>
             <Link
               to="/faq"
-              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+              className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors min-h-[44px] flex items-center"
               onClick={() => setMobileMenuOpen(false)}
             >
-              FAQ
+              ❓ FAQ
             </Link>
             <Link
               to="/compare"
-              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+              className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors min-h-[44px] flex items-center"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Compare
+              ⚖️ Compare
             </Link>
             <Link
               to="/apply"
-              className="block px-4 py-3 bg-blue-600 text-white rounded text-center font-semibold min-h-[44px] flex items-center justify-center"
+              className="block px-4 py-3 bg-blue-600 text-white rounded-lg text-center font-semibold min-h-[44px] flex items-center justify-center mt-2 shadow-md"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Apply Now
+              ✨ Apply Now
             </Link>
           </nav>
         )}

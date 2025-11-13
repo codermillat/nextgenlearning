@@ -172,8 +172,8 @@ export default function DetailedFeeBreakdown({ program, university }) {
   };
 
   return (
-    <div className="detailed-fee-breakdown bg-white border border-gray-200 rounded-lg p-6 mb-6">
-      <h3 className="text-2xl font-bold mb-6">Detailed Fee Structure & Scholarships</h3>
+    <div className="detailed-fee-breakdown bg-white border border-gray-200 rounded-lg p-4 sm:p-6 mb-6">
+      <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Detailed Fee Structure & Scholarships</h3>
 
       {/* All Available Scholarships */}
       <div className="mb-8">
@@ -289,18 +289,101 @@ export default function DetailedFeeBreakdown({ program, university }) {
                     </p>
                   </div>
                   
-                  <div className="w-full overflow-hidden">
+                  {/* Mobile Card View */}
+                  <div className="block md:hidden space-y-4 mb-4">
+                    {annualFees.map((annualFee, yearIndex) => {
+                      const scholarshipAmount = annualFee * (tier.discount / 100);
+                      const afterScholarship = annualFee - scholarshipAmount;
+                      const isFirstYear = yearIndex === 0;
+                      const recurringFeesThisYear = isFirstYear ? 0 : totalRecurringFees;
+                      const oneTimeFeesThisYear = isFirstYear ? oneTimeFees : 0;
+                      const yearTotal = afterScholarship + oneTimeFeesThisYear + recurringFeesThisYear;
+                      
+                      return (
+                        <div key={yearIndex} className="bg-white border border-gray-200 rounded-lg p-4">
+                          <div className="font-bold text-lg mb-3">
+                            Year {yearIndex + 1}
+                            {isFirstYear && <span className="text-xs text-gray-500 block font-normal">(First Year)</span>}
+                            {!isFirstYear && <span className="text-xs text-gray-500 block font-normal">(From 2nd Year)</span>}
+                          </div>
+                          <div className="space-y-2 text-sm">
+                            <div className="flex justify-between">
+                              <span className="text-gray-600">Base Tuition:</span>
+                              <span className="font-semibold">₹{annualFee.toLocaleString()}</span>
+                            </div>
+                            <div className="flex justify-between text-green-600">
+                              <span>Scholarship ({tier.discount}%):</span>
+                              <span className="font-semibold">-₹{scholarshipAmount.toLocaleString()}</span>
+                            </div>
+                            <div className="flex justify-between border-t pt-2">
+                              <span className="text-gray-600">Tuition After Scholarship:</span>
+                              <span className="font-semibold">₹{afterScholarship.toLocaleString()}</span>
+                            </div>
+                            {oneTimeFeesThisYear > 0 && (
+                              <div className="flex justify-between">
+                                <span className="text-gray-600">One-time Fees:</span>
+                                <span className="font-semibold">₹{oneTimeFeesThisYear.toLocaleString()}</span>
+                              </div>
+                            )}
+                            {recurringFeesThisYear > 0 && (
+                              <div className="flex justify-between">
+                                <span className="text-gray-600">Recurring Fees:</span>
+                                <span className="font-semibold">₹{recurringFeesThisYear.toLocaleString()}</span>
+                              </div>
+                            )}
+                            <div className="flex justify-between border-t-2 pt-2 font-bold text-base">
+                              <span>Year Total:</span>
+                              <span className="text-blue-600">₹{yearTotal.toLocaleString()}</span>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                    {/* Total Summary Card */}
+                    <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4">
+                      <div className="font-bold text-lg mb-3">Total ({program.duration} years)</div>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span>Base Tuition:</span>
+                          <span className="font-semibold">₹{tierFees.baseTotal.toLocaleString()}</span>
+                        </div>
+                        <div className="flex justify-between text-green-600">
+                          <span>Total Scholarship:</span>
+                          <span className="font-semibold">-₹{tierFees.savings.toLocaleString()}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Tuition After Scholarship:</span>
+                          <span className="font-semibold">₹{tierFees.totalAfterScholarship.toLocaleString()}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>One-time Fees:</span>
+                          <span className="font-semibold">₹{oneTimeFees.toLocaleString()}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Recurring Fees ({annualFees.length - 1} years):</span>
+                          <span className="font-semibold">₹{(totalRecurringFees * (annualFees.length - 1)).toLocaleString()}</span>
+                        </div>
+                        <div className="flex justify-between border-t-2 pt-2 font-bold text-lg">
+                          <span>Grand Total:</span>
+                          <span className="text-blue-600">₹{(tierFees.totalAfterScholarship + oneTimeFees + (totalRecurringFees * (annualFees.length - 1))).toLocaleString()}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Desktop Table View */}
+                  <div className="hidden md:block w-full overflow-x-auto">
                     <div className="w-full align-middle sm:rounded-lg">
-                      <table className="w-full bg-white sm:rounded-lg border border-gray-200 table-auto">
+                      <table className="w-full bg-white sm:rounded-lg border border-gray-200 table-auto min-w-[800px]">
                       <thead className="bg-gray-100">
                         <tr>
-                          <th className="px-4 py-3 text-left text-sm font-semibold">Year</th>
-                          <th className="px-4 py-3 text-right text-sm font-semibold">Base Tuition</th>
-                          <th className="px-4 py-3 text-right text-sm font-semibold">Scholarship ({tier.discount}%)</th>
-                          <th className="px-4 py-3 text-right text-sm font-semibold">Tuition After Scholarship</th>
-                          <th className="px-4 py-3 text-right text-sm font-semibold">One-time Fees</th>
-                          <th className="px-4 py-3 text-right text-sm font-semibold">Recurring Fees</th>
-                          <th className="px-4 py-3 text-right text-sm font-semibold font-bold">Year Total</th>
+                          <th className="px-3 sm:px-4 py-3 text-left text-xs sm:text-sm font-semibold">Year</th>
+                          <th className="px-3 sm:px-4 py-3 text-right text-xs sm:text-sm font-semibold">Base Tuition</th>
+                          <th className="px-3 sm:px-4 py-3 text-right text-xs sm:text-sm font-semibold">Scholarship ({tier.discount}%)</th>
+                          <th className="px-3 sm:px-4 py-3 text-right text-xs sm:text-sm font-semibold">Tuition After Scholarship</th>
+                          <th className="px-3 sm:px-4 py-3 text-right text-xs sm:text-sm font-semibold">One-time Fees</th>
+                          <th className="px-3 sm:px-4 py-3 text-right text-xs sm:text-sm font-semibold">Recurring Fees</th>
+                          <th className="px-3 sm:px-4 py-3 text-right text-xs sm:text-sm font-semibold font-bold">Year Total</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-gray-200">
@@ -314,31 +397,31 @@ export default function DetailedFeeBreakdown({ program, university }) {
                           
                           return (
                             <tr key={yearIndex} className="hover:bg-gray-50">
-                              <td className="px-4 py-3 font-medium">
+                              <td className="px-3 sm:px-4 py-3 font-medium text-sm">
                                 Year {yearIndex + 1}
                                 {isFirstYear && <span className="text-xs text-gray-500 block">(First Year)</span>}
                                 {!isFirstYear && <span className="text-xs text-gray-500 block">(From 2nd Year)</span>}
                               </td>
-                              <td className="px-4 py-3 text-right">₹{annualFee.toLocaleString()}</td>
-                              <td className="px-4 py-3 text-right text-green-600 font-semibold">
+                              <td className="px-3 sm:px-4 py-3 text-right text-sm">₹{annualFee.toLocaleString()}</td>
+                              <td className="px-3 sm:px-4 py-3 text-right text-green-600 font-semibold text-sm">
                                 -₹{scholarshipAmount.toLocaleString()}
                               </td>
-                              <td className="px-4 py-3 text-right">₹{afterScholarship.toLocaleString()}</td>
-                              <td className="px-4 py-3 text-right">
+                              <td className="px-3 sm:px-4 py-3 text-right text-sm">₹{afterScholarship.toLocaleString()}</td>
+                              <td className="px-3 sm:px-4 py-3 text-right text-sm">
                                 {oneTimeFeesThisYear > 0 ? (
                                   <span className="text-gray-700">₹{oneTimeFeesThisYear.toLocaleString()}</span>
                                 ) : (
                                   <span className="text-gray-400">-</span>
                                 )}
                               </td>
-                              <td className="px-4 py-3 text-right">
+                              <td className="px-3 sm:px-4 py-3 text-right text-sm">
                                 {recurringFeesThisYear > 0 ? (
                                   <span className="text-gray-700">₹{recurringFeesThisYear.toLocaleString()}</span>
                                 ) : (
                                   <span className="text-gray-400">-</span>
                                 )}
                               </td>
-                              <td className="px-4 py-3 text-right font-bold text-blue-600">
+                              <td className="px-3 sm:px-4 py-3 text-right font-bold text-blue-600 text-sm">
                                 ₹{yearTotal.toLocaleString()}
                               </td>
                             </tr>
@@ -347,18 +430,18 @@ export default function DetailedFeeBreakdown({ program, university }) {
                       </tbody>
                       <tfoot className="bg-gray-50 font-bold">
                         <tr>
-                          <td className="px-4 py-3">Total ({program.duration} years)</td>
-                          <td className="px-4 py-3 text-right">₹{tierFees.baseTotal.toLocaleString()}</td>
-                          <td className="px-4 py-3 text-right text-green-600">-₹{tierFees.savings.toLocaleString()}</td>
-                          <td className="px-4 py-3 text-right">₹{tierFees.totalAfterScholarship.toLocaleString()}</td>
-                          <td className="px-4 py-3 text-right">₹{oneTimeFees.toLocaleString()}</td>
-                          <td className="px-4 py-3 text-right">
+                          <td className="px-3 sm:px-4 py-3 text-sm">Total ({program.duration} years)</td>
+                          <td className="px-3 sm:px-4 py-3 text-right text-sm">₹{tierFees.baseTotal.toLocaleString()}</td>
+                          <td className="px-3 sm:px-4 py-3 text-right text-green-600 text-sm">-₹{tierFees.savings.toLocaleString()}</td>
+                          <td className="px-3 sm:px-4 py-3 text-right text-sm">₹{tierFees.totalAfterScholarship.toLocaleString()}</td>
+                          <td className="px-3 sm:px-4 py-3 text-right text-sm">₹{oneTimeFees.toLocaleString()}</td>
+                          <td className="px-3 sm:px-4 py-3 text-right text-sm">
                             ₹{(totalRecurringFees * (annualFees.length - 1)).toLocaleString()}
                             <span className="text-xs font-normal text-gray-600 block">
                               ({annualFees.length - 1} years × ₹{totalRecurringFees.toLocaleString()})
                             </span>
                           </td>
-                          <td className="px-4 py-3 text-right text-blue-600 text-lg">
+                          <td className="px-3 sm:px-4 py-3 text-right text-blue-600 text-base sm:text-lg">
                             ₹{(tierFees.totalAfterScholarship + oneTimeFees + (totalRecurringFees * (annualFees.length - 1))).toLocaleString()}
                           </td>
                         </tr>
@@ -452,18 +535,54 @@ export default function DetailedFeeBreakdown({ program, university }) {
 
       {/* Summary for All Scholarship Tiers */}
       <div className="mb-6">
-        <h4 className="text-xl font-bold mb-4">Fee Comparison Across All Scholarship Tiers</h4>
-        <div className="w-full overflow-hidden">
+        <h4 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Fee Comparison Across All Scholarship Tiers</h4>
+        
+        {/* Mobile Card View */}
+        <div className="block md:hidden space-y-4">
+          {scholarshipTiers.map((tier, index) => {
+            const tierFees = calculateFeesForTier(tier);
+            return (
+              <div key={index} className="bg-white border border-gray-200 rounded-lg p-4">
+                <div className="font-bold text-lg mb-3">{tier.name}</div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Eligibility:</span>
+                    <span className="font-semibold">GPA {tier.gpaMin} - {tier.gpaMax}</span>
+                  </div>
+                  <div className="flex justify-between text-green-600">
+                    <span>Discount:</span>
+                    <span className="font-semibold">{tier.discount}%</span>
+                  </div>
+                  <div className="flex justify-between border-t pt-2">
+                    <span className="text-gray-600">Tuition Fees:</span>
+                    <span className="font-semibold">₹{tierFees.totalAfterScholarship.toLocaleString()}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Total Cost:</span>
+                    <span className="font-semibold">₹{tierFees.grandTotal.toLocaleString()}</span>
+                  </div>
+                  <div className="flex justify-between border-t-2 pt-2 font-bold text-base">
+                    <span>Savings:</span>
+                    <span className="text-green-600">₹{tierFees.savings.toLocaleString()}</span>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Desktop Table View */}
+        <div className="hidden md:block w-full overflow-x-auto">
           <div className="w-full align-middle sm:rounded-lg">
-            <table className="w-full bg-white border border-gray-200 sm:rounded-lg table-auto">
+            <table className="w-full bg-white border border-gray-200 sm:rounded-lg table-auto min-w-[700px]">
             <thead className="bg-gray-100">
               <tr>
-                <th className="px-4 py-3 text-left text-sm font-semibold">Scholarship Tier</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">Eligibility</th>
-                <th className="px-4 py-3 text-right text-sm font-semibold">Discount</th>
-                <th className="px-4 py-3 text-right text-sm font-semibold">Tuition Fees</th>
-                <th className="px-4 py-3 text-right text-sm font-semibold">Total Cost</th>
-                <th className="px-4 py-3 text-right text-sm font-semibold">Savings</th>
+                <th className="px-3 sm:px-4 py-3 text-left text-xs sm:text-sm font-semibold">Scholarship Tier</th>
+                <th className="px-3 sm:px-4 py-3 text-left text-xs sm:text-sm font-semibold">Eligibility</th>
+                <th className="px-3 sm:px-4 py-3 text-right text-xs sm:text-sm font-semibold">Discount</th>
+                <th className="px-3 sm:px-4 py-3 text-right text-xs sm:text-sm font-semibold">Tuition Fees</th>
+                <th className="px-3 sm:px-4 py-3 text-right text-xs sm:text-sm font-semibold">Total Cost</th>
+                <th className="px-3 sm:px-4 py-3 text-right text-xs sm:text-sm font-semibold">Savings</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
@@ -471,16 +590,16 @@ export default function DetailedFeeBreakdown({ program, university }) {
                 const tierFees = calculateFeesForTier(tier);
                 return (
                   <tr key={index} className="hover:bg-gray-50">
-                    <td className="px-4 py-3 font-medium">{tier.name}</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">
+                    <td className="px-3 sm:px-4 py-3 font-medium text-sm">{tier.name}</td>
+                    <td className="px-3 sm:px-4 py-3 text-sm text-gray-600">
                       GPA {tier.gpaMin} - {tier.gpaMax}
                     </td>
-                    <td className="px-4 py-3 text-right">
+                    <td className="px-3 sm:px-4 py-3 text-right text-sm">
                       <span className="text-green-600 font-semibold">{tier.discount}%</span>
                     </td>
-                    <td className="px-4 py-3 text-right">₹{tierFees.totalAfterScholarship.toLocaleString()}</td>
-                    <td className="px-4 py-3 text-right font-semibold">₹{tierFees.grandTotal.toLocaleString()}</td>
-                    <td className="px-4 py-3 text-right text-green-600">₹{tierFees.savings.toLocaleString()}</td>
+                    <td className="px-3 sm:px-4 py-3 text-right text-sm">₹{tierFees.totalAfterScholarship.toLocaleString()}</td>
+                    <td className="px-3 sm:px-4 py-3 text-right font-semibold text-sm">₹{tierFees.grandTotal.toLocaleString()}</td>
+                    <td className="px-3 sm:px-4 py-3 text-right text-green-600 text-sm">₹{tierFees.savings.toLocaleString()}</td>
                   </tr>
                 );
               })}

@@ -66,21 +66,21 @@ export default function CourseFilters({
   const activeFiltersCount = Object.values(filters).filter(v => v !== '').length;
 
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6 mb-6">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-semibold">Filter Courses</h3>
-        <div className="flex items-center gap-3">
+    <div className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6 mb-4 sm:mb-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-3 sm:mb-4 gap-2">
+        <h3 className="text-base sm:text-lg font-semibold">Filter Courses</h3>
+        <div className="flex items-center gap-3 w-full sm:w-auto">
           {activeFiltersCount > 0 && (
             <button
               onClick={clearFilters}
-              className="text-sm text-blue-600 hover:text-blue-800 font-medium"
+              className="text-xs sm:text-sm text-blue-600 hover:text-blue-800 font-medium min-h-[44px] px-3 py-2"
             >
               Clear All ({activeFiltersCount})
             </button>
           )}
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-sm text-gray-600 hover:text-gray-800 md:hidden"
+            className="text-sm text-gray-600 hover:text-gray-800 md:hidden min-h-[44px] px-3 py-2"
             aria-label={isExpanded ? 'Collapse filters' : 'Expand filters'}
           >
             {isExpanded ? '▲' : '▼'}
@@ -88,7 +88,7 @@ export default function CourseFilters({
         </div>
       </div>
 
-      <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ${isExpanded ? 'grid' : 'hidden md:grid'}`}>
+      <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 ${isExpanded ? 'grid' : 'hidden md:grid'}`}>
         {/* Search */}
         <div className="lg:col-span-4">
           <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-2">
@@ -100,7 +100,7 @@ export default function CourseFilters({
             value={filters.search || ''}
             onChange={(e) => handleFilterChange('search', e.target.value)}
             placeholder="Search by course name..."
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base"
+            className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-h-[44px]"
           />
         </div>
 
@@ -113,7 +113,7 @@ export default function CourseFilters({
             id="degreeLevel"
             value={filters.degreeLevel || 'all'}
             onChange={(e) => handleFilterChange('degreeLevel', e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base"
+            className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-h-[44px]"
           >
             <option value="all">All Levels</option>
             {filterOptions.degreeLevels.map(level => (
@@ -131,7 +131,7 @@ export default function CourseFilters({
             id="university"
             value={filters.universityId || 'all'}
             onChange={(e) => handleFilterChange('university', e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base"
+            className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-h-[44px]"
           >
             <option value="all">All Universities</option>
             {filterOptions.universityIds.map(uniId => {
@@ -152,7 +152,7 @@ export default function CourseFilters({
             id="field"
             value={filters.field || 'all'}
             onChange={(e) => handleFilterChange('field', e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base"
+            className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-h-[44px]"
           >
             <option value="all">All Streams</option>
             {filterOptions.fields.map(field => (

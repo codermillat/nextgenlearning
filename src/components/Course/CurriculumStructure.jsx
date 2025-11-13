@@ -12,13 +12,13 @@ export default function CurriculumStructure({ program }) {
   const { totalCredits, syllabusUrl, description, semesters } = curriculum;
 
   return (
-    <section className="curriculum-structure py-8 px-4 bg-gray-50">
+    <section className="curriculum-structure py-4 sm:py-6 md:py-8 px-4 bg-gray-50">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-6">Curriculum Structure</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Curriculum Structure</h2>
         
         {/* Overview */}
-        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+        <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 mb-4 sm:mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
             <div>
               <h3 className="text-sm font-semibold text-gray-600 mb-1">Total Credits</h3>
               <p className="text-2xl font-bold text-blue-600">{totalCredits}</p>
@@ -42,7 +42,7 @@ export default function CurriculumStructure({ program }) {
               href={syllabusUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              className="inline-block bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-blue-700 transition-colors min-h-[44px] flex items-center justify-center text-sm sm:text-base w-full sm:w-auto"
             >
               Download Complete Syllabus PDF →
             </a>
@@ -51,19 +51,19 @@ export default function CurriculumStructure({ program }) {
 
         {/* Semester-wise Course Structure */}
         {semesters && semesters.length > 0 && (
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold mb-4">Semester-wise Course Structure</h3>
+          <div className="space-y-4 sm:space-y-6">
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Semester-wise Course Structure</h3>
             
             {semesters.map((semester) => (
               <div key={semester.semester} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <div className="bg-blue-600 text-white px-6 py-4">
-                  <h4 className="text-xl font-bold">
+                <div className="bg-blue-600 text-white px-4 sm:px-6 py-3 sm:py-4">
+                  <h4 className="text-lg sm:text-xl font-bold">
                     Semester {semester.semester} ({semester.credits} Credits)
                   </h4>
                 </div>
                 
-                <div className="p-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="p-4 sm:p-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                     {semester.courses?.map((course, index) => (
                       <div
                         key={index}

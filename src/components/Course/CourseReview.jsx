@@ -47,10 +47,10 @@ export default function CourseReview({ program, university }) {
   };
 
   return (
-    <div className="course-review space-y-8">
+    <div className="course-review space-y-6 sm:space-y-8">
       {/* Course Overview */}
       <section>
-        <h2 className="text-2xl font-bold mb-4">Course Overview & Curriculum</h2>
+        <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Course Overview & Curriculum</h2>
         <div className="prose max-w-none text-gray-700">
           <p className="text-lg leading-relaxed mb-4">{courseInfo.overview}</p>
           <p className="leading-relaxed mb-4">{courseInfo.curriculum}</p>
@@ -67,8 +67,8 @@ export default function CourseReview({ program, university }) {
 
       {/* Why Choose This Course */}
       <section>
-        <h2 className="text-2xl font-bold mb-4">Why Choose This Course?</h2>
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Why Choose This Course?</h2>
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 sm:p-6">
           <ul className="space-y-3">
             {courseInfo.whyChoose.map((point, index) => (
               <li key={index} className="flex items-start">
@@ -82,8 +82,8 @@ export default function CourseReview({ program, university }) {
 
       {/* Career Prospects */}
       <section>
-        <h2 className="text-2xl font-bold mb-4">Career Prospects & Opportunities</h2>
-        <div className="bg-white border border-gray-200 rounded-lg p-6">
+        <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Career Prospects & Opportunities</h2>
+        <div className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6">
           <p className="text-gray-700 mb-4 text-lg">
             Graduates of {program.name} from {university.name} have excellent career opportunities across various sectors. 
             The program prepares students for both technical and managerial roles, with strong placement support and industry connections.
@@ -143,8 +143,8 @@ export default function CourseReview({ program, university }) {
       {/* Program Highlights */}
       {program.highlights && program.highlights.length > 0 && (
         <section>
-          <h2 className="text-2xl font-bold mb-4">Program Highlights</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Program Highlights</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             {program.highlights.map((highlight, index) => (
               <div
                 key={index}
@@ -160,8 +160,8 @@ export default function CourseReview({ program, university }) {
 
       {/* Admission Process */}
       <section>
-        <h2 className="text-2xl font-bold mb-4">Admission Process & Requirements</h2>
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+        <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Admission Process & Requirements</h2>
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-6">
           <p className="text-gray-700 mb-4 text-lg">
             Applying to {program.name} at {university.name} through Western Bangla Education is simple, free, and hassle-free. 
             We handle all the paperwork, documentation, and provide complete support throughout the entire admission process.
@@ -200,9 +200,9 @@ export default function CourseReview({ program, university }) {
 
       {/* University Information */}
       <section>
-        <h2 className="text-2xl font-bold mb-4">About {university.name}</h2>
-        <div className="bg-white border border-gray-200 rounded-lg p-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+        <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">About {university.name}</h2>
+        <div className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4">
             <div>
               <div className="text-sm text-gray-600 mb-1">Location</div>
               <div className="font-semibold">{university.location}</div>
@@ -238,8 +238,8 @@ export default function CourseReview({ program, university }) {
 
       {/* Scholarship Information */}
       <section>
-        <h2 className="text-2xl font-bold mb-4">Scholarship Information</h2>
-        <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+        <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Scholarship Information</h2>
+        <div className="bg-green-50 border border-green-200 rounded-lg p-4 sm:p-6">
           <p className="text-gray-700 mb-4">
             {university.name} offers generous scholarships for Bangladeshi students. 
             {university.id === 'niu' 
