@@ -4,27 +4,27 @@
 NextGen Learning is a comprehensive platform for comparing tech and IT courses across top Indian universities. We help students explore computer science, data science, artificial intelligence, machine learning, cybersecurity, cloud computing, and other technology programs.
 
 ## Website
-https://nextgenlearning.dev
+https://www.nextgenlearning.dev
 
 ## Main Pages
 
 ### Core Pages
-- https://nextgenlearning.dev/ - Home page
-- https://nextgenlearning.dev/courses - Browse all tech courses
-- https://nextgenlearning.dev/universities - View all universities
-- https://nextgenlearning.dev/scholarships - Scholarship information
-- https://nextgenlearning.dev/compare - Compare courses side-by-side
-- https://nextgenlearning.dev/apply - Application form
-- https://nextgenlearning.dev/about - About NextGen Learning
-- https://nextgenlearning.dev/contact - Contact information
-- https://nextgenlearning.dev/guides - Learning guides
-- https://nextgenlearning.dev/faq - Frequently asked questions
+- https://www.nextgenlearning.dev/ - Home page
+- https://www.nextgenlearning.dev/courses - Browse all tech courses
+- https://www.nextgenlearning.dev/universities - View all universities
+- https://www.nextgenlearning.dev/scholarships - Scholarship information
+- https://www.nextgenlearning.dev/compare - Compare courses side-by-side
+- https://www.nextgenlearning.dev/apply - Application form
+- https://www.nextgenlearning.dev/about - About NextGen Learning
+- https://www.nextgenlearning.dev/contact - Contact information
+- https://www.nextgenlearning.dev/guides - Learning guides
+- https://www.nextgenlearning.dev/faq - Frequently asked questions
 
 ### Universities
-- https://nextgenlearning.dev/universities/chandigarh-university - Chandigarh University (NIRF 32, NAAC A+)
-- https://nextgenlearning.dev/universities/sharda-university - Sharda University (NIRF 101-150, NAAC A+)
-- https://nextgenlearning.dev/universities/galgotias-university - Galgotias University (NIRF 101-150, NAAC A+)
-- https://nextgenlearning.dev/universities/noida-international-university - Noida International University (NIRF 201-250, NAAC A+)
+- https://www.nextgenlearning.dev/universities/chandigarh-university - Chandigarh University (NIRF 32, NAAC A+)
+- https://www.nextgenlearning.dev/universities/sharda-university - Sharda University (NIRF 101-150, NAAC A+)
+- https://www.nextgenlearning.dev/universities/galgotias-university - Galgotias University (NIRF 101-150, NAAC A+)
+- https://www.nextgenlearning.dev/universities/noida-international-university - Noida International University (NIRF 201-250, NAAC A+)
 
 ## Course Categories
 
@@ -106,13 +106,13 @@ Each course page includes:
 ## Contact
 - WhatsApp: +8801611533385
 - Email: westernbanglaedu@gmail.com
-- Website: https://nextgenlearning.dev
+- Website: https://www.nextgenlearning.dev
 
 ## Sitemap
-https://nextgenlearning.dev/sitemap.xml
+https://www.nextgenlearning.dev/sitemap.xml
 
 ## Robots.txt
-https://nextgenlearning.dev/robots.txt
+https://www.nextgenlearning.dev/robots.txt
 
 ## Content Focus
 This platform focuses exclusively on technology and IT-related courses including:

@@ -73,7 +73,7 @@ export default function Compare() {
 
   // Generate structured data for comparison page
   const comparisonStructuredData = useMemo(() => {
-    const siteUrl = 'https://nextgenlearning.dev';
+    const siteUrl = 'https://www.nextgenlearning.dev';
     
     // WebPage schema
     const webPageSchema = {

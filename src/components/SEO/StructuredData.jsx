@@ -46,7 +46,7 @@ export default function StructuredData({ data, id }) {
  * Generate Course structured data
  */
 export function generateCourseSchema(course, university, url) {
-  const siteUrl = 'https://nextgenlearning.dev';
+  const siteUrl = 'https://www.nextgenlearning.dev';
   const fullUrl = `${siteUrl}${url}`;
   
   // Calculate average fee
@@ -192,7 +192,7 @@ export function generateCourseSchema(course, university, url) {
  * Generate Organization structured data for university
  */
 export function generateOrganizationSchema(university, url) {
-  const siteUrl = 'https://nextgenlearning.dev';
+  const siteUrl = 'https://www.nextgenlearning.dev';
   const fullUrl = `${siteUrl}${url}`;
   
   const locationParts = university.location?.split(',') || [];
@@ -279,7 +279,7 @@ export function generateBreadcrumbSchema(items) {
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      "item": item.url.startsWith('http') ? item.url : `https://nextgenlearning.dev${item.url}`
+      "item": item.url.startsWith('http') ? item.url : `https://www.nextgenlearning.dev${item.url}`
     }))
   };
 }
@@ -288,7 +288,7 @@ export function generateBreadcrumbSchema(items) {
  * Generate Organization schema for NextGen Learning
  */
 export function generateWBESchema() {
-  const siteUrl = 'https://nextgenlearning.dev';
+  const siteUrl = 'https://www.nextgenlearning.dev';
   return {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
@@ -328,7 +328,7 @@ export function generateWBESchema() {
  * Generate Article schema for blog/guide pages
  */
 export function generateArticleSchema({ title, description, author, datePublished, dateModified, url, image }) {
-  const siteUrl = 'https://nextgenlearning.dev';
+  const siteUrl = 'https://www.nextgenlearning.dev';
   const fullUrl = url ? (url.startsWith('http') ? url : `${siteUrl}${url}`) : siteUrl;
   const fullImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : `${siteUrl}/og-image.jpg`;
 
@@ -373,7 +373,7 @@ export function generateArticleSchema({ title, description, author, datePublishe
  * Generate HowTo schema for step-by-step guides
  */
 export function generateHowToSchema({ name, description, steps, totalTime, url }) {
-  const siteUrl = 'https://nextgenlearning.dev';
+  const siteUrl = 'https://www.nextgenlearning.dev';
   const fullUrl = url ? (url.startsWith('http') ? url : `${siteUrl}${url}`) : siteUrl;
 
   return {
@@ -397,7 +397,7 @@ export function generateHowToSchema({ name, description, steps, totalTime, url }
  * Generate Website schema for the main site
  */
 export function generateWebsiteSchema() {
-  const siteUrl = 'https://nextgenlearning.dev';
+  const siteUrl = 'https://www.nextgenlearning.dev';
   
   return {
     "@context": "https://schema.org",
@@ -447,7 +447,7 @@ export function generateWebsiteSchema() {
  * Generate ItemList schema for course listings
  */
 export function generateItemListSchema(items, name, description, url) {
-  const siteUrl = 'https://nextgenlearning.dev';
+  const siteUrl = 'https://www.nextgenlearning.dev';
   const fullUrl = url ? (url.startsWith('http') ? url : `${siteUrl}${url}`) : siteUrl;
   
   return {
@@ -473,7 +473,7 @@ export function generateItemListSchema(items, name, description, url) {
  * Generate LocalBusiness schema for contact page
  */
 export function generateLocalBusinessSchema() {
-  const siteUrl = 'https://nextgenlearning.dev';
+  const siteUrl = 'https://www.nextgenlearning.dev';
   
   return {
     "@context": "https://schema.org",
@@ -505,7 +505,7 @@ export function generateLocalBusinessSchema() {
  * Generate Review schema for courses
  */
 export function generateReviewSchema(course, university, rating, reviewText, author) {
-  const siteUrl = 'https://nextgenlearning.dev';
+  const siteUrl = 'https://www.nextgenlearning.dev';
   
   return {
     "@context": "https://schema.org",

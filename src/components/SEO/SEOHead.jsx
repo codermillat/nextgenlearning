@@ -15,7 +15,7 @@ export default function SEOHead({
   noindex = false,
   alternateLanguages = [],
 }) {
-  const siteUrl = 'https://nextgenlearning.dev';
+  const siteUrl = 'https://www.nextgenlearning.dev';
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
   // Default OG image - ensure it exists
   const defaultImage = `${siteUrl}/og-image.jpg`;

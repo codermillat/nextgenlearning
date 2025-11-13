@@ -2,8 +2,9 @@
 
 **A comprehensive platform for comparing tech and IT courses across top Indian universities. Find the best computer science, data science, AI/ML, cybersecurity, and cloud computing programs.**
 
-🌐 **Live Site**: [https://nextgenlearning.dev](https://nextgenlearning.dev)  
-📊 **Analytics**: Google Analytics tracking enabled
+🌐 **Live Site**: [https://www.nextgenlearning.dev](https://www.nextgenlearning.dev)  
+📊 **Analytics**: Google Analytics tracking enabled  
+🔗 **GitHub**: [https://github.com/codermillat/nextgenlearning](https://github.com/codermillat/nextgenlearning)
 
 ---
 
@@ -141,7 +142,7 @@
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/codermillat/nextgenlearning.git
 cd nextgenlearning
 
 # Install dependencies
@@ -604,14 +605,14 @@ This platform is designed to help you:
 - ✅ Get free counseling and application assistance
 - ✅ Apply directly through WhatsApp
 
-**Start exploring**: [https://nextgenlearning.dev](https://nextgenlearning.dev)
+**Start exploring**: [https://www.nextgenlearning.dev](https://www.nextgenlearning.dev)
 
 ---
 
 ## 🔗 Links
 
-- **Live Site**: [https://nextgenlearning.dev](https://nextgenlearning.dev)
-- **GitHub Repository**: [Your GitHub URL]
+- **Live Site**: [https://www.nextgenlearning.dev](https://www.nextgenlearning.dev)
+- **GitHub Repository**: [https://github.com/codermillat/nextgenlearning](https://github.com/codermillat/nextgenlearning)
 - **Google Analytics**: [Analytics Dashboard](https://analytics.google.com/)
 
 ---

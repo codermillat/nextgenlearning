@@ -27,7 +27,7 @@ export default function Universities() {
         "@type": "EducationalOrganization",
         "name": university.name,
         "alternateName": university.shortName,
-        "url": `https://nextgenlearning.dev/universities/${university.slug}`,
+        "url": `https://www.nextgenlearning.dev/universities/${university.slug}`,
         "address": {
           "@type": "PostalAddress",
           "addressLocality": university.location?.split(',')[0] || "",

@@ -71,8 +71,8 @@ Allow: /
 Crawl-delay: 0
 
 # Sitemap
-Sitemap: https://nextgenlearning.dev/sitemap.xml
+Sitemap: https://www.nextgenlearning.dev/sitemap.xml
 
 # Host
-Host: https://nextgenlearning.dev
+Host: https://www.nextgenlearning.dev
 
