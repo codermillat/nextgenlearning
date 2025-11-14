@@ -22,6 +22,21 @@ export default function StructuredData({ data, id }) {
       existingScript.remove();
     }
 
+    // For FAQPage schemas, also remove any other FAQPage schemas to prevent duplicates
+    if (data['@type'] === 'FAQPage') {
+      const allScripts = document.querySelectorAll('script[type="application/ld+json"]');
+      allScripts.forEach(script => {
+        try {
+          const scriptData = JSON.parse(script.textContent || '{}');
+          if (scriptData['@type'] === 'FAQPage' && script.id !== uniqueId) {
+            script.remove();
+          }
+        } catch (e) {
+          // Ignore parse errors
+        }
+      });
+    }
+
     // Create new script tag with unique ID
     const script = document.createElement('script');
     script.id = uniqueId;

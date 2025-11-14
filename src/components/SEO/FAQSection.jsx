@@ -18,7 +18,7 @@ export default function FAQSection({ faqs, title = "Frequently Asked Questions" 
 
   return (
     <>
-      {faqSchema && <StructuredData data={faqSchema} />}
+      {faqSchema && <StructuredData data={faqSchema} id="faq-page-schema" />}
       <section className="faq-section py-4 sm:py-6 md:py-8 px-4 max-w-4xl mx-auto">
         <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">{title}</h2>
         <div className="space-y-3 sm:space-y-4">
