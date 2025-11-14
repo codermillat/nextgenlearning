@@ -13,6 +13,46 @@
       ],
       "destination": "https://studyinindiabd.vercel.app/:path*",
       "permanent": true
+    },
+    {
+      "source": "/index.xml",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/categories/:path*",
+      "destination": "/program-categories",
+      "permanent": true
+    },
+    {
+      "source": "/tags/:path*",
+      "destination": "/guides",
+      "permanent": true
+    },
+    {
+      "source": "/posts/:path*",
+      "destination": "/guides",
+      "permanent": true
+    },
+    {
+      "source": "/lora-vs-full-fine-tuning",
+      "destination": "/guides",
+      "permanent": true
+    },
+    {
+      "source": "/lora-fine-tuning-explained",
+      "destination": "/guides",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/",
+      "destination": "/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/terms-and-conditions/",
+      "destination": "/terms-and-conditions",
+      "permanent": true
     }
   ],
   "rewrites": [

@@ -1,0 +1,27 @@
+# URL Removal Request for Google Search Console
+# These URLs are from the previous site and should be removed from Google's index
+
+# Old blog URLs that no longer exist
+https://www.nextgenlearning.dev/index.xml
+https://www.nextgenlearning.dev/categories/ai-training/
+https://www.nextgenlearning.dev/categories/
+https://www.nextgenlearning.dev/tags/performance-analysis/
+https://www.nextgenlearning.dev/tags/data-visualization/
+https://www.nextgenlearning.dev/posts/
+https://www.nextgenlearning.dev/lora-vs-full-fine-tuning/
+https://www.nextgenlearning.dev/lora-fine-tuning-explained/
+
+# URLs with trailing slashes (redirected to non-trailing versions)
+https://www.nextgenlearning.dev/privacy-policy/
+https://www.nextgenlearning.dev/terms-and-conditions/
+
+# Instructions for Google Search Console:
+# 1. Go to Removals section in Google Search Console
+# 2. Click "New Request" > "Remove this URL"
+# 3. Add each URL above
+# 4. Select "Remove this URL" option
+# 5. Submit the request
+
+# Alternative: Use the URL Inspection tool to mark these as "Removed"
+# Or wait for Google to re-crawl and see the 301 redirects/404s
+

@@ -6,6 +6,13 @@ Allow: /
 Disallow: /api/
 Disallow: /admin/
 Disallow: /*.json$
+# Disallow old blog paths from previous site
+Disallow: /categories/
+Disallow: /tags/
+Disallow: /posts/
+Disallow: /index.xml
+Disallow: /lora-vs-full-fine-tuning
+Disallow: /lora-fine-tuning-explained
 Crawl-delay: 1
 
 # Search Engine Bots
