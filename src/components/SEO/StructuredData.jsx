@@ -151,7 +151,6 @@ export function generateCourseSchema(course, university, url) {
       }
     },
     "url": fullUrl,
-    "image": `${siteUrl}/og-image.jpg`,
     "hasCourseInstance": {
       "@type": "CourseInstance",
       "courseMode": "on-campus",
@@ -220,8 +219,6 @@ export function generateOrganizationSchema(university, url) {
     "name": university.name,
     "alternateName": university.shortName,
     "url": university.website || fullUrl,
-    "logo": `${siteUrl}/og-image.jpg`,
-    "image": `${siteUrl}/og-image.jpg`,
     "address": {
       "@type": "PostalAddress",
       "addressLocality": city,
@@ -311,8 +308,6 @@ export function generateWBESchema() {
     "alternateName": "NextGen Learning - Tech & IT Courses",
     "description": "Your gateway to tech and IT education. Compare computer science, data science, AI/ML, cybersecurity, cloud computing, and more tech courses.",
     "url": siteUrl,
-    "logo": `${siteUrl}/og-image.jpg`,
-    "image": `${siteUrl}/og-image.jpg`,
     "sameAs": [],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -345,7 +340,8 @@ export function generateWBESchema() {
 export function generateArticleSchema({ title, description, author, datePublished, dateModified, url, image, keywords, articleSection }) {
   const siteUrl = 'https://www.nextgenlearning.dev';
   const fullUrl = url ? (url.startsWith('http') ? url : `${siteUrl}${url}`) : siteUrl;
-  const fullImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : `${siteUrl}/og-image.jpg`;
+  const defaultImage = `${siteUrl}/og-image.svg`;
+  const fullImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : defaultImage;
 
   const schema = {
     "@context": "https://schema.org",
@@ -362,21 +358,17 @@ export function generateArticleSchema({ title, description, author, datePublishe
       "name": "NextGen Learning",
       "alternateName": "NextGen Learning - Tech & IT Courses",
       "url": siteUrl,
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${siteUrl}/og-image.jpg`,
-        "width": 1200,
-        "height": 630
-      }
     },
     "datePublished": datePublished || new Date().toISOString(),
     "dateModified": dateModified || datePublished || new Date().toISOString(),
-    "image": {
-      "@type": "ImageObject",
-      "url": fullImage,
-      "width": 1200,
-      "height": 630
-    },
+    ...(fullImage ? {
+      "image": {
+        "@type": "ImageObject",
+        "url": fullImage,
+        "width": 1200,
+        "height": 630
+      }
+    } : {}),
     "url": fullUrl,
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -452,12 +444,6 @@ export function generateWebsiteSchema() {
       "name": "NextGen Learning",
       "alternateName": "NextGen Learning",
       "url": siteUrl,
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${siteUrl}/og-image.jpg`,
-        "width": 1200,
-        "height": 630
-      },
       "sameAs": []
     },
     "potentialAction": [
@@ -522,8 +508,6 @@ export function generateLocalBusinessSchema() {
     "name": "NextGen Learning",
     "alternateName": "NextGen Learning - Tech & IT Courses",
     "url": siteUrl,
-    "logo": `${siteUrl}/og-image.jpg`,
-    "image": `${siteUrl}/og-image.jpg`,
     "description": "Tech and IT education platform helping students compare courses across top Indian universities",
     "telephone": "+8801611533385",
     "email": "westernbanglaedu@gmail.com",

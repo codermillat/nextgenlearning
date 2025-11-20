@@ -30,7 +30,22 @@
       "permanent": true
     },
     {
+      "source": "/tags/:path*/",
+      "destination": "/guides",
+      "permanent": true
+    },
+    {
       "source": "/posts/:path*",
+      "destination": "/guides",
+      "permanent": true
+    },
+    {
+      "source": "/linear-algebra-for-ml",
+      "destination": "/guides",
+      "permanent": true
+    },
+    {
+      "source": "/linear-algebra-for-ml/",
       "destination": "/guides",
       "permanent": true
     },
@@ -40,7 +55,17 @@
       "permanent": true
     },
     {
+      "source": "/lora-vs-full-fine-tuning/",
+      "destination": "/guides",
+      "permanent": true
+    },
+    {
       "source": "/lora-fine-tuning-explained",
+      "destination": "/guides",
+      "permanent": true
+    },
+    {
+      "source": "/lora-fine-tuning-explained/",
       "destination": "/guides",
       "permanent": true
     },

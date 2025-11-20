@@ -696,7 +696,6 @@ export default function GuideDetail() {
     datePublished: guide.date,
     dateModified: guide.date,
     url: `/guides/${slug}`,
-    image: 'https://www.nextgenlearning.dev/og-image.jpg',
     keywords: getKeywords().join(', '),
     articleSection: guide.category
   });
@@ -728,7 +727,6 @@ Thank you!`;
         url={`/guides/${slug}`}
         canonical={`/guides/${slug}`}
         type="article"
-        image="/og-image.jpg"
       />
       {articleSchema && <StructuredData data={articleSchema} />}
       {generateBreadcrumbSchema(breadcrumbs) && <StructuredData data={generateBreadcrumbSchema(breadcrumbs)} />}

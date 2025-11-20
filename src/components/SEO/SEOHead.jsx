@@ -17,8 +17,8 @@ export default function SEOHead({
 }) {
   const siteUrl = 'https://www.nextgenlearning.dev';
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
-  // Default OG image - ensure it exists
-  const defaultImage = `${siteUrl}/og-image.jpg`;
+  // Default OG image
+  const defaultImage = `${siteUrl}/og-image.svg`;
   const fullImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : defaultImage;
   const keywordsString = Array.isArray(keywords) ? keywords.join(', ') : keywords;
 
@@ -53,9 +53,27 @@ export default function SEOHead({
     // Robots
     updateMetaTag('robots', noindex ? 'noindex, nofollow' : 'index, follow');
     
-    // Canonical URL - Always set a canonical tag
-    // Default to url prop if canonical is not provided, or use current pathname
-    const canonicalUrl = canonical || url || window.location.pathname;
+    // Canonical URL - Always set a self-referential canonical tag
+    // Use canonical prop if provided, otherwise use url prop, otherwise use current pathname (without query params)
+    let canonicalPath = canonical || url;
+    
+    // If no canonical or url prop, use current pathname (window.location.pathname already excludes query params and hash)
+    if (!canonicalPath) {
+      canonicalPath = window.location.pathname;
+    }
+    
+    // Ensure canonical path is a string and starts with /
+    if (canonicalPath && typeof canonicalPath === 'string' && !canonicalPath.startsWith('http')) {
+      // Ensure it starts with /
+      canonicalPath = canonicalPath.startsWith('/') ? canonicalPath : '/' + canonicalPath;
+      // Remove trailing slash except for root
+      if (canonicalPath !== '/' && canonicalPath.endsWith('/')) {
+        canonicalPath = canonicalPath.slice(0, -1);
+      }
+      // Remove any query parameters or hash if somehow present
+      canonicalPath = canonicalPath.split('?')[0].split('#')[0];
+    }
+    
     let canonicalLink = document.querySelector('link[rel="canonical"]');
     
     if (!canonicalLink) {
@@ -65,9 +83,9 @@ export default function SEOHead({
     }
     
     // Set the canonical URL (ensure it's absolute)
-    const finalCanonicalUrl = canonicalUrl.startsWith('http') 
-      ? canonicalUrl 
-      : `${siteUrl}${canonicalUrl.startsWith('/') ? canonicalUrl : '/' + canonicalUrl}`;
+    const finalCanonicalUrl = canonicalPath.startsWith('http') 
+      ? canonicalPath 
+      : `${siteUrl}${canonicalPath}`;
     canonicalLink.setAttribute('href', finalCanonicalUrl);
     
     // Open Graph / Facebook
@@ -75,20 +93,24 @@ export default function SEOHead({
     updateMetaTag('og:url', fullUrl, true);
     updateMetaTag('og:title', title, true);
     updateMetaTag('og:description', description, true);
-    updateMetaTag('og:image', fullImage, true);
-    updateMetaTag('og:image:width', '1200', true);
-    updateMetaTag('og:image:height', '630', true);
-    updateMetaTag('og:image:alt', title, true);
+    if (fullImage) {
+      updateMetaTag('og:image', fullImage, true);
+      updateMetaTag('og:image:width', '1200', true);
+      updateMetaTag('og:image:height', '630', true);
+      updateMetaTag('og:image:alt', title, true);
+    }
     updateMetaTag('og:site_name', 'NextGen Learning - Tech & IT Courses', true);
     updateMetaTag('og:locale', 'en_US', true);
     
     // Twitter Card
-    updateMetaTag('twitter:card', 'summary_large_image');
+    updateMetaTag('twitter:card', fullImage ? 'summary_large_image' : 'summary');
     updateMetaTag('twitter:url', fullUrl);
     updateMetaTag('twitter:title', title);
     updateMetaTag('twitter:description', description);
-    updateMetaTag('twitter:image', fullImage);
-    updateMetaTag('twitter:image:alt', title);
+    if (fullImage) {
+      updateMetaTag('twitter:image', fullImage);
+      updateMetaTag('twitter:image:alt', title);
+    }
     updateMetaTag('twitter:site', '@NextGenLearning', true);
     updateMetaTag('twitter:creator', '@NextGenLearning', true);
     

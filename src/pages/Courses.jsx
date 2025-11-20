@@ -16,6 +16,9 @@ export default function Courses() {
     { name: 'Courses', url: '/courses' }
   ];
 
+  // Debug: Log that Courses component is rendering
+  console.log('Courses component rendering, loading:', loading);
+
   if (loading) {
     return <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">Loading courses...</div>;
   }

@@ -14,6 +14,9 @@ import { trackComparison, trackFilter } from '../utils/analytics';
 
 export default function Compare() {
   const { allPrograms, universities } = useData();
+  
+  // Debug: Log that Compare component is rendering
+  console.log('Compare component rendering');
   const [selectedPrograms, setSelectedPrograms] = useState([]);
   const [filters, setFilters] = useState({
     degreeLevel: '',

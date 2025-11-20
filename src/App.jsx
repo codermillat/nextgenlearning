@@ -28,6 +28,8 @@ function PageViewTracker() {
   const location = useLocation();
   
   useEffect(() => {
+    // Debug: Log route changes
+    console.log('Route changed to:', location.pathname);
     trackPageView(location.pathname + location.search);
   }, [location]);
   
@@ -42,8 +44,8 @@ function App() {
         <Header />
         <main className="flex-grow overflow-x-hidden">
           <Routes>
-            <Route path="/" element={<Home />} />
             <Route path="/courses" element={<Courses />} />
+            <Route path="/" element={<Home />} />
             <Route path="/universities/:universitySlug/courses/:courseSlug" element={<CourseDetail />} />
             <Route path="/courses/compare/:groupId" element={<CourseGroupCompare />} />
             <Route path="/universities" element={<Universities />} />

@@ -12,7 +12,6 @@ export default function Home() {
       <SEOHead
         title="NextGen Learning - Tech & IT Courses | Computer Science, AI/ML, Data Science, Cybersecurity"
         description="Your gateway to tech and IT education. Compare computer science, data science, AI/ML, cybersecurity, cloud computing, and more tech courses. Find the best tech programs for your career."
-        image="/og-image.jpg"
         keywords={[
           'tech courses',
           'IT courses',

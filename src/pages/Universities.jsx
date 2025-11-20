@@ -8,6 +8,9 @@ import { generateBreadcrumbSchema } from '../components/SEO/StructuredData';
 
 export default function Universities() {
   const { universities, loading } = useData();
+  
+  // Debug: Log that Universities component is rendering
+  console.log('Universities component rendering, loading:', loading);
 
   const breadcrumbs = [
     { name: 'Home', url: '/' },
