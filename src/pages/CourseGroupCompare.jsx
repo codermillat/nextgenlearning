@@ -64,7 +64,18 @@ export default function CourseGroupCompare() {
   ];
 
   if (loading) {
-    return <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">Loading comparison...</div>;
+    return (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" aria-live="polite" aria-busy="true">
+        <div className="flex items-center justify-center min-h-[400px]">
+          <div className="text-center">
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4" role="status" aria-label="Loading">
+              <span className="sr-only">Loading comparison...</span>
+            </div>
+            <p className="text-gray-700" aria-live="polite">Loading comparison...</p>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   if (!groupInfo || groupPrograms.length === 0) {

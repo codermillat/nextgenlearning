@@ -1,9 +1,35 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+// Bundle analyzer - only included when ANALYZE=true
+// Run: npm install -D rollup-plugin-visualizer
+// Then: ANALYZE=true npm run build
+// eslint-disable-next-line no-undef
+const analyzeBundle = process.env.ANALYZE === 'true'
+
 // https://vite.dev/config/
-export default defineConfig({
-  plugins: [react()],
+export default defineConfig(async () => {
+  const plugins = [react()]
+  
+  // Conditionally add bundle analyzer
+  if (analyzeBundle) {
+    try {
+      const { visualizer } = await import('rollup-plugin-visualizer')
+      plugins.push(
+        visualizer({
+          filename: 'dist/stats.html',
+          open: true,
+          gzipSize: true,
+          brotliSize: true,
+        })
+      )
+    } catch {
+      console.warn('rollup-plugin-visualizer not installed. Run: npm install -D rollup-plugin-visualizer')
+    }
+  }
+  
+  return {
+    plugins,
   server: {
     port: 5173,
     host: true, // Allow external connections
@@ -42,5 +68,6 @@ export default defineConfig({
   },
   // Ensure proper base path for static deployment
   base: '/',
+  }
 })
 

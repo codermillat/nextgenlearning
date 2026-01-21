@@ -1,5 +1,6 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { getDegreeLevel } from '../../utils/courseGrouping';
+import { useDebounce } from '../../hooks/useDebounce';
 
 /**
  * Course Filters Component
@@ -12,6 +13,10 @@ export default function CourseFilters({
   onFiltersChange 
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [localSearch, setLocalSearch] = useState(filters.search || '');
+  
+  // Debounce search input to reduce unnecessary re-renders
+  const debouncedSearch = useDebounce(localSearch, 300);
 
   // Get unique values for filters
   const filterOptions = useMemo(() => {
@@ -54,6 +59,27 @@ export default function CourseFilters({
     onFiltersChange(newFilters);
   };
 
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setLocalSearch(value);
+    // Don't call handleFilterChange here - let debounce handle it
+  };
+
+  // Sync local search with filters prop when it changes externally (e.g., clear filters)
+  useEffect(() => {
+    if (filters.search !== localSearch && filters.search !== debouncedSearch) {
+      setLocalSearch(filters.search || '');
+    }
+  }, [filters.search, localSearch, debouncedSearch]);
+  
+  // Update parent filters when debounced search changes
+  useEffect(() => {
+    if (debouncedSearch !== filters.search) {
+      handleFilterChange('search', debouncedSearch);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedSearch]);
+
   const clearFilters = () => {
     onFiltersChange({
       degreeLevel: '',
@@ -72,18 +98,20 @@ export default function CourseFilters({
         <div className="flex items-center gap-3 w-full sm:w-auto">
           {activeFiltersCount > 0 && (
             <button
+              type="button"
               onClick={clearFilters}
-              className="text-xs sm:text-sm text-blue-600 hover:text-blue-800 font-medium min-h-[44px] px-3 py-2"
+              className="text-xs sm:text-sm text-blue-600 hover:text-blue-800 font-medium min-h-[44px] px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
             >
               Clear All ({activeFiltersCount})
             </button>
           )}
           <button
+            type="button"
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-sm text-gray-600 hover:text-gray-800 md:hidden min-h-[44px] px-3 py-2"
+            className="text-sm text-gray-600 hover:text-gray-800 md:hidden min-h-[44px] px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
             aria-label={isExpanded ? 'Collapse filters' : 'Expand filters'}
           >
-            {isExpanded ? '▲' : '▼'}
+            <span aria-hidden="true">{isExpanded ? '▲' : '▼'}</span>
           </button>
         </div>
       </div>
@@ -97,11 +125,13 @@ export default function CourseFilters({
           <input
             type="text"
             id="search"
-            value={filters.search || ''}
-            onChange={(e) => handleFilterChange('search', e.target.value)}
+            value={localSearch}
+            onChange={handleSearchChange}
             placeholder="Search by course name..."
             className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-h-[44px]"
+            aria-describedby="search-help"
           />
+          <p id="search-help" className="sr-only">Search for courses by name or specialization</p>
         </div>
 
         {/* Degree Level Filter */}
@@ -114,12 +144,14 @@ export default function CourseFilters({
             value={filters.degreeLevel || 'all'}
             onChange={(e) => handleFilterChange('degreeLevel', e.target.value)}
             className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-h-[44px]"
+            aria-describedby="degreeLevel-help"
           >
             <option value="all">All Levels</option>
             {filterOptions.degreeLevels.map(level => (
               <option key={level} value={level}>{level}</option>
             ))}
           </select>
+          <p id="degreeLevel-help" className="sr-only">Filter courses by degree level: Undergraduate, Postgraduate, Diploma, or Lateral Entry</p>
         </div>
 
         {/* University Filter */}
@@ -132,6 +164,7 @@ export default function CourseFilters({
             value={filters.universityId || 'all'}
             onChange={(e) => handleFilterChange('university', e.target.value)}
             className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-h-[44px]"
+            aria-describedby="university-help"
           >
             <option value="all">All Universities</option>
             {filterOptions.universityIds.map(uniId => {
@@ -141,6 +174,7 @@ export default function CourseFilters({
               ) : null;
             })}
           </select>
+          <p id="university-help" className="sr-only">Filter courses by university</p>
         </div>
 
         {/* Stream/Department Filter */}
@@ -153,12 +187,14 @@ export default function CourseFilters({
             value={filters.field || 'all'}
             onChange={(e) => handleFilterChange('field', e.target.value)}
             className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-h-[44px]"
+            aria-describedby="field-help"
           >
             <option value="all">All Streams</option>
             {filterOptions.fields.map(field => (
               <option key={field} value={field}>{field}</option>
             ))}
           </select>
+          <p id="field-help" className="sr-only">Filter courses by stream or department</p>
         </div>
       </div>
     </div>

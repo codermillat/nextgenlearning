@@ -43,6 +43,65 @@ export default function SEOHead({
       meta.setAttribute('content', content);
     };
 
+    // Canonical URL - Set early for better SEO
+    // Always use clean URLs without query parameters or hash
+    // Use canonical prop if provided, otherwise use url prop, otherwise use current pathname
+    let canonicalPath = canonical || url;
+    
+    // If no canonical or url prop, use current pathname (window.location.pathname already excludes query params and hash)
+    if (!canonicalPath) {
+      canonicalPath = window.location.pathname || '/';
+    }
+    
+    // Ensure canonicalPath is a string
+    canonicalPath = String(canonicalPath || '/');
+    
+    // Normalize canonical path: ensure it starts with /, no trailing slash (except root), no query params or hash
+    if (canonicalPath) {
+      // Remove query parameters and hash first
+      canonicalPath = canonicalPath.split('?')[0].split('#')[0];
+      
+      // If it's already a full URL, extract just the path
+      if (canonicalPath.startsWith('http')) {
+        try {
+          const urlObj = new URL(canonicalPath);
+          canonicalPath = urlObj.pathname;
+        } catch {
+          // If URL parsing fails, fall back to pathname extraction
+          const match = canonicalPath.match(/\/\/[^/]+(\/.*)?/);
+          canonicalPath = match && match[1] ? match[1] : '/';
+        }
+      }
+      
+      // Ensure it starts with /
+      canonicalPath = canonicalPath.startsWith('/') ? canonicalPath : '/' + canonicalPath;
+      
+      // Remove trailing slash except for root
+      if (canonicalPath !== '/' && canonicalPath.endsWith('/')) {
+        canonicalPath = canonicalPath.slice(0, -1);
+      }
+      
+      // Final cleanup: remove any remaining query parameters or hash (defensive)
+      canonicalPath = canonicalPath.split('?')[0].split('#')[0];
+    }
+    
+    // Ensure canonicalPath has a valid value (fallback to root)
+    if (!canonicalPath || canonicalPath === '') {
+      canonicalPath = '/';
+    }
+    
+    // Remove any existing canonical links to avoid conflicts
+    document.querySelectorAll('link[rel="canonical"]').forEach(link => link.remove());
+    
+    // Create new canonical link
+    const canonicalLink = document.createElement('link');
+    canonicalLink.setAttribute('rel', 'canonical');
+    
+    // Set the canonical URL (ensure it's absolute)
+    const finalCanonicalUrl = `${siteUrl}${canonicalPath}`;
+    canonicalLink.setAttribute('href', finalCanonicalUrl);
+    document.head.appendChild(canonicalLink);
+
     // Primary Meta Tags
     updateMetaTag('title', title);
     updateMetaTag('description', description);
@@ -53,44 +112,11 @@ export default function SEOHead({
     // Robots
     updateMetaTag('robots', noindex ? 'noindex, nofollow' : 'index, follow');
     
-    // Canonical URL - Always set a self-referential canonical tag
-    // Use canonical prop if provided, otherwise use url prop, otherwise use current pathname (without query params)
-    let canonicalPath = canonical || url;
-    
-    // If no canonical or url prop, use current pathname (window.location.pathname already excludes query params and hash)
-    if (!canonicalPath) {
-      canonicalPath = window.location.pathname;
-    }
-    
-    // Ensure canonical path is a string and starts with /
-    if (canonicalPath && typeof canonicalPath === 'string' && !canonicalPath.startsWith('http')) {
-      // Ensure it starts with /
-      canonicalPath = canonicalPath.startsWith('/') ? canonicalPath : '/' + canonicalPath;
-      // Remove trailing slash except for root
-      if (canonicalPath !== '/' && canonicalPath.endsWith('/')) {
-        canonicalPath = canonicalPath.slice(0, -1);
-      }
-      // Remove any query parameters or hash if somehow present
-      canonicalPath = canonicalPath.split('?')[0].split('#')[0];
-    }
-    
-    let canonicalLink = document.querySelector('link[rel="canonical"]');
-    
-    if (!canonicalLink) {
-      canonicalLink = document.createElement('link');
-      canonicalLink.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonicalLink);
-    }
-    
-    // Set the canonical URL (ensure it's absolute)
-    const finalCanonicalUrl = canonicalPath.startsWith('http') 
-      ? canonicalPath 
-      : `${siteUrl}${canonicalPath}`;
-    canonicalLink.setAttribute('href', finalCanonicalUrl);
-    
     // Open Graph / Facebook
+    // Use canonical URL for og:url to avoid query parameter issues
+    const ogUrl = canonicalPath ? `${siteUrl}${canonicalPath}` : fullUrl;
     updateMetaTag('og:type', type, true);
-    updateMetaTag('og:url', fullUrl, true);
+    updateMetaTag('og:url', ogUrl, true);
     updateMetaTag('og:title', title, true);
     updateMetaTag('og:description', description, true);
     if (fullImage) {
@@ -103,8 +129,10 @@ export default function SEOHead({
     updateMetaTag('og:locale', 'en_US', true);
     
     // Twitter Card
+    // Use canonical URL for twitter:url to avoid query parameter issues
+    const twitterUrl = canonicalPath ? `${siteUrl}${canonicalPath}` : fullUrl;
     updateMetaTag('twitter:card', fullImage ? 'summary_large_image' : 'summary');
-    updateMetaTag('twitter:url', fullUrl);
+    updateMetaTag('twitter:url', twitterUrl);
     updateMetaTag('twitter:title', title);
     updateMetaTag('twitter:description', description);
     if (fullImage) {
@@ -165,7 +193,7 @@ export default function SEOHead({
         document.head.appendChild(hreflangLink);
       });
     }
-  }, [title, description, keywordsString, image, url, type, canonical, noindex, fullUrl, fullImage, alternateLanguages]);
+  }, [title, description, keywordsString, image, url, type, canonical, noindex, fullUrl, fullImage, alternateLanguages, siteUrl]);
 
   return null;
 }

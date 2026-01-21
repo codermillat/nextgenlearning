@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEO/SEOHead';
 import StructuredData from '../components/SEO/StructuredData';
 import { generateWBESchema, generateWebsiteSchema } from '../components/SEO/StructuredData';
+import Button from '../components/Common/Button';
+import Card from '../components/Common/Card';
+import { typography, spacing } from '../utils/designTokens';
 
 export default function Home() {
   const wbeSchema = generateWBESchema();
@@ -10,33 +13,35 @@ export default function Home() {
   return (
     <>
       <SEOHead
-        title="NextGen Learning - Tech & IT Courses | Computer Science, AI/ML, Data Science, Cybersecurity"
-        description="Your gateway to tech and IT education. Compare computer science, data science, AI/ML, cybersecurity, cloud computing, and more tech courses. Find the best tech programs for your career."
+        title="NextGen Learning | Compare Tech Courses, Fees & Scholarships"
+        description="Compare 600+ B.Tech CSE, AI/ML, Data Science, Cybersecurity courses at NIRF ranked universities: Chandigarh University (NIRF 32), Galgotias University (NIRF 101-150), Sharda University (NIRF 101-150), NIU. Get 20-60% scholarships. Total fees from ₹2-8 lakh/year. Check NAAC A+ accredited programs, placements, eligibility. Free counseling for Bangladeshi students."
         keywords={[
-          'tech courses',
-          'IT courses',
-          'computer science courses',
-          'data science courses',
-          'AI ML courses',
-          'artificial intelligence courses',
-          'machine learning courses',
-          'cybersecurity courses',
-          'cloud computing courses',
-          'full stack development',
-          'blockchain courses',
-          'IoT courses',
-          'B.Tech CSE',
-          'B.Tech IT',
-          'BCA',
-          'MCA',
-          'tech education',
-          'IT education',
-          'computer science programs',
-          'tech career',
-          'IT career',
-          'programming courses',
-          'software engineering',
-          'web development courses'
+          'galgotias university nirf ranking',
+          'galgotias university nirf ranking 2025',
+          'sharda university nirf ranking',
+          'sharda university nirf ranking 2025',
+          'chandigarh university nirf ranking',
+          'noida international university rankings',
+          'noida international university nirf ranking',
+          'galgotias university btech cse fees',
+          'galgotias university btech cse total fees',
+          'galgotias university btech cse total fees 4 years',
+          'sharda university btech cse fees',
+          'sharda university btech cse total fees',
+          'sharda university btech cse total fees 4 years',
+          'chandigarh university bsc forensic science fees',
+          'chandigarh university cyber security fees',
+          'B.Tech CSE fees',
+          'B.Tech AI ML courses',
+          'B.Tech data science courses',
+          'B.Tech cybersecurity courses',
+          'B.Tech cloud computing courses',
+          'BCA courses India',
+          'MCA courses India',
+          'NAAC A+ universities India',
+          'study in India from Bangladesh',
+          'scholarships for Bangladeshi students',
+          'compare courses universities'
         ]}
         url="/"
         canonical="/"
@@ -45,140 +50,384 @@ export default function Home() {
       {wbeSchema && <StructuredData data={wbeSchema} id="wbe-schema" />}
 
       {/* Hero Section */}
-      <section className="hero bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12 sm:py-16 md:py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
-            NextGen Learning - Tech & IT Courses
+      <section className={`hero bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 text-white ${spacing.section} px-4 relative overflow-hidden`}>
+        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+        <div className="max-w-5xl mx-auto text-center relative z-10">
+          <div className="mb-6 animate-fade-in">
+            <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-6 border border-white/30">
+              🎓 Your Gateway to Tech Education
+            </div>
+          </div>
+          <h1 className={`${typography.pageTitle} mb-6 sm:mb-8 animate-slide-up`}>
+            NextGen Learning
+            <span className={`block ${typography.pageTitleSubtext} mt-3 text-blue-50`}>
+              Tech & IT Courses
+            </span>
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-blue-100 px-2">
-            Your gateway to tech and IT education. Compare computer science, data science, AI/ML, cybersecurity, and more.
+          <p className={`${typography.bodyLarge} mb-8 sm:mb-10 text-blue-100 px-2 max-w-3xl mx-auto leading-relaxed`}>
+            Compare computer science, data science, AI/ML, cybersecurity, cloud computing, and more tech courses across top Indian universities.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-2">
-            <Link
-              to="/courses"
-              className="bg-white text-blue-600 px-6 sm:px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors min-h-[44px] flex items-center justify-center"
-            >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center px-2">
+            <Button to="/courses" variant="white" size="md">
               Browse Tech Courses
-            </Link>
-            <Link
-              to="/universities"
-              className="bg-blue-700 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors border-2 border-white min-h-[44px] flex items-center justify-center"
-            >
+            </Button>
+            <Button to="/universities" variant="secondary" size="md">
               View Universities
-            </Link>
-            <Link
-              to="/compare"
-              className="bg-blue-700 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors border-2 border-white min-h-[44px] flex items-center justify-center"
-            >
+            </Button>
+            <Button to="/compare" variant="secondary" size="md">
               Compare Courses
-            </Link>
+            </Button>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="features py-12 sm:py-16 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">Why Choose NextGen Learning?</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-4xl mb-4">💻</div>
-              <h3 className="text-xl font-bold mb-2">Compare Tech Courses</h3>
-              <p className="text-gray-600">
+      <section className={`features ${spacing.sectionMedium} px-4 bg-gradient-to-b from-gray-50 to-white`}>
+        <div className={`max-w-6xl mx-auto ${spacing.container}`}>
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className={`${typography.sectionTitle} mb-4 text-gray-900`}>Why Choose NextGen Learning?</h2>
+            <p className={`${typography.body} max-w-2xl mx-auto`}>
+              Everything you need to make informed decisions about your tech education journey
+            </p>
+          </div>
+          <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ${spacing.gapLarge}`}>
+            <Card variant="feature" hoverTextColor="group-hover:text-blue-600">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">
+                💻
+              </div>
+              <h3 className={`${typography.cardTitle} mb-3 text-gray-900 group-hover:text-blue-600 transition-colors`}>Compare Tech Courses</h3>
+              <p className={`${typography.body} leading-relaxed`}>
                 Compare similar tech courses across multiple universities. See fees, rankings, and placements side-by-side.
               </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-4xl mb-4">💰</div>
-              <h3 className="text-xl font-bold mb-2">Fee Calculator</h3>
-              <p className="text-gray-600">
+            </Card>
+            <Card variant="feature" hoverTextColor="group-hover:text-green-600">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">
+                💰
+              </div>
+              <h3 className={`${typography.cardTitle} mb-3 text-gray-900 group-hover:text-green-600 transition-colors`}>Fee Calculator</h3>
+              <p className={`${typography.body} leading-relaxed`}>
                 Calculate total fees with scholarships. See year-wise breakdown and understand all costs upfront.
               </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-4xl mb-4">🏆</div>
-              <h3 className="text-xl font-bold mb-2">University Rankings</h3>
-              <p className="text-gray-600">
+            </Card>
+            <Card variant="feature" hoverTextColor="group-hover:text-orange-600">
+              <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">
+                🏆
+              </div>
+              <h3 className={`${typography.cardTitle} mb-3 text-gray-900 group-hover:text-orange-600 transition-colors`}>University Rankings</h3>
+              <p className={`${typography.body} leading-relaxed`}>
                 View NIRF rankings, NAAC accreditation, placement records, and more to make informed decisions.
               </p>
-            </div>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* Tech Categories Section */}
-      <section className="py-12 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">Explore Tech Course Categories</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            <Link to="/courses/compare/btech-cse" className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center border border-blue-200">
-              <div className="text-4xl mb-3">💻</div>
-              <h3 className="font-bold mb-2">Computer Science</h3>
-              <p className="text-sm text-gray-600">B.Tech CSE programs</p>
-            </Link>
-            <Link to="/courses/compare/btech-ai-ml" className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center border border-purple-200">
-              <div className="text-4xl mb-3">🤖</div>
-              <h3 className="font-bold mb-2">AI & Machine Learning</h3>
-              <p className="text-sm text-gray-600">AI/ML programs</p>
-            </Link>
-            <Link to="/courses/compare/btech-data-science" className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center border border-green-200">
-              <div className="text-4xl mb-3">📊</div>
-              <h3 className="font-bold mb-2">Data Science</h3>
-              <p className="text-sm text-gray-600">Data analytics programs</p>
-            </Link>
-            <Link to="/courses/compare/btech-cyber-security" className="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center border border-red-200">
-              <div className="text-4xl mb-3">🔒</div>
-              <h3 className="font-bold mb-2">Cybersecurity</h3>
-              <p className="text-sm text-gray-600">Security programs</p>
-            </Link>
-            <Link to="/courses/compare/btech-cloud-computing" className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center border border-indigo-200">
-              <div className="text-4xl mb-3">☁️</div>
-              <h3 className="font-bold mb-2">Cloud Computing</h3>
-              <p className="text-sm text-gray-600">Cloud technology programs</p>
-            </Link>
-            <Link to="/courses/compare/btech-full-stack" className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center border border-yellow-200">
-              <div className="text-4xl mb-3">🌐</div>
-              <h3 className="font-bold mb-2">Full Stack Dev</h3>
-              <p className="text-sm text-gray-600">Web development programs</p>
-            </Link>
-            <Link to="/courses/compare/btech-blockchain" className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center border border-gray-200">
-              <div className="text-4xl mb-3">⛓️</div>
-              <h3 className="font-bold mb-2">Blockchain</h3>
-              <p className="text-sm text-gray-600">Blockchain technology</p>
-            </Link>
-            <Link to="/courses/compare/bca" className="bg-gradient-to-br from-teal-50 to-teal-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center border border-teal-200">
-              <div className="text-4xl mb-3">📱</div>
-              <h3 className="font-bold mb-2">BCA</h3>
-              <p className="text-sm text-gray-600">Computer applications</p>
-            </Link>
+      <section className={`${spacing.sectionMedium} px-4 bg-white`}>
+        <div className={`max-w-6xl mx-auto ${spacing.container}`}>
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className={`${typography.sectionTitle} mb-4 text-gray-900`}>Explore Tech Course Categories</h2>
+            <p className={`${typography.body} max-w-2xl mx-auto`}>
+              Discover specialized tech programs across top universities
+            </p>
+          </div>
+          <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 ${spacing.gap}`}>
+            <Card 
+              to="/courses/compare/btech-cse"
+              variant="gradient"
+              gradientColors="from-blue-50 to-blue-100"
+              borderColor="border-blue-200"
+              hoverBorderColor="hover:border-blue-300"
+              hoverTextColor="group-hover:text-blue-600"
+              className="text-center"
+            >
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">💻</div>
+              <h3 className={`font-bold ${typography.bodySmall} mb-2 text-gray-900 group-hover:text-blue-600 transition-colors`}>Computer Science</h3>
+              <p className={`${typography.caption}`}>B.Tech CSE programs</p>
+            </Card>
+            <Card 
+              to="/courses/compare/btech-ai-ml"
+              variant="gradient"
+              gradientColors="from-purple-50 to-purple-100"
+              borderColor="border-purple-200"
+              hoverBorderColor="hover:border-purple-300"
+              hoverTextColor="group-hover:text-purple-600"
+              className="text-center"
+            >
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">🤖</div>
+              <h3 className={`font-bold ${typography.bodySmall} mb-2 text-gray-900 group-hover:text-purple-600 transition-colors`}>AI & Machine Learning</h3>
+              <p className={typography.caption}>AI/ML programs</p>
+            </Card>
+            <Card 
+              to="/courses/compare/btech-data-science"
+              variant="gradient"
+              gradientColors="from-green-50 to-green-100"
+              borderColor="border-green-200"
+              hoverBorderColor="hover:border-green-300"
+              hoverTextColor="group-hover:text-green-600"
+              className="text-center"
+            >
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">📊</div>
+              <h3 className={`font-bold ${typography.bodySmall} mb-2 text-gray-900 group-hover:text-green-600 transition-colors`}>Data Science</h3>
+              <p className={typography.caption}>Data analytics programs</p>
+            </Card>
+            <Card 
+              to="/courses/compare/btech-cyber-security"
+              variant="gradient"
+              gradientColors="from-red-50 to-red-100"
+              borderColor="border-red-200"
+              hoverBorderColor="hover:border-red-300"
+              hoverTextColor="group-hover:text-red-600"
+              className="text-center"
+            >
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">🔒</div>
+              <h3 className={`font-bold ${typography.bodySmall} mb-2 text-gray-900 group-hover:text-red-600 transition-colors`}>Cybersecurity</h3>
+              <p className={typography.caption}>Security programs</p>
+            </Card>
+            <Card 
+              to="/courses/compare/btech-cloud-computing"
+              variant="gradient"
+              gradientColors="from-indigo-50 to-indigo-100"
+              borderColor="border-indigo-200"
+              hoverBorderColor="hover:border-indigo-300"
+              hoverTextColor="group-hover:text-indigo-600"
+              className="text-center"
+            >
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">☁️</div>
+              <h3 className={`font-bold ${typography.bodySmall} mb-2 text-gray-900 group-hover:text-indigo-600 transition-colors`}>Cloud Computing</h3>
+              <p className={typography.caption}>Cloud technology programs</p>
+            </Card>
+            <Card 
+              to="/courses/compare/btech-full-stack"
+              variant="gradient"
+              gradientColors="from-yellow-50 to-yellow-100"
+              borderColor="border-yellow-200"
+              hoverBorderColor="hover:border-yellow-300"
+              hoverTextColor="group-hover:text-yellow-600"
+              className="text-center"
+            >
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">🌐</div>
+              <h3 className={`font-bold ${typography.bodySmall} mb-2 text-gray-900 group-hover:text-yellow-600 transition-colors`}>Full Stack Dev</h3>
+              <p className={typography.caption}>Web development programs</p>
+            </Card>
+            <Card 
+              to="/courses/compare/btech-blockchain"
+              variant="gradient"
+              gradientColors="from-gray-50 to-gray-100"
+              borderColor="border-gray-200"
+              hoverBorderColor="hover:border-gray-300"
+              hoverTextColor="group-hover:text-gray-700"
+              className="text-center"
+            >
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">⛓️</div>
+              <h3 className={`font-bold ${typography.bodySmall} mb-2 text-gray-900 group-hover:text-gray-700 transition-colors`}>Blockchain</h3>
+              <p className={typography.caption}>Blockchain technology</p>
+            </Card>
+            <Card 
+              to="/courses/compare/bca"
+              variant="gradient"
+              gradientColors="from-teal-50 to-teal-100"
+              borderColor="border-teal-200"
+              hoverBorderColor="hover:border-teal-300"
+              hoverTextColor="group-hover:text-teal-600"
+              className="text-center"
+            >
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">📱</div>
+              <h3 className={`font-bold ${typography.bodySmall} mb-2 text-gray-900 group-hover:text-teal-600 transition-colors`}>BCA</h3>
+              <p className={typography.caption}>Computer applications</p>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* Quick Links Section */}
-      <section className="py-12 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">Explore More Resources</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            <Link to="/guides" className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-              <div className="text-4xl mb-3">📚</div>
-              <h3 className="font-bold mb-2">Learning Guides</h3>
-              <p className="text-sm text-gray-600">Tech learning resources</p>
+      <section className={`${spacing.sectionMedium} px-4 bg-gradient-to-b from-gray-50 to-white`}>
+        <div className={`max-w-6xl mx-auto ${spacing.container}`}>
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className={`${typography.sectionTitle} mb-4 text-gray-900`}>Explore More Resources</h2>
+            <p className={`${typography.body} max-w-2xl mx-auto`}>
+              Everything you need for your tech education journey
+            </p>
+          </div>
+          <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 ${spacing.gap}`}>
+            <Card 
+              to="/rankings"
+              variant="default"
+              hoverTextColor="group-hover:text-blue-600"
+              className="text-center"
+            >
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">🏆</div>
+              <h3 className={`font-bold ${typography.bodySmall} mb-2 text-gray-900 group-hover:text-blue-600 transition-colors`}>NIRF Rankings</h3>
+              <p className={typography.caption}>University rankings 2025</p>
+            </Card>
+            <Card 
+              to="/fees-scholarships"
+              variant="default"
+              hoverTextColor="group-hover:text-blue-600"
+              className="text-center"
+            >
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">💵</div>
+              <h3 className={`font-bold ${typography.bodySmall} mb-2 text-gray-900 group-hover:text-blue-600 transition-colors`}>Fees & Scholarships</h3>
+              <p className={typography.caption}>Complete fee guide</p>
+            </Card>
+            <Card 
+              to="/guides"
+              variant="default"
+              hoverTextColor="group-hover:text-blue-600"
+              className="text-center"
+            >
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">📚</div>
+              <h3 className={`font-bold ${typography.bodySmall} mb-2 text-gray-900 group-hover:text-blue-600 transition-colors`}>Learning Guides</h3>
+              <p className={typography.caption}>Tech learning resources</p>
+            </Card>
+            <Card 
+              to="/faq"
+              variant="default"
+              hoverTextColor="group-hover:text-blue-600"
+              className="text-center"
+            >
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">❓</div>
+              <h3 className={`font-bold ${typography.bodySmall} mb-2 text-gray-900 group-hover:text-blue-600 transition-colors`}>FAQ</h3>
+              <p className={typography.caption}>Answers to common questions</p>
+            </Card>
+            <Card 
+              to="/scholarships"
+              variant="default"
+              hoverTextColor="group-hover:text-blue-600"
+              className="text-center"
+            >
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">💰</div>
+              <h3 className={`font-bold ${typography.bodySmall} mb-2 text-gray-900 group-hover:text-blue-600 transition-colors`}>Scholarships</h3>
+              <p className={typography.caption}>Find available scholarships</p>
+            </Card>
+            <Card 
+              to="/compare"
+              variant="default"
+              hoverTextColor="group-hover:text-blue-600"
+              className="text-center"
+            >
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">⚖️</div>
+              <h3 className={`font-bold ${typography.bodySmall} mb-2 text-gray-900 group-hover:text-blue-600 transition-colors`}>Compare Courses</h3>
+              <p className={typography.caption}>Side-by-side comparison</p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* University Rankings & Fees Section - SEO Optimized */}
+      <section className={`${spacing.sectionMedium} px-4 bg-white`}>
+        <div className={`max-w-6xl mx-auto ${spacing.container}`}>
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className={`${typography.sectionTitle} mb-4 text-gray-900`}>NIRF Ranking 2025 & Course Fees - Complete Guide</h2>
+            <p className={`${typography.body} max-w-3xl mx-auto`}>
+              Compare NIRF rankings, fees, and scholarships across top Indian universities. All universities are NAAC A+ accredited with excellent placement records.
+            </p>
+          </div>
+          
+          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ${spacing.gapLarge} mb-8`}>
+            <Card variant="default" className="text-center">
+              <div className="text-4xl mb-4">🏆</div>
+              <h3 className={`${typography.bodySmall} font-bold mb-2`}>Chandigarh University</h3>
+              <p className={`${typography.caption} mb-3`}>NIRF Ranking: 32</p>
+              <p className={`${typography.caption} mb-3`}>NAAC: A+</p>
+              <p className={`${typography.caption} mb-3`}>B.Tech CSE Fees: ₹3-4L/year</p>
+              <p className={`${typography.caption} text-green-600 font-semibold`}>Scholarship: 35-50%</p>
+              <Link to="/universities/chandigarh-university" className="text-blue-600 text-sm font-semibold mt-2 inline-block">
+                View Details →
+              </Link>
+            </Card>
+            
+            <Card variant="default" className="text-center">
+              <div className="text-4xl mb-4">🎓</div>
+              <h3 className={`${typography.bodySmall} font-bold mb-2`}>Galgotias University</h3>
+              <p className={`${typography.caption} mb-3`}>NIRF Ranking: 101-150</p>
+              <p className={`${typography.caption} mb-3`}>NAAC: A+</p>
+              <p className={`${typography.caption} mb-3`}>B.Tech CSE Fees: ₹3.5L/year</p>
+              <p className={`${typography.caption} text-green-600 font-semibold`}>Scholarship: 50-60%</p>
+              <Link to="/universities/galgotias-university" className="text-blue-600 text-sm font-semibold mt-2 inline-block">
+                View Details →
+              </Link>
+            </Card>
+            
+            <Card variant="default" className="text-center">
+              <div className="text-4xl mb-4">🌟</div>
+              <h3 className={`${typography.bodySmall} font-bold mb-2`}>Sharda University</h3>
+              <p className={`${typography.caption} mb-3`}>NIRF Ranking: 101-150</p>
+              <p className={`${typography.caption} mb-3`}>NAAC: A+</p>
+              <p className={`${typography.caption} mb-3`}>B.Tech CSE Fees: ₹3L/year</p>
+              <p className={`${typography.caption} text-green-600 font-semibold`}>Scholarship: 20-50%</p>
+              <Link to="/universities/sharda-university" className="text-blue-600 text-sm font-semibold mt-2 inline-block">
+                View Details →
+              </Link>
+            </Card>
+            
+            <Card variant="default" className="text-center">
+              <div className="text-4xl mb-4">✨</div>
+              <h3 className={`${typography.bodySmall} font-bold mb-2`}>Noida International University</h3>
+              <p className={`${typography.caption} mb-3`}>NIRF Ranking: 201-250</p>
+              <p className={`${typography.caption} mb-3`}>NAAC: A+</p>
+              <p className={`${typography.caption} mb-3`}>B.Tech CSE Fees: ₹2.5L/year</p>
+              <p className={`${typography.caption} text-green-600 font-semibold`}>Scholarship: 50% Flat</p>
+              <Link to="/universities/noida-international-university" className="text-blue-600 text-sm font-semibold mt-2 inline-block">
+                View Details →
+              </Link>
+            </Card>
+          </div>
+
+          {/* Detailed Rankings & Fees Information */}
+          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6 sm:p-8 mb-8">
+            <h3 className={`${typography.cardTitle} mb-4 text-gray-900`}>Understanding NIRF Rankings & Course Fees</h3>
+            <div className="space-y-4 text-gray-700">
+              <div>
+                <h4 className="font-semibold mb-2">What is NIRF Ranking?</h4>
+                <p className={`${typography.body} mb-2`}>
+                  NIRF (National Institutional Ranking Framework) is the official ranking system for Indian universities by the Ministry of Education. 
+                  Rankings are published annually and consider factors like teaching, research, graduation outcomes, outreach, and perception.
+                </p>
+                <p className={`${typography.body}`}>
+                  <strong>Featured Universities NIRF Rankings 2025:</strong> Chandigarh University ranks 32nd overall, making it one of the top private universities in India. 
+                  Galgotias University and Sharda University both rank in the 101-150 band, indicating excellent quality education. 
+                  Noida International University ranks 201-250, showing strong growth and potential.
+                </p>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold mb-2">B.Tech CSE Total Fees 4 Years - Complete Breakdown</h4>
+                <p className={`${typography.body} mb-2`}>
+                  Total fees for B.Tech CSE programs vary by university and scholarship eligibility. Here's a breakdown for Bangladeshi students:
+                </p>
+                <ul className="list-disc list-inside space-y-1 ml-4">
+                  <li><strong>Galgotias University B.Tech CSE:</strong> Total fees ₹14-16 lakh for 4 years (after 50-60% scholarship). Annual fee: ₹3.5 lakh/year.</li>
+                  <li><strong>Sharda University B.Tech CSE:</strong> Total fees ₹12-15 lakh for 4 years (after 20-50% scholarship). Annual fee: ₹3 lakh/year.</li>
+                  <li><strong>Chandigarh University B.Tech CSE:</strong> Total fees ₹12-16 lakh for 4 years (after 35-50% scholarship). Annual fee: ₹3-4 lakh/year.</li>
+                  <li><strong>Noida International University B.Tech CSE:</strong> Total fees ₹10-12 lakh for 4 years (after 50% flat scholarship). Annual fee: ₹2.5 lakh/year.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold mb-2">NAAC A+ Accreditation - Why It Matters</h4>
+                <p className={`${typography.body}`}>
+                  All featured universities have NAAC A+ accreditation, the highest grade indicating excellent quality education, infrastructure, 
+                  faculty, and academic standards. This ensures your degree is recognized globally and opens doors to better career opportunities.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Links for Rankings & Fees */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <Link to="/universities/galgotias-university" className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+              <h4 className="font-semibold mb-2">Galgotias University NIRF Ranking</h4>
+              <p className="text-sm text-gray-600">NIRF 101-150 | NAAC A+ | B.Tech CSE Fees & Details</p>
             </Link>
-            <Link to="/faq" className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-              <div className="text-4xl mb-3">❓</div>
-              <h3 className="font-bold mb-2">FAQ</h3>
-              <p className="text-sm text-gray-600">Answers to common questions</p>
+            <Link to="/universities/sharda-university" className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+              <h4 className="font-semibold mb-2">Sharda University NIRF Ranking</h4>
+              <p className="text-sm text-gray-600">NIRF 101-150 | NAAC A+ | B.Tech CSE Fees & Details</p>
             </Link>
-            <Link to="/scholarships" className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-              <div className="text-4xl mb-3">💰</div>
-              <h3 className="font-bold mb-2">Scholarships</h3>
-              <p className="text-sm text-gray-600">Find available scholarships</p>
-            </Link>
-            <Link to="/compare" className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-              <div className="text-4xl mb-3">⚖️</div>
-              <h3 className="font-bold mb-2">Compare Courses</h3>
-              <p className="text-sm text-gray-600">Side-by-side comparison</p>
+            <Link to="/universities" className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+              <h4 className="font-semibold mb-2">Compare All Universities</h4>
+              <p className="text-sm text-gray-600">NIRF Rankings, Fees, Scholarships Side-by-Side</p>
             </Link>
           </div>
         </div>
@@ -213,18 +462,21 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="cta py-16 px-4 bg-blue-600 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Your Tech Journey?</h2>
-          <p className="text-xl mb-8 text-blue-100">
-            Explore tech courses and find the perfect program for your career
+      <section className={`cta ${spacing.sectionMedium} px-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white relative overflow-hidden`}>
+        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className={`${typography.sectionTitle} mb-4 sm:mb-6`}>Ready to Start Your Tech Journey?</h2>
+          <p className={`${typography.bodyLarge} mb-8 sm:mb-10 text-blue-50 max-w-2xl mx-auto`}>
+            Explore tech courses and find the perfect program for your career. Get free counseling and application assistance.
           </p>
-          <Link
-            to="/courses"
-            className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors inline-block"
-          >
-            Browse Tech Courses
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button to="/courses" variant="white" size="md">
+              Browse Tech Courses
+            </Button>
+            <Button to="/apply" variant="secondary" size="md">
+              Apply Now - Free
+            </Button>
+          </div>
         </div>
       </section>
     </>

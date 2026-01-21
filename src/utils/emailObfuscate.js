@@ -34,7 +34,7 @@ export function createEmailLink(email, displayText = null) {
     href: `mailto:${email}`,
     displayText: displayText || obfuscated,
     // For React components, use onClick to decode
-    onClick: (e) => {
+    onClick: () => {
       // Email is already in href, just ensure it works
       return true;
     }
@@ -59,7 +59,7 @@ export function encodeEmail(email) {
 export function decodeEmail(encoded) {
   try {
     return atob(encoded.split('').reverse().join(''));
-  } catch (e) {
+  } catch {
     return '';
   }
 }

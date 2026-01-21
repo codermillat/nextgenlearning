@@ -21,7 +21,18 @@ export default function UniversityDetail() {
   ];
 
   if (loading) {
-    return <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">Loading university details...</div>;
+    return (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" aria-live="polite" aria-busy="true">
+        <div className="flex items-center justify-center min-h-[400px]">
+          <div className="text-center">
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4" role="status" aria-label="Loading">
+              <span className="sr-only">Loading university details...</span>
+            </div>
+            <p className="text-gray-700" aria-live="polite">Loading university details...</p>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   if (!university) {
@@ -57,25 +68,32 @@ export default function UniversityDetail() {
   return (
     <>
       <SEOHead
-        title={`${university.name} ${university.profile?.rankings?.nirf ? `NIRF ${university.profile.rankings.nirf}` : ''} ${university.profile?.rankings?.naac ? `NAAC ${university.profile.rankings.naac}` : ''} - ${programs.length}+ Tech Courses, Fees, Scholarships, Rankings 2025 | NextGen Learning`}
-        description={`${university.name}: ${university.profile?.rankings?.nirf ? `NIRF Rank ${university.profile.rankings.nirf}, ` : ''}${university.profile?.rankings?.naac ? `NAAC ${university.profile.rankings.naac}, ` : ''}${programs.length}+ tech and IT programs. Location: ${university.location}. Scholarships: ${university.id === 'niu' ? '50% flat' : university.id === 'sharda' ? '20-50% GPA-based' : university.id === 'chandigarh' ? '35-50% GPA-based' : '50-60% program-based'}. ${university.profile?.facilities?.academic?.computingLabs ? 'Advanced computing labs, ' : ''}${university.profile?.facilities?.academic?.industryPartnerships ? 'Industry partnerships, ' : ''}Strong placement records. Compare tech courses at NextGen Learning.`}
+        title={`${university.name} ${university.profile?.rankings?.nirf ? `NIRF Ranking ${university.profile.rankings.nirf}` : ''} 2025-26 | ${programs.length}+ Courses, Fees ₹${university.id === 'niu' ? '2-5L' : university.id === 'sharda' ? '2-6L' : university.id === 'chandigarh' ? '2-8L' : '2-6L'}/year, Scholarships ${university.id === 'niu' ? '50%' : university.id === 'sharda' ? '20-50%' : university.id === 'chandigarh' ? '35-50%' : '50-60%'} | ${university.profile?.rankings?.naac || 'NAAC A+'}`}
+        description={`${university.name} 2025-26: Complete Guide with NIRF Ranking ${university.profile?.rankings?.nirf || 'Top 250'}, NAAC ${university.profile?.rankings?.naac || 'A+'} accreditation. Explore ${programs.length}+ courses including B.Tech CSE, AI/ML, Data Science. Total fees after ${university.id === 'niu' ? '50%' : university.id === 'sharda' ? '20-50%' : university.id === 'chandigarh' ? '35-50%' : '50-60%'} scholarship for Bangladeshi students. ${university.profile?.facilities?.placement?.packages?.averageBtech ? `Average placement: ${university.profile.facilities.placement.packages.averageBtech}. ` : ''}Industry partnerships with ${university.profile?.facilities?.academic?.industryPartnerships?.slice(0,3).join(', ') || 'TCS, Infosys, Wipro'}. Location: ${university.location}.`}
         keywords={[
           university.name,
           university.shortName,
-          `${university.name} for Bangladeshi students`,
-          `${university.name} NIRF ranking`,
-          `${university.name} NAAC`,
+          `${university.shortName} nirf ranking`,
+          `${university.shortName} nirf ranking 2025`,
+          `${university.shortName} nirf 2025`,
+          `${university.name} ranking`,
+          `${university.name} ranking in india`,
+          `nirf ranking ${university.shortName}`,
+          `${university.name} naac grade`,
+          `${university.name} naac accreditation`,
+          `${university.name} btech cse fees`,
+          `${university.name} btech cse total fees`,
+          `${university.name} btech cse total fees 4 years`,
           `${university.name} courses`,
           `${university.name} fees`,
           `${university.name} scholarships`,
           `${university.name} admission`,
-          `${university.name} ranking 2025`,
-          'study in India',
-          'Indian universities',
-          'NIRF ranking',
-          'NAAC accreditation',
-          'WBE',
-          'Western Bangla Education'
+          `${university.name} placements`,
+          `${university.name} for Bangladeshi students`,
+          'study in India from Bangladesh',
+          'Indian universities for Bangladeshi students',
+          'NIRF ranking universities India',
+          'NAAC A+ universities India'
         ]}
         url={`/universities/${universitySlug}`}
         canonical={`/universities/${universitySlug}`}

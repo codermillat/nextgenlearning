@@ -29,16 +29,23 @@ export default function FAQSection({ faqs, title = "Frequently Asked Questions" 
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors min-h-[44px]"
+                className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors min-h-[44px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
+                id={`faq-question-${index}`}
               >
                 <span className="font-semibold text-base sm:text-lg pr-4">{faq.question}</span>
-                <span className="text-xl sm:text-2xl text-gray-500 flex-shrink-0">
+                <span className="text-xl sm:text-2xl text-gray-500 flex-shrink-0" aria-hidden="true">
                   {openIndex === index ? '−' : '+'}
                 </span>
               </button>
               {openIndex === index && (
-                <div className="px-4 sm:px-6 py-3 sm:py-4 bg-gray-50">
+                <div 
+                  id={`faq-answer-${index}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${index}`}
+                  className="px-4 sm:px-6 py-3 sm:py-4 bg-gray-50"
+                >
                   <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{faq.answer}</p>
                 </div>
               )}

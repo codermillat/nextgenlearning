@@ -2,7 +2,7 @@
  * Sitemap generation utility
  */
 
-const BASE_URL = 'https://studyinindiabd.vercel.app';
+const BASE_URL = 'https://www.nextgenlearning.dev';
 
 /**
  * Generate sitemap XML

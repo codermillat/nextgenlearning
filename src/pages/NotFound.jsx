@@ -49,7 +49,7 @@ export default function NotFound() {
           {/* 404 Illustration */}
           <div className="mb-8">
             <div className="inline-block text-9xl font-bold text-blue-600 mb-4">404</div>
-            <div className="text-6xl mb-4">🔍</div>
+            <div className="text-6xl mb-4" aria-hidden="true">🔍</div>
           </div>
 
           {/* Main Message */}
@@ -67,15 +67,15 @@ export default function NotFound() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link
               to="/"
-              className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
+              className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600"
             >
-              🏠 Go to Homepage
+              <span aria-hidden="true">🏠</span> <span className="ml-1">Go to Homepage</span>
             </Link>
             <Link
               to="/courses"
-              className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors shadow-md hover:shadow-lg"
+              className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-600"
             >
-              📚 Browse All Courses
+              <span aria-hidden="true">📚</span> <span className="ml-1">Browse All Courses</span>
             </Link>
           </div>
 
@@ -118,7 +118,7 @@ export default function NotFound() {
           {/* Search Suggestion */}
           <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
-              💡 Looking for something specific?
+              <span aria-hidden="true">💡</span> <span className="ml-1">Looking for something specific?</span>
             </h3>
             <p className="text-gray-700 mb-4">
               Try searching for courses, universities, or programs using our search feature.

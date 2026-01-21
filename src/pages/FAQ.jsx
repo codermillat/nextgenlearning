@@ -92,10 +92,10 @@ export default function FAQ() {
       {generateBreadcrumbSchema(breadcrumbs) && <StructuredData data={generateBreadcrumbSchema(breadcrumbs)} />}
       <Breadcrumbs items={breadcrumbs} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 overflow-x-hidden">
-        <header className="mb-8 text-center">
-          <h1 className="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
-          <p className="text-lg text-gray-600">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 overflow-x-hidden">
+        <header className="mb-8 sm:mb-12 text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-gray-900">Frequently Asked Questions</h1>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
             Find answers to common questions about studying in India from Bangladesh
           </p>
         </header>
@@ -103,21 +103,21 @@ export default function FAQ() {
         <FAQSection faqs={faqs} />
 
         {/* Additional Help Section */}
-        <section className="mt-12 bg-blue-50 rounded-lg p-8">
-          <h2 className="text-2xl font-bold mb-4 text-center">Still Have Questions?</h2>
-          <p className="text-center text-gray-700 mb-6">
+        <section className="mt-12 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 sm:p-10 border border-blue-200 shadow-soft">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-center text-gray-900">Still Have Questions?</h2>
+          <p className="text-center text-gray-700 mb-6 sm:mb-8 text-base sm:text-lg">
             Our expert counselors are here to help you with personalized guidance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center"
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-bold hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 text-center shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               Contact Us
             </Link>
             <Link
               to="/apply"
-              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors border-2 border-blue-600 text-center"
+              className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-blue-50 transition-all duration-200 border-2 border-blue-600 text-center shadow-md hover:shadow-lg transform hover:scale-105"
             >
               Get Free Counseling
             </Link>
@@ -126,19 +126,19 @@ export default function FAQ() {
 
         {/* Related Links */}
         <section className="mt-12">
-          <h2 className="text-2xl font-bold mb-6">Related Resources</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Link to="/guides" className="p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow">
-              <h3 className="font-semibold mb-2">📚 Guides & Resources</h3>
-              <p className="text-sm text-gray-600">Comprehensive guides for studying in India</p>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-gray-900">Related Resources</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+            <Link to="/guides" className="p-5 sm:p-6 bg-white border-2 border-gray-200 rounded-xl hover:shadow-large transition-all duration-300 group hover:border-blue-200 hover:-translate-y-1">
+              <h3 className="font-semibold mb-2 text-lg group-hover:text-blue-600 transition-colors">📚 Guides & Resources</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">Comprehensive guides for studying in India</p>
             </Link>
-            <Link to="/scholarships" className="p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow">
-              <h3 className="font-semibold mb-2">💰 Scholarships</h3>
-              <p className="text-sm text-gray-600">Find available scholarships and eligibility</p>
+            <Link to="/scholarships" className="p-5 sm:p-6 bg-white border-2 border-gray-200 rounded-xl hover:shadow-large transition-all duration-300 group hover:border-green-200 hover:-translate-y-1">
+              <h3 className="font-semibold mb-2 text-lg group-hover:text-green-600 transition-colors">💰 Scholarships</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">Find available scholarships and eligibility</p>
             </Link>
-            <Link to="/universities" className="p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow">
-              <h3 className="font-semibold mb-2">🏛️ Universities</h3>
-              <p className="text-sm text-gray-600">Compare top-ranked universities</p>
+            <Link to="/universities" className="p-5 sm:p-6 bg-white border-2 border-gray-200 rounded-xl hover:shadow-large transition-all duration-300 group hover:border-blue-200 hover:-translate-y-1">
+              <h3 className="font-semibold mb-2 text-lg group-hover:text-blue-600 transition-colors">🏛️ Universities</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">Compare top-ranked universities</p>
             </Link>
           </div>
         </section>

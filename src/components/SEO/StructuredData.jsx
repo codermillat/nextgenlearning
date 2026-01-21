@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 
+/* eslint-disable react-refresh/only-export-components */
+
 /**
  * Structured Data component for JSON-LD (React 19 compatible)
  * Supports multiple schemas on the same page using unique IDs
@@ -31,7 +33,7 @@ export default function StructuredData({ data, id }) {
           if (scriptData['@type'] === 'FAQPage' && script.id !== uniqueId) {
             script.remove();
           }
-        } catch (e) {
+        } catch {
           // Ignore parse errors
         }
       });
@@ -529,7 +531,6 @@ export function generateLocalBusinessSchema() {
  * Generate Review schema for courses
  */
 export function generateReviewSchema(course, university, rating, reviewText, author) {
-  const siteUrl = 'https://www.nextgenlearning.dev';
   
   return {
     "@context": "https://schema.org",

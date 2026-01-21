@@ -3,7 +3,8 @@
  * Tracks all traffic and lead generation events
  */
 
-const GA_TRACKING_ID = 'G-B1MLPB5SJB';
+import { GA_TRACKING_ID } from '../config/constants';
+
 
 /**
  * Initialize Google Analytics

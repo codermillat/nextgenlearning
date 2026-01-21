@@ -185,7 +185,10 @@ The app will be available at `http://localhost:5173/`
 ├── src/
 │   ├── components/
 │   │   ├── Common/
-│   │   │   └── Breadcrumbs.jsx
+│   │   │   ├── Breadcrumbs.jsx
+│   │   │   ├── Button.jsx
+│   │   │   ├── Card.jsx
+│   │   │   └── ErrorBoundary.jsx
 │   │   ├── Compare/
 │   │   │   └── CourseFilters.jsx
 │   │   ├── Course/
@@ -203,6 +206,8 @@ The app will be available at `http://localhost:5173/`
 │   │   └── DataContext.jsx    # Centralized data management
 │   ├── data/
 │   │   └── courseGroups.js    # Tech course grouping logic
+│   ├── hooks/
+│   │   └── useDebounce.js     # Debounce hook for search inputs
 │   ├── pages/
 │   │   ├── Home.jsx
 │   │   ├── Courses.jsx
@@ -212,12 +217,28 @@ The app will be available at `http://localhost:5173/`
 │   │   ├── CourseDetail.jsx
 │   │   ├── CourseGroupCompare.jsx
 │   │   ├── Compare.jsx
+│   │   ├── Rankings.jsx       # NEW: NIRF Rankings page
+│   │   ├── FeesAndScholarships.jsx  # NEW: Fees & Scholarships page
 │   │   ├── Scholarships.jsx
 │   │   ├── ProgramCategories.jsx
 │   │   ├── Apply.jsx
 │   │   ├── About.jsx
 │   │   ├── Contact.jsx
+│   │   ├── Guides.jsx
+│   │   ├── GuideDetail.jsx
+│   │   ├── FAQ.jsx
+│   │   ├── PrivacyPolicy.jsx
+│   │   ├── TermsAndConditions.jsx
 │   │   └── NotFound.jsx
+│   ├── utils/
+│   │   ├── analytics.js       # Google Analytics tracking
+│   │   ├── courseGrouping.js
+│   │   ├── filterPrograms.js
+│   │   ├── rankings.js
+│   │   ├── scholarships.js
+│   │   ├── slugify.js
+│   │   ├── whatsappRedirect.js
+│   │   └── designTokens.js    # Design system tokens
 │   ├── utils/
 │   │   ├── analytics.js       # Google Analytics tracking
 │   │   ├── courseGrouping.js
@@ -289,12 +310,12 @@ Each program includes:
 ## 🔍 SEO Features
 
 ### Meta Tags
-- Dynamic titles optimized for tech/IT keywords
-- Rich descriptions with key information
-- Targeted keywords for each page
+- Dynamic titles optimized for tech/IT keywords and high-volume search queries
+- Rich descriptions with key information (fees, rankings, scholarships)
+- Targeted keywords for each page based on GSC data analysis
 - Open Graph tags for social sharing
 - Twitter Card tags
-- Canonical URLs
+- Canonical URLs (clean URLs without query parameters)
 
 ### Structured Data (JSON-LD)
 - **Course Schema** - For individual course pages
@@ -302,14 +323,23 @@ Each program includes:
 - **FAQPage Schema** - For FAQ sections
 - **BreadcrumbList Schema** - For navigation
 - **ItemList Schema** - For comparison pages
+- **WebPage Schema** - For dedicated landing pages (Rankings, Fees)
 - **WebSite Schema** - For site-wide information
 
 ### Technical SEO
-- Sitemap.xml with all URLs
-- Robots.txt configured
+- Sitemap.xml with all URLs (including new Rankings and Fees pages)
+- Robots.txt configured for search engines and LLM crawlers
 - Mobile optimization meta tags
-- Fast loading (static site)
+- Fast loading (static site with code splitting)
 - Semantic HTML structure
+- Internal linking strategy optimized for SEO
+
+### SEO Optimizations (2026)
+- **Keyword-Rich Content**: Added comprehensive sections targeting high-volume keywords from GSC
+- **Dedicated Landing Pages**: Created `/rankings` and `/fees-scholarships` pages for top search queries
+- **Enhanced Meta Tags**: Optimized titles and descriptions for better CTR
+- **Content Enhancements**: Added detailed NIRF ranking explanations, fee breakdowns, and scholarship details
+- **Internal Linking**: Improved contextual links throughout the site
 
 ---
 
@@ -319,12 +349,16 @@ Each program includes:
 - `/` - Home page
 - `/courses` - All tech courses listing
 - `/universities` - All universities listing
+- `/rankings` - NIRF Ranking 2025 guide with detailed university rankings comparison
+- `/fees-scholarships` - Complete B.Tech CSE fees and scholarships guide with detailed breakdowns
 - `/scholarships` - Scholarship information
 - `/program-categories` - Program categories
 - `/compare` - Custom course comparison tool
 - `/apply` - Application form (WhatsApp redirect)
 - `/about` - About NextGen Learning
 - `/contact` - Contact information
+- `/guides` - Learning guides and resources
+- `/faq` - Frequently asked questions
 
 ### Dynamic Routes
 - `/universities/:universitySlug` - University detail page
@@ -458,12 +492,17 @@ npm run generate-sitemap
 2. ✅ **Static Content** - All content is static for consistent indexing
 3. ✅ **Structured Data** - JSON-LD schemas for rich snippets
 4. ✅ **Mobile-First** - Responsive design with mobile optimization
-5. ✅ **Fast Loading** - Static site generation for instant page loads
-6. ✅ **Internal Linking** - Breadcrumbs and contextual links
-7. ✅ **Keyword Optimization** - Targeted tech/IT keywords in titles and descriptions
-8. ✅ **Canonical URLs** - Prevents duplicate content issues
-9. ✅ **Sitemap** - Complete sitemap with all pages
-10. ✅ **Robots.txt** - Proper search engine directives
+5. ✅ **Fast Loading** - Static site generation with code splitting for instant page loads
+6. ✅ **Internal Linking** - Breadcrumbs and contextual links throughout
+7. ✅ **Keyword Optimization** - Targeted tech/IT keywords based on GSC data analysis
+8. ✅ **Canonical URLs** - Prevents duplicate content issues, removes query parameters
+9. ✅ **Sitemap** - Complete sitemap with all pages (including Rankings and Fees pages)
+10. ✅ **Robots.txt** - Proper search engine directives for all crawlers
+11. ✅ **Dedicated Landing Pages** - Rankings and Fees pages for high-volume keywords
+12. ✅ **Content Depth** - Comprehensive guides with FAQ sections for long-tail keywords
+13. ✅ **LLM Optimization** - llms.txt file for AI crawlers
+14. ✅ **Error Handling** - ErrorBoundary for graceful error handling
+15. ✅ **Performance** - Code splitting, lazy loading, debounced inputs
 
 ---
 
@@ -535,14 +574,19 @@ All URLs follow SEO-friendly patterns:
 - **Home**: `/`
 - **Courses**: `/courses`
 - **Universities**: `/universities`
+- **Rankings**: `/rankings` - NIRF Ranking 2025 guide
+- **Fees & Scholarships**: `/fees-scholarships` - Complete fees and scholarships guide
 - **University Detail**: `/universities/:slug`
 - **University Courses**: `/universities/:slug/courses`
 - **Course Detail**: `/universities/:universitySlug/courses/:courseSlug`
 - **Course Group Compare**: `/courses/compare/:groupId`
 - **Scholarships**: `/scholarships`
+- **Compare**: `/compare` - Custom comparison tool
 - **Apply**: `/apply`
 - **About**: `/about`
 - **Contact**: `/contact`
+- **Guides**: `/guides` - Learning guides and resources
+- **FAQ**: `/faq` - Frequently asked questions
 
 ---
 
@@ -589,7 +633,8 @@ This project is created for **NextGen Learning** to help students explore and co
 
 ## 📅 Version History
 
-- **v3.0.0** (Current) - Rebranded to NextGen Learning, tech/IT focus, curriculum information, Google Analytics tracking
+- **v3.1.0** (Current) - SEO improvements: Added Rankings and Fees pages, enhanced meta tags, keyword-rich content, improved internal linking
+- **v3.0.0** - Rebranded to NextGen Learning, tech/IT focus, curriculum information, Google Analytics tracking
 - **v2.0.0** - Complete restructure: Student-facing platform, 4 universities, SEO optimization
 - **v1.0.0** - Initial counselor-facing tool
 

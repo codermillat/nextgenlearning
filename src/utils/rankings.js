@@ -8,7 +8,7 @@ import { getMaxScholarship } from './scholarships';
  * Calculate total fees with maximum available scholarship
  * Uses the highest scholarship tier available (no GPA input required)
  */
-export function calculateTotalFees(program, university, gpa = 0) {
+export function calculateTotalFees(program, university) {
   const fees = program.annualFees || [];
   if (fees.length === 0) return {
     baseTotal: 0,

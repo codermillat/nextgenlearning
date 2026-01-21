@@ -202,9 +202,7 @@ const SPECIALIZATION_GROUPS = {
   'mathematics': [
     'mathematics', 'maths', 'applied mathematics'
   ],
-  'biotechnology': [
-    'biotechnology', 'biotech', 'bio technology'
-  ],
+  // Note: biotechnology is already defined above in engineering section
   'microbiology': [
     'microbiology', 'applied microbiology'
   ],
@@ -342,7 +340,7 @@ function matchSpecializations(spec1, spec2) {
   }
   
   // Check specialization groups
-  for (const [group, variations] of Object.entries(SPECIALIZATION_GROUPS)) {
+  for (const [, variations] of Object.entries(SPECIALIZATION_GROUPS)) {
     const spec1InGroup = variations.some(v => norm1.includes(v) || v.includes(norm1));
     const spec2InGroup = variations.some(v => norm2.includes(v) || v.includes(norm2));
     
@@ -572,8 +570,10 @@ function getStandardizedField(field) {
   return FIELD_MAPPING[field] || field;
 }
 
-// Export for use in other files
+// Export for use in other files (CommonJS compatibility)
+// eslint-disable-next-line no-undef
 if (typeof module !== 'undefined' && module.exports) {
+  // eslint-disable-next-line no-undef
   module.exports = {
     FIELD_MAPPING,
     normalizeSpecialization,

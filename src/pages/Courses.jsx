@@ -1,26 +1,77 @@
-import { Link } from 'react-router-dom';
+import { useState, useMemo } from 'react';
 import { useData } from '../context/DataContext';
 import SEOHead from '../components/SEO/SEOHead';
 import StructuredData from '../components/SEO/StructuredData';
 import Breadcrumbs from '../components/Common/Breadcrumbs';
+import CourseFilters from '../components/Compare/CourseFilters';
+import Card from '../components/Common/Card';
+import { SkeletonPage } from '../components/Common/Skeleton';
 import { generateBreadcrumbSchema, generateItemListSchema } from '../components/SEO/StructuredData';
 import { getAllCourseGroups } from '../data/courseGroups';
 import { getProgramsForGroup } from '../utils/courseGrouping';
+import { filterPrograms } from '../utils/filterPrograms';
+import { calculateTotalFees } from '../utils/rankings';
+import { typography, spacing } from '../utils/designTokens';
+
+// Icon and color mapping for course categories
+const COURSE_GROUP_STYLES = {
+  'btech-cse': { icon: '💻', bgColor: 'from-blue-50 to-blue-100', borderColor: 'border-blue-200', hoverBorder: 'hover:border-blue-300', textColor: 'group-hover:text-blue-600' },
+  'btech-ai-ml': { icon: '🤖', bgColor: 'from-purple-50 to-purple-100', borderColor: 'border-purple-200', hoverBorder: 'hover:border-purple-300', textColor: 'group-hover:text-purple-600' },
+  'btech-data-science': { icon: '📊', bgColor: 'from-green-50 to-green-100', borderColor: 'border-green-200', hoverBorder: 'hover:border-green-300', textColor: 'group-hover:text-green-600' },
+  'btech-cyber-security': { icon: '🔒', bgColor: 'from-red-50 to-red-100', borderColor: 'border-red-200', hoverBorder: 'hover:border-red-300', textColor: 'group-hover:text-red-600' },
+  'btech-it': { icon: '🖥️', bgColor: 'from-cyan-50 to-cyan-100', borderColor: 'border-cyan-200', hoverBorder: 'hover:border-cyan-300', textColor: 'group-hover:text-cyan-600' },
+  'btech-cloud-computing': { icon: '☁️', bgColor: 'from-indigo-50 to-indigo-100', borderColor: 'border-indigo-200', hoverBorder: 'hover:border-indigo-300', textColor: 'group-hover:text-indigo-600' },
+  'btech-full-stack': { icon: '🌐', bgColor: 'from-yellow-50 to-yellow-100', borderColor: 'border-yellow-200', hoverBorder: 'hover:border-yellow-300', textColor: 'group-hover:text-yellow-600' },
+  'btech-blockchain': { icon: '⛓️', bgColor: 'from-gray-50 to-gray-100', borderColor: 'border-gray-200', hoverBorder: 'hover:border-gray-300', textColor: 'group-hover:text-gray-700' },
+  'btech-iot': { icon: '📡', bgColor: 'from-teal-50 to-teal-100', borderColor: 'border-teal-200', hoverBorder: 'hover:border-teal-300', textColor: 'group-hover:text-teal-600' },
+  'btech-ece': { icon: '📶', bgColor: 'from-orange-50 to-orange-100', borderColor: 'border-orange-200', hoverBorder: 'hover:border-orange-300', textColor: 'group-hover:text-orange-600' },
+  'bca': { icon: '📱', bgColor: 'from-pink-50 to-pink-100', borderColor: 'border-pink-200', hoverBorder: 'hover:border-pink-300', textColor: 'group-hover:text-pink-600' },
+  'bsc-computer-science': { icon: '🔬', bgColor: 'from-violet-50 to-violet-100', borderColor: 'border-violet-200', hoverBorder: 'hover:border-violet-300', textColor: 'group-hover:text-violet-600' },
+  'btech-lateral-cse': { icon: '🚀', bgColor: 'from-blue-50 to-indigo-100', borderColor: 'border-blue-200', hoverBorder: 'hover:border-blue-300', textColor: 'group-hover:text-blue-600' },
+  'btech-lateral-aiml': { icon: '🎯', bgColor: 'from-purple-50 to-pink-100', borderColor: 'border-purple-200', hoverBorder: 'hover:border-purple-300', textColor: 'group-hover:text-purple-600' },
+  'btech-lateral-data-science': { icon: '📈', bgColor: 'from-green-50 to-teal-100', borderColor: 'border-green-200', hoverBorder: 'hover:border-green-300', textColor: 'group-hover:text-green-600' },
+  'mtech-cse': { icon: '🎓', bgColor: 'from-slate-50 to-slate-100', borderColor: 'border-slate-200', hoverBorder: 'hover:border-slate-300', textColor: 'group-hover:text-slate-600' },
+  'mca': { icon: '💼', bgColor: 'from-amber-50 to-amber-100', borderColor: 'border-amber-200', hoverBorder: 'hover:border-amber-300', textColor: 'group-hover:text-amber-600' },
+  'btech-lateral-it': { icon: '⚡', bgColor: 'from-cyan-50 to-blue-100', borderColor: 'border-cyan-200', hoverBorder: 'hover:border-cyan-300', textColor: 'group-hover:text-cyan-600' },
+};
+
+const getGroupStyle = (groupId) => {
+  return COURSE_GROUP_STYLES[groupId] || { 
+    icon: '📚', 
+    bgColor: 'from-gray-50 to-gray-100', 
+    borderColor: 'border-gray-200', 
+    hoverBorder: 'hover:border-gray-300', 
+    textColor: 'group-hover:text-gray-700' 
+  };
+};
 
 export default function Courses() {
   const { allPrograms, universities, loading } = useData();
   const courseGroups = getAllCourseGroups();
+  const [filters, setFilters] = useState({
+    degreeLevel: '',
+    universityId: '',
+    field: '',
+    search: ''
+  });
 
   const breadcrumbs = [
     { name: 'Home', url: '/' },
     { name: 'Courses', url: '/courses' }
   ];
 
-  // Debug: Log that Courses component is rendering
-  console.log('Courses component rendering, loading:', loading);
+  // Filter courses based on active filters
+  const filteredCourses = useMemo(() => {
+    return filterPrograms(allPrograms, filters);
+  }, [allPrograms, filters]);
 
   if (loading) {
-    return <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">Loading courses...</div>;
+    return (
+      <div aria-live="polite" aria-busy="true">
+        <span className="sr-only">Loading courses...</span>
+        <SkeletonPage showFilters={true} cardCount={9} />
+      </div>
+    );
   }
 
   // Show all courses (each university-course combination is unique)
@@ -29,29 +80,31 @@ export default function Courses() {
   return (
     <>
       <SEOHead
-        title={`All Tech & IT Courses - ${allCourses.length}+ Programs | NextGen Learning`}
-        description={`Browse all ${allCourses.length} tech and IT courses available at top universities. Compare computer science, data science, AI/ML, cybersecurity, cloud computing, and more tech programs with detailed fees, scholarships, rankings, and eligibility.`}
+        title={`${allCourses.length}+ Tech Courses 2025 | B.Tech, BCA, MCA Fees & Scholarships`}
+        description={`Browse ${allCourses.length}+ B.Tech CSE, AI/ML, Data Science, Cybersecurity, Cloud Computing courses at NIRF ranked universities. Total fees: ₹8-25 lakh (after 20-60% scholarship). Galgotias B.Tech CSE fees: ₹3.5L/year, Sharda B.Tech CSE fees: ₹3L/year, Chandigarh B.Tech CSE fees: ₹4L/year. Compare eligibility, placements, curriculum. BCA, MCA, M.Tech also available.`}
         keywords={[
-          'tech courses',
-          'IT courses',
-          'computer science courses',
-          'data science courses',
-          'AI ML courses',
-          'cybersecurity courses',
-          'cloud computing courses',
-          'B.Tech CSE',
-          'B.Tech IT',
-          'BCA courses',
-          'MCA courses',
-          'M.Tech courses',
-          'tech programs',
-          'IT programs',
-          'computer science programs',
-          'programming courses',
-          'software engineering courses',
-          'full stack development courses',
-          'blockchain courses',
-          'IoT courses'
+          'galgotias university btech cse fees',
+          'galgotias university btech cse total fees 4 years',
+          'galgotias university b.tech cse fees',
+          'galgotias university b.tech cse total fees',
+          'sharda university btech cse fees',
+          'sharda university btech cse total fees 4 years',
+          'sharda university b.tech cse fees',
+          'chandigarh university cyber security fees',
+          'chandigarh university bsc forensic science fees',
+          'chandigarh university bba llb fees',
+          'b tech cse cloud computing lateral entry',
+          'b tech ai and ml lateral entry',
+          'B.Tech CSE fees India',
+          'B.Tech AI ML fees',
+          'B.Tech data science fees',
+          'B.Tech cybersecurity fees',
+          'BCA courses fees',
+          'MCA courses fees',
+          'tech courses India',
+          'computer science courses India',
+          'best engineering colleges India',
+          'scholarship for tech courses India'
         ]}
         url="/courses"
         canonical="/courses"
@@ -83,46 +136,71 @@ export default function Courses() {
       })()}
       <Breadcrumbs items={breadcrumbs} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8">All Tech & IT Courses</h1>
-        
-        <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
-          Explore tech and IT courses offered by top universities. Compare computer science, data science, AI/ML, cybersecurity, and more. Find the best tech program for your career.
-        </p>
+      <div className={`max-w-7xl mx-auto ${spacing.container} ${spacing.sectionSmall}`}>
+        <div className="mb-6 sm:mb-8">
+          <h1 className={`${typography.sectionTitle} mb-3 sm:mb-4`}>All Tech & IT Courses</h1>
+          <p className={typography.body}>
+            Explore {allCourses.length} tech and IT courses offered by top universities. Compare computer science, data science, AI/ML, cybersecurity, and more. Find the best tech program for your career.
+          </p>
+        </div>
+
+        {/* Course Filters */}
+        <CourseFilters
+          allPrograms={allCourses}
+          universities={universities}
+          filters={filters}
+          onFiltersChange={setFilters}
+        />
 
         {/* Course Groups */}
         <section className="mb-8 sm:mb-12">
-          <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Popular Course Categories</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <h2 className={`${typography.cardTitle} mb-4 sm:mb-6`}>Popular Course Categories</h2>
+          <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ${spacing.gap}`}>
             {courseGroups.map(group => {
               const groupPrograms = getProgramsForGroup(allPrograms, group.id);
+              const style = getGroupStyle(group.id);
               return (
-                <Link
+                <Card
                   key={group.id}
                   to={`/courses/compare/${group.id}`}
-                  className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-200"
+                  variant="gradient"
+                  gradientColors={style.bgColor}
+                  borderColor={style.borderColor}
+                  hoverBorderColor={style.hoverBorder.replace('hover:', '')}
+                  hoverTextColor={style.textColor}
                 >
-                  <h3 className="text-xl font-bold mb-2">{group.name}</h3>
-                  <p className="text-gray-600 mb-4 text-sm">{group.description}</p>
-                  <div className="text-blue-600 font-semibold">
+                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">{style.icon}</div>
+                  <h3 className={`${typography.bodySmall} font-bold mb-2 text-gray-900 ${style.textColor} transition-colors`}>{group.name}</h3>
+                  <p className={`${typography.caption} mb-4 line-clamp-2`}>{group.description}</p>
+                  <div className="text-blue-600 font-semibold text-sm">
                     {groupPrograms.length} {groupPrograms.length === 1 ? 'program' : 'programs'} →
                   </div>
-                </Link>
+                </Card>
               );
             })}
           </div>
         </section>
 
-        {/* All Courses List */}
+        {/* Filtered Courses List */}
         <section>
-          <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">All Available Courses</h2>
-          <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-            Browse all {allCourses.length} tech and IT courses available across {universities.length} universities. 
-            Each course has a dedicated page with detailed information, fees, scholarships, and eligibility criteria.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-            {allCourses.length > 0 ? (
-              allCourses
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-2">
+            <div>
+              <h2 className={typography.cardTitle}>
+                {filters.search || filters.degreeLevel || filters.universityId || filters.field
+                  ? `Filtered Courses (${filteredCourses.length})`
+                  : `All Available Courses (${allCourses.length})`}
+              </h2>
+              <p className={`${typography.caption} mt-1`}>
+                {filters.search || filters.degreeLevel || filters.universityId || filters.field
+                  ? `Showing ${filteredCourses.length} of ${allCourses.length} courses`
+                  : `Browse all ${allCourses.length} tech and IT courses across ${universities.length} universities`}
+              </p>
+            </div>
+          </div>
+
+          {filteredCourses.length > 0 ? (
+            <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ${spacing.gap}`}>
+              {filteredCourses
                 .filter(course => {
                   const universitySlug = course.universitySlug || course.university?.slug;
                   const courseSlug = course.slug;
@@ -131,31 +209,90 @@ export default function Courses() {
                 .map(course => {
                   const universitySlug = course.universitySlug || course.university?.slug;
                   const courseSlug = course.slug;
+                  const university = universities.find(u => u.id === course.universityId);
+                  const fees = university ? calculateTotalFees(course, university) : null;
+                  
                   return (
-                    <Link
+                    <Card
                       key={course.id}
                       to={`/universities/${universitySlug}/courses/${courseSlug}`}
-                      className="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow border border-gray-200"
+                      variant="default"
+                      hoverTextColor="group-hover:text-blue-600"
+                      className="group"
                     >
-                      <h3 className="font-semibold mb-1">{course.name || 'Unnamed Course'}</h3>
-                      <p className="text-sm text-gray-600 mb-2">{course.university?.name || course.universityName || 'Unknown University'}</p>
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs text-gray-500">{course.degree || 'N/A'} • {course.duration || 'N/A'} years</span>
-                        <span className="text-sm text-blue-600 font-semibold">View Details →</span>
+                      <div className="mb-3">
+                        <h3 className={`${typography.bodySmall} font-bold mb-2 group-hover:text-blue-600 transition-colors line-clamp-2`}>
+                          {course.name || 'Unnamed Course'}
+                        </h3>
+                        {course.specialization && (
+                          <p className={`${typography.caption} mb-2 line-clamp-1`}>{course.specialization}</p>
+                        )}
+                        <p className={`${typography.caption} text-blue-600 font-semibold mb-3`}>
+                          {course.university?.name || course.universityName || 'Unknown University'}
+                        </p>
                       </div>
-                    </Link>
+                      
+                      <div className="space-y-2 mb-4">
+                        <div className="flex justify-between text-sm">
+                          <span className={typography.caption}>Degree:</span>
+                          <span className="font-semibold">{course.degree || 'N/A'}</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span className={typography.caption}>Duration:</span>
+                          <span className="font-semibold">{course.duration || 'N/A'} years</span>
+                        </div>
+                        {fees && (
+                          <>
+                            <div className="flex justify-between text-sm">
+                              <span className={typography.caption}>Scholarship:</span>
+                              <span className="font-semibold text-green-700">{fees.scholarshipPercent}%</span>
+                            </div>
+                            <div className="flex justify-between text-sm border-t pt-2">
+                              <span className={typography.caption}>Total Cost:</span>
+                              <span className="font-bold text-blue-700">₹{fees.grandTotal.toLocaleString()}</span>
+                            </div>
+                          </>
+                        )}
+                      </div>
+
+                      <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+                        <span className={typography.caption}>{course.field || 'Tech'}</span>
+                        <span className={`${typography.caption} text-blue-600 font-semibold group-hover:underline`}>
+                          View Details →
+                        </span>
+                      </div>
+                    </Card>
                   );
-                })
-            ) : (
-              <div className="col-span-full text-center py-8">
-                <p className="text-gray-600">No courses available at the moment.</p>
-                {loading && <p className="text-sm text-gray-500 mt-2">Loading courses...</p>}
-              </div>
-            )}
-          </div>
-          <p className="text-sm text-gray-600 mt-6 text-center">
-            All course pages are fully indexed by search engines. Use the search bar or filters to find specific courses.
-          </p>
+                })}
+            </div>
+          ) : (
+            <div className="col-span-full text-center py-12 sm:py-16 bg-gray-50 rounded-lg border border-gray-200" role="status" aria-live="polite">
+              <svg className="mx-auto h-12 w-12 text-gray-500 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <h3 className={`${typography.bodySmall} font-semibold text-gray-900 mb-2`}>No courses found</h3>
+              <p className={`${typography.body} mb-4`}>
+                {filters.search || filters.degreeLevel || filters.universityId || filters.field
+                  ? 'Try adjusting your filters to see more results.'
+                  : 'No courses available at the moment.'}
+              </p>
+              {(filters.search || filters.degreeLevel || filters.universityId || filters.field) && (
+                <button
+                  type="button"
+                  onClick={() => setFilters({ degreeLevel: '', universityId: '', field: '', search: '' })}
+                  className="text-blue-600 hover:text-blue-800 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-2 py-1"
+                >
+                  Clear all filters
+                </button>
+              )}
+            </div>
+          )}
+          
+          {filteredCourses.length > 0 && (
+            <p className={`${typography.caption} mt-6 text-center`}>
+              All course pages are fully indexed by search engines. Each course has detailed information about fees, scholarships, eligibility, and career prospects.
+            </p>
+          )}
         </section>
       </div>
     </>

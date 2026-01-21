@@ -12,6 +12,8 @@ https://www.nextgenlearning.dev
 - https://www.nextgenlearning.dev/ - Home page
 - https://www.nextgenlearning.dev/courses - Browse all tech courses
 - https://www.nextgenlearning.dev/universities - View all universities
+- https://www.nextgenlearning.dev/rankings - NIRF Ranking 2025 guide and university rankings comparison
+- https://www.nextgenlearning.dev/fees-scholarships - Complete B.Tech CSE fees and scholarships guide
 - https://www.nextgenlearning.dev/scholarships - Scholarship information
 - https://www.nextgenlearning.dev/compare - Compare courses side-by-side
 - https://www.nextgenlearning.dev/apply - Application form
@@ -127,6 +129,12 @@ This platform focuses exclusively on technology and IT-related courses including
 - Information Technology
 - Software Engineering
 
+## SEO-Optimized Pages
+
+### Rankings & Fees Pages
+- **NIRF Rankings** (`/rankings`): Complete guide to NIRF Ranking 2025 with detailed university rankings, ranking parameters explanation, NIRF vs NAAC comparison, and subject-wise rankings
+- **Fees & Scholarships** (`/fees-scholarships`): Comprehensive B.Tech CSE fees guide with total fees 4 years breakdown, scholarship eligibility, payment structure, and university-wise fee comparison
+
 ## Data Structure
 - All course data is stored in JSON format
 - Each university has detailed program information
@@ -134,5 +142,5 @@ This platform focuses exclusively on technology and IT-related courses including
 - Fee structures include all costs and scholarship options
 
 ## Last Updated
-2025-01-13
+2026-01-21
 

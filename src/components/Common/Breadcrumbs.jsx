@@ -1,11 +1,13 @@
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import StructuredData from '../SEO/StructuredData';
 import { generateBreadcrumbSchema } from '../SEO/StructuredData';
 
 /**
  * Breadcrumb navigation component with structured data
+ * Wrapped in React.memo for performance optimization
  */
-export default function Breadcrumbs({ items }) {
+const Breadcrumbs = memo(function Breadcrumbs({ items }) {
   if (!items || items.length === 0) return null;
 
   const breadcrumbSchema = generateBreadcrumbSchema(items);
@@ -38,5 +40,7 @@ export default function Breadcrumbs({ items }) {
       </nav>
     </>
   );
-}
+});
+
+export default Breadcrumbs;
 

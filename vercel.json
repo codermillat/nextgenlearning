@@ -78,10 +78,61 @@
       "source": "/terms-and-conditions/",
       "destination": "/terms-and-conditions",
       "permanent": true
+    },
+    {
+      "source": "/2025/:path*",
+      "destination": "/guides",
+      "permanent": true
+    },
+    {
+      "source": "/2024/:path*",
+      "destination": "/guides",
+      "permanent": true
+    },
+    {
+      "source": "/search/:path*",
+      "destination": "/courses",
+      "permanent": true
+    },
+    {
+      "source": "/search",
+      "destination": "/courses",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "query",
+          "key": "m"
+        }
+      ],
+      "destination": "/:path*",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/2025/09/:path*",
+      "destination": "/guides",
+      "permanent": true
+    },
+    {
+      "source": "/2025/09/:path*",
+      "has": [
+        {
+          "type": "query",
+          "key": "m"
+        }
+      ],
+      "destination": "/guides",
+      "permanent": true
     }
   ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ],
   "headers": [
     {
@@ -106,6 +157,18 @@
         {
           "key": "X-XSS-Protection",
           "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://cdn.jsdelivr.net https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me"
         }
       ]
     },
@@ -147,8 +210,114 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://www.nextgenlearning.dev/>; rel=\"canonical\""
+        }
+      ]
+    },
+    {
+      "source": "/courses",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://www.nextgenlearning.dev/courses>; rel=\"canonical\""
+        }
+      ]
+    },
+    {
+      "source": "/universities",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://www.nextgenlearning.dev/universities>; rel=\"canonical\""
+        }
+      ]
+    },
+    {
+      "source": "/compare",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://www.nextgenlearning.dev/compare>; rel=\"canonical\""
+        }
+      ]
+    },
+    {
+      "source": "/apply",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://www.nextgenlearning.dev/apply>; rel=\"canonical\""
+        }
+      ]
+    },
+    {
+      "source": "/about",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://www.nextgenlearning.dev/about>; rel=\"canonical\""
+        }
+      ]
+    },
+    {
+      "source": "/contact",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://www.nextgenlearning.dev/contact>; rel=\"canonical\""
+        }
+      ]
+    },
+    {
+      "source": "/scholarships",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://www.nextgenlearning.dev/scholarships>; rel=\"canonical\""
+        }
+      ]
+    },
+    {
+      "source": "/guides",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://www.nextgenlearning.dev/guides>; rel=\"canonical\""
+        }
+      ]
+    },
+    {
+      "source": "/faq",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://www.nextgenlearning.dev/faq>; rel=\"canonical\""
+        }
+      ]
+    },
+    {
+      "source": "/privacy-policy",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://www.nextgenlearning.dev/privacy-policy>; rel=\"canonical\""
+        }
+      ]
+    },
+    {
+      "source": "/terms-and-conditions",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://www.nextgenlearning.dev/terms-and-conditions>; rel=\"canonical\""
+        }
+      ]
     }
   ]
 }
-
-

@@ -24,6 +24,9 @@
       });
     </script>
     
+    <!-- DOMPurify for HTML sanitization -->
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js" crossorigin="anonymous"></script>
+    
     <!-- Facebook Pixel - Add when you have Pixel ID -->
     <!-- 
     <script>
@@ -109,8 +112,7 @@
     <meta property="og:image:type" content="image/svg+xml" />
     <meta property="og:site_name" content="NextGen Learning - Tech & IT Courses" />
     
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.nextgenlearning.dev/" />
+    <!-- Canonical URL is set dynamically by SEOHead.jsx component per page -->
     
     <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json" id="website-schema">

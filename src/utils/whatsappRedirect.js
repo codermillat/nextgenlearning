@@ -1,11 +1,11 @@
 /**
  * WhatsApp redirect utility
- * WBE WhatsApp number: +8801611533385
  */
 
 import { trackWhatsAppClick } from './analytics';
+import { WHATSAPP_NUMBER } from '../config/constants';
 
-const WBE_WHATSAPP_NUMBER = '8801611533385';
+const WBE_WHATSAPP_NUMBER = WHATSAPP_NUMBER;
 
 /**
  * Generate WhatsApp URL with pre-filled message

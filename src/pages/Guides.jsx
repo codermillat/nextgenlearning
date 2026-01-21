@@ -184,33 +184,36 @@ Thank you!`;
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {filteredGuides.length > 0 ? (
             filteredGuides.map((guide) => (
-              <article key={guide.slug} className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="p-4 sm:p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide">{guide.category}</span>
+              <article key={guide.slug} className="bg-white border-2 border-gray-200 rounded-xl overflow-hidden hover:shadow-large transition-all duration-300 group hover:border-blue-200 hover:-translate-y-1">
+                <div className="p-5 sm:p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide bg-blue-50 px-2 py-1 rounded-md">{guide.category}</span>
                     <span className="text-xs text-gray-500">{guide.readTime}</span>
                   </div>
-                  <h2 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 line-clamp-2">
-                    <Link to={`/guides/${guide.slug}`} className="hover:text-blue-600 transition-colors">
+                  <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                    <Link to={`/guides/${guide.slug}`}>
                       {guide.title}
                     </Link>
                   </h2>
-                  <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-3">{guide.description}</p>
-                  <div className="flex items-center justify-between flex-wrap gap-2">
+                  <p className="text-gray-600 text-xs sm:text-sm mb-4 sm:mb-5 line-clamp-3 leading-relaxed">{guide.description}</p>
+                  <div className="flex items-center justify-between flex-wrap gap-2 pt-4 border-t border-gray-100">
                     <span className="text-xs text-gray-500">{new Date(guide.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                     <Link
                       to={`/guides/${guide.slug}`}
-                      className="text-blue-600 hover:text-blue-800 font-semibold text-xs sm:text-sm min-h-[44px] flex items-center"
+                      className="text-blue-600 hover:text-blue-800 font-semibold text-xs sm:text-sm min-h-[44px] flex items-center group/link"
                     >
-                      Read More →
+                      Read More
+                      <svg className="w-4 h-4 ml-1 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
                     </Link>
                   </div>
                 </div>
               </article>
             ))
           ) : (
-            <div className="col-span-full text-center py-8">
-              <p className="text-gray-600">No guides found in this category.</p>
+            <div className="col-span-full text-center py-12">
+              <p className="text-gray-600 text-lg">No guides found in this category.</p>
             </div>
           )}
         </div>

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
  * Generate sitemap.xml dynamically from all routes
  * Run with: node scripts/generate-sitemap.js
@@ -39,8 +40,8 @@ function slugify(text) {
     .toLowerCase()
     .trim()
     .replace(/\s+/g, '-')
-    .replace(/[^\w\-]+/g, '')
-    .replace(/\-\-+/g, '-');
+    .replace(/[^\w-]+/g, '')
+    .replace(/--+/g, '-');
 }
 
 function universitySlug(university) {

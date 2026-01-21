@@ -1,4 +1,4 @@
-import { calculateTotalFees } from '../../utils/rankings';
+// Fee calculation is done inline - no external import needed
 
 /**
  * Detailed Fee Breakdown Component

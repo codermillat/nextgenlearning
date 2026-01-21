@@ -754,7 +754,14 @@ Thank you!`;
         {/* Content */}
         <div 
           className="article-content mb-8 sm:mb-12 prose prose-lg prose-blue max-w-none"
-          dangerouslySetInnerHTML={{ __html: guide.content }}
+          dangerouslySetInnerHTML={{ 
+            __html: typeof window !== 'undefined' && window.DOMPurify 
+              ? window.DOMPurify.sanitize(guide.content || '', { 
+                  ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'blockquote', 'code', 'pre'],
+                  ALLOWED_ATTR: ['href', 'target', 'rel', 'class']
+                })
+              : guide.content || ''
+          }}
           style={{
             '--tw-prose-body': '#4b5563',
             '--tw-prose-headings': '#111827',
