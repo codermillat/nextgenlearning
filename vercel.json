@@ -108,8 +108,7 @@
         }
       ],
       "destination": "/:path*",
-      "permanent": true,
-      "statusCode": 301
+      "permanent": true
     },
     {
       "source": "/2025/09/:path*",
