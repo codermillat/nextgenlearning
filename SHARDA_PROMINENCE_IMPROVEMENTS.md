@@ -93,6 +93,15 @@ return [...shardaPrograms, ...otherPrograms];
   - Comparison scores
   - Any other sorting logic
 
+### 6. Apply Page University Dropdown
+**File**: `src/pages/Apply.jsx`
+
+#### University Selection Dropdown
+- Sharda University always appears first in dropdown
+- Star emoji (⭐) prefix for Sharda
+- Other universities sorted normally below Sharda
+- Ensures consistent user experience across all forms
+
 ## Visual Improvements Summary
 
 ### Sharda University Cards Now Feature:
@@ -120,6 +129,7 @@ return [...shardaPrograms, ...otherPrograms];
 - ✅ Courses page listing
 - ✅ Search results
 - ✅ All filtered results
+- ✅ Apply page university dropdown (FIXED)
 
 ### 2. Visual Hierarchy
 - Clear distinction between Sharda and other universities
@@ -198,6 +208,7 @@ className={`group relative ${isSharda ? 'ring-2 ring-blue-500 shadow-xl' : ''}`}
 - ✅ Courses page - Sharda programs first
 - ✅ Compare page - Sharda programs first in dropdown
 - ✅ Scholarships page - Sharda first
+- ✅ Apply page - Sharda first in university dropdown
 - ✅ All course listing pages - Sharda programs first
 
 ## Performance Impact

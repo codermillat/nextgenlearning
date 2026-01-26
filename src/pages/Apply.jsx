@@ -334,9 +334,22 @@ export default function Apply() {
                 aria-describedby="university-help"
               >
                 <option value="">Select a university (optional)</option>
-                {universities.map(uni => (
-                  <option key={uni.id} value={uni.name}>{uni.name}</option>
-                ))}
+                {/* Sharda University always first */}
+                {(() => {
+                  const sharda = universities.find(u => u.id === 'sharda' || u.id === 'sharda-university');
+                  const others = universities.filter(u => u.id !== 'sharda' && u.id !== 'sharda-university');
+                  
+                  return (
+                    <>
+                      {sharda && (
+                        <option key={sharda.id} value={sharda.name}>⭐ {sharda.name}</option>
+                      )}
+                      {others.map(uni => (
+                        <option key={uni.id} value={uni.name}>{uni.name}</option>
+                      ))}
+                    </>
+                  );
+                })()}
               </select>
               <p id="university-help" className="mt-1 text-xs text-gray-500">Choose your preferred university if you have one</p>
             </div>
