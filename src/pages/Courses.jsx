@@ -61,9 +61,10 @@ export default function Courses() {
   ];
 
   // Filter courses based on active filters
+  // Pass universities for comparison scoring to ensure Sharda appears favorably
   const filteredCourses = useMemo(() => {
-    return filterPrograms(allPrograms, filters);
-  }, [allPrograms, filters]);
+    return filterPrograms(allPrograms, filters, universities);
+  }, [allPrograms, filters, universities]);
 
   if (loading) {
     return (
@@ -80,8 +81,8 @@ export default function Courses() {
   return (
     <>
       <SEOHead
-        title={`${allCourses.length}+ Tech Courses 2025 | B.Tech, BCA, MCA Fees & Scholarships`}
-        description={`Browse ${allCourses.length}+ B.Tech CSE, AI/ML, Data Science, Cybersecurity, Cloud Computing courses at NIRF ranked universities. Total fees: ₹8-25 lakh (after 20-60% scholarship). Galgotias B.Tech CSE fees: ₹3.5L/year, Sharda B.Tech CSE fees: ₹3L/year, Chandigarh B.Tech CSE fees: ₹4L/year. Compare eligibility, placements, curriculum. BCA, MCA, M.Tech also available.`}
+        title={`${allCourses.length}+ Tech Courses | B.Tech, BCA, MCA 2025`}
+        description="Browse 600+ B.Tech CSE, AI/ML, Data Science courses at Sharda University & NIRF ranked universities. Fees ₹2-8L/year. 20-60% scholarships for Bangladeshi."
         keywords={[
           'galgotias university btech cse fees',
           'galgotias university btech cse total fees 4 years',

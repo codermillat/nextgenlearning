@@ -58,7 +58,7 @@ export default function FeesAndScholarships() {
     },
     {
       question: "How do I know if I'm eligible for scholarships?",
-      answer: "Scholarship eligibility varies by university: NIU offers 50% flat scholarship to ALL Bangladeshi students (no minimum GPA). Sharda University requires minimum GPA 3.0+ for 20% scholarship, GPA 3.0-3.49 for 30%, and GPA 3.5+ for 50%. Chandigarh University offers 35-50% based on GPA. Galgotias offers 50-60% based on program type. Western Bangla Education (WBE) can help determine your exact scholarship eligibility based on your academic transcripts."
+      answer: "Scholarship eligibility varies by university: NIU offers 50% flat scholarship to ALL Bangladeshi students (no minimum GPA). Sharda University requires minimum GPA 3.0+ for 20% scholarship, GPA 3.0-3.49 for 30%, and GPA 3.5+ for 50%. Chandigarh University offers 35-50% based on GPA. Galgotias offers 50-60% based on program type. Contact us for free counseling to determine your exact scholarship eligibility based on your academic transcripts."
     }
   ];
 
@@ -89,8 +89,8 @@ export default function FeesAndScholarships() {
   return (
     <>
       <SEOHead
-        title="B.Tech CSE Fees & Scholarships 2025-26 | Total Fees 4 Years ₹10-16L | Scholarships 20-60% | Galgotias, Sharda, Chandigarh, NIU"
-        description="Complete B.Tech CSE fees guide: Galgotias University fees ₹3.5L/year (total ₹14-16L), Sharda University fees ₹3L/year (total ₹12-15L), Chandigarh University fees ₹3-4L/year (total ₹12-16L), NIU fees ₹2.5L/year (total ₹10-12L). Scholarships: 20-60% for Bangladeshi students. Compare fees, scholarships, and total cost 4 years. Free counseling."
+        title="B.Tech CSE Fees 2025 | ₹10-16L Total | 20-60% Off"
+        description="B.Tech CSE fees guide: Sharda University ₹3L/year, Galgotias ₹3.5L/year. 20-60% scholarships for Bangladeshi students. Total fees 4 years ₹10-16L."
         keywords={[
           'btech cse fees',
           'btech cse total fees',
@@ -445,8 +445,7 @@ export default function FeesAndScholarships() {
           <div className="relative z-10">
             <h2 className={`${typography.sectionTitle} mb-4 sm:mb-6`}>Need Help with Fees & Scholarships?</h2>
             <p className={`${typography.bodyLarge} mb-6 sm:mb-8 text-blue-50 max-w-2xl mx-auto`}>
-              Get free counseling from Western Bangla Education. We'll help you understand fees, 
-              calculate scholarships, and guide you through the application process.
+              Get free counseling to understand fees, calculate scholarships, and receive guidance through the application process.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

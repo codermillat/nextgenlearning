@@ -6,6 +6,7 @@ import Breadcrumbs from '../components/Common/Breadcrumbs';
 import FAQSection from '../components/SEO/FAQSection';
 import { generateOrganizationSchema, generateBreadcrumbSchema } from '../components/SEO/StructuredData';
 import { calculateTotalFees } from '../utils/rankings';
+import { SHARDA_APPLY_URL, WHATSAPP_DISPLAY, getWhatsAppUrl } from '../config/constants';
 
 export default function UniversityDetail() {
   const { universitySlug } = useParams();
@@ -61,7 +62,7 @@ export default function UniversityDetail() {
     },
     {
       question: `How do I apply to ${university.name}?`,
-      answer: `You can apply to ${university.name} through Western Bangla Education (WBE) for free counseling and application assistance. WBE provides visa assistance, document verification, and admission support. Click the "Apply Now" button to get started.`
+      answer: `You can apply to ${university.name} through our free counseling and application assistance service. We provide visa assistance, document verification, and admission support. Contact us on WhatsApp at ${WHATSAPP_DISPLAY} or click the "Apply Now" button to get started.`
     }
   ];
 
@@ -69,7 +70,7 @@ export default function UniversityDetail() {
     <>
       <SEOHead
         title={`${university.name} ${university.profile?.rankings?.nirf ? `NIRF Ranking ${university.profile.rankings.nirf}` : ''} 2025-26 | ${programs.length}+ Courses, Fees ₹${university.id === 'niu' ? '2-5L' : university.id === 'sharda' ? '2-6L' : university.id === 'chandigarh' ? '2-8L' : '2-6L'}/year, Scholarships ${university.id === 'niu' ? '50%' : university.id === 'sharda' ? '20-50%' : university.id === 'chandigarh' ? '35-50%' : '50-60%'} | ${university.profile?.rankings?.naac || 'NAAC A+'}`}
-        description={`${university.name} 2025-26: Complete Guide with NIRF Ranking ${university.profile?.rankings?.nirf || 'Top 250'}, NAAC ${university.profile?.rankings?.naac || 'A+'} accreditation. Explore ${programs.length}+ courses including B.Tech CSE, AI/ML, Data Science. Total fees after ${university.id === 'niu' ? '50%' : university.id === 'sharda' ? '20-50%' : university.id === 'chandigarh' ? '35-50%' : '50-60%'} scholarship for Bangladeshi students. ${university.profile?.facilities?.placement?.packages?.averageBtech ? `Average placement: ${university.profile.facilities.placement.packages.averageBtech}. ` : ''}Industry partnerships with ${university.profile?.facilities?.academic?.industryPartnerships?.slice(0,3).join(', ') || 'TCS, Infosys, Wipro'}. Location: ${university.location}.`}
+        description={`${university.name} NIRF ${university.profile?.rankings?.nirf || 'Top 250'}: ${programs.length}+ courses, fees ₹${university.id === 'niu' ? '2-5L' : university.id === 'sharda' ? '2-6L' : university.id === 'chandigarh' ? '2-8L' : '2-6L'}/year, ${university.id === 'niu' ? '50%' : university.id === 'sharda' ? '20-50%' : university.id === 'chandigarh' ? '35-50%' : '50-60%'} scholarships for Bangladeshi students. NAAC A+. Apply now.`}
         keywords={[
           university.name,
           university.shortName,
@@ -195,14 +196,25 @@ export default function UniversityDetail() {
         <section className="bg-blue-50 p-4 sm:p-6 md:p-8 rounded-lg text-center">
           <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Interested in {university.name}?</h2>
           <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-            Get free counseling and application assistance from Western Bangla Education
+            Get free counseling and application assistance. Contact us on WhatsApp at {WHATSAPP_DISPLAY}
           </p>
-          <Link
-            to="/apply"
-            className="bg-blue-600 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block min-h-[44px] flex items-center justify-center text-sm sm:text-base w-full sm:w-auto shadow-md"
-          >
-            Apply Now - Free Consultation
-          </Link>
+          {(university.id === 'sharda' || university.id === 'sharda-university') ? (
+            <a
+              href={SHARDA_APPLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block min-h-[44px] flex items-center justify-center text-sm sm:text-base w-full sm:w-auto shadow-md"
+            >
+              Apply Now - Free Consultation
+            </a>
+          ) : (
+            <Link
+              to="/apply"
+              className="bg-blue-600 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block min-h-[44px] flex items-center justify-center text-sm sm:text-base w-full sm:w-auto shadow-md"
+            >
+              Apply Now - Free Consultation
+            </Link>
+          )}
         </section>
       </div>
     </>

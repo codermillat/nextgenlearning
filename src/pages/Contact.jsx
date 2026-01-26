@@ -1,9 +1,10 @@
 import SEOHead from '../components/SEO/SEOHead';
 import StructuredData from '../components/SEO/StructuredData';
 import Breadcrumbs from '../components/Common/Breadcrumbs';
-import { generateBreadcrumbSchema, generateWBESchema, generateLocalBusinessSchema } from '../components/SEO/StructuredData';
+import { generateBreadcrumbSchema, generateSiteOrganizationSchema, generateLocalBusinessSchema } from '../components/SEO/StructuredData';
 import { redirectToWhatsApp } from '../utils/whatsappRedirect';
 import { trackWhatsAppClick, trackEmailClick } from '../utils/analytics';
+import { WHATSAPP_NUMBER, WHATSAPP_DISPLAY, getWhatsAppUrl } from '../config/constants';
 
 export default function Contact() {
   const breadcrumbs = [
@@ -11,7 +12,7 @@ export default function Contact() {
     { name: 'Contact Us', url: '/contact' }
   ];
 
-  const wbeSchema = generateWBESchema();
+  const siteOrgSchema = generateSiteOrganizationSchema();
 
   const handleWhatsAppClick = () => {
     trackWhatsAppClick('contact_page', '', '');
@@ -21,8 +22,8 @@ export default function Contact() {
   return (
     <>
       <SEOHead
-        title="Contact Us - NextGen Learning | Free Tech Course Counseling & Admission Assistance"
-        description="Contact NextGen Learning for free counseling and admission assistance for tech and IT courses. WhatsApp: +8801611533385. Get help comparing computer science, data science, AI/ML, cybersecurity, and cloud computing programs across top Indian universities."
+        title="Contact Us | Free Counseling & Admission Help"
+        description={`Contact NextGen Learning for free counseling. Apply to Sharda University & top universities. WhatsApp: ${WHATSAPP_DISPLAY}. Help for Bangladeshi students.`}
         keywords={[
           'contact NextGen Learning',
           'tech course counseling',
@@ -38,7 +39,7 @@ export default function Contact() {
         url="/contact"
         canonical="/contact"
       />
-      {wbeSchema && <StructuredData data={wbeSchema} />}
+      {siteOrgSchema && <StructuredData data={siteOrgSchema} id="site-org-schema" />}
       {generateLocalBusinessSchema() && <StructuredData data={generateLocalBusinessSchema()} id="local-business-schema" />}
       {generateBreadcrumbSchema(breadcrumbs) && <StructuredData data={generateBreadcrumbSchema(breadcrumbs)} />}
       <Breadcrumbs items={breadcrumbs} />
@@ -48,7 +49,7 @@ export default function Contact() {
           <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
           
           <p className="text-lg text-gray-700 mb-8">
-            We're here to help you take the first step towards your global education journey. Whether you need counselling, admission guidance, or detailed information about studying abroad, our team at <strong>Western Bangla Education (WBE)</strong> is ready to assist you.
+            We're here to help you take the first step towards your global education journey. Whether you need counselling, admission guidance, or detailed information about studying abroad, our team at <strong>NextGen Learning</strong> is ready to assist you.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -63,13 +64,13 @@ export default function Contact() {
                     Phone / WhatsApp
                   </h3>
                   <a
-                    href="https://wa.me/8801611533385"
+                    href={getWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={handleWhatsAppClick}
                     className="text-blue-600 hover:text-blue-800 text-lg font-medium"
                   >
-                    +8801611533385
+                    {WHATSAPP_DISPLAY}
                   </a>
                   <p className="text-sm text-gray-600 mt-1">Available 24/7 for WhatsApp</p>
                 </div>
@@ -80,8 +81,8 @@ export default function Contact() {
                     Email
                   </h3>
                   <a
-                    href="mailto:westernbanglaedu@gmail.com"
-                    onClick={() => trackEmailClick('westernbanglaedu@gmail.com', 'contact_page')}
+                    href="mailto:contact@nextgenlearning.dev"
+                    onClick={() => trackEmailClick('contact@nextgenlearning.dev', 'contact_page')}
                     className="text-blue-600 hover:text-blue-800 text-lg font-medium"
                   >
                     Contact Us via Email
@@ -94,18 +95,10 @@ export default function Contact() {
                     Office Location
                   </h3>
                   <address className="text-gray-700 not-italic">
-                    <strong>Western Bangla Education (WBE)</strong><br />
-                    Binodnagar, Nawabganj, Dinajpur – 5280<br />
-                    Rangpur Division, Bangladesh
+                    <strong>NextGen Learning</strong><br />
+                    Greater Noida, Uttar Pradesh<br />
+                    India
                   </address>
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=Binodnagar+Nawabganj+Dinajpur+Bangladesh"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 text-sm mt-2 inline-block"
-                  >
-                    View on Google Maps →
-                  </a>
                 </div>
               </div>
             </div>
@@ -130,8 +123,8 @@ export default function Contact() {
                 </button>
                 
                 <a
-                  href="mailto:westernbanglaedu@gmail.com"
-                  onClick={() => trackEmailClick('westernbanglaedu@gmail.com', 'contact_page_quick_action')}
+                  href="mailto:contact@nextgenlearning.dev"
+                  onClick={() => trackEmailClick('contact@nextgenlearning.dev', 'contact_page_quick_action')}
                   className="block w-full bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-700 transition-colors text-center"
                 >
                   Send Email
@@ -154,7 +147,7 @@ export default function Contact() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://facebook.com/westernbanglaedu"
+                href="https://facebook.com/nextgenlearning"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
@@ -162,7 +155,7 @@ export default function Contact() {
                 Facebook
               </a>
               <a
-                href="https://instagram.com/westernbanglaedu"
+                href="https://instagram.com/nextgenlearning"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition-colors"
@@ -170,7 +163,7 @@ export default function Contact() {
                 Instagram
               </a>
               <a
-                href="https://linkedin.com/company/westernbanglaedu"
+                href="https://linkedin.com/company/nextgenlearning"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors"
@@ -178,7 +171,7 @@ export default function Contact() {
                 LinkedIn
               </a>
               <a
-                href="https://x.com/WesternBangla"
+                href="https://x.com/NextGenLearning"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors"
@@ -186,7 +179,7 @@ export default function Contact() {
                 X (Twitter)
               </a>
               <a
-                href="https://medium.com/@westernbanglaedu"
+                href="https://medium.com/@nextgenlearning"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
@@ -198,25 +191,18 @@ export default function Contact() {
 
           {/* Service Areas */}
           <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-            <h2 className="text-2xl font-bold mb-4">Areas We Serve</h2>
+            <h2 className="text-2xl font-bold mb-4">Who We Serve</h2>
             <p className="text-gray-700 mb-4">
-              WBE primarily serves students from the northern districts of Bangladesh, including:
+              NextGen Learning primarily serves students from Bangladesh seeking quality education in India, with a special focus on technology and IT programs.
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {['Dinajpur', 'Rangpur', 'Thakurgaon', 'Panchagarh', 'Lalmonirhat', 'Nilphamari', 'Kurigram', 'Gaibandha'].map((district) => (
-                <div key={district} className="bg-blue-50 px-4 py-2 rounded text-center font-medium text-gray-700">
-                  {district}
-                </div>
-              ))}
-            </div>
             <p className="text-sm text-gray-600 mt-4">
-              However, we welcome students from all over Bangladesh and provide services nationwide.
+              We welcome students from all over Bangladesh and provide comprehensive services to help you achieve your educational goals.
             </p>
           </div>
 
           <div className="mt-8 text-center">
             <p className="text-lg font-semibold text-blue-600 italic">
-              Western Bangla Education – Where Education Meets Opportunity
+              NextGen Learning – Your Gateway to Quality Tech Education in India
             </p>
           </div>
         </div>

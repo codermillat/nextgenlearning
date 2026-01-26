@@ -8,14 +8,14 @@ import { calculateTotalFees } from '../rankings';
 
 // Mock the scholarships module
 vi.mock('../scholarships', () => ({
-  getMaxScholarship: vi.fn((universityId) => {
+  getMaxScholarship: vi.fn((program, university) => {
     const scholarships = {
       'niu': 50,
       'sharda': 50,
       'chandigarh': 50,
       'galgotias': 60,
     };
-    return scholarships[universityId] || 0;
+    return scholarships[university.id] || 0;
   }),
 }));
 

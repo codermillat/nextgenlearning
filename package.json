@@ -9,25 +9,44 @@
     "build:analyze": "ANALYZE=true vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "generate-sitemap": "node scripts/generate-sitemap.js"
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:a11y": "vitest run src/components/Sharda/__tests__/accessibility.test.jsx",
+    "lighthouse": "node scripts/lighthouse-audit.js",
+    "lighthouse:local": "npm run build && npm run preview & sleep 5 && npm run lighthouse http://localhost:4173",
+    "a11y:audit": "node scripts/accessibility-audit.js",
+    "a11y:audit:local": "npm run build && npm run preview & sleep 5 && npm run a11y:audit http://localhost:4173"
   },
   "dependencies": {
+    "prop-types": "^15.8.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.5"
   },
   "devDependencies": {
+    "@axe-core/puppeteer": "^4.11.0",
+    "@axe-core/react": "^4.11.0",
     "@eslint/js": "^9.36.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.4",
+    "@vitest/coverage-v8": "^4.0.18",
     "autoprefixer": "^10.4.21",
+    "axe-core": "^4.11.1",
     "eslint": "^9.36.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
+    "fast-check": "^4.5.3",
     "globals": "^16.4.0",
+    "jsdom": "^27.4.0",
     "postcss": "^8.5.6",
+    "puppeteer": "^24.36.0",
     "tailwindcss": "^3.3.7",
-    "vite": "^7.1.7"
+    "vite": "^7.1.7",
+    "vitest": "^4.0.18",
+    "vitest-axe": "^0.1.0"
   }
 }

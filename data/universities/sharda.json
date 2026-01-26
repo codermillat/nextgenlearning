@@ -4,6 +4,7 @@
   "shortName": "Sharda",
   "location": "Greater Noida, Uttar Pradesh, India",
   "established": 2009,
+  "applyUrl": "https://bit.ly/4pZTRTs",
   "profile": {
     "rankings": {
       "nirf": "101-150",
@@ -255,13 +256,6 @@
               "gpaMin": 3,
               "gpaMax": 5,
               "conditions": "GPA 3.0 and above"
-            },
-            {
-              "name": "Enhanced Scholarship",
-              "percentage": 30,
-              "gpaMin": 3,
-              "gpaMax": 5,
-              "conditions": "GPA 3.0 and above"
             }
           ]
         },
@@ -290,38 +284,6 @@
         "Examination Fee (First Year)"
       ]
     },
-    "wbeAdditionalFees": {
-      "amount": 52000,
-      "name": "WBE Comprehensive Package (Non-Refundable)",
-      "breakdown": [
-        {
-          "item": "Admission Fee",
-          "amount": 30000,
-          "note": "First year only"
-        },
-        {
-          "item": "Medical Check-up & Insurance (Annually)",
-          "amount": 10000,
-          "note": "Second year onwards Rs.5,000"
-        },
-        {
-          "item": "Registration Fee (from 2nd year onwards)",
-          "amount": 15000,
-          "note": "Annual"
-        },
-        {
-          "item": "Examination Fee (Annually)",
-          "amount": 12000,
-          "note": "Per year"
-        }
-      ],
-      "wbeServices": [
-        "Free Visa Slot Arrangement (Worth 12,000-20,000 BDT)",
-        "Free Accommodation Assistance",
-        "Enhanced Scholarship Processing",
-        "Official Partnership Benefits"
-      ]
-    },
     "recurring": {
       "examination": {
         "amount": 12000,
@@ -343,27 +305,6 @@
         "frequency": "One-time in Final Year",
         "description": "Alumni Association Contribution"
       }
-    },
-    "wbeRecurring": {
-      "totalAnnual": 32000,
-      "description": "WBE Annual Fees from 2nd Year Onwards",
-      "breakdown": [
-        {
-          "item": "Medical Check-up & Insurance",
-          "amount": 5000,
-          "note": "Reduced rate from 2nd year"
-        },
-        {
-          "item": "Registration Fee",
-          "amount": 15000,
-          "note": "Annual from 2nd year"
-        },
-        {
-          "item": "Examination Fee",
-          "amount": 12000,
-          "note": "Annual"
-        }
-      ]
     }
   },
   "programs": [

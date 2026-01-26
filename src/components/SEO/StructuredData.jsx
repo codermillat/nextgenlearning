@@ -299,9 +299,9 @@ export function generateBreadcrumbSchema(items) {
 }
 
 /**
- * Generate Organization schema for NextGen Learning
+ * Generate Organization schema for NextGen Learning site
  */
-export function generateWBESchema() {
+export function generateSiteOrganizationSchema() {
   const siteUrl = 'https://www.nextgenlearning.dev';
   return {
     "@context": "https://schema.org",
@@ -310,6 +310,8 @@ export function generateWBESchema() {
     "alternateName": "NextGen Learning - Tech & IT Courses",
     "description": "Your gateway to tech and IT education. Compare computer science, data science, AI/ML, cybersecurity, cloud computing, and more tech courses.",
     "url": siteUrl,
+    "telephone": "+918800996151",
+    "email": "contact@nextgenlearning.dev",
     "sameAs": [],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -511,16 +513,22 @@ export function generateLocalBusinessSchema() {
     "alternateName": "NextGen Learning - Tech & IT Courses",
     "url": siteUrl,
     "description": "Tech and IT education platform helping students compare courses across top Indian universities",
-    "telephone": "+8801611533385",
-    "email": "westernbanglaedu@gmail.com",
+    "telephone": "+918800996151",
+    "email": "contact@nextgenlearning.dev",
     "address": {
       "@type": "PostalAddress",
-      "addressCountry": "BD"
+      "addressCountry": "IN"
     },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Bangladesh"
-    },
+    "areaServed": [
+      {
+        "@type": "Country",
+        "name": "Bangladesh"
+      },
+      {
+        "@type": "Country",
+        "name": "India"
+      }
+    ],
     "priceRange": "Free",
     "openingHours": "Mo-Su 00:00-23:59",
     "sameAs": []
@@ -556,4 +564,365 @@ export function generateReviewSchema(course, university, rating, reviewText, aut
     "reviewBody": reviewText,
     "datePublished": new Date().toISOString()
   };
+}
+
+/**
+ * Validate structured data schema
+ * Ensures schema follows schema.org specifications and includes all required properties
+ * 
+ * @param {Object} schema - The schema object to validate
+ * @returns {Object} - Validation result with isValid boolean and errors array
+ */
+export function validateSchema(schema) {
+  const errors = [];
+  
+  // Check if schema exists
+  if (!schema || typeof schema !== 'object') {
+    return {
+      isValid: false,
+      errors: ['Schema must be a valid object']
+    };
+  }
+  
+  // Check for required @context field
+  if (!schema['@context']) {
+    errors.push('Missing required field: @context');
+  } else if (schema['@context'] !== 'https://schema.org') {
+    errors.push('Invalid @context: must be "https://schema.org"');
+  }
+  
+  // Check for required @type field
+  if (!schema['@type']) {
+    errors.push('Missing required field: @type');
+  } else if (typeof schema['@type'] !== 'string' || schema['@type'].length === 0) {
+    errors.push('Invalid @type: must be a non-empty string');
+  }
+  
+  // Validate based on schema type
+  const schemaType = schema['@type'];
+  
+  switch (schemaType) {
+    case 'Course':
+      validateCourseSchema(schema, errors);
+      break;
+    case 'EducationalOrganization':
+    case 'Organization':
+      validateOrganizationSchema(schema, errors);
+      break;
+    case 'FAQPage':
+      validateFAQSchema(schema, errors);
+      break;
+    case 'Review':
+      validateReviewSchema(schema, errors);
+      break;
+    case 'BreadcrumbList':
+      validateBreadcrumbSchema(schema, errors);
+      break;
+    case 'Article':
+      validateArticleSchema(schema, errors);
+      break;
+    case 'HowTo':
+      validateHowToSchema(schema, errors);
+      break;
+    case 'WebSite':
+      validateWebsiteSchema(schema, errors);
+      break;
+    case 'ItemList':
+      validateItemListSchema(schema, errors);
+      break;
+    case 'LocalBusiness':
+      validateLocalBusinessSchema(schema, errors);
+      break;
+    default:
+      // Generic validation for unknown types
+      break;
+  }
+  
+  // Check for circular references
+  try {
+    JSON.stringify(schema);
+  } catch (e) {
+    errors.push('Schema contains circular references');
+  }
+  
+  return {
+    isValid: errors.length === 0,
+    errors
+  };
+}
+
+/**
+ * Validate Course schema required fields
+ */
+function validateCourseSchema(schema, errors) {
+  const requiredFields = ['name', 'description', 'provider'];
+  
+  requiredFields.forEach(field => {
+    if (!schema[field]) {
+      errors.push(`Course schema missing required field: ${field}`);
+    }
+  });
+  
+  // Validate provider is an organization
+  if (schema.provider && typeof schema.provider === 'object') {
+    if (!schema.provider['@type'] || !schema.provider['@type'].includes('Organization')) {
+      errors.push('Course provider must be an Organization type');
+    }
+    if (!schema.provider.name) {
+      errors.push('Course provider must have a name');
+    }
+  }
+  
+  // Validate offers if present
+  if (schema.offers) {
+    if (!schema.offers['@type'] || schema.offers['@type'] !== 'Offer') {
+      errors.push('Course offers must be of type Offer');
+    }
+    if (schema.offers.price !== undefined && typeof schema.offers.price !== 'number') {
+      errors.push('Course offers price must be a number');
+    }
+  }
+}
+
+/**
+ * Validate Organization schema required fields
+ */
+function validateOrganizationSchema(schema, errors) {
+  const requiredFields = ['name', 'url'];
+  
+  requiredFields.forEach(field => {
+    if (!schema[field]) {
+      errors.push(`Organization schema missing required field: ${field}`);
+    }
+  });
+  
+  // Validate URL format
+  if (schema.url && typeof schema.url === 'string') {
+    try {
+      new URL(schema.url);
+    } catch (e) {
+      errors.push('Organization URL must be a valid URL');
+    }
+  }
+  
+  // Validate address if present
+  if (schema.address && typeof schema.address === 'object') {
+    if (!schema.address['@type'] || schema.address['@type'] !== 'PostalAddress') {
+      errors.push('Organization address must be of type PostalAddress');
+    }
+  }
+}
+
+/**
+ * Validate FAQPage schema required fields
+ */
+function validateFAQSchema(schema, errors) {
+  if (!schema.mainEntity) {
+    errors.push('FAQPage schema missing required field: mainEntity');
+    return;
+  }
+  
+  if (!Array.isArray(schema.mainEntity)) {
+    errors.push('FAQPage mainEntity must be an array');
+    return;
+  }
+  
+  if (schema.mainEntity.length === 0) {
+    errors.push('FAQPage mainEntity must contain at least one question');
+  }
+  
+  // Validate each question
+  schema.mainEntity.forEach((question, index) => {
+    if (!question['@type'] || question['@type'] !== 'Question') {
+      errors.push(`FAQPage question ${index + 1} must be of type Question`);
+    }
+    if (!question.name) {
+      errors.push(`FAQPage question ${index + 1} missing required field: name`);
+    }
+    if (!question.acceptedAnswer) {
+      errors.push(`FAQPage question ${index + 1} missing required field: acceptedAnswer`);
+    } else if (typeof question.acceptedAnswer === 'object') {
+      if (!question.acceptedAnswer['@type'] || question.acceptedAnswer['@type'] !== 'Answer') {
+        errors.push(`FAQPage question ${index + 1} acceptedAnswer must be of type Answer`);
+      }
+      if (!question.acceptedAnswer.text) {
+        errors.push(`FAQPage question ${index + 1} acceptedAnswer missing required field: text`);
+      }
+    }
+  });
+}
+
+/**
+ * Validate Review schema required fields
+ */
+function validateReviewSchema(schema, errors) {
+  const requiredFields = ['itemReviewed', 'reviewRating', 'author'];
+  
+  requiredFields.forEach(field => {
+    if (!schema[field]) {
+      errors.push(`Review schema missing required field: ${field}`);
+    }
+  });
+  
+  // Validate reviewRating
+  if (schema.reviewRating && typeof schema.reviewRating === 'object') {
+    if (!schema.reviewRating['@type'] || schema.reviewRating['@type'] !== 'Rating') {
+      errors.push('Review reviewRating must be of type Rating');
+    }
+    if (!schema.reviewRating.ratingValue) {
+      errors.push('Review reviewRating missing required field: ratingValue');
+    }
+  }
+  
+  // Validate author
+  if (schema.author && typeof schema.author === 'object') {
+    if (!schema.author['@type'] || (schema.author['@type'] !== 'Person' && schema.author['@type'] !== 'Organization')) {
+      errors.push('Review author must be of type Person or Organization');
+    }
+    if (!schema.author.name) {
+      errors.push('Review author missing required field: name');
+    }
+  }
+}
+
+/**
+ * Validate BreadcrumbList schema required fields
+ */
+function validateBreadcrumbSchema(schema, errors) {
+  if (!schema.itemListElement) {
+    errors.push('BreadcrumbList schema missing required field: itemListElement');
+    return;
+  }
+  
+  if (!Array.isArray(schema.itemListElement)) {
+    errors.push('BreadcrumbList itemListElement must be an array');
+    return;
+  }
+  
+  if (schema.itemListElement.length === 0) {
+    errors.push('BreadcrumbList itemListElement must contain at least one item');
+  }
+  
+  // Validate each item
+  schema.itemListElement.forEach((item, index) => {
+    if (!item['@type'] || item['@type'] !== 'ListItem') {
+      errors.push(`BreadcrumbList item ${index + 1} must be of type ListItem`);
+    }
+    if (!item.position) {
+      errors.push(`BreadcrumbList item ${index + 1} missing required field: position`);
+    }
+    if (!item.name) {
+      errors.push(`BreadcrumbList item ${index + 1} missing required field: name`);
+    }
+  });
+}
+
+/**
+ * Validate Article schema required fields
+ */
+function validateArticleSchema(schema, errors) {
+  const requiredFields = ['headline', 'author', 'datePublished'];
+  
+  requiredFields.forEach(field => {
+    if (!schema[field]) {
+      errors.push(`Article schema missing required field: ${field}`);
+    }
+  });
+  
+  // Validate author
+  if (schema.author && typeof schema.author === 'object') {
+    if (!schema.author['@type'] || (schema.author['@type'] !== 'Person' && schema.author['@type'] !== 'Organization')) {
+      errors.push('Article author must be of type Person or Organization');
+    }
+    if (!schema.author.name) {
+      errors.push('Article author missing required field: name');
+    }
+  }
+}
+
+/**
+ * Validate HowTo schema required fields
+ */
+function validateHowToSchema(schema, errors) {
+  const requiredFields = ['name', 'step'];
+  
+  requiredFields.forEach(field => {
+    if (!schema[field]) {
+      errors.push(`HowTo schema missing required field: ${field}`);
+    }
+  });
+  
+  // Validate steps
+  if (schema.step) {
+    if (!Array.isArray(schema.step)) {
+      errors.push('HowTo step must be an array');
+    } else if (schema.step.length === 0) {
+      errors.push('HowTo step must contain at least one step');
+    } else {
+      schema.step.forEach((step, index) => {
+        if (!step['@type'] || step['@type'] !== 'HowToStep') {
+          errors.push(`HowTo step ${index + 1} must be of type HowToStep`);
+        }
+        if (!step.text && !step.name) {
+          errors.push(`HowTo step ${index + 1} must have either text or name`);
+        }
+      });
+    }
+  }
+}
+
+/**
+ * Validate WebSite schema required fields
+ */
+function validateWebsiteSchema(schema, errors) {
+  const requiredFields = ['name', 'url'];
+  
+  requiredFields.forEach(field => {
+    if (!schema[field]) {
+      errors.push(`WebSite schema missing required field: ${field}`);
+    }
+  });
+  
+  // Validate URL format
+  if (schema.url && typeof schema.url === 'string') {
+    try {
+      new URL(schema.url);
+    } catch (e) {
+      errors.push('WebSite URL must be a valid URL');
+    }
+  }
+}
+
+/**
+ * Validate ItemList schema required fields
+ */
+function validateItemListSchema(schema, errors) {
+  if (!schema.itemListElement) {
+    errors.push('ItemList schema missing required field: itemListElement');
+    return;
+  }
+  
+  if (!Array.isArray(schema.itemListElement)) {
+    errors.push('ItemList itemListElement must be an array');
+  }
+}
+
+/**
+ * Validate LocalBusiness schema required fields
+ */
+function validateLocalBusinessSchema(schema, errors) {
+  const requiredFields = ['name', 'address'];
+  
+  requiredFields.forEach(field => {
+    if (!schema[field]) {
+      errors.push(`LocalBusiness schema missing required field: ${field}`);
+    }
+  });
+  
+  // Validate address
+  if (schema.address && typeof schema.address === 'object') {
+    if (!schema.address['@type'] || schema.address['@type'] !== 'PostalAddress') {
+      errors.push('LocalBusiness address must be of type PostalAddress');
+    }
+  }
 }

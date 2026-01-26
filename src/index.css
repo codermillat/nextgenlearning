@@ -164,3 +164,38 @@
     @apply min-h-[44px] px-4 py-2 text-base;
   }
 }
+
+/* Reduced Motion Preferences - WCAG 2.1 AA Compliance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Disable specific animations */
+  .animate-spin,
+  .animate-pulse,
+  .animate-bounce,
+  .animate-fade-in {
+    animation: none !important;
+  }
+  
+  /* Disable transforms that cause motion */
+  .hover\:scale-105:hover,
+  .hover\:scale-110:hover,
+  .transform {
+    transform: none !important;
+  }
+  
+  /* Keep essential transitions but make them instant */
+  .transition-all,
+  .transition-colors,
+  .transition-opacity,
+  .transition-transform {
+    transition: none !important;
+  }
+}

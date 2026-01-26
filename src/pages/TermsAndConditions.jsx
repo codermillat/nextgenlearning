@@ -2,6 +2,7 @@ import SEOHead from '../components/SEO/SEOHead';
 import StructuredData from '../components/SEO/StructuredData';
 import Breadcrumbs from '../components/Common/Breadcrumbs';
 import { generateBreadcrumbSchema } from '../components/SEO/StructuredData';
+import { WHATSAPP_DISPLAY, getWhatsAppUrl } from '../config/constants';
 
 export default function TermsAndConditions() {
   const breadcrumbs = [
@@ -12,13 +13,12 @@ export default function TermsAndConditions() {
   return (
     <>
       <SEOHead
-        title="Terms and Conditions - Study in India BD | Western Bangla Education"
-        description="Terms and Conditions for Study in India BD and Western Bangla Education. Read our terms of service, content usage, and user responsibilities."
+        title="Terms and Conditions - NextGen Learning"
+        description="Terms and Conditions for NextGen Learning. Read our terms of service, content usage, and user responsibilities."
         keywords={[
           'terms and conditions',
           'terms of service',
-          'Western Bangla Education terms',
-          'WBE terms',
+          'NextGen Learning terms',
           'user agreement',
           'website terms'
         ]}
@@ -38,7 +38,7 @@ export default function TermsAndConditions() {
             </p>
 
             <p>
-              Welcome to the official website of <strong>Study in India BD</strong>, powered by <strong>Western Bangla Education (WBE)</strong>. By accessing or using this website, you agree to comply with the following terms and conditions. Please read them carefully.
+              Welcome to the official website of <strong>NextGen Learning</strong>. By accessing or using this website, you agree to comply with the following terms and conditions. Please read them carefully.
             </p>
 
             <section>
@@ -46,7 +46,7 @@ export default function TermsAndConditions() {
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>The information shared on this website is for <strong>educational and informational purposes only</strong>.</li>
                 <li>Website content may include general guidance on education, admissions, and study abroad opportunities, but does not replace official university policies or professional advice.</li>
-                <li>You may share or link our content, provided proper credit is given to Western Bangla Education.</li>
+                <li>You may share or link our content, provided proper credit is given to NextGen Learning.</li>
                 <li>Unauthorized reproduction, distribution, or modification of website content is prohibited.</li>
               </ul>
             </section>
@@ -54,7 +54,7 @@ export default function TermsAndConditions() {
             <section>
               <h2 className="text-2xl font-bold mt-8 mb-4">2. Accuracy of Information</h2>
               <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>While WBE strives to provide accurate and updated information, we make <strong>no guarantees</strong> regarding completeness, reliability, or accuracy.</li>
+                <li>While NextGen Learning strives to provide accurate and updated information, we make <strong>no guarantees</strong> regarding completeness, reliability, or accuracy.</li>
                 <li>Admission requirements, fees, scholarships, and policies are subject to change by universities or institutions without notice.</li>
                 <li>All fee calculations and scholarship information are estimates based on available data and may vary.</li>
                 <li>Users are advised to verify all information directly with the respective universities before making decisions.</li>
@@ -64,14 +64,14 @@ export default function TermsAndConditions() {
             <section>
               <h2 className="text-2xl font-bold mt-8 mb-4">3. External Links</h2>
               <p>
-                Our website may contain links to third-party websites (university websites, social media, etc.). WBE is <strong>not responsible</strong> for the content, accuracy, or practices of those websites. Accessing external links is at your own risk.
+                Our website may contain links to third-party websites (university websites, social media, etc.). NextGen Learning is <strong>not responsible</strong> for the content, accuracy, or practices of those websites. Accessing external links is at your own risk.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold mt-8 mb-4">4. Intellectual Property</h2>
               <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>All website content, including text, graphics, logos, and design, is the property of Western Bangla Education unless otherwise stated.</li>
+                <li>All website content, including text, graphics, logos, and design, is the property of NextGen Learning unless otherwise stated.</li>
                 <li>University logos and names are the property of their respective institutions.</li>
                 <li>Unauthorized reproduction, distribution, or modification of website content is prohibited.</li>
                 <li>You may not use our content for commercial purposes without written permission.</li>
@@ -84,14 +84,14 @@ export default function TermsAndConditions() {
                 <li>Users are responsible for providing accurate information when using our services.</li>
                 <li>Users must use the website in a lawful manner and not engage in any activities that could harm the website or other users.</li>
                 <li>Users are responsible for maintaining the confidentiality of any account information or passwords.</li>
-                <li>WBE reserves the right to remove any inappropriate or harmful content or block users who violate these terms.</li>
+                <li>NextGen Learning reserves the right to remove any inappropriate or harmful content or block users who violate these terms.</li>
               </ul>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold mt-8 mb-4">6. Services Provided</h2>
               <p>
-                WBE provides free counseling and admission assistance services. Our services include:
+                NextGen Learning provides free counseling and admission assistance services. Our services include:
               </p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>Career counseling and course selection guidance</li>
@@ -101,16 +101,16 @@ export default function TermsAndConditions() {
                 <li>Visa assistance and pre-departure orientation</li>
               </ul>
               <p className="mt-4">
-                <strong>Important:</strong> WBE does not guarantee admission to any university. Admission decisions are made solely by the respective universities based on their criteria.
+                <strong>Important:</strong> NextGen Learning does not guarantee admission to any university. Admission decisions are made solely by the respective universities based on their criteria.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold mt-8 mb-4">7. Limitation of Liability</h2>
               <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>WBE will not be liable for any loss, damage, or inconvenience arising from the use of the website or reliance on its content.</li>
-                <li>WBE is not responsible for any decisions made based on information provided on this website.</li>
-                <li>WBE does not guarantee admission, visa approval, or scholarship awards.</li>
+                <li>NextGen Learning will not be liable for any loss, damage, or inconvenience arising from the use of the website or reliance on its content.</li>
+                <li>NextGen Learning is not responsible for any decisions made based on information provided on this website.</li>
+                <li>NextGen Learning does not guarantee admission, visa approval, or scholarship awards.</li>
                 <li>Users acknowledge that university policies, fees, and requirements may change without notice.</li>
               </ul>
             </section>
@@ -125,14 +125,14 @@ export default function TermsAndConditions() {
             <section>
               <h2 className="text-2xl font-bold mt-8 mb-4">9. Indemnification</h2>
               <p>
-                You agree to indemnify and hold harmless Western Bangla Education, its officers, employees, and partners from any claims, damages, losses, or expenses arising from your use of the website or violation of these terms.
+                You agree to indemnify and hold harmless NextGen Learning, its officers, employees, and partners from any claims, damages, losses, or expenses arising from your use of the website or violation of these terms.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold mt-8 mb-4">10. Changes to Terms</h2>
               <p>
-                WBE reserves the right to update or modify these Terms and Conditions at any time. Changes will be effective immediately upon posting on this page. Your continued use of the website after changes constitutes acceptance of the modified terms.
+                NextGen Learning reserves the right to update or modify these Terms and Conditions at any time. Changes will be effective immediately upon posting on this page. Your continued use of the website after changes constitutes acceptance of the modified terms.
               </p>
             </section>
 
@@ -150,15 +150,9 @@ export default function TermsAndConditions() {
               </p>
               <ul className="space-y-2">
                 <li>
-                  <strong>Email:</strong>{' '}
-                  <a href="mailto:westernbanglaedu@gmail.com" className="text-blue-600 hover:text-blue-800">
-                    Contact Us via Email
-                  </a>
-                </li>
-                <li>
                   <strong>Phone/WhatsApp:</strong>{' '}
-                  <a href="https://wa.me/8801611533385" className="text-blue-600 hover:text-blue-800">
-                    +8801611533385
+                  <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">
+                    {WHATSAPP_DISPLAY}
                   </a>
                 </li>
                 <li>

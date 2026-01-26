@@ -1,13 +1,10 @@
 import { Link } from 'react-router-dom';
-import StructuredData from '../SEO/StructuredData';
-import { generateWBESchema } from '../SEO/StructuredData';
+import { WHATSAPP_DISPLAY, getWhatsAppUrl } from '../../config/constants';
 
 export default function Footer() {
-  const wbeSchema = generateWBESchema();
 
   return (
     <>
-      {wbeSchema && <StructuredData data={wbeSchema} />}
       <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white mt-16 border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
@@ -104,13 +101,13 @@ export default function Footer() {
               <div className="mt-6 pt-6 border-t border-gray-700">
                 <p className="text-gray-400 text-xs mb-2">WhatsApp Support</p>
                 <a 
-                  href="https://wa.me/8801611533385" 
+                  href={getWhatsAppUrl()} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-green-400 hover:text-green-300 transition-colors font-medium text-sm inline-flex items-center"
                 >
                   <span className="mr-2">💬</span>
-                  +8801611533385
+                  {WHATSAPP_DISPLAY}
                 </a>
               </div>
             </div>

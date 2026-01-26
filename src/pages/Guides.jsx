@@ -6,6 +6,7 @@ import Breadcrumbs from '../components/Common/Breadcrumbs';
 import { generateBreadcrumbSchema, generateArticleSchema } from '../components/SEO/StructuredData';
 import { redirectToWhatsApp } from '../utils/whatsappRedirect';
 import { trackWhatsAppClick } from '../utils/analytics';
+import { WHATSAPP_DISPLAY } from '../config/constants';
 
 export default function Guides() {
   const [activeCategory, setActiveCategory] = useState('All Guides');
@@ -98,8 +99,8 @@ export default function Guides() {
   const categories = ['All Guides', 'Admission Guide', 'Visa Guide', 'Scholarships', 'Course Guide', 'Financial Guide'];
 
   const handleWhatsAppClick = () => {
-    trackWhatsAppClick('guides_page', 'WBE Application Assistance', '');
-    const message = `Hello WBE Team,
+    trackWhatsAppClick('guides_page', 'Application Assistance', '');
+    const message = `Hello,
 
 I'm interested in applying to study tech/IT courses in India. Please help me with:
 - University selection
@@ -116,8 +117,8 @@ Thank you!`;
   return (
     <>
       <SEOHead
-        title="Tech & IT Education Guides & Resources 2025-26 - Complete Guides for Students | NextGen Learning"
-        description="Comprehensive guides and resources for students studying tech and IT in India. Admission process, visa requirements, scholarships, course selection, and more. Free guides by NextGen Learning. Apply directly via WhatsApp - send documents and basic information for free assistance."
+        title="Tech Education Guides 2025 | Admission & Scholarships"
+        description="Tech education guides for Bangladeshi students studying in India. Admission process, scholarships at Sharda University & top universities. Free resources."
         keywords={[
           'tech education guide',
           'IT courses guide India',
@@ -151,13 +152,13 @@ Thank you!`;
           {/* Important Notice */}
           <div className="bg-green-50 border-l-4 border-green-500 p-3 sm:p-4 rounded mb-4">
             <p className="text-sm sm:text-base text-gray-800">
-              <strong>📱 Free Application Assistance:</strong> To apply to any university, directly message WBE (Western Bangla Education) on WhatsApp. 
-              Send your documents and basic information - they will help you for free! 
+              <strong>📱 Free Application Assistance:</strong> To apply to any university, message us directly on WhatsApp. 
+              Send your documents and basic information - we will help you for free! 
               <button
                 onClick={handleWhatsAppClick}
                 className="ml-2 text-green-600 hover:text-green-800 font-semibold underline"
               >
-                Click here to message WBE →
+                Click here to message us →
               </button>
             </p>
           </div>
@@ -222,6 +223,13 @@ Thank you!`;
         <section className="bg-blue-50 rounded-lg p-4 sm:p-6 md:p-8 mb-6 sm:mb-8">
           <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Quick Links</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <Link to="/sharda" className="flex items-center p-3 sm:p-4 bg-white rounded-lg hover:shadow-md transition-shadow min-h-[80px]">
+              <span className="text-2xl sm:text-3xl mr-3 sm:mr-4 flex-shrink-0">🌟</span>
+              <div>
+                <h3 className="font-semibold text-sm sm:text-base">Sharda University Guide</h3>
+                <p className="text-xs sm:text-sm text-gray-600">Complete guide for Bangladeshi students</p>
+              </div>
+            </Link>
             <Link to="/courses" className="flex items-center p-3 sm:p-4 bg-white rounded-lg hover:shadow-md transition-shadow min-h-[80px]">
               <span className="text-2xl sm:text-3xl mr-3 sm:mr-4 flex-shrink-0">📚</span>
               <div>
@@ -257,18 +265,18 @@ Thank you!`;
         <section className="bg-gradient-to-r from-green-600 to-green-700 text-white rounded-lg p-4 sm:p-6 md:p-8 text-center mb-6 sm:mb-8">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">Ready to Apply? Get Free Assistance!</h2>
           <p className="text-sm sm:text-base md:text-lg mb-4 sm:mb-6 text-green-100">
-            To apply to any university, directly message WBE (Western Bangla Education) on WhatsApp. 
-            Send your documents and basic information - they will help you for free!
+            To apply to any university, message us directly on WhatsApp. 
+            Send your documents and basic information - we will help you for free!
           </p>
           <div className="space-y-3 sm:space-y-4">
             <button
               onClick={handleWhatsAppClick}
               className="w-full sm:w-auto bg-white text-green-600 px-6 sm:px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors min-h-[44px] text-sm sm:text-base shadow-lg"
             >
-              📱 Message WBE on WhatsApp - Free Application Help
+              📱 Message Us on WhatsApp - Free Application Help
             </button>
             <p className="text-xs sm:text-sm text-green-100">
-              WhatsApp: +8801611533385 | All services are completely free
+              WhatsApp: {WHATSAPP_DISPLAY} | All services are completely free
             </p>
           </div>
         </section>

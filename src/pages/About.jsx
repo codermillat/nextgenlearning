@@ -1,7 +1,7 @@
 import SEOHead from '../components/SEO/SEOHead';
 import StructuredData from '../components/SEO/StructuredData';
 import Breadcrumbs from '../components/Common/Breadcrumbs';
-import { generateBreadcrumbSchema, generateWBESchema } from '../components/SEO/StructuredData';
+import { generateBreadcrumbSchema, generateSiteOrganizationSchema } from '../components/SEO/StructuredData';
 
 export default function About() {
   const breadcrumbs = [
@@ -9,13 +9,13 @@ export default function About() {
     { name: 'About', url: '/about' }
   ];
 
-  const wbeSchema = generateWBESchema();
+  const siteOrgSchema = generateSiteOrganizationSchema();
 
   return (
     <>
       <SEOHead
         title="About NextGen Learning - Tech & IT Education Platform"
-        description="NextGen Learning is your gateway to tech and IT education. Compare computer science, data science, AI/ML, cybersecurity, cloud computing, and more tech courses across top universities."
+        description="NextGen Learning helps Bangladeshi students study in India. Compare courses at Sharda University & top universities. Free counseling & admission support."
         keywords={[
           'NextGen Learning',
           'tech education',
@@ -30,7 +30,7 @@ export default function About() {
         url="/about"
         canonical="/about"
       />
-      {wbeSchema && <StructuredData data={wbeSchema} />}
+      {siteOrgSchema && <StructuredData data={siteOrgSchema} id="site-org-schema" />}
       {generateBreadcrumbSchema(breadcrumbs) && <StructuredData data={generateBreadcrumbSchema(breadcrumbs)} />}
       <Breadcrumbs items={breadcrumbs} />
 

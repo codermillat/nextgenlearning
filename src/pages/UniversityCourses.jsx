@@ -30,8 +30,9 @@ export default function UniversityCourses() {
   // Filter programs - but university filter is already applied, so we only use other filters
   const filteredPrograms = useMemo(() => {
     const filtersToApply = { ...filters, universityId: '' }; // Don't filter by university since we're already on a university page
-    return filterPrograms(allPrograms, filtersToApply);
-  }, [allPrograms, filters]);
+    // Pass universities array for comparison scoring (though less relevant on single university page)
+    return filterPrograms(allPrograms, filtersToApply, universities);
+  }, [allPrograms, filters, universities]);
 
   const breadcrumbs = [
     { name: 'Home', url: '/' },
@@ -79,8 +80,8 @@ export default function UniversityCourses() {
   return (
     <>
       <SEOHead
-        title={`All Courses at ${university.name} - Complete Course List | WBE`}
-        description={`Browse all ${allPrograms.length} courses offered by ${university.name}. Compare fees, scholarships, and find the perfect program for your career. Apply through WBE.`}
+        title={`All Courses at ${university.name} - Complete Course List`}
+        description={`Browse all ${allPrograms.length} courses offered by ${university.name}. Compare fees, scholarships, and find the perfect program for your career. Free counseling available.`}
         keywords={[university.name, 'courses', 'programs', 'fees', 'scholarships', 'admission']}
         url={`/universities/${universitySlug}/courses`}
         canonical={`/universities/${universitySlug}/courses`}
@@ -282,7 +283,7 @@ export default function UniversityCourses() {
         <section className="bg-blue-50 p-8 rounded-lg text-center">
           <h2 className="text-2xl font-bold mb-4">Interested in {university.name}?</h2>
           <p className="text-gray-600 mb-6">
-            Get free counseling and application assistance from Western Bangla Education
+            Get free counseling and application assistance for your admission
           </p>
           <Link
             to="/apply"

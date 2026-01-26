@@ -12,6 +12,7 @@ import { calculateTotalFees } from '../utils/rankings';
 import { redirectToWhatsApp, generateApplicationMessage } from '../utils/whatsappRedirect';
 import { trackCourseView } from '../utils/analytics';
 import { typography } from '../utils/designTokens';
+import { WHATSAPP_DISPLAY, SHARDA_APPLY_URL } from '../config/constants';
 import { useEffect } from 'react';
 
 export default function CourseDetail() {
@@ -79,7 +80,7 @@ export default function CourseDetail() {
     },
     {
       question: `What is the admission process and what documents are required?`,
-      answer: `The admission process is simple when you apply through Western Bangla Education (WBE). Steps include: submitting application through WBE, providing academic transcripts and required documents, scholarship eligibility determination, receiving admission letter and visa support documents, completing visa application with WBE assistance, and arriving in India. Required documents include SSC/HSC transcripts, passport, photographs, birth certificate, medical certificate, and financial documents. WBE provides free guidance throughout the entire process.`
+      answer: `The admission process is straightforward. Steps include: submitting your application, providing academic transcripts and required documents, scholarship eligibility determination, receiving admission letter and visa support documents, completing visa application, and arriving in India. Required documents include SSC/HSC transcripts, passport, photographs, birth certificate, medical certificate, and financial documents. Free guidance is available throughout the entire process.`
     },
     {
       question: `What is the curriculum structure and teaching methodology?`,
@@ -91,11 +92,11 @@ export default function CourseDetail() {
     },
     {
       question: `Is there any financial assistance or payment plan available?`,
-      answer: `Yes, ${university.name} offers scholarships for Bangladeshi students which significantly reduce tuition fees. Additionally, fees can be paid year-wise, making it more manageable. The one-time fees are charged only in the first year, and recurring fees apply from the second year onwards. WBE can provide guidance on financial planning and payment options.`
+      answer: `Yes, ${university.name} offers scholarships for Bangladeshi students which significantly reduce tuition fees. Additionally, fees can be paid year-wise, making it more manageable. The one-time fees are charged only in the first year, and recurring fees apply from the second year onwards. Free guidance is available on financial planning and payment options.`
     },
     {
       question: `How do I get more information or apply for ${program.name}?`,
-      answer: `You can get more information and apply through Western Bangla Education (WBE) completely free. WBE provides free counseling, application assistance, visa support, document verification, and admission guidance. Click the "Apply Now" button on this page or contact WBE directly via WhatsApp at +8801611533385. All services are provided at no cost to students.`
+      answer: `You can get more information and apply completely free. We provide free counseling, application assistance, visa support, document verification, and admission guidance. Click the "Apply Now" button on this page or contact us directly via WhatsApp at ${WHATSAPP_DISPLAY}. All services are provided at no cost to students.`
     }
   ];
 
@@ -103,7 +104,7 @@ export default function CourseDetail() {
     <>
       <SEOHead
         title={`${program.name} at ${university.name} ${program.duration} Years - Fees ₹${fees.grandTotal.toLocaleString()}, Scholarships ${fees.scholarshipPercent}%, Curriculum, Rankings | NextGen Learning`}
-        description={`${program.name} at ${university.name}: Complete guide with fees (₹${fees.grandTotal.toLocaleString()} total), ${fees.scholarshipPercent}% scholarships, ${program.duration}-year ${program.degree} program. ${program.curriculum ? `Curriculum: ${program.curriculum.totalCredits} credits. ` : ''}NIRF ${university.profile?.rankings?.nirf || 'Ranked'}, NAAC ${university.profile?.rankings?.naac || 'A+'}. Eligibility, admission process, career prospects, and placement records. Compare tech courses at NextGen Learning.`}
+        description={`${program.name} at ${university.name}: Fees ₹${fees.grandTotal.toLocaleString()}, ${fees.scholarshipPercent}% scholarship for Bangladeshi students. NIRF ${university.profile?.rankings?.nirf || 'Ranked'}, NAAC A+. Apply now.`}
         keywords={[
           program.name,
           `${program.name} at ${university.name}`,
@@ -286,7 +287,7 @@ export default function CourseDetail() {
             <p className={`${typography.body} text-gray-800`}>
               <strong>💡 Important:</strong> All fees mentioned are approximate and include the maximum available scholarship for Bangladeshi students. 
               Actual fees may vary slightly based on specific program specializations and current fee structures. 
-              For the most accurate fee information, contact Western Bangla Education (WBE) for free counseling.
+              For the most accurate fee information, contact us for free counseling.
             </p>
           </div>
         </section>
@@ -341,28 +342,39 @@ export default function CourseDetail() {
         <section className="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 sm:p-8 md:p-10 rounded-lg text-center text-white shadow-lg">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">Interested in This Program?</h2>
           <p className="text-sm sm:text-base text-blue-100 mb-4 sm:mb-6 max-w-2xl mx-auto">
-            Get free counseling and application assistance from Western Bangla Education. 
+            Get free counseling and application assistance. 
             All services including visa support, document verification, and admission guidance are provided at no cost.
           </p>
-          <button
-            onClick={() => {
-              let programDisplayName = program.name;
-              if (program.specialization && !programDisplayName.includes(program.specialization)) {
-                programDisplayName += ` - ${program.specialization}`;
-              }
-              const message = generateApplicationMessage({
-                courseInterest: program.name,
-                universityPreference: university.name,
-                programDetails: programDisplayName
-              });
-              redirectToWhatsApp(message, 'course_detail_page', program.name || '', university.name || '');
-            }}
-            className="bg-white text-blue-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold hover:bg-gray-100 transition-colors min-h-[44px] text-sm sm:text-base shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform"
-          >
-            Apply Now - Free Consultation
-          </button>
+          {university.id === 'sharda' ? (
+            <a
+              href={SHARDA_APPLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-white text-blue-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold hover:bg-gray-100 transition-colors min-h-[44px] text-sm sm:text-base shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform"
+            >
+              Apply Now - Free Consultation
+            </a>
+          ) : (
+            <button
+              onClick={() => {
+                let programDisplayName = program.name;
+                if (program.specialization && !programDisplayName.includes(program.specialization)) {
+                  programDisplayName += ` - ${program.specialization}`;
+                }
+                const message = generateApplicationMessage({
+                  courseInterest: program.name,
+                  universityPreference: university.name,
+                  programDetails: programDisplayName
+                });
+                redirectToWhatsApp(message, 'course_detail_page', program.name || '', university.name || '');
+              }}
+              className="bg-white text-blue-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold hover:bg-gray-100 transition-colors min-h-[44px] text-sm sm:text-base shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform"
+            >
+              Apply Now - Free Consultation
+            </button>
+          )}
           <p className="text-xs sm:text-sm text-blue-100 mt-4">
-            📞 WhatsApp: +8801611533385 | ✉️ Free counseling & visa support
+            📞 WhatsApp: {WHATSAPP_DISPLAY} | ✉️ Free counseling & visa support
           </p>
         </section>
       </div>

@@ -14,11 +14,11 @@ export default function FAQ() {
   const faqs = [
     {
       question: 'How can I apply to study in India from Bangladesh?',
-      answer: 'You can apply through Western Bangla Education (WBE) for free counseling and application assistance. We help you with the entire process including university selection, document preparation, application submission, and visa assistance. Click "Apply Now" on any course page to get started.'
+      answer: 'You can apply for free counseling and application assistance through our platform. We help you with the entire process including university selection, document preparation, application submission, and visa assistance. Click "Apply Now" on any course page to get started.'
     },
     {
       question: 'What are the admission requirements for Indian universities?',
-      answer: 'Admission requirements vary by university and course. Generally, you need: (1) Completed higher secondary education (HSC) with minimum 50% marks, (2) Valid passport, (3) Academic transcripts and certificates, (4) English proficiency proof (if required), (5) Passport-size photographs. Some universities may require entrance exam scores. WBE provides detailed guidance for each university.'
+      answer: 'Admission requirements vary by university and course. Generally, you need: (1) Completed higher secondary education (HSC) with minimum 50% marks, (2) Valid passport, (3) Academic transcripts and certificates, (4) English proficiency proof (if required), (5) Passport-size photographs. Some universities may require entrance exam scores. Our counseling team provides detailed guidance for each university.'
     },
     {
       question: 'What scholarships are available for Bangladeshi students?',
@@ -30,7 +30,7 @@ export default function FAQ() {
     },
     {
       question: 'How long does the visa process take?',
-      answer: 'Student visa processing typically takes 4-6 weeks after submitting all required documents. The process includes: (1) University admission letter, (2) Visa application submission, (3) Document verification, (4) Interview (if required), (5) Visa approval. WBE provides complete visa assistance and document preparation support.'
+      answer: 'Student visa processing typically takes 4-6 weeks after submitting all required documents. The process includes: (1) University admission letter, (2) Visa application submission, (3) Document verification, (4) Interview (if required), (5) Visa approval. We provide complete visa assistance and document preparation support.'
     },
     {
       question: 'Which universities are best for B.Tech in India?',
@@ -46,11 +46,11 @@ export default function FAQ() {
     },
     {
       question: 'What documents do I need for the application?',
-      answer: 'Required documents include: (1) Passport (valid for at least 6 months), (2) Academic transcripts (SSC and HSC), (3) Character certificate, (4) Medical fitness certificate, (5) Passport-size photographs, (6) Proof of financial support, (7) English proficiency certificate (if required). WBE helps you prepare and verify all documents.'
+      answer: 'Required documents include: (1) Passport (valid for at least 6 months), (2) Academic transcripts (SSC and HSC), (3) Character certificate, (4) Medical fitness certificate, (5) Passport-size photographs, (6) Proof of financial support, (7) English proficiency certificate (if required). Our counseling team helps you prepare and verify all documents.'
     },
     {
       question: 'How do I choose the right course and university?',
-      answer: 'Consider these factors: (1) Your career goals and interests, (2) University ranking (NIRF) and accreditation (NAAC), (3) Total cost including scholarships, (4) Placement records and average salary, (5) Campus facilities and location, (6) Course curriculum and specializations. Use our comparison tool to compare multiple courses side-by-side. WBE provides free counseling to help you make the right choice.'
+      answer: 'Consider these factors: (1) Your career goals and interests, (2) University ranking (NIRF) and accreditation (NAAC), (3) Total cost including scholarships, (4) Placement records and average salary, (5) Campus facilities and location, (6) Course curriculum and specializations. Use our comparison tool to compare multiple courses side-by-side. We provide free counseling to help you make the right choice.'
     },
     {
       question: 'Is there any entrance exam required?',
@@ -61,8 +61,8 @@ export default function FAQ() {
       answer: 'B.Tech (Bachelor of Technology) and B.E. (Bachelor of Engineering) are essentially equivalent degrees in India. Both are 4-year undergraduate engineering programs. The main difference is in curriculum focus: B.Tech emphasizes practical application and technology, while B.E. focuses more on theoretical foundations. Both degrees are recognized equally by employers and for higher studies.'
     },
     {
-      question: 'How can Western Bangla Education help me?',
-      answer: 'WBE provides comprehensive support: (1) Free career counseling and course selection, (2) University and course comparison, (3) Application processing and document verification, (4) Scholarship guidance and application support, (5) Visa assistance and documentation, (6) Pre-departure orientation, (7) Ongoing support throughout your journey. All services are free for students.'
+      question: 'How can we help you with your education journey?',
+      answer: 'We provide comprehensive support: (1) Free career counseling and course selection, (2) University and course comparison, (3) Application processing and document verification, (4) Scholarship guidance and application support, (5) Visa assistance and documentation, (6) Pre-departure orientation, (7) Ongoing support throughout your journey. All services are free for students.'
     }
   ];
 
@@ -71,8 +71,8 @@ export default function FAQ() {
   return (
     <>
       <SEOHead
-        title="Frequently Asked Questions (FAQ) - Tech & IT Education | NextGen Learning"
-        description="Find answers to common questions about tech and IT courses in India. Admission process, scholarships, fees, curriculum, universities, and more. Get expert guidance from NextGen Learning."
+        title="FAQ | Tech Education India for Bangladeshi Students"
+        description="FAQ about studying in India for Bangladeshi students. Admission, scholarships at Sharda University & top universities, fees, visa process. Get answers."
         keywords={[
           'tech courses FAQ',
           'IT courses FAQ',

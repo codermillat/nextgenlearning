@@ -55,7 +55,7 @@ export default function CourseGroupCompare() {
     },
     {
       question: `How do I apply for ${groupInfo?.name} programs?`,
-      answer: `You can apply through Western Bangla Education (WBE) for free counseling and application assistance. Click the "Apply Now" button on any program to get started. WBE provides visa assistance, document verification, and admission support at no extra cost.`
+      answer: `You can apply for free counseling and application assistance. Click the "Apply Now" button on any program to get started. We provide visa assistance, document verification, and admission support at no extra cost.`
     },
     {
       question: `What scholarships are available for Bangladeshi students?`,
@@ -90,8 +90,8 @@ export default function CourseGroupCompare() {
   return (
     <>
       <SEOHead
-        title={`${groupInfo.name} 2025-26 - Compare Top Universities, Fees, Rankings & Scholarships | WBE`}
-        description={`Compare ${groupInfo.name} programs across top Indian universities (Chandigarh University, Sharda University, Galgotias University, NIU) for Bangladeshi students. Side-by-side comparison of fees (with scholarships), NIRF rankings, NAAC accreditation, duration, and eligibility. ${rankedPrograms.length} programs available. Free counseling by Western Bangla Education.`}
+        title={`${groupInfo.name} 2025-26 - Compare Top Universities, Fees, Rankings & Scholarships`}
+        description={`Compare ${groupInfo.name} at Sharda University & top universities. Fees, scholarships (20-60%), NIRF rankings for Bangladeshi students. ${rankedPrograms.length} programs available.`}
         keywords={[
           ...groupInfo.keywords,
           `${groupInfo.name} comparison`,
@@ -103,8 +103,8 @@ export default function CourseGroupCompare() {
           'course comparison India',
           'best university for ' + groupInfo.name.toLowerCase(),
           'affordable ' + groupInfo.name.toLowerCase(),
-          'WBE course comparison',
-          'Western Bangla Education'
+          'course comparison',
+          'university comparison India'
         ]}
         url={`/courses/compare/${groupId}`}
         canonical={`/courses/compare/${groupId}`}
@@ -397,7 +397,7 @@ export default function CourseGroupCompare() {
         <section className="bg-blue-50 p-8 rounded-lg text-center">
           <h2 className="text-2xl font-bold mb-4">Ready to Apply?</h2>
           <p className="text-gray-600 mb-6">
-            Get free counseling and application assistance from Western Bangla Education
+            Get free counseling and application assistance
           </p>
           <Link
             to="/apply"

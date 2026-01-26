@@ -76,8 +76,8 @@ export default function ProgramCategories() {
   return (
     <>
       <SEOHead
-        title="Program Categories - Engineering, Business, Computer Science & More | Study in India BD | WBE"
-        description="Browse all program categories available at top Indian universities for Bangladeshi students. Engineering (B.Tech, M.Tech), Business (BBA, MBA), Computer Science (BCA, MCA), Law, Medical, and more. Compare courses, fees, scholarships, and rankings. Free counseling by WBE."
+        title="Program Categories - Engineering, Business, Computer Science & More | Study in India BD"
+        description="Browse all program categories available at top Indian universities for Bangladeshi students. Engineering (B.Tech, M.Tech), Business (BBA, MBA), Computer Science (BCA, MCA), Law, Medical, and more. Compare courses, fees, scholarships, and rankings. Free counseling available."
         keywords={[
           'program categories India',
           'engineering programs India',
@@ -90,9 +90,7 @@ export default function ProgramCategories() {
           'M.Tech programs',
           'study in India program categories',
           'course categories Indian universities',
-          'degree programs India',
-          'WBE program categories',
-          'Western Bangla Education programs'
+          'degree programs India'
         ]}
         url="/program-categories"
         canonical="/program-categories"
@@ -154,7 +152,7 @@ export default function ProgramCategories() {
         <section className={`bg-blue-50 ${spacing.card} rounded-lg text-center mt-12`}>
           <h2 className={`${typography.cardTitle} mb-4`}>Need Help Choosing a Program?</h2>
           <p className={`${typography.body} mb-6`}>
-            Get free counseling from Western Bangla Education to find the best program for your career goals.
+            Get free counseling to find the best program for your career goals and admission guidance.
           </p>
           <Link
             to="/apply"

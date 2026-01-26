@@ -118,7 +118,7 @@ export default function Scholarships() {
     },
     {
       question: "How do I apply for scholarships?",
-      answer: "Scholarships are automatically applied when you apply through Western Bangla Education (WBE). No separate scholarship application is needed. WBE will help you understand which scholarship tier you qualify for based on your academic performance."
+      answer: "Scholarships are automatically applied when you apply for admission. No separate scholarship application is needed. Our counseling team will help you understand which scholarship tier you qualify for based on your academic performance and guide you through the process."
     },
     {
       question: "Are scholarships renewable every year?",
@@ -148,15 +148,13 @@ export default function Scholarships() {
   return (
     <>
       <SEOHead
-        title="Scholarships for Bangladeshi Students in India 2025-26 - Up to 60% Off Tuition Fees | WBE"
-        description="Complete guide to scholarships for Bangladeshi students at top Indian universities. NIU: 50% flat (no GPA required), Sharda: 20-50% (GPA-based), Chandigarh: 35-50% (GPA-based), Galgotias: 50-60% (program-based). Eligibility criteria, application process, and renewal terms. Free counseling by Western Bangla Education."
+        title="Scholarships India 2025 | Up to 60% for Bangladeshi"
+        description="Scholarships for Bangladeshi students: Sharda University 20-50%, NIU 50%, Chandigarh 35-50%, Galgotias 50-60%. Complete eligibility guide. Apply now."
         keywords={[
           'scholarships for Bangladeshi students in India',
           'India scholarships for Bangladeshi students',
           'university scholarships India',
           'study in India scholarships',
-          'WBE scholarships',
-          'Western Bangla Education scholarships',
           'NIU scholarship',
           'Sharda University scholarship',
           'Chandigarh University scholarship',
@@ -179,7 +177,7 @@ export default function Scholarships() {
           <h1 className={`${typography.sectionTitle} mb-4 sm:mb-6 text-gray-900`}>Scholarships for Bangladeshi Students in India</h1>
           <p className={`${typography.bodyLarge} max-w-3xl mx-auto leading-relaxed`}>
             Comprehensive guide to all available scholarships for Bangladeshi students at top Indian universities. 
-            Get up to 60% scholarship on tuition fees. Apply through Western Bangla Education for free counseling and scholarship assistance.
+            Get up to 60% scholarship on tuition fees. Apply for free counseling and scholarship assistance.
           </p>
         </div>
 
@@ -257,8 +255,7 @@ export default function Scholarships() {
           <div className="relative z-10">
             <h2 className={`${typography.sectionTitle} mb-4 sm:mb-6`}>Ready to Apply for Scholarships?</h2>
             <p className={`${typography.bodyLarge} mb-6 sm:mb-8 text-blue-50 max-w-2xl mx-auto`}>
-              Get free counseling and scholarship assistance from Western Bangla Education. 
-              We'll help you understand which scholarships you qualify for and guide you through the application process.
+              Get free counseling and scholarship assistance. We'll help you understand which scholarships you qualify for and guide you through the application process.
             </p>
             <Button to="/apply" variant="white" size="md">
               Apply Now - Free Consultation

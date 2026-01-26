@@ -1,20 +1,20 @@
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEO/SEOHead';
 import StructuredData from '../components/SEO/StructuredData';
-import { generateWBESchema, generateWebsiteSchema } from '../components/SEO/StructuredData';
+import { generateSiteOrganizationSchema, generateWebsiteSchema } from '../components/SEO/StructuredData';
 import Button from '../components/Common/Button';
 import Card from '../components/Common/Card';
 import { typography, spacing } from '../utils/designTokens';
 
 export default function Home() {
-  const wbeSchema = generateWBESchema();
+  const siteOrgSchema = generateSiteOrganizationSchema();
   const websiteSchema = generateWebsiteSchema();
 
   return (
     <>
       <SEOHead
-        title="NextGen Learning | Compare Tech Courses, Fees & Scholarships"
-        description="Compare 600+ B.Tech CSE, AI/ML, Data Science, Cybersecurity courses at NIRF ranked universities: Chandigarh University (NIRF 32), Galgotias University (NIRF 101-150), Sharda University (NIRF 101-150), NIU. Get 20-60% scholarships. Total fees from ₹2-8 lakh/year. Check NAAC A+ accredited programs, placements, eligibility. Free counseling for Bangladeshi students."
+        title="Tech Courses India | Sharda University & Top NIRF"
+        description="Compare 600+ tech courses at Sharda University & top NIRF universities. B.Tech CSE, AI/ML fees ₹2-8L/year. 20-60% scholarships for Bangladeshi students."
         keywords={[
           'galgotias university nirf ranking',
           'galgotias university nirf ranking 2025',
@@ -47,7 +47,7 @@ export default function Home() {
         canonical="/"
       />
       {websiteSchema && <StructuredData data={websiteSchema} id="website-schema-dynamic" />}
-      {wbeSchema && <StructuredData data={wbeSchema} id="wbe-schema" />}
+      {siteOrgSchema && <StructuredData data={siteOrgSchema} id="site-org-schema" />}
 
       {/* Hero Section */}
       <section className={`hero bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 text-white ${spacing.section} px-4 relative overflow-hidden`}>
@@ -326,6 +326,21 @@ export default function Home() {
           </div>
           
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ${spacing.gapLarge} mb-8`}>
+            <Card variant="default" className="text-center relative">
+              <div className="absolute top-2 right-2 bg-blue-600 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                Recommended
+              </div>
+              <div className="text-4xl mb-4">🌟</div>
+              <h3 className={`${typography.bodySmall} font-bold mb-2`}>Sharda University</h3>
+              <p className={`${typography.caption} mb-3`}>NIRF Ranking: 101-150</p>
+              <p className={`${typography.caption} mb-3`}>NAAC: A+</p>
+              <p className={`${typography.caption} mb-3`}>B.Tech CSE Fees: ₹3L/year</p>
+              <p className={`${typography.caption} text-green-600 font-semibold`}>Scholarship: 20-50%</p>
+              <Link to="/sharda" className="text-blue-600 text-sm font-semibold mt-2 inline-block">
+                Learn More About Sharda →
+              </Link>
+            </Card>
+            
             <Card variant="default" className="text-center">
               <div className="text-4xl mb-4">🏆</div>
               <h3 className={`${typography.bodySmall} font-bold mb-2`}>Chandigarh University</h3>
@@ -346,18 +361,6 @@ export default function Home() {
               <p className={`${typography.caption} mb-3`}>B.Tech CSE Fees: ₹3.5L/year</p>
               <p className={`${typography.caption} text-green-600 font-semibold`}>Scholarship: 50-60%</p>
               <Link to="/universities/galgotias-university" className="text-blue-600 text-sm font-semibold mt-2 inline-block">
-                View Details →
-              </Link>
-            </Card>
-            
-            <Card variant="default" className="text-center">
-              <div className="text-4xl mb-4">🌟</div>
-              <h3 className={`${typography.bodySmall} font-bold mb-2`}>Sharda University</h3>
-              <p className={`${typography.caption} mb-3`}>NIRF Ranking: 101-150</p>
-              <p className={`${typography.caption} mb-3`}>NAAC: A+</p>
-              <p className={`${typography.caption} mb-3`}>B.Tech CSE Fees: ₹3L/year</p>
-              <p className={`${typography.caption} text-green-600 font-semibold`}>Scholarship: 20-50%</p>
-              <Link to="/universities/sharda-university" className="text-blue-600 text-sm font-semibold mt-2 inline-block">
                 View Details →
               </Link>
             </Card>
@@ -398,8 +401,8 @@ export default function Home() {
                   Total fees for B.Tech CSE programs vary by university and scholarship eligibility. Here's a breakdown for Bangladeshi students:
                 </p>
                 <ul className="list-disc list-inside space-y-1 ml-4">
+                  <li><strong>Sharda University B.Tech CSE:</strong> Total fees ₹12-15 lakh for 4 years (after 20-50% scholarship). Annual fee: ₹3 lakh/year. Excellent value with comprehensive support services.</li>
                   <li><strong>Galgotias University B.Tech CSE:</strong> Total fees ₹14-16 lakh for 4 years (after 50-60% scholarship). Annual fee: ₹3.5 lakh/year.</li>
-                  <li><strong>Sharda University B.Tech CSE:</strong> Total fees ₹12-15 lakh for 4 years (after 20-50% scholarship). Annual fee: ₹3 lakh/year.</li>
                   <li><strong>Chandigarh University B.Tech CSE:</strong> Total fees ₹12-16 lakh for 4 years (after 35-50% scholarship). Annual fee: ₹3-4 lakh/year.</li>
                   <li><strong>Noida International University B.Tech CSE:</strong> Total fees ₹10-12 lakh for 4 years (after 50% flat scholarship). Annual fee: ₹2.5 lakh/year.</li>
                 </ul>
@@ -417,12 +420,12 @@ export default function Home() {
 
           {/* Quick Links for Rankings & Fees */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <Link to="/sharda" className="bg-white border-2 border-blue-300 rounded-lg p-4 hover:shadow-md transition-shadow">
+              <h4 className="font-semibold mb-2">Sharda University Complete Guide</h4>
+              <p className="text-sm text-gray-600">NIRF 101-150 | NAAC A+ | Programs, Fees, Scholarships & Admissions</p>
+            </Link>
             <Link to="/universities/galgotias-university" className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
               <h4 className="font-semibold mb-2">Galgotias University NIRF Ranking</h4>
-              <p className="text-sm text-gray-600">NIRF 101-150 | NAAC A+ | B.Tech CSE Fees & Details</p>
-            </Link>
-            <Link to="/universities/sharda-university" className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-              <h4 className="font-semibold mb-2">Sharda University NIRF Ranking</h4>
               <p className="text-sm text-gray-600">NIRF 101-150 | NAAC A+ | B.Tech CSE Fees & Details</p>
             </Link>
             <Link to="/universities" className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
@@ -439,7 +442,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-8">About NextGen Learning</h2>
           <div className="prose max-w-none text-gray-700 space-y-4">
             <p className="text-lg">
-              NextGen Learning is your comprehensive platform for exploring tech and IT education. We help you compare computer science, data science, AI/ML, cybersecurity, cloud computing, and other tech courses across top universities. Our platform features detailed information about tech programs including <Link to="/universities/chandigarh-university" className="text-blue-600 font-semibold hover:underline">Chandigarh University</Link>, <Link to="/universities/sharda-university" className="text-blue-600 font-semibold hover:underline">Sharda University</Link>, <Link to="/universities/galgotias-university" className="text-blue-600 font-semibold hover:underline">Galgotias University</Link>, and <Link to="/universities/noida-international-university" className="text-blue-600 font-semibold hover:underline">Noida International University (NIU)</Link>.
+              NextGen Learning is your comprehensive platform for exploring tech and IT education. We help you compare computer science, data science, AI/ML, cybersecurity, cloud computing, and other tech courses across top universities. Our platform features detailed information about tech programs including <Link to="/sharda" className="text-blue-600 font-semibold hover:underline">Sharda University</Link>, <Link to="/universities/chandigarh-university" className="text-blue-600 font-semibold hover:underline">Chandigarh University</Link>, <Link to="/universities/galgotias-university" className="text-blue-600 font-semibold hover:underline">Galgotias University</Link>, and <Link to="/universities/noida-international-university" className="text-blue-600 font-semibold hover:underline">Noida International University (NIU)</Link>.
             </p>
             <p>
               The tech industry is rapidly growing, and quality tech education is essential for a successful career. With top-ranked universities offering cutting-edge programs in computer science, artificial intelligence, data science, cybersecurity, and more, you can find the perfect tech program to launch your career. Explore our comprehensive <Link to="/courses" className="text-blue-600 font-semibold hover:underline">tech course catalog</Link> featuring programs across various tech domains. Use our <Link to="/compare" className="text-blue-600 font-semibold hover:underline">comparison tool</Link> to compare courses side-by-side and find the perfect program for your career goals.

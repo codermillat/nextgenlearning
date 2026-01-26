@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 import { redirectToWhatsApp, generateApplicationMessage } from '../utils/whatsappRedirect';
 import { trackComparison, trackFilter } from '../utils/analytics';
 import { typography, spacing } from '../utils/designTokens';
+import { sortUniversitiesForDisplay, generateRecommendationText } from '../utils/universityComparison';
 
 export default function Compare() {
   const { allPrograms, universities } = useData();
@@ -31,13 +32,29 @@ export default function Compare() {
     { name: 'Compare', url: '/compare' }
   ];
 
+  // Calculate recommendations for selected programs
+  const programRecommendations = useMemo(() => {
+    return selectedPrograms.map(program => {
+      const university = universities.find(u => u.id === program.universityId);
+      return {
+        programId: program.id,
+        recommendation: generateRecommendationText(university)
+      };
+    });
+  }, [selectedPrograms, universities]);
+
   // Filter programs based on active filters and exclude already selected ones
+  // Sort by university comparison score to prioritize Sharda
   const filteredPrograms = useMemo(() => {
-    const filtered = filterPrograms(allPrograms, filters);
+    const filtered = filterPrograms(allPrograms, filters, universities);
     // Exclude already selected programs from the dropdown
     const selectedIds = new Set(selectedPrograms.map(p => p.id));
-    return filtered.filter(program => !selectedIds.has(program.id));
-  }, [allPrograms, filters, selectedPrograms]);
+    const available = filtered.filter(program => !selectedIds.has(program.id));
+    
+    // Programs are already sorted by filterPrograms with comparison scoring
+    // This ensures Sharda programs appear higher in the list
+    return available;
+  }, [allPrograms, filters, selectedPrograms, universities]);
 
   const handleAddProgram = (programId) => {
     const program = allPrograms.find(p => p.id === programId);
@@ -167,7 +184,7 @@ export default function Compare() {
     <>
       <SEOHead
         title="Compare Courses Between Universities - Side-by-Side Comparison Tool | Fees, Rankings, Scholarships 2025-26"
-        description="Compare courses between universities side-by-side. Compare up to 5 B.Tech CSE, AI/ML, Data Science courses from Chandigarh, Sharda, Galgotias, NIU. Compare fees (₹2-8L/year), scholarships (20-60%), NIRF rankings, placements. Free course comparison tool for tech education. Compare colleges side by side."
+        description="Compare courses at Sharda University & top universities side-by-side. Compare fees, scholarships (20-60%), NIRF rankings. Free tool for Bangladeshi students."
         keywords={[
           'compare courses between universities',
           'compare courses',
@@ -218,7 +235,7 @@ export default function Compare() {
           </p>
           <p className={`${typography.caption} mb-3 sm:mb-4`}>
             <strong>Perfect for Bangladeshi students</strong> planning to study in India. All fees are calculated with maximum 
-            available scholarships for Bangladeshi students. Get free counseling and application assistance from Western Bangla Education (WBE).
+            available scholarships for Bangladeshi students. Get free counseling and application assistance.
           </p>
         </header>
 
@@ -317,9 +334,28 @@ export default function Compare() {
                 const university = universities.find(u => u.id === program.universityId);
                 const fees = calculateTotalFees(program, university);
                 const nirfRank = university?.profile?.rankings?.nirf || 'N/A';
+                const recommendation = programRecommendations.find(r => r.programId === program.id)?.recommendation;
                 
                 return (
                   <div key={program.id} className="bg-white border-2 border-gray-200 rounded-xl p-5 shadow-soft hover:shadow-medium transition-all">
+                    {/* Recommendation Badges */}
+                    {recommendation && recommendation.badges.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {recommendation.badges.map((badge, idx) => (
+                          <span
+                            key={idx}
+                            className={`px-2 py-1 text-xs font-semibold rounded-full ${
+                              recommendation.emphasis === 'high'
+                                ? 'bg-blue-100 text-blue-700 border border-blue-300'
+                                : 'bg-gray-100 text-gray-700 border border-gray-300'
+                            }`}
+                          >
+                            {badge}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    
                     <div className="mb-3">
                       <div className="font-bold text-lg">{program.name}</div>
                       {program.specialization && (
@@ -411,6 +447,7 @@ export default function Compare() {
                     const university = universities.find(u => u.id === program.universityId);
                     const fees = calculateTotalFees(program, university);
                     const nirfRank = university?.profile?.rankings?.nirf || 'N/A';
+                    const recommendation = programRecommendations.find(r => r.programId === program.id)?.recommendation;
                     
                     let programDisplayName = program.name;
                     if (program.specialization && !programDisplayName.includes(program.specialization)) {
@@ -418,9 +455,31 @@ export default function Compare() {
                     }
                     
                     return (
-                      <tr key={program.id} className="hover:bg-gray-50">
+                      <tr 
+                        key={program.id} 
+                        className={`hover:bg-gray-50 ${
+                          recommendation?.emphasis === 'high' ? 'bg-blue-50/30' : ''
+                        }`}
+                      >
                         <td className="px-2 py-3">
                           <div className="font-semibold text-xs leading-tight break-words">{programDisplayName}</div>
+                          {/* Recommendation Badges */}
+                          {recommendation && recommendation.badges.length > 0 && (
+                            <div className="flex flex-wrap gap-1 mt-1">
+                              {recommendation.badges.map((badge, idx) => (
+                                <span
+                                  key={idx}
+                                  className={`px-1.5 py-0.5 text-[10px] font-semibold rounded ${
+                                    recommendation.emphasis === 'high'
+                                      ? 'bg-blue-100 text-blue-700'
+                                      : 'bg-gray-100 text-gray-600'
+                                  }`}
+                                >
+                                  {badge}
+                                </span>
+                              ))}
+                            </div>
+                          )}
                         </td>
                         <td className="px-2 py-3">
                           <div className="font-medium text-xs">{university?.shortName}</div>
@@ -484,6 +543,7 @@ export default function Compare() {
                   const university = universities.find(u => u.id === program.universityId);
                   const fees = calculateTotalFees(program, university);
                   const nirfRank = university?.profile?.rankings?.nirf || 'N/A';
+                  const recommendation = programRecommendations.find(r => r.programId === program.id)?.recommendation;
                   
                   let programDisplayName = program.name;
                   if (program.specialization && !programDisplayName.includes(program.specialization)) {
@@ -491,11 +551,33 @@ export default function Compare() {
                   }
                   
                   return (
-                    <div key={program.id} className="bg-white border border-gray-200 rounded-lg p-4">
+                    <div 
+                      key={program.id} 
+                      className={`border border-gray-200 rounded-lg p-4 ${
+                        recommendation?.emphasis === 'high' ? 'bg-blue-50/30 border-blue-200' : 'bg-white'
+                      }`}
+                    >
                       <div className="grid grid-cols-2 gap-4">
                         <div>
                           <div className="font-semibold text-sm mb-1">{programDisplayName}</div>
                           <div className="text-xs text-blue-600 mb-2">{university?.shortName} - {university?.name}</div>
+                          {/* Recommendation Badges */}
+                          {recommendation && recommendation.badges.length > 0 && (
+                            <div className="flex flex-wrap gap-1 mt-2">
+                              {recommendation.badges.map((badge, idx) => (
+                                <span
+                                  key={idx}
+                                  className={`px-2 py-0.5 text-xs font-semibold rounded ${
+                                    recommendation.emphasis === 'high'
+                                      ? 'bg-blue-100 text-blue-700'
+                                      : 'bg-gray-100 text-gray-600'
+                                  }`}
+                                >
+                                  {badge}
+                                </span>
+                              ))}
+                            </div>
+                          )}
                         </div>
                         <div className="grid grid-cols-2 gap-2 text-xs">
                           <div>

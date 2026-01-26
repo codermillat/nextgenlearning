@@ -2,6 +2,7 @@ import SEOHead from '../components/SEO/SEOHead';
 import StructuredData from '../components/SEO/StructuredData';
 import Breadcrumbs from '../components/Common/Breadcrumbs';
 import { generateBreadcrumbSchema } from '../components/SEO/StructuredData';
+import { WHATSAPP_DISPLAY, getWhatsAppUrl } from '../config/constants';
 
 export default function PrivacyPolicy() {
   const breadcrumbs = [
@@ -12,15 +13,14 @@ export default function PrivacyPolicy() {
   return (
     <>
       <SEOHead
-        title="Privacy Policy - Study in India BD | Western Bangla Education"
-        description="Privacy Policy for Study in India BD and Western Bangla Education. Learn how we collect, use, and protect your personal information. Contact us for privacy concerns."
+        title="Privacy Policy - NextGen Learning"
+        description="Privacy Policy for NextGen Learning. Learn how we collect, use, and protect your personal information. Contact us for privacy concerns."
         keywords={[
           'privacy policy',
           'data protection',
-          'Western Bangla Education privacy',
-          'WBE privacy policy',
           'student data protection',
-          'privacy Bangladesh'
+          'privacy Bangladesh',
+          'study in India privacy'
         ]}
         url="/privacy-policy"
         canonical="/privacy-policy"
@@ -38,7 +38,7 @@ export default function PrivacyPolicy() {
             </p>
 
             <p>
-              At <strong>Western Bangla Education (WBE)</strong>, we respect and protect your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our website and services.
+              At <strong>NextGen Learning</strong>, we respect and protect your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our website and services.
             </p>
 
             <section>
@@ -116,7 +116,7 @@ export default function PrivacyPolicy() {
             <section>
               <h2 className="text-2xl font-bold mt-8 mb-4">5. External Links</h2>
               <p>
-                Our website may include links to third-party websites (such as university websites, WhatsApp, social media platforms). WBE is not responsible for their privacy practices or content. We encourage you to review the privacy policies of any external sites you visit.
+                Our website may include links to third-party websites (such as university websites, WhatsApp, social media platforms). We are not responsible for their privacy practices or content. We encourage you to review the privacy policies of any external sites you visit.
               </p>
             </section>
 
@@ -154,7 +154,7 @@ export default function PrivacyPolicy() {
             <section>
               <h2 className="text-2xl font-bold mt-8 mb-4">9. Changes to This Policy</h2>
               <p>
-                WBE reserves the right to update or modify this Privacy Policy at any time. Updates will be posted on this page with a revised date. We encourage you to review this policy periodically.
+                NextGen Learning reserves the right to update or modify this Privacy Policy at any time. Updates will be posted on this page with a revised date. We encourage you to review this policy periodically.
               </p>
             </section>
 
@@ -166,18 +166,20 @@ export default function PrivacyPolicy() {
               <ul className="space-y-2">
                 <li>
                   <strong>Email:</strong>{' '}
-                  <a href="mailto:westernbanglaedu@gmail.com" className="text-blue-600 hover:text-blue-800">
+                  <a href="mailto:contact@nextgenlearning.dev" className="text-blue-600 hover:text-blue-800">
                     Contact Us via Email
                   </a>
                 </li>
                 <li>
                   <strong>Phone/WhatsApp:</strong>{' '}
-                  <a href="https://wa.me/8801611533385" className="text-blue-600 hover:text-blue-800">
-                    +8801611533385
+                  <a 
+                    href={getWhatsAppUrl()} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800"
+                  >
+                    {WHATSAPP_DISPLAY}
                   </a>
-                </li>
-                <li>
-                  <strong>Address:</strong> Binodnagar, Nawabganj, Dinajpur – 5280, Rangpur Division, Bangladesh
                 </li>
               </ul>
             </section>

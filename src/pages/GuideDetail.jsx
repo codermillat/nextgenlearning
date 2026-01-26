@@ -5,6 +5,7 @@ import Breadcrumbs from '../components/Common/Breadcrumbs';
 import { generateBreadcrumbSchema, generateArticleSchema } from '../components/SEO/StructuredData';
 import { redirectToWhatsApp } from '../utils/whatsappRedirect';
 import { trackWhatsAppClick } from '../utils/analytics';
+import { WHATSAPP_DISPLAY } from '../config/constants';
 
 // All guide content
 const guideContent = {
@@ -51,7 +52,7 @@ const guideContent = {
       <p>Many Indian universities offer scholarships for Bangladeshi students, ranging from 20% to 60% of tuition fees. Scholarships are typically based on academic performance (GPA).</p>
       
       <h2>Get Free Application Assistance</h2>
-      <p>For free counseling and application assistance, contact WBE (Western Bangla Education) on WhatsApp. They will help you with the entire process at no cost.</p>
+      <p>For free counseling and application assistance, contact us on WhatsApp. We will help you with the entire process at no cost.</p>
     `
   },
   'how-to-apply-indian-universities': {
@@ -91,7 +92,7 @@ const guideContent = {
       </ul>
       
       <h3>Step 4: Submit Application</h3>
-      <p>Submit your application through WBE (Western Bangla Education) for free assistance. They will help you:</p>
+      <p>Submit your application for free assistance. We will help you:</p>
       <ul>
         <li>Complete application forms</li>
         <li>Verify documents</li>
@@ -100,16 +101,16 @@ const guideContent = {
       </ul>
       
       <h3>Step 5: Scholarship Application</h3>
-      <p>Apply for available scholarships based on your GPA. WBE will guide you through the scholarship application process.</p>
+      <p>Apply for available scholarships based on your GPA. We will guide you through the scholarship application process.</p>
       
       <h3>Step 6: Receive Admission Letter</h3>
       <p>Once accepted, you'll receive an admission letter from the university.</p>
       
       <h3>Step 7: Visa Application</h3>
-      <p>WBE will assist you with the student visa application process, including document preparation and submission.</p>
+      <p>We will assist you with the student visa application process, including document preparation and submission.</p>
       
       <h2>Get Free Help</h2>
-      <p>Contact WBE on WhatsApp (+8801611533385) for free application assistance. Send your documents and basic information - they will help you for free!</p>
+      <p>Contact us on WhatsApp for free application assistance. Send your documents and basic information - we will help you for free!</p>
     `
   },
   'scholarships-bangladeshi-students-india': {
@@ -154,7 +155,7 @@ const guideContent = {
       
       <h2>How to Apply for Scholarships</h2>
       <ol>
-        <li>Apply to your preferred university through WBE</li>
+        <li>Apply to your preferred university</li>
         <li>Submit your academic transcripts (GPA)</li>
         <li>Scholarship eligibility will be automatically determined</li>
         <li>Receive scholarship confirmation with admission letter</li>
@@ -169,7 +170,7 @@ const guideContent = {
       </ul>
       
       <h2>Get Free Scholarship Guidance</h2>
-      <p>Contact WBE (Western Bangla Education) on WhatsApp for free scholarship guidance and application assistance. They will help you understand all available scholarships and maximize your benefits.</p>
+      <p>Contact us on WhatsApp for free scholarship guidance and application assistance. We will help you understand all available scholarships and maximize your benefits.</p>
     `
   },
   'visa-process-india-bangladesh': {
@@ -230,7 +231,7 @@ const guideContent = {
       </ul>
       
       <h2>Get Free Visa Assistance</h2>
-      <p>WBE (Western Bangla Education) provides free visa application assistance. Contact them on WhatsApp for help with document preparation, form filling, and application submission.</p>
+      <p>We provide free visa application assistance. Contact us on WhatsApp for help with document preparation, form filling, and application submission.</p>
     `
   },
   'top-10-btech-programs-india': {
@@ -333,7 +334,7 @@ const guideContent = {
       </ul>
       
       <h2>Get Free Course Selection Guidance</h2>
-      <p>Contact WBE (Western Bangla Education) on WhatsApp for free counseling on choosing the right B.Tech program. They will help you compare programs, fees, and career prospects.</p>
+      <p>Contact us on WhatsApp for free counseling on choosing the right B.Tech program. We will help you compare programs, fees, and career prospects.</p>
     `
   },
   'mba-india-bangladeshi-students': {
@@ -418,7 +419,7 @@ const guideContent = {
       </ul>
       
       <h2>Get Free MBA Admission Guidance</h2>
-      <p>Contact WBE (Western Bangla Education) on WhatsApp for free counseling on MBA programs in India. They will help you choose the right specialization, university, and guide you through the admission process.</p>
+      <p>Contact us on WhatsApp for free counseling on MBA programs in India. We will help you choose the right specialization, university, and guide you through the admission process.</p>
     `
   },
   'cost-living-india-bangladeshi-students': {
@@ -514,7 +515,7 @@ const guideContent = {
       </ul>
       
       <h2>Get Free Financial Guidance</h2>
-      <p>Contact WBE (Western Bangla Education) on WhatsApp for free financial planning guidance. They will help you understand all costs and plan your budget effectively.</p>
+      <p>Contact us on WhatsApp for free financial planning guidance. We will help you understand all costs and plan your budget effectively.</p>
     `
   },
   'naac-a-plus-universities-india': {
@@ -618,7 +619,7 @@ const guideContent = {
       <p>Choosing a NAAC A+ accredited university ensures you receive quality education and better career opportunities. All universities featured on NextGen Learning are NAAC A+ accredited, ensuring excellence in education.</p>
       
       <h2>Get Free University Selection Guidance</h2>
-      <p>Contact WBE (Western Bangla Education) on WhatsApp for free guidance on choosing the right NAAC A+ accredited university. They will help you compare universities and make informed decisions.</p>
+      <p>Contact us on WhatsApp for free guidance on choosing the right NAAC A+ accredited university. We will help you compare universities and make informed decisions.</p>
     `
   }
 };
@@ -702,7 +703,7 @@ export default function GuideDetail() {
 
   const handleWhatsAppClick = () => {
     trackWhatsAppClick('guide_detail_page', guide.title, '');
-    const message = `Hello WBE Team,
+    const message = `Hello,
 
 I read the guide: "${guide.title}"
 
@@ -787,17 +788,17 @@ Thank you!`;
           <div className="max-w-2xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5">Ready to Apply?</h2>
             <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-green-50 leading-relaxed">
-              Get free application assistance from WBE (Western Bangla Education). 
-              Message them on WhatsApp with your documents and basic information - they will help you for free!
+              Get free application assistance. 
+              Message us on WhatsApp with your documents and basic information - we will help you for free!
             </p>
             <button
               onClick={handleWhatsAppClick}
               className="w-full sm:w-auto bg-white text-green-600 px-8 sm:px-10 py-4 rounded-lg font-semibold hover:bg-green-50 transition-all min-h-[44px] text-base sm:text-lg shadow-xl hover:shadow-2xl transform hover:scale-105"
             >
-              📱 Message WBE on WhatsApp - Free Application Help
+              📱 Message on WhatsApp - Free Application Help
             </button>
             <p className="text-xs sm:text-sm text-green-100 mt-4">
-              WhatsApp: +8801611533385 | All services are completely free
+              WhatsApp: {WHATSAPP_DISPLAY} | All services are completely free
             </p>
           </div>
         </section>

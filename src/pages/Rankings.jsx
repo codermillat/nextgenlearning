@@ -87,8 +87,8 @@ export default function Rankings() {
   return (
     <>
       <SEOHead
-        title="NIRF Ranking 2025 - Top Indian Universities Rankings | Chandigarh (32), Galgotias (101-150), Sharda (101-150), NIU (201-250) | NAAC A+"
-        description="Complete NIRF Ranking 2025 guide: Chandigarh University ranks 32nd, Galgotias University ranks 101-150, Sharda University ranks 101-150, Noida International University ranks 201-250. All universities have NAAC A+ accreditation. Compare rankings, understand ranking parameters, and choose the best university for your education."
+        title="NIRF Rankings 2025 | Sharda, Chandigarh & Top Unis"
+        description="NIRF Rankings 2025: Sharda University (101-150), Chandigarh (32), Galgotias (101-150). Compare rankings, fees, scholarships for Bangladeshi students."
         keywords={[
           'nirf ranking',
           'nirf ranking 2025',
@@ -381,7 +381,7 @@ export default function Rankings() {
             <h2 className={`${typography.sectionTitle} mb-4 sm:mb-6`}>Ready to Choose Your University?</h2>
             <p className={`${typography.bodyLarge} mb-6 sm:mb-8 text-blue-50 max-w-2xl mx-auto`}>
               Compare universities, check detailed rankings, fees, scholarships, and programs. 
-              Get free counseling from Western Bangla Education.
+              Get free counseling and expert guidance for your study abroad journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

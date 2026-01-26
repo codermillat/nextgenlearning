@@ -512,7 +512,7 @@ npm run generate-sitemap
 
 - Direct WhatsApp redirect from course pages
 - Pre-filled messages with course details
-- Contact: +8801611533385
+- Contact: +918800996151
 - All clicks tracked in Google Analytics
 
 ### Application Form

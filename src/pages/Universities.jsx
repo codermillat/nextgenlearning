@@ -9,9 +9,13 @@ import Card from '../components/Common/Card';
 import { SkeletonUniversityCard } from '../components/Common/Skeleton';
 import { generateBreadcrumbSchema } from '../components/SEO/StructuredData';
 import { typography, spacing } from '../utils/designTokens';
+import { sortUniversitiesForDisplay, generateRecommendationText } from '../utils/universityComparison';
 
 export default function Universities() {
   const { universities, loading } = useData();
+
+  // Sort universities with Sharda favorability
+  const sortedUniversities = sortUniversitiesForDisplay(universities);
 
   const breadcrumbs = [
     { name: 'Home', url: '/' },
@@ -24,7 +28,7 @@ export default function Universities() {
     "@type": "ItemList",
     "name": "Top Indian Universities for Bangladeshi Students",
     "description": "Comprehensive list of top-ranked Indian universities offering courses for Bangladeshi students. Compare NIRF rankings, NAAC accreditation, fees, and programs.",
-    "itemListElement": universities.map((university, index) => ({
+    "itemListElement": sortedUniversities.map((university, index) => ({
       "@type": "ListItem",
       "position": index + 1,
       "item": {
@@ -70,11 +74,11 @@ export default function Universities() {
     },
     {
       question: "Can I apply to multiple universities?",
-      answer: "Yes, you can apply to multiple universities. We recommend applying to 2-3 universities based on your preferences, program availability, and budget. Western Bangla Education (WBE) provides free counseling to help you choose the best universities and programs for your career goals."
+      answer: "Yes, you can apply to multiple universities. We recommend applying to 2-3 universities based on your preferences, program availability, and budget. NextGen Learning provides free counseling to help you choose the best universities and programs for your career goals."
     },
     {
       question: "What is the admission process for Bangladeshi students?",
-      answer: "The admission process typically includes: submitting academic documents (SSC/HSC transcripts), filling application forms, paying application fees, and obtaining student visa. Western Bangla Education (WBE) provides free assistance with the entire process including document verification, visa application, and admission support. Contact WBE via WhatsApp at +8801611533385 for free counseling."
+      answer: "The admission process typically includes: submitting academic documents (SSC/HSC transcripts), filling application forms, paying application fees, and obtaining student visa. NextGen Learning provides free assistance with the entire process including document verification, visa application, and admission support. Contact us via WhatsApp for free counseling."
     }
   ];
 
@@ -98,13 +102,13 @@ export default function Universities() {
     );
   }
 
-  const totalPrograms = universities.reduce((sum, uni) => sum + (uni.programs?.length || 0), 0);
+  const totalPrograms = sortedUniversities.reduce((sum, uni) => sum + (uni.programs?.length || 0), 0);
 
   return (
     <>
       <SEOHead
-        title="Top Universities 2025 | NIRF Rankings, Fees & Scholarships"
-        description={`Compare ${universities.length} NIRF ranked universities 2025: Chandigarh University (NIRF 32), Galgotias University (NIRF 101-150), Sharda University (NIRF 101-150), Noida International University (NIU 201-250). All NAAC A+ accredited with ${totalPrograms}+ programs. B.Tech CSE fees: ₹2-8 lakh/year after 20-60% scholarship. Check university rankings, placements (avg ₹5-8 LPA), course comparison. Free counseling for Bangladeshi students.`}
+        title="Top Universities 2025 | Sharda & NIRF Ranked"
+        description="Compare Sharda University (NIRF 101-150) & top universities. 20-60% scholarships for Bangladeshi students. B.Tech CSE fees ₹2-8L/year. NAAC A+ accredited."
         keywords={[
           'galgotias university nirf ranking',
           'galgotias university nirf ranking 2025',
@@ -146,8 +150,8 @@ export default function Universities() {
             Top Indian Universities for Bangladeshi Students 2025-26
           </h1>
           <p className="text-base sm:text-lg text-gray-700 mb-4 leading-relaxed">
-            Compare {universities.length} top-ranked Indian universities offering {totalPrograms}+ programs for Bangladeshi students. 
-            Featured universities include Chandigarh University (NIRF 2025: 32nd), Sharda University (NIRF 2025: 101-150), 
+            Compare {sortedUniversities.length} top-ranked Indian universities offering {totalPrograms}+ programs for Bangladeshi students. 
+            Featured universities include Chandigarh University (NIRF 2025: 32nd), <Link to="/sharda" className="text-blue-600 font-semibold hover:underline">Sharda University</Link> (NIRF 2025: 101-150), 
             Galgotias University (NIRF 2025: 101-150), and Noida International University (NIRF 2025: 201-250). All have NAAC A+ accreditation 
             and offer generous scholarships ranging from 20% to 60% for Bangladeshi students. Compare rankings, fees, placements, infrastructure, 
             and find the perfect university for your higher education journey in India.
@@ -164,7 +168,7 @@ export default function Universities() {
           <h2 className="text-xl sm:text-2xl font-bold mb-6 text-gray-900">Quick Statistics</h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
             <div className="text-center bg-white rounded-lg p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">{universities.length}</div>
+              <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">{sortedUniversities.length}</div>
               <div className="text-sm text-gray-600 font-medium">Universities</div>
             </div>
             <div className="text-center bg-white rounded-lg p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
@@ -207,7 +211,7 @@ export default function Universities() {
               <h3 className={`${typography.cardTitle} mb-3 text-gray-900`}>Sharda University NIRF Ranking 2025</h3>
               <p className={`${typography.body} mb-3`}>
                 <strong>NIRF Ranking:</strong> Sharda University ranks 101-150 in NIRF 2025 overall rankings. The university has shown consistent improvement in rankings and is recognized for quality education and industry partnerships.
-                <Link to="/universities/sharda-university" className="text-blue-600 font-semibold hover:underline ml-1">View complete Sharda University details →</Link>
+                <Link to="/sharda" className="text-blue-600 font-semibold hover:underline ml-1">Explore Sharda University comprehensive guide →</Link>
               </p>
               <p className={`${typography.body} mb-3`}>
                 <strong>B.Tech CSE Fees:</strong> Sharda University B.Tech CSE total fees for 4 years is approximately ₹12-15 lakh (after 20-50% GPA-based scholarship). 
@@ -264,7 +268,7 @@ export default function Universities() {
                 </tr>
               </thead>
               <tbody>
-                {universities.map((uni) => {
+                {sortedUniversities.map((uni) => {
                   const btechCseFee = uni.id === 'niu' ? '₹2.5L/year' : uni.id === 'sharda' ? '₹3L/year' : uni.id === 'chandigarh' ? '₹3-4L/year' : '₹3.5L/year';
                   const totalFee = uni.id === 'niu' ? '₹10-12L' : uni.id === 'sharda' ? '₹12-15L' : uni.id === 'chandigarh' ? '₹12-16L' : '₹14-16L';
                   const scholarship = uni.id === 'niu' ? '50% Flat' : uni.id === 'sharda' ? '20-50%' : uni.id === 'chandigarh' ? '35-50%' : '50-60%';
@@ -320,64 +324,93 @@ export default function Universities() {
         <section className="mb-12">
           <h2 className={`${typography.sectionTitle} mb-6 sm:mb-8 text-gray-900`}>Featured Universities</h2>
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ${spacing.gapLarge}`}>
-            {universities.map(university => (
-              <Card
-                key={university.id}
-                to={`/universities/${university.slug}`}
-                variant="default"
-                hoverTextColor="group-hover:text-blue-600"
-                className="group"
-              >
-                <div className="mb-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
-                      <span className="text-white font-bold text-lg">{university.shortName.charAt(0)}</span>
+            {sortedUniversities.map(university => {
+              const recommendation = generateRecommendationText(university);
+              return (
+                <Card
+                  key={university.id}
+                  to={`/universities/${university.slug}`}
+                  variant="default"
+                  hoverTextColor="group-hover:text-blue-600"
+                  className="group"
+                >
+                  <div className="mb-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                        <span className="text-white font-bold text-lg">{university.shortName.charAt(0)}</span>
+                      </div>
+                      {university.profile?.rankings?.nirf && (
+                        <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-md text-xs font-semibold">
+                          NIRF {university.profile.rankings.nirf}
+                        </span>
+                      )}
                     </div>
-                    {university.profile?.rankings?.nirf && (
-                      <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-md text-xs font-semibold">
-                        NIRF {university.profile.rankings.nirf}
-                      </span>
+                    
+                    {/* Recommendation Badges */}
+                    {recommendation.badges.length > 0 && (
+                      <div className="flex flex-wrap gap-1 mb-3">
+                        {recommendation.badges.map((badge, index) => (
+                          <span 
+                            key={index}
+                            className={`px-2 py-1 text-xs font-semibold rounded ${
+                              badge === 'Top Choice' || badge === 'Recommended' 
+                                ? 'bg-green-100 text-green-700' 
+                                : 'bg-purple-100 text-purple-700'
+                            }`}
+                          >
+                            {badge}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    
+                    <h2 className={`${typography.cardTitle} mb-2 group-hover:text-blue-600 transition-colors`}>
+                      {university.shortName}
+                    </h2>
+                    <p className={`${typography.caption} mb-3 leading-relaxed line-clamp-2`}>{university.name}</p>
+                    <p className="text-xs text-gray-500 flex items-center">
+                      <span className="mr-1">📍</span>
+                      {university.location}
+                    </p>
+                  </div>
+                  
+                  <div className="space-y-3 mb-6 pb-6 border-b border-gray-100">
+                    {university.profile?.rankings?.naac && (
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-gray-600">NAAC:</span>
+                        <span className="font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">{university.profile.rankings.naac}</span>
+                      </div>
+                    )}
+                    <div className="flex justify-between items-center text-sm">
+                      <span className="text-gray-600">Programs:</span>
+                      <span className="font-bold text-blue-600">{university.programs?.length || 0}+</span>
+                    </div>
+                    {university.established && (
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-gray-600">Established:</span>
+                        <span className="font-semibold text-gray-900">{university.established}</span>
+                      </div>
                     )}
                   </div>
-                  <h2 className={`${typography.cardTitle} mb-2 group-hover:text-blue-600 transition-colors`}>
-                    {university.shortName}
-                  </h2>
-                  <p className={`${typography.caption} mb-3 leading-relaxed line-clamp-2`}>{university.name}</p>
-                  <p className="text-xs text-gray-500 flex items-center">
-                    <span className="mr-1">📍</span>
-                    {university.location}
-                  </p>
-                </div>
-                
-                <div className="space-y-3 mb-6 pb-6 border-b border-gray-100">
-                  {university.profile?.rankings?.naac && (
-                    <div className="flex justify-between items-center text-sm">
-                      <span className="text-gray-600">NAAC:</span>
-                      <span className="font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">{university.profile.rankings.naac}</span>
-                    </div>
-                  )}
-                  <div className="flex justify-between items-center text-sm">
-                    <span className="text-gray-600">Programs:</span>
-                    <span className="font-bold text-blue-600">{university.programs?.length || 0}+</span>
-                  </div>
-                  {university.established && (
-                    <div className="flex justify-between items-center text-sm">
-                      <span className="text-gray-600">Established:</span>
-                      <span className="font-semibold text-gray-900">{university.established}</span>
-                    </div>
-                  )}
-                </div>
 
-                <div className="flex items-center justify-between">
-                  <span className="text-blue-600 font-semibold text-sm group-hover:text-blue-700 transition-colors flex items-center">
-                    View Details
-                    <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </div>
-              </Card>
-            ))}
+                  {/* Recommendation Description */}
+                  {recommendation.emphasis === 'high' && (
+                    <p className="text-xs text-gray-600 mb-4 leading-relaxed">
+                      {recommendation.description}
+                    </p>
+                  )}
+
+                  <div className="flex items-center justify-between">
+                    <span className="text-blue-600 font-semibold text-sm group-hover:text-blue-700 transition-colors flex items-center">
+                      View Details
+                      <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                  </div>
+                </Card>
+              );
+            })}
           </div>
         </section>
 
@@ -453,7 +486,7 @@ export default function Universities() {
           <div className="relative z-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">Ready to Start Your Journey?</h2>
             <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-blue-50 max-w-2xl mx-auto">
-              Get free counseling and application assistance from Western Bangla Education. 
+              Get free counseling and application assistance from NextGen Learning. 
               We'll help you choose the right university and guide you through the entire admission process.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

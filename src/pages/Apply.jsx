@@ -10,6 +10,7 @@ import { generateBreadcrumbSchema } from '../components/SEO/StructuredData';
 import { redirectToWhatsApp, generateApplicationMessage } from '../utils/whatsappRedirect';
 import { trackFormSubmission } from '../utils/analytics';
 import { typography, spacing } from '../utils/designTokens';
+import { WHATSAPP_DISPLAY, getWhatsAppUrl } from '../config/constants';
 
 export default function Apply() {
   const { universities } = useData();
@@ -125,34 +126,32 @@ export default function Apply() {
   const faqs = [
     {
       question: 'Is the counseling service really free?',
-      answer: 'Yes, Western Bangla Education provides all counseling and application assistance completely free of charge. We help with course selection, university applications, visa processing, and document verification at no cost to students.'
+      answer: 'Yes, we provide all counseling and application assistance completely free of charge. We help with course selection, university applications, visa processing, and document verification at no cost to students.'
     },
     {
       question: 'What documents do I need to apply?',
-      answer: 'You will need your academic transcripts, passport, passport-size photographs, and other documents as required by the university. WBE will guide you through the complete document preparation process.'
+      answer: 'You will need your academic transcripts, passport, passport-size photographs, and other documents as required by the university. We will guide you through the complete document preparation process.'
     },
     {
       question: 'How long does the application process take?',
-      answer: 'The application process typically takes 2-4 weeks, depending on the university and course. WBE will help expedite the process and ensure all documents are submitted correctly.'
+      answer: 'The application process typically takes 2-4 weeks, depending on the university and course. We will help expedite the process and ensure all documents are submitted correctly.'
     },
     {
-      question: 'Do I need to pay any fees to WBE?',
-      answer: 'No, WBE provides all services completely free. You only pay the university fees directly to the university. WBE earns through university partnerships, not from students.'
+      question: 'Do I need to pay any fees for counseling?',
+      answer: 'No, we provide all services completely free. You only pay the university fees directly to the university. We earn through university partnerships, not from students.'
     }
   ];
 
   return (
     <>
       <SEOHead
-        title="Apply to Study in India 2025-26 - Free Counseling, Visa & Admission Assistance | WBE"
-        description="Apply to study in India through Western Bangla Education (WBE). Get 100% free counseling, visa assistance, document verification, and admission support. WhatsApp: +8801611533385. No fees for counseling. Apply to Chandigarh University, Sharda University, Galgotias University, NIU."
+        title="Apply to Study in India 2025 | Free Counseling"
+        description={`Apply to Sharda University & top Indian universities. Free counseling, visa assistance for Bangladeshi students. WhatsApp: ${WHATSAPP_DISPLAY}. Apply now.`}
         keywords={[
           'apply to study in India',
           'admission in India from Bangladesh',
           'visa assistance for India',
           'free counseling for study in India',
-          'Western Bangla Education',
-          'WBE application',
           'study in India application form',
           'admission process India',
           'student visa India',
@@ -160,8 +159,9 @@ export default function Apply() {
           'free education counseling',
           'Bangladeshi students India admission',
           'apply Indian universities',
-          'WBE WhatsApp',
-          'study abroad counseling free'
+          'study abroad counseling free',
+          'Sharda University admission',
+          'Indian university application'
         ]}
         url="/apply"
         canonical="/apply"
@@ -173,7 +173,7 @@ export default function Apply() {
       <div className={`container mx-auto ${spacing.container} ${spacing.sectionSmall} max-w-3xl`}>
         <h1 className={`${typography.sectionTitle} mb-3 sm:mb-4 leading-tight`}>Apply to Study in India</h1>
         <p className={`${typography.body} mb-6 sm:mb-8`}>
-          Get free counseling and application assistance from Western Bangla Education. 
+          Get free counseling and application assistance. 
           Fill out the form below and we'll contact you via WhatsApp to help you with your application.
         </p>
 
@@ -370,7 +370,7 @@ export default function Apply() {
             Contact us directly on WhatsApp for instant assistance
           </p>
           <Button
-            href="https://wa.me/8801611533385"
+            href={getWhatsAppUrl()}
             variant="primary"
             size="md"
             className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 w-full sm:w-auto"

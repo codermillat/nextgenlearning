@@ -3,6 +3,7 @@ import { useEffect, lazy, Suspense } from 'react';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 import ErrorBoundary from './components/Common/ErrorBoundary';
+import SkipLinks from './components/Common/SkipLinks';
 import { trackPageView } from './utils/analytics';
 
 // Lazy load routes for code splitting
@@ -27,6 +28,21 @@ const GuideDetail = lazy(() => import('./pages/GuideDetail'));
 const FAQ = lazy(() => import('./pages/FAQ'));
 const Rankings = lazy(() => import('./pages/Rankings'));
 const FeesAndScholarships = lazy(() => import('./pages/FeesAndScholarships'));
+const ShardaLandingPage = lazy(() => import('./pages/Sharda/ShardaLandingPage'));
+const ShardaNIRFRanking = lazy(() => import('./pages/Sharda/ShardaNIRFRanking'));
+const ShardaRanking2026 = lazy(() => import('./pages/Sharda/ShardaRanking2026'));
+const ShardaBTechCSEFees = lazy(() => import('./pages/Sharda/ShardaBTechCSEFees'));
+const ShardaMBAFees = lazy(() => import('./pages/Sharda/ShardaMBAFees'));
+const StudyInIndiaFromBangladesh = lazy(() => import('./pages/Sharda/StudyInIndiaFromBangladesh'));
+const ScholarshipBangladeshiStudents = lazy(() => import('./pages/Sharda/ScholarshipBangladeshiStudents'));
+const IndianUniversityBangladeshiStudents = lazy(() => import('./pages/Sharda/IndianUniversityBangladeshiStudents'));
+const ShardaBTechCSE = lazy(() => import('./pages/Sharda/programs/ShardaBTechCSE'));
+const ShardaMBA = lazy(() => import('./pages/Sharda/programs/ShardaMBA'));
+const ShardaMBBS = lazy(() => import('./pages/Sharda/programs/ShardaMBBS'));
+const ShardaBBA = lazy(() => import('./pages/Sharda/programs/ShardaBBA'));
+const ShardaVsAmity = lazy(() => import('./pages/Sharda/ShardaVsAmity'));
+const ShardaVsChandigarh = lazy(() => import('./pages/Sharda/ShardaVsChandigarh'));
+const BestUniversitiesBangladeshiStudents = lazy(() => import('./pages/Sharda/BestUniversitiesBangladeshiStudents'));
 
 // Component to track page views on route changes and clean up query parameters
 function PageViewTracker() {
@@ -74,13 +90,8 @@ function App() {
       <Router>
         <PageViewTracker />
         <div className="min-h-screen flex flex-col overflow-x-hidden">
-          {/* Skip to main content link for screen readers */}
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
-            Skip to main content
-          </a>
+          {/* Skip navigation links for accessibility */}
+          <SkipLinks />
           <Header />
           <main id="main-content" className="flex-grow overflow-x-hidden" tabIndex={-1}>
             <Suspense fallback={<LoadingFallback />}>
@@ -105,6 +116,22 @@ function App() {
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/rankings" element={<Rankings />} />
                 <Route path="/fees-scholarships" element={<FeesAndScholarships />} />
+                <Route path="/sharda" element={<ShardaLandingPage />} />
+                <Route path="/sharda-university" element={<ShardaLandingPage />} />
+                <Route path="/sharda-university/nirf-ranking" element={<ShardaNIRFRanking />} />
+                <Route path="/sharda-university/ranking-2026" element={<ShardaRanking2026 />} />
+                <Route path="/sharda-university/btech-cse-fees" element={<ShardaBTechCSEFees />} />
+                <Route path="/sharda-university/mba-fees" element={<ShardaMBAFees />} />
+                <Route path="/sharda-university/study-in-india-from-bangladesh" element={<StudyInIndiaFromBangladesh />} />
+                <Route path="/sharda-university/scholarship-bangladeshi-students-india" element={<ScholarshipBangladeshiStudents />} />
+                <Route path="/sharda-university/indian-university-bangladeshi-students" element={<IndianUniversityBangladeshiStudents />} />
+                <Route path="/sharda-university/programs/btech-cse" element={<ShardaBTechCSE />} />
+                <Route path="/sharda-university/programs/mba" element={<ShardaMBA />} />
+                <Route path="/sharda-university/programs/mbbs" element={<ShardaMBBS />} />
+                <Route path="/sharda-university/programs/bba" element={<ShardaBBA />} />
+                <Route path="/sharda-vs-amity" element={<ShardaVsAmity />} />
+                <Route path="/sharda-vs-chandigarh" element={<ShardaVsChandigarh />} />
+                <Route path="/best-universities-bangladeshi-students-india" element={<BestUniversitiesBangladeshiStudents />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

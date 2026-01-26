@@ -215,6 +215,63 @@ urls.push({
   lastmod: TODAY
 });
 
+// Sharda University SEO pages
+urls.push({
+  loc: '/sharda-university',
+  changefreq: 'weekly',
+  priority: '0.9',
+  lastmod: TODAY
+});
+
+urls.push({
+  loc: '/sharda-university/nirf-ranking',
+  changefreq: 'monthly',
+  priority: '0.8',
+  lastmod: TODAY
+});
+
+urls.push({
+  loc: '/sharda-university/ranking-2026',
+  changefreq: 'monthly',
+  priority: '0.8',
+  lastmod: TODAY
+});
+
+urls.push({
+  loc: '/sharda-university/btech-cse-fees',
+  changefreq: 'monthly',
+  priority: '0.8',
+  lastmod: TODAY
+});
+
+urls.push({
+  loc: '/sharda-university/mba-fees',
+  changefreq: 'monthly',
+  priority: '0.8',
+  lastmod: TODAY
+});
+
+urls.push({
+  loc: '/sharda-university/study-in-india-from-bangladesh',
+  changefreq: 'monthly',
+  priority: '0.9',
+  lastmod: TODAY
+});
+
+urls.push({
+  loc: '/sharda-university/scholarship-bangladeshi-students-india',
+  changefreq: 'monthly',
+  priority: '0.9',
+  lastmod: TODAY
+});
+
+urls.push({
+  loc: '/sharda-university/indian-university-bangladeshi-students',
+  changefreq: 'monthly',
+  priority: '0.9',
+  lastmod: TODAY
+});
+
 // University pages
 universities.forEach(uni => {
   const uniSlug = universitySlug(uni);

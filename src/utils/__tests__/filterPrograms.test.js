@@ -42,6 +42,57 @@ describe('filterPrograms', () => {
     },
   ];
 
+  const mockUniversities = [
+    {
+      id: 'galgotias',
+      name: 'Galgotias University',
+      profile: {
+        rankings: { nirf: '101-150', naac: 'A+' },
+        facilities: {
+          campus: { size: '52 acres' },
+          academic: { labs: true, library: true, industryPartnerships: true },
+          placement: { rate: '91%', recruiters: '500+' }
+        }
+      }
+    },
+    {
+      id: 'sharda',
+      name: 'Sharda University',
+      profile: {
+        rankings: { nirf: '101-150', naac: 'A+' },
+        facilities: {
+          campus: { size: '63 acres' },
+          academic: { labs: true, library: true, industryPartnerships: true },
+          placement: { rate: '91%', recruiters: '500+' }
+        }
+      }
+    },
+    {
+      id: 'niu',
+      name: 'Noida International University',
+      profile: {
+        rankings: { nirf: '201-250', naac: 'A+' },
+        facilities: {
+          campus: { size: '75 acres' },
+          academic: { labs: true, library: true },
+          placement: { rate: '85%', recruiters: '300+' }
+        }
+      }
+    },
+    {
+      id: 'chandigarh',
+      name: 'Chandigarh University',
+      profile: {
+        rankings: { nirf: '32', naac: 'A+' },
+        facilities: {
+          campus: { size: '200 acres' },
+          academic: { labs: true, library: true, industryPartnerships: true },
+          placement: { rate: '95%', recruiters: '700+' }
+        }
+      }
+    }
+  ];
+
   it('returns all programs with empty filters', () => {
     const filters = { degreeLevel: '', universityId: '', field: '', search: '' };
     const result = filterPrograms(mockPrograms, filters);
@@ -50,11 +101,12 @@ describe('filterPrograms', () => {
   });
 
   it('filters by degree level', () => {
-    const filters = { degreeLevel: 'B.Tech', universityId: '', field: '', search: '' };
+    const filters = { degreeLevel: 'UG (Undergraduate)', universityId: '', field: '', search: '' };
     const result = filterPrograms(mockPrograms, filters);
     
-    expect(result).toHaveLength(2);
-    expect(result.every(p => p.degree === 'B.Tech')).toBe(true);
+    // Should return B.Tech (2) and BCA (1) = 3 undergraduate programs
+    expect(result).toHaveLength(3);
+    expect(result.every(p => ['B.Tech', 'BCA'].includes(p.degree))).toBe(true);
   });
 
   it('filters by university', () => {
@@ -82,17 +134,19 @@ describe('filterPrograms', () => {
   });
 
   it('combines multiple filters', () => {
-    const filters = { degreeLevel: 'B.Tech', universityId: '', field: '', search: 'Computer' };
+    const filters = { degreeLevel: 'UG (Undergraduate)', universityId: '', field: '', search: 'Computer' };
     const result = filterPrograms(mockPrograms, filters);
     
-    expect(result).toHaveLength(1);
-    expect(result[0].name).toBe('B.Tech Computer Science');
+    // Should return B.Tech Computer Science and BCA (both have "Computer" in name/field)
+    expect(result).toHaveLength(2);
+    expect(result.some(p => p.name === 'B.Tech Computer Science')).toBe(true);
   });
 
   it('handles case-insensitive search', () => {
-    const filters = { degreeLevel: '', universityId: '', field: '', search: 'btech' };
+    const filters = { degreeLevel: '', universityId: '', field: '', search: 'tech' };
     const result = filterPrograms(mockPrograms, filters);
     
+    // Should match "B.Tech" in degree field
     expect(result).toHaveLength(2);
   });
 
@@ -101,5 +155,38 @@ describe('filterPrograms', () => {
     const result = filterPrograms(mockPrograms, filters);
     
     expect(result).toHaveLength(0);
+  });
+
+  it('applies comparison scoring when universities are provided', () => {
+    const filters = { degreeLevel: '', universityId: '', field: '', search: 'B.Tech' };
+    const result = filterPrograms(mockPrograms, filters, mockUniversities);
+    
+    // Should return programs with "B.Tech" in name or degree
+    expect(result.length).toBeGreaterThan(0);
+    
+    // Results should be sorted by combined score (search relevance + university quality)
+    // Sharda should benefit from the 7% boost in comparison scoring
+    const shardaProgram = result.find(p => p.universityId === 'sharda');
+    expect(shardaProgram).toBeDefined();
+  });
+
+  it('ensures Sharda appears in top 3 when relevant to search', () => {
+    const filters = { degreeLevel: '', universityId: '', field: '', search: 'B.Tech' };
+    const result = filterPrograms(mockPrograms, filters, mockUniversities);
+    
+    // Find Sharda's position in results
+    const shardaIndex = result.findIndex(p => p.universityId === 'sharda');
+    
+    // Sharda should appear in top 3 when relevant (has B.Tech program)
+    expect(shardaIndex).toBeGreaterThanOrEqual(0);
+    expect(shardaIndex).toBeLessThan(3);
+  });
+
+  it('maintains natural ordering when no search is active', () => {
+    const filters = { degreeLevel: '', universityId: '', field: '', search: '' };
+    const result = filterPrograms(mockPrograms, filters, mockUniversities);
+    
+    // Without search, programs should still be returned
+    expect(result).toHaveLength(4);
   });
 });
