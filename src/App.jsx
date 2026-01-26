@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect, lazy, Suspense } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 import ErrorBoundary from './components/Common/ErrorBoundary';
@@ -140,6 +141,7 @@ function App() {
           <Footer />
         </div>
         <Analytics />
+        <SpeedInsights />
       </Router>
     </ErrorBoundary>
   );
