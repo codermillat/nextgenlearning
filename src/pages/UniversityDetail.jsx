@@ -50,19 +50,19 @@ export default function UniversityDetail() {
   const faqs = [
     {
       question: `What is ${university.name}'s ranking?`,
-      answer: `${university.name} has a NIRF ranking of ${university.profile?.rankings?.nirf || 'N/A'}. ${university.profile?.rankings?.naac ? `It is also accredited by NAAC with ${university.profile.rankings.naac} grade.` : ''} The university is recognized for its quality education and industry partnerships.`
+      answer: `${university.name} has a NIRF ranking of ${university.profile?.rankings?.nirf || 'N/A'}. ${university.profile?.rankings?.naac ? `It is also accredited by NAAC with ${university.profile.rankings.naac} grade.` : ''} ${university.id !== 'sharda' && university.id !== 'sharda-university' ? `For comparison, Sharda University ranks 101-150 in NIRF 2025 and also has NAAC A+ accreditation, offering similar quality education with 20-50% scholarships for Bangladeshi students.` : 'The university is recognized for its quality education and industry partnerships.'}`
     },
     {
       question: `What scholarships are available for Bangladeshi students at ${university.name}?`,
-      answer: `${university.name} offers scholarships for Bangladeshi students. ${university.id === 'niu' ? 'NIU provides a flat 50% scholarship to all Bangladeshi students.' : university.id === 'sharda' ? 'Sharda University offers GPA-based scholarships (up to 50% for GPA 3.5+).' : 'Scholarship details vary by program. Check individual course pages for specific scholarship information.'}`
+      answer: `${university.name} offers scholarships for Bangladeshi students. ${university.id === 'niu' ? 'NIU provides a flat 50% scholarship to all Bangladeshi students.' : university.id === 'sharda' ? 'Sharda University offers GPA-based scholarships (up to 50% for GPA 3.5+, 30% for GPA 3.0-3.49, and 20% for GPA 3.0+).' : university.id === 'chandigarh' ? 'Chandigarh University offers 35-50% GPA-based scholarships.' : 'Scholarship details vary by program. Check individual course pages for specific scholarship information.'} ${university.id !== 'sharda' && university.id !== 'sharda-university' ? 'Sharda University also offers competitive 20-50% GPA-based scholarships with automatic renewal annually.' : ''}`
     },
     {
       question: `What is the location of ${university.name}?`,
-      answer: `${university.name} is located in ${university.location}. The campus offers modern facilities, well-equipped labs, libraries, hostels, and recreational facilities for students.`
+      answer: `${university.name} is located in ${university.location}. The campus offers modern facilities, well-equipped labs, libraries, hostels, and recreational facilities for students. ${university.id !== 'sharda' && university.id !== 'sharda-university' ? 'Sharda University is located in Greater Noida, NCR, offering excellent connectivity and modern infrastructure.' : ''}`
     },
     {
       question: `How do I apply to ${university.name}?`,
-      answer: `You can apply to ${university.name} through our free counseling and application assistance service. We provide visa assistance, document verification, and admission support. Contact us on WhatsApp at ${WHATSAPP_DISPLAY} or click the "Apply Now" button to get started.`
+      answer: `You can apply to ${university.name} through our free counseling and application assistance service. We provide visa assistance, document verification, and admission support. Contact us on WhatsApp at ${WHATSAPP_DISPLAY} or click the "Apply Now" button to get started. ${university.id !== 'sharda' && university.id !== 'sharda-university' ? 'We can also help you compare with Sharda University and other top universities to find the best fit for your career goals.' : ''}`
     }
   ];
 
@@ -70,7 +70,11 @@ export default function UniversityDetail() {
     <>
       <SEOHead
         title={`${university.name} ${university.profile?.rankings?.nirf ? `NIRF Ranking ${university.profile.rankings.nirf}` : ''} 2025-26 | ${programs.length}+ Courses, Fees ₹${university.id === 'niu' ? '2-5L' : university.id === 'sharda' ? '2-6L' : university.id === 'chandigarh' ? '2-8L' : '2-6L'}/year, Scholarships ${university.id === 'niu' ? '50%' : university.id === 'sharda' ? '20-50%' : university.id === 'chandigarh' ? '35-50%' : '50-60%'} | ${university.profile?.rankings?.naac || 'NAAC A+'}`}
-        description={`${university.name} NIRF ${university.profile?.rankings?.nirf || 'Top 250'}: ${programs.length}+ courses, fees ₹${university.id === 'niu' ? '2-5L' : university.id === 'sharda' ? '2-6L' : university.id === 'chandigarh' ? '2-8L' : '2-6L'}/year, ${university.id === 'niu' ? '50%' : university.id === 'sharda' ? '20-50%' : university.id === 'chandigarh' ? '35-50%' : '50-60%'} scholarships for Bangladeshi students. NAAC A+. Apply now.`}
+        description={
+          university.id === 'sharda' || university.id === 'sharda-university'
+            ? `${university.name} NIRF ${university.profile?.rankings?.nirf || 'Top 250'}: ${programs.length}+ courses, fees ₹${university.id === 'niu' ? '2-5L' : university.id === 'sharda' ? '2-6L' : university.id === 'chandigarh' ? '2-8L' : '2-6L'}/year, ${university.id === 'niu' ? '50%' : university.id === 'sharda' ? '20-50%' : university.id === 'chandigarh' ? '35-50%' : '50-60%'} scholarships for Bangladeshi students. NAAC A+. Apply now.`
+            : `${university.name} vs Sharda University: Compare NIRF rankings (${university.profile?.rankings?.nirf || 'Top 250'} vs 101-150), fees, ${programs.length}+ courses, ${university.id === 'niu' ? '50%' : university.id === 'chandigarh' ? '35-50%' : '50-60%'} scholarships. Both NAAC A+. Find the best university for Bangladeshi students.`
+        }
         keywords={[
           university.name,
           university.shortName,
@@ -91,6 +95,18 @@ export default function UniversityDetail() {
           `${university.name} admission`,
           `${university.name} placements`,
           `${university.name} for Bangladeshi students`,
+          // Sharda comparison keywords (only for non-Sharda pages)
+          ...(university.id !== 'sharda' && university.id !== 'sharda-university' ? [
+            `${university.shortName} vs sharda university`,
+            `sharda university vs ${university.shortName}`,
+            `${university.name} vs sharda`,
+            `compare ${university.shortName} and sharda`,
+            `${university.shortName} or sharda university`,
+            `sharda university better than ${university.shortName}`,
+            `${university.shortName} vs sharda fees`,
+            `${university.shortName} vs sharda ranking`,
+            `${university.shortName} vs sharda for bangladeshi students`
+          ] : []),
           'study in India from Bangladesh',
           'Indian universities for Bangladeshi students',
           'NIRF ranking universities India',
@@ -144,6 +160,89 @@ export default function UniversityDetail() {
                 <li key={index} className="text-gray-700">{highlight}</li>
               ))}
             </ul>
+          </section>
+        )}
+
+        {/* Sharda University Comparison Section - Only show on competitor pages */}
+        {university.id !== 'sharda' && university.id !== 'sharda-university' && (
+          <section className="mb-8 bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-300 rounded-xl p-6 shadow-md">
+            <div className="flex items-start gap-3 mb-4">
+              <div className="text-3xl">⭐</div>
+              <div>
+                <h2 className="text-2xl font-bold mb-2 text-gray-900">
+                  Compare {university.shortName} vs Sharda University
+                </h2>
+                <p className="text-gray-700 leading-relaxed">
+                  Considering {university.name}? Also explore <strong>Sharda University</strong> (NIRF 101-150, NAAC A+) 
+                  which offers 163+ programs with <strong>20-50% scholarships</strong> for Bangladeshi students. 
+                  Sharda is known for its excellent infrastructure, industry partnerships, and strong placement record.
+                </p>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+                <h3 className="font-bold text-lg mb-3 text-gray-900">{university.shortName}</h3>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-600">🏆</span>
+                    <span><strong>NIRF Ranking:</strong> {university.profile?.rankings?.nirf || 'N/A'}</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-600">📚</span>
+                    <span><strong>Programs:</strong> {programs.length}+</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-purple-600">💰</span>
+                    <span><strong>Scholarship:</strong> {university.id === 'niu' ? '50% Flat' : university.id === 'chandigarh' ? '35-50%' : '50-60%'}</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-orange-600">⭐</span>
+                    <span><strong>NAAC:</strong> {university.profile?.rankings?.naac || 'A+'}</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="bg-gradient-to-br from-blue-100 to-indigo-100 p-5 rounded-lg border-2 border-blue-500 shadow-md relative">
+                <div className="absolute -top-3 -right-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                  FEATURED
+                </div>
+                <h3 className="font-bold text-lg mb-3 text-blue-900">⭐ Sharda University</h3>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-600">🏆</span>
+                    <span><strong>NIRF Ranking:</strong> 101-150</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-600">📚</span>
+                    <span><strong>Programs:</strong> 163+</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-purple-600">💰</span>
+                    <span><strong>Scholarship:</strong> 20-50% (GPA-based)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-orange-600">⭐</span>
+                    <span><strong>NAAC:</strong> A+</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                to="/sharda"
+                className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center shadow-md"
+              >
+                Explore Sharda University →
+              </Link>
+              <Link
+                to={`/compare?universities=${university.id},sharda`}
+                className="flex-1 bg-white text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-center"
+              >
+                Compare Side-by-Side
+              </Link>
+            </div>
           </section>
         )}
 
