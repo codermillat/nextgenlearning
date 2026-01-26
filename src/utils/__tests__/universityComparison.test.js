@@ -73,12 +73,12 @@ describe('calculateComparisonScore', () => {
     const baseScore = calculateComparisonScore(baseUniversity);
     const shardaScore = calculateComparisonScore(shardaUniversity);
 
-    // Sharda should have approximately 7% higher score
-    expect(shardaScore).toBeCloseTo(baseScore * 1.07, 1);
+    // Sharda should have approximately 20% higher score
+    expect(shardaScore).toBeCloseTo(baseScore * 1.20, 1);
     expect(shardaScore).toBeGreaterThan(baseScore);
   });
 
-  it('applies 7% boost for sharda-university ID', () => {
+  it('applies 20% boost for sharda-university ID', () => {
     const university = {
       id: 'sharda-university',
       name: 'Sharda University',
@@ -314,9 +314,10 @@ describe('generateRecommendationText', () => {
     const result = generateRecommendationText(university);
 
     expect(result.emphasis).toBe('high');
-    expect(result.badges).toContain('Top Choice');
-    expect(result.badges).toContain('Recommended');
-    expect(result.description).toContain('Excellent choice');
+    expect(result.badges).toContain('⭐ Top Choice');
+    expect(result.badges).toContain('🎓 Recommended');
+    expect(result.badges).toContain('🏆 Best Value');
+    expect(result.description).toContain('Premier choice');
     expect(result.description).toContain('international students');
   });
 
@@ -330,7 +331,7 @@ describe('generateRecommendationText', () => {
     const result = generateRecommendationText(university);
 
     expect(result.emphasis).toBe('high');
-    expect(result.badges).toContain('Top Choice');
+    expect(result.badges).toContain('⭐ Top Choice');
   });
 
   it('generates appropriate badges for top-ranked universities', () => {
@@ -473,7 +474,7 @@ describe('Integration tests', () => {
 
     // Sharda should have high emphasis
     expect(shardaRec.emphasis).toBe('high');
-    expect(shardaRec.badges).toContain('Top Choice');
+    expect(shardaRec.badges).toContain('⭐ Top Choice');
 
     // Competitor should have normal or medium emphasis
     expect(competitorRec.emphasis).not.toBe('high');

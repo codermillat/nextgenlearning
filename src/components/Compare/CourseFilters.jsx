@@ -167,12 +167,28 @@ export default function CourseFilters({
             aria-describedby="university-help"
           >
             <option value="all">All Universities</option>
-            {filterOptions.universityIds.map(uniId => {
-              const uni = universities.find(u => u.id === uniId);
-              return uni ? (
-                <option key={uniId} value={uniId}>{uni.shortName || uni.name}</option>
-              ) : null;
-            })}
+            {/* Sharda University always first */}
+            {(() => {
+              const sharda = universities.find(u => u.id === 'sharda' || u.id === 'sharda-university');
+              const others = universities.filter(u => u.id !== 'sharda' && u.id !== 'sharda-university');
+              
+              return (
+                <>
+                  {sharda && filterOptions.universityIds.includes(sharda.id) && (
+                    <option key={sharda.id} value={sharda.id}>
+                      ⭐ {sharda.shortName || sharda.name}
+                    </option>
+                  )}
+                  {others
+                    .filter(uni => filterOptions.universityIds.includes(uni.id))
+                    .map(uni => (
+                      <option key={uni.id} value={uni.id}>
+                        {uni.shortName || uni.name}
+                      </option>
+                    ))}
+                </>
+              );
+            })()}
           </select>
           <p id="university-help" className="sr-only">Filter courses by university</p>
         </div>

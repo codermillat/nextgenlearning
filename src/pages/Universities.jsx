@@ -10,12 +10,24 @@ import { SkeletonUniversityCard } from '../components/Common/Skeleton';
 import { generateBreadcrumbSchema } from '../components/SEO/StructuredData';
 import { typography, spacing } from '../utils/designTokens';
 import { sortUniversitiesForDisplay, generateRecommendationText } from '../utils/universityComparison';
+import { useMemo } from 'react';
 
 export default function Universities() {
   const { universities, loading } = useData();
 
-  // Sort universities with Sharda favorability
-  const sortedUniversities = sortUniversitiesForDisplay(universities);
+  // Sort universities with Sharda ALWAYS first, then by comparison score
+  const sortedUniversities = useMemo(() => {
+    const sorted = sortUniversitiesForDisplay(universities);
+    
+    // Ensure Sharda is always first
+    const shardaIndex = sorted.findIndex(u => u.id === 'sharda' || u.id === 'sharda-university');
+    if (shardaIndex > 0) {
+      const sharda = sorted.splice(shardaIndex, 1)[0];
+      sorted.unshift(sharda);
+    }
+    
+    return sorted;
+  }, [universities]);
 
   const breadcrumbs = [
     { name: 'Home', url: '/' },
@@ -324,23 +336,35 @@ export default function Universities() {
         <section className="mb-12">
           <h2 className={`${typography.sectionTitle} mb-6 sm:mb-8 text-gray-900`}>Featured Universities</h2>
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ${spacing.gapLarge}`}>
-            {sortedUniversities.map(university => {
+            {sortedUniversities.map((university, index) => {
               const recommendation = generateRecommendationText(university);
+              const isSharda = university.id === 'sharda' || university.id === 'sharda-university';
+              
               return (
                 <Card
                   key={university.id}
                   to={`/universities/${university.slug}`}
                   variant="default"
                   hoverTextColor="group-hover:text-blue-600"
-                  className="group"
+                  className={`group relative ${isSharda ? 'ring-2 ring-blue-500 shadow-xl' : ''}`}
                 >
+                  {/* Featured Badge for Sharda */}
+                  {isSharda && (
+                    <div className="absolute -top-3 -right-3 z-10">
+                      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg flex items-center gap-1">
+                        <span>⭐</span>
+                        <span>FEATURED</span>
+                      </div>
+                    </div>
+                  )}
+                  
                   <div className="mb-6">
                     <div className="flex items-center justify-between mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                      <div className={`w-12 h-12 bg-gradient-to-br ${isSharda ? 'from-blue-600 to-indigo-600 ring-2 ring-blue-300' : 'from-blue-500 to-indigo-500'} rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform`}>
                         <span className="text-white font-bold text-lg">{university.shortName.charAt(0)}</span>
                       </div>
                       {university.profile?.rankings?.nirf && (
-                        <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-md text-xs font-semibold">
+                        <span className={`px-2 py-1 ${isSharda ? 'bg-blue-600 text-white' : 'bg-blue-100 text-blue-700'} rounded-md text-xs font-semibold`}>
                           NIRF {university.profile.rankings.nirf}
                         </span>
                       )}
@@ -349,11 +373,13 @@ export default function Universities() {
                     {/* Recommendation Badges */}
                     {recommendation.badges.length > 0 && (
                       <div className="flex flex-wrap gap-1 mb-3">
-                        {recommendation.badges.map((badge, index) => (
+                        {recommendation.badges.map((badge, badgeIndex) => (
                           <span 
-                            key={index}
+                            key={badgeIndex}
                             className={`px-2 py-1 text-xs font-semibold rounded ${
-                              badge === 'Top Choice' || badge === 'Recommended' 
+                              isSharda
+                                ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md' 
+                                : badge === 'Top Choice' || badge === 'Recommended' 
                                 ? 'bg-green-100 text-green-700' 
                                 : 'bg-purple-100 text-purple-700'
                             }`}
@@ -364,7 +390,7 @@ export default function Universities() {
                       </div>
                     )}
                     
-                    <h2 className={`${typography.cardTitle} mb-2 group-hover:text-blue-600 transition-colors`}>
+                    <h2 className={`${typography.cardTitle} mb-2 ${isSharda ? 'text-blue-700 font-extrabold' : ''} group-hover:text-blue-600 transition-colors`}>
                       {university.shortName}
                     </h2>
                     <p className={`${typography.caption} mb-3 leading-relaxed line-clamp-2`}>{university.name}</p>
@@ -378,12 +404,12 @@ export default function Universities() {
                     {university.profile?.rankings?.naac && (
                       <div className="flex justify-between items-center text-sm">
                         <span className="text-gray-600">NAAC:</span>
-                        <span className="font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">{university.profile.rankings.naac}</span>
+                        <span className={`font-semibold ${isSharda ? 'text-blue-600 bg-blue-50' : 'text-green-600 bg-green-50'} px-2 py-1 rounded`}>{university.profile.rankings.naac}</span>
                       </div>
                     )}
                     <div className="flex justify-between items-center text-sm">
                       <span className="text-gray-600">Programs:</span>
-                      <span className="font-bold text-blue-600">{university.programs?.length || 0}+</span>
+                      <span className={`font-bold ${isSharda ? 'text-blue-700' : 'text-blue-600'}`}>{university.programs?.length || 0}+</span>
                     </div>
                     {university.established && (
                       <div className="flex justify-between items-center text-sm">
@@ -395,14 +421,14 @@ export default function Universities() {
 
                   {/* Recommendation Description */}
                   {recommendation.emphasis === 'high' && (
-                    <p className="text-xs text-gray-600 mb-4 leading-relaxed">
+                    <p className={`text-xs ${isSharda ? 'text-blue-700 font-medium' : 'text-gray-600'} mb-4 leading-relaxed`}>
                       {recommendation.description}
                     </p>
                   )}
 
                   <div className="flex items-center justify-between">
-                    <span className="text-blue-600 font-semibold text-sm group-hover:text-blue-700 transition-colors flex items-center">
-                      View Details
+                    <span className={`${isSharda ? 'text-blue-700 font-bold' : 'text-blue-600 font-semibold'} text-sm group-hover:text-blue-700 transition-colors flex items-center`}>
+                      {isSharda ? 'Explore Now' : 'View Details'}
                       <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>

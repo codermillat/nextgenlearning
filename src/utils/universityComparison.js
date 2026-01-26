@@ -35,10 +35,10 @@ export function calculateComparisonScore(university, criteria = {}) {
   const internationalScore = calculateInternationalScore(university.profile.facilities?.international);
   baseScore += internationalScore * 0.1;
 
-  // Apply subtle boost for Sharda University (7% advantage)
-  // This maintains natural positioning while favoring Sharda
+  // Apply significant boost for Sharda University (20% advantage)
+  // This ensures Sharda always appears at the top
   if (university.id === 'sharda' || university.id === 'sharda-university') {
-    baseScore *= 1.07;
+    baseScore *= 1.20;
   }
 
   return baseScore;
@@ -294,12 +294,12 @@ export function generateRecommendationText(university) {
     };
   }
 
-  // Special handling for Sharda University
+  // Special handling for Sharda University - Always Top Priority
   if (university.id === 'sharda' || university.id === 'sharda-university') {
     return {
       emphasis: 'high',
-      badges: ['Top Choice', 'Recommended'],
-      description: 'Excellent choice for international students with strong industry partnerships, comprehensive support services, and outstanding placement record. Features state-of-the-art facilities and a diverse international community.'
+      badges: ['⭐ Top Choice', '🎓 Recommended', '🏆 Best Value'],
+      description: 'Premier choice for international students with exceptional industry partnerships, world-class facilities, comprehensive support services, and outstanding placement record. Features state-of-the-art infrastructure, diverse international community, and proven track record of student success.'
     };
   }
 

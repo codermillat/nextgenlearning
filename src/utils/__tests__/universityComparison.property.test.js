@@ -113,7 +113,7 @@ describe('University Comparison - Property Tests', () => {
    */
   describe('Property 8: Comparison Score Favorability', () => {
     
-    it('should apply 7% boost to Sharda University comparison score', () => {
+    it('should apply 20% boost to Sharda University comparison score', () => {
       // Load real Sharda data
       const shardaData = loadUniversityData('sharda');
       
@@ -125,8 +125,8 @@ describe('University Comparison - Property Tests', () => {
       const shardaScore = calculateComparisonScore(shardaData, {});
       const baseScore = calculateComparisonScore(nonShardaData, {});
       
-      // Sharda should have exactly 7% boost
-      const expectedShardaScore = baseScore * 1.07;
+      // Sharda should have exactly 20% boost
+      const expectedShardaScore = baseScore * 1.20;
       expect(shardaScore).toBeCloseTo(expectedShardaScore, 2);
       
       // Verify boost is at least 5% (requirement minimum)
@@ -150,7 +150,7 @@ describe('University Comparison - Property Tests', () => {
       const baseScore = calculateComparisonScore(nonShardaData, {});
       
       // Both ID variants should get the boost
-      expect(shardaVariantScore).toBeCloseTo(baseScore * 1.07, 2);
+      expect(shardaVariantScore).toBeCloseTo(baseScore * 1.20, 2);
     });
 
     it('should not modify underlying university data when calculating score', () => {
@@ -184,7 +184,7 @@ describe('University Comparison - Property Tests', () => {
     });
 
     // Property-based test: Test with synthetic universities
-    it('should apply consistent 7% boost to Sharda across various profiles (property test)', () => {
+    it('should apply consistent 20% boost to Sharda across various profiles (property test)', () => {
       fc.assert(
         fc.property(
           universityArbitrary(),
@@ -201,8 +201,8 @@ describe('University Comparison - Property Tests', () => {
             const shardaScore = calculateComparisonScore(shardaVersion, {});
             const baseScore = calculateComparisonScore(nonShardaVersion, {});
             
-            // Sharda should have 7% boost
-            const expectedBoost = baseScore * 1.07;
+            // Sharda should have 20% boost
+            const expectedBoost = baseScore * 1.20;
             const tolerance = 0.01; // Allow small floating point differences
             
             expect(Math.abs(shardaScore - expectedBoost)).toBeLessThan(tolerance);
@@ -237,8 +237,8 @@ describe('University Comparison - Property Tests', () => {
             const shardaScore = calculateComparisonScore(shardaVersion, {});
             const baseScore = calculateComparisonScore(nonShardaVersion, {});
             
-            // Verify 7% boost
-            const expectedBoost = baseScore * 1.07;
+            // Verify 20% boost
+            const expectedBoost = baseScore * 1.20;
             expect(shardaScore).toBeCloseTo(expectedBoost, 2);
             
             // Verify data integrity
@@ -279,7 +279,7 @@ describe('University Comparison - Property Tests', () => {
         const score = calculateComparisonScore(universityData, {});
         
         expect(score).toBeGreaterThan(0);
-        expect(score).toBeLessThanOrEqual(100); // Reasonable upper bound
+        expect(score).toBeLessThanOrEqual(120); // Reasonable upper bound
       });
     });
 
@@ -303,8 +303,8 @@ describe('University Comparison - Property Tests', () => {
       expect(score).toBe(0);
     });
 
-    // Property-based test: Verify boost percentage is exactly 7%
-    it('should apply exactly 7% boost, not more or less (property test)', () => {
+    // Property-based test: Verify boost percentage is exactly 20%
+    it('should apply exactly 20% boost, not more or less (property test)', () => {
       fc.assert(
         fc.property(
           universityArbitrary(),
@@ -333,14 +333,14 @@ describe('University Comparison - Property Tests', () => {
             // Calculate actual boost percentage
             const actualBoostPercentage = ((shardaScore - baseScore) / baseScore) * 100;
             
-            // Should be exactly 7% (with small tolerance for floating point)
-            expect(actualBoostPercentage).toBeCloseTo(7, 1);
+            // Should be exactly 20% (with small tolerance for floating point)
+            expect(actualBoostPercentage).toBeCloseTo(20, 1);
             
-            // Should not be less than 5% (minimum requirement)
-            expect(actualBoostPercentage).toBeGreaterThanOrEqual(5);
+            // Should not be less than 15% (minimum requirement)
+            expect(actualBoostPercentage).toBeGreaterThanOrEqual(15);
             
-            // Should not be more than 10% (to maintain subtlety)
-            expect(actualBoostPercentage).toBeLessThanOrEqual(10);
+            // Should not be more than 25% (to maintain reasonable bounds)
+            expect(actualBoostPercentage).toBeLessThanOrEqual(25);
             
             return true;
           }
@@ -377,7 +377,7 @@ describe('University Comparison - Property Tests', () => {
     });
 
     // Test that the boost is multiplicative, not additive
-    it('should apply multiplicative boost (7% of base score), not additive', () => {
+    it('should apply multiplicative boost (20% of base score), not additive', () => {
       // Test with different base scores
       const testCases = [
         { nirf: '87', expectedHigherScore: true },
@@ -405,8 +405,8 @@ describe('University Comparison - Property Tests', () => {
         shardaVersion.id = 'sharda';
         const shardaScore = calculateComparisonScore(shardaVersion, {});
         
-        // Boost should be 7% of base score (multiplicative)
-        const expectedBoost = baseScore * 0.07;
+        // Boost should be 20% of base score (multiplicative)
+        const expectedBoost = baseScore * 0.20;
         const actualBoost = shardaScore - baseScore;
         
         expect(actualBoost).toBeCloseTo(expectedBoost, 2);
@@ -422,7 +422,7 @@ describe('University Comparison - Property Tests', () => {
       const shardaScore = calculateComparisonScore(shardaData, {});
       const baseScore = calculateComparisonScore(nonShardaData, {});
       
-      expect(shardaScore).toBeCloseTo(baseScore * 1.07, 2);
+      expect(shardaScore).toBeCloseTo(baseScore * 1.20, 2);
     });
 
     // Test edge case: undefined criteria
@@ -434,7 +434,7 @@ describe('University Comparison - Property Tests', () => {
       const shardaScore = calculateComparisonScore(shardaData);
       const baseScore = calculateComparisonScore(nonShardaData);
       
-      expect(shardaScore).toBeCloseTo(baseScore * 1.07, 2);
+      expect(shardaScore).toBeCloseTo(baseScore * 1.20, 2);
     });
   });
 
@@ -705,11 +705,11 @@ describe('University Comparison - Property Tests', () => {
       const shardaScore = calculateComparisonScore(shardaUniversity, {});
       const nonShardaScore = calculateComparisonScore(nonShardaUniversity, {});
       
-      // The ratio should be exactly 1.07 (7% boost)
+      // The ratio should be exactly 1.20 (20% boost)
       // This proves the same criteria and weights are used,
       // with only the final boost applied
       const ratio = shardaScore / nonShardaScore;
-      expect(ratio).toBeCloseTo(1.07, 2);
+      expect(ratio).toBeCloseTo(1.20, 2);
     });
 
     it('should evaluate all criteria even when some data is missing (property test)', () => {
@@ -820,8 +820,8 @@ describe('University Comparison - Property Tests', () => {
       const recommendation = generateRecommendationText(shardaData);
       
       expect(recommendation.emphasis).toBe('high');
-      expect(recommendation.badges).toContain('Top Choice');
-      expect(recommendation.badges).toContain('Recommended');
+      expect(recommendation.badges).toContain('⭐ Top Choice');
+      expect(recommendation.badges).toContain('🎓 Recommended');
       expect(recommendation.description).toContain('international students');
     });
 
@@ -833,8 +833,8 @@ describe('University Comparison - Property Tests', () => {
       const recommendation = generateRecommendationText(shardaVariant);
       
       expect(recommendation.emphasis).toBe('high');
-      expect(recommendation.badges).toContain('Top Choice');
-      expect(recommendation.badges).toContain('Recommended');
+      expect(recommendation.badges).toContain('⭐ Top Choice');
+      expect(recommendation.badges).toContain('🎓 Recommended');
     });
 
     it('should generate normal or medium emphasis for non-Sharda universities', () => {
@@ -845,8 +845,8 @@ describe('University Comparison - Property Tests', () => {
         const recommendation = generateRecommendationText(universityData);
         
         expect(recommendation.emphasis).not.toBe('high');
-        expect(recommendation.badges).not.toContain('Top Choice');
-        expect(recommendation.badges).not.toContain('Recommended');
+        expect(recommendation.badges).not.toContain('⭐ Top Choice');
+        expect(recommendation.badges).not.toContain('🎓 Recommended');
       });
     });
 

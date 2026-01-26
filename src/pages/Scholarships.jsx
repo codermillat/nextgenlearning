@@ -183,35 +183,62 @@ export default function Scholarships() {
 
         {/* University Scholarships */}
         <div className="space-y-8 mb-12">
-          {universities.map(university => {
+          {/* Sort universities with Sharda first */}
+          {[...universities]
+            .sort((a, b) => {
+              // Sharda always first
+              if (a.id === 'sharda' || a.id === 'sharda-university') return -1;
+              if (b.id === 'sharda' || b.id === 'sharda-university') return 1;
+              return 0;
+            })
+            .map((university, index) => {
             const scholarships = getUniversityScholarships(university);
             if (scholarships.length === 0) return null;
+            
+            const isSharda = university.id === 'sharda' || university.id === 'sharda-university';
 
             return (
-              <Card key={university.id} variant="default" borderColor="border-blue-200" className="border-2">
+              <Card 
+                key={university.id} 
+                variant="default" 
+                borderColor={isSharda ? "border-blue-500" : "border-blue-200"} 
+                className={`border-2 ${isSharda ? 'ring-2 ring-blue-300 shadow-xl' : ''} relative`}
+              >
+                {/* Featured Badge for Sharda */}
+                {isSharda && (
+                  <div className="absolute -top-3 -right-3 z-10">
+                    <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-lg flex items-center gap-1">
+                      <span>⭐</span>
+                      <span>TOP SCHOLARSHIPS</span>
+                    </div>
+                  </div>
+                )}
+                
                 <div className="mb-6">
                   <div className="flex items-center space-x-3 mb-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-md" aria-hidden="true">
+                    <div className={`w-12 h-12 bg-gradient-to-br ${isSharda ? 'from-blue-600 to-indigo-600 ring-2 ring-blue-300' : 'from-blue-500 to-indigo-500'} rounded-xl flex items-center justify-center shadow-md`} aria-hidden="true">
                       <span className="text-white font-bold text-lg">{university.shortName.charAt(0)}</span>
                     </div>
                     <div>
-                      <h2 className={`${typography.sectionTitle} text-gray-900`}>{university.name}</h2>
+                      <h2 className={`${typography.sectionTitle} ${isSharda ? 'text-blue-700' : 'text-gray-900'}`}>
+                        {isSharda && '⭐ '}{university.name}
+                      </h2>
                       <p className={typography.caption}>{university.location}</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-4 sm:space-y-5">
-                  {scholarships.map((scholarship, index) => (
-                    <Card key={index} variant="gradient" gradientColors="from-gray-50 to-blue-50" className="border border-gray-200">
+                  {scholarships.map((scholarship, scholarshipIndex) => (
+                    <Card key={scholarshipIndex} variant="gradient" gradientColors={isSharda ? "from-blue-50 to-indigo-50" : "from-gray-50 to-blue-50"} className={`border ${isSharda ? 'border-blue-300' : 'border-gray-200'}`}>
                       <div className="flex flex-col sm:flex-row justify-between items-start mb-4">
                         <div className="flex-1 mb-3 sm:mb-0">
-                          <h3 className={`${typography.cardTitle} mb-2 text-gray-900`}>{scholarship.name}</h3>
+                          <h3 className={`${typography.cardTitle} mb-2 ${isSharda ? 'text-blue-700' : 'text-gray-900'}`}>{scholarship.name}</h3>
                           <p className={`${typography.body} leading-relaxed`}>{scholarship.description}</p>
                         </div>
-                        <div className="text-center sm:text-right ml-0 sm:ml-4 bg-white rounded-xl p-4 shadow-sm border border-green-200">
-                          <div className="text-3xl sm:text-4xl font-bold text-green-600">{scholarship.percentage}%</div>
-                          <div className={`${typography.caption} font-medium`}>Scholarship</div>
+                        <div className={`text-center sm:text-right ml-0 sm:ml-4 ${isSharda ? 'bg-gradient-to-br from-blue-600 to-indigo-600 text-white' : 'bg-white'} rounded-xl p-4 shadow-sm border ${isSharda ? 'border-blue-700' : 'border-green-200'}`}>
+                          <div className={`text-3xl sm:text-4xl font-bold ${isSharda ? 'text-white' : 'text-green-600'}`}>{scholarship.percentage}%</div>
+                          <div className={`${typography.caption} font-medium ${isSharda ? 'text-blue-100' : ''}`}>Scholarship</div>
                         </div>
                       </div>
                       <div className="mt-4 pt-4 border-t border-gray-200">
@@ -233,9 +260,9 @@ export default function Scholarships() {
                 <div className="mt-6 pt-6 border-t border-gray-200">
                   <Link
                     to={`/universities/${university.slug}`}
-                    className="text-blue-600 hover:text-blue-800 font-semibold inline-flex items-center group"
+                    className={`${isSharda ? 'text-blue-700 hover:text-blue-900 font-bold' : 'text-blue-600 hover:text-blue-800 font-semibold'} inline-flex items-center group`}
                   >
-                    View {university.name} Details
+                    {isSharda ? 'Explore Sharda University →' : `View ${university.name} Details`}
                     <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
