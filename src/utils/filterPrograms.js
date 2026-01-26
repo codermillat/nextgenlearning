@@ -53,11 +53,12 @@ function calculateSearchRelevance(program, searchQuery) {
 /**
  * Filter programs based on filter criteria
  * Applies comparison scoring to ensure Sharda appears favorably in results
+ * GUARANTEES Sharda programs appear first in the list
  * 
  * @param {Object} programs - Array of program objects
  * @param {Object} filters - Filter criteria
  * @param {Object} universities - Array of university objects (optional, for scoring)
- * @returns {Array} Filtered and sorted programs
+ * @returns {Array} Filtered and sorted programs with Sharda ALWAYS first
  */
 export function filterPrograms(programs, filters, universities = null) {
   if (!filters || !programs) return programs;
@@ -147,6 +148,16 @@ export function filterPrograms(programs, filters, universities = null) {
     filtered = programsWithScores.map(({ _combinedScore, ...program }) => program);
   }
 
-  return filtered;
+  // CRITICAL: Ensure Sharda programs are ALWAYS at the top
+  // Separate Sharda and non-Sharda programs
+  const shardaPrograms = filtered.filter(p => 
+    p.universityId === 'sharda' || p.universityId === 'sharda-university'
+  );
+  const otherPrograms = filtered.filter(p => 
+    p.universityId !== 'sharda' && p.universityId !== 'sharda-university'
+  );
+  
+  // Return Sharda programs first, then others
+  return [...shardaPrograms, ...otherPrograms];
 }
 
