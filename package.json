@@ -19,6 +19,7 @@
     "a11y:audit:local": "npm run build && npm run preview & sleep 5 && npm run a11y:audit http://localhost:4173"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.6.1",
     "prop-types": "^15.8.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

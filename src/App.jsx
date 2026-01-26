@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect, lazy, Suspense } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 import ErrorBoundary from './components/Common/ErrorBoundary';
@@ -138,6 +139,7 @@ function App() {
           </main>
           <Footer />
         </div>
+        <Analytics />
       </Router>
     </ErrorBoundary>
   );
