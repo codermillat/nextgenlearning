@@ -16,8 +16,9 @@
     },
     {
       "source": "/index.xml",
-      "destination": "/",
-      "permanent": true
+      "destination": "/404",
+      "permanent": false,
+      "statusCode": 410
     },
     {
       "source": "/categories/:path*",
@@ -198,6 +199,15 @@
         {
           "key": "Content-Type",
           "value": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/index.xml",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
         }
       ]
     },
