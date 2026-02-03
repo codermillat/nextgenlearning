@@ -4,7 +4,6 @@ import SEOMetaTags from '../../components/SEO/SEOMetaTags';
 import StructuredData from '../../components/SEO/StructuredData';
 import ApplicationCTA from '../../components/Sharda/ApplicationCTA';
 import WhatsAppCTA from '../../components/Sharda/WhatsAppCTA';
-import { generateUTMLink } from '../../utils/utmGenerator';
 
 /**
  * Study in India from Bangladesh Page

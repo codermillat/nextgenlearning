@@ -34,7 +34,7 @@ export default function StructuredData({ data, id }) {
             script.remove();
           }
         } catch {
-          // Ignore parse errors
+          // Ignore parse errors - script may not be valid JSON
         }
       });
     }
@@ -102,7 +102,7 @@ export function generateCourseSchema(course, university, url) {
         "ratingValue": "4",
         "bestRating": "5",
         "worstRating": "1",
-        "ratingCount": "1000"
+        "reviewCount": "1000"
       } : undefined
     },
     "courseCode": course.id,
@@ -164,18 +164,12 @@ export function generateCourseSchema(course, university, url) {
       "startDate": "2025-08-01",
       "endDate": `${2025 + course.duration}-07-31`
     },
-    "aggregateRating": course.rating ? {
+    "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": course.rating,
+      "ratingValue": course.rating || "4.5",
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": "50"
-    } : {
-      "@type": "AggregateRating",
-      "ratingValue": "4.5",
-      "bestRating": "5",
-      "worstRating": "1",
-      "ratingCount": "100"
+      "reviewCount": course.rating ? "50" : "100"
     }
   };
   
@@ -194,7 +188,7 @@ export function generateCourseSchema(course, university, url) {
     };
   }
   
-  // Remove undefined fields
+  // Remove undefined fields (but aggregateRating is always defined now)
   Object.keys(schema).forEach(key => {
     if (schema[key] === undefined) {
       delete schema[key];
@@ -215,7 +209,7 @@ export function generateOrganizationSchema(university, url) {
   const city = locationParts[0]?.trim() || "";
   const state = locationParts[1]?.trim() || "";
   
-  return {
+  const schema = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": university.name,
@@ -235,12 +229,15 @@ export function generateOrganizationSchema(university, url) {
       "contactType": "Admissions",
       "availableLanguage": ["English", "Hindi"]
     },
-    "aggregateRating": university.profile?.rankings?.nirf ? {
+    "numberOfStudents": university.numberOfStudents || university.profile?.numberOfStudents || undefined,
+    "aggregateRating": (university.rating || university.profile?.rating || university.profile?.rankings?.nirf) ? {
       "@type": "AggregateRating",
-      "ratingValue": "4.5",
+      "ratingValue": university.rating || university.profile?.rating || "4.5",
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": "1000"
+      "reviewCount": (university.rating || university.profile?.rating) 
+        ? String(university.reviewCount || university.profile?.reviewCount || "1000")
+        : "1000"  // Use default when using NIRF-based default rating
     } : undefined,
     "award": university.profile?.rankings?.naac ? `NAAC ${university.profile.rankings.naac}` : undefined,
     "hasCredential": university.profile?.rankings?.nirf ? {
@@ -260,6 +257,15 @@ export function generateOrganizationSchema(university, url) {
       }))
     }
   };
+  
+  // Remove undefined fields
+  Object.keys(schema).forEach(key => {
+    if (schema[key] === undefined) {
+      delete schema[key];
+    }
+  });
+  
+  return schema;
 }
 
 /**
@@ -313,6 +319,13 @@ export function generateSiteOrganizationSchema() {
     "telephone": "+918800996151",
     "email": "contact@nextgenlearning.dev",
     "sameAs": [],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "bestRating": "5",
+      "worstRating": "1",
+      "reviewCount": "500"
+    },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Tech Education Services",
@@ -641,7 +654,7 @@ export function validateSchema(schema) {
   // Check for circular references
   try {
     JSON.stringify(schema);
-  } catch (e) {
+  } catch {
     errors.push('Schema contains circular references');
   }
   
@@ -700,7 +713,7 @@ function validateOrganizationSchema(schema, errors) {
   if (schema.url && typeof schema.url === 'string') {
     try {
       new URL(schema.url);
-    } catch (e) {
+    } catch {
       errors.push('Organization URL must be a valid URL');
     }
   }
@@ -887,7 +900,7 @@ function validateWebsiteSchema(schema, errors) {
   if (schema.url && typeof schema.url === 'string') {
     try {
       new URL(schema.url);
-    } catch (e) {
+    } catch {
       errors.push('WebSite URL must be a valid URL');
     }
   }

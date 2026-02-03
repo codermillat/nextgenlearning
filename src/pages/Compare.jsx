@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useData } from '../context/DataContext';
 import SEOHead from '../components/SEO/SEOHead';
+import MetaManager from '../components/SEO/MetaManager';
 import StructuredData from '../components/SEO/StructuredData';
 import Breadcrumbs from '../components/Common/Breadcrumbs';
 import FAQSection from '../components/SEO/FAQSection';
@@ -14,7 +15,7 @@ import { Link } from 'react-router-dom';
 import { redirectToWhatsApp, generateApplicationMessage } from '../utils/whatsappRedirect';
 import { trackComparison, trackFilter } from '../utils/analytics';
 import { typography, spacing } from '../utils/designTokens';
-import { sortUniversitiesForDisplay, generateRecommendationText } from '../utils/universityComparison';
+import { generateRecommendationText } from '../utils/universityComparison';
 
 export default function Compare() {
   const { allPrograms, universities } = useData();
@@ -182,6 +183,17 @@ export default function Compare() {
 
   return (
     <>
+      <MetaManager
+        emoji="⚖️"
+        benefit="Compare Courses Side-by-Side"
+        socialProof="500+ programs"
+        price="From ₹2.5L/year"
+        urgency="Apply by March 2026"
+        cta="Compare Now"
+        baseTitle="Compare Courses"
+        url="/compare"
+        image="/og-image.svg"
+      />
       <SEOHead
         title="Compare Courses Between Universities - Side-by-Side Comparison Tool | Fees, Rankings, Scholarships 2025-26"
         description="Compare courses at Sharda University & top universities side-by-side. Compare fees, scholarships (20-60%), NIRF rankings. Free tool for Bangladeshi students."

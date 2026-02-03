@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useData } from '../context/DataContext';
 import SEOHead from '../components/SEO/SEOHead';
+import MetaManager from '../components/SEO/MetaManager';
 import StructuredData from '../components/SEO/StructuredData';
 import Breadcrumbs from '../components/Common/Breadcrumbs';
 import FAQSection from '../components/SEO/FAQSection';
@@ -118,6 +119,17 @@ export default function Universities() {
 
   return (
     <>
+      <MetaManager
+        emoji="🎓"
+        benefit="Compare Top Indian Universities"
+        socialProof={`${sortedUniversities.length} NIRF ranked universities`}
+        price="20-60% scholarships"
+        urgency="Apply by March 2026"
+        cta="Explore Now"
+        baseTitle="Top Universities 2025"
+        url="/universities"
+        image="/og-image.svg"
+      />
       <SEOHead
         title="Top Universities 2025 | Sharda & NIRF Ranked"
         description="Compare Sharda University (NIRF 101-150) & top universities. 20-60% scholarships for Bangladeshi students. B.Tech CSE fees ₹2-8L/year. NAAC A+ accredited."
@@ -336,7 +348,7 @@ export default function Universities() {
         <section className="mb-12">
           <h2 className={`${typography.sectionTitle} mb-6 sm:mb-8 text-gray-900`}>Featured Universities</h2>
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ${spacing.gapLarge}`}>
-            {sortedUniversities.map((university, index) => {
+            {sortedUniversities.map((university) => {
               const recommendation = generateRecommendationText(university);
               const isSharda = university.id === 'sharda' || university.id === 'sharda-university';
               

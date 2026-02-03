@@ -25,7 +25,6 @@ import { logWhatsAppClick } from '../../utils/conversionEventLogger';
 const WhatsAppCTA = memo(function WhatsAppCTA({
   context = 'general',
   variant = 'button',
-  position = 'content',
   program,
   contentType,
   className = '',
@@ -106,7 +105,7 @@ const WhatsAppCTA = memo(function WhatsAppCTA({
   /**
    * Handle click event with logging
    */
-  const handleClick = (e) => {
+  const handleClick = () => {
     // Log WhatsApp click event
     logWhatsAppClick({
       phoneNumber: DISPLAY_NUMBER,
@@ -175,7 +174,6 @@ const WhatsAppCTA = memo(function WhatsAppCTA({
 WhatsAppCTA.propTypes = {
   context: PropTypes.string,
   variant: PropTypes.oneOf(['button', 'floating', 'inline']),
-  position: PropTypes.oneOf(['hero', 'content', 'footer', 'sticky']),
   program: PropTypes.string,
   contentType: PropTypes.string,
   className: PropTypes.string,

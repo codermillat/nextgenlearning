@@ -175,7 +175,7 @@ console.log('Custom Link:', customLink);
 // ============================================================================
 
 // Example: ApplicationCTA component
-function ApplicationCTA({ country, program, page }) {
+function ApplicationCTA({ country, program, page: _page }) {
   const applicationLink = program
     ? generateProgramPageLink(country, program)
     : generateLandingPageLink(country);

@@ -67,9 +67,9 @@ const BangladeshSection = memo(function BangladeshSection({
               🎓 Exclusive Scholarships for Bangladeshi Students
             </h3>
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {scholarships.map((scholarship, index) => (
+              {scholarships.map((scholarship) => (
                 <div
-                  key={index}
+                  key={`scholarship-${scholarship.gpaMin}-${scholarship.gpaMax}`}
                   className="bg-white rounded-xl shadow-lg p-6 border-2 border-green-100 hover:border-green-300 transition-all duration-300 hover:shadow-xl"
                   data-testid="scholarship-card"
                 >
@@ -119,7 +119,7 @@ const BangladeshSection = memo(function BangladeshSection({
             </h3>
             <div className="max-w-4xl mx-auto">
               <div className="space-y-6">
-                {admissionProcess.map((step, index) => (
+                {admissionProcess.map((step) => (
                   <div
                     key={step.stepNumber}
                     className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300"

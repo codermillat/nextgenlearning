@@ -139,7 +139,7 @@ export function logConversionEvent({ eventType, context = {}, targetUrl }) {
   }
 
   // Log to console in development
-  if (process.env.NODE_ENV === 'development') {
+  if (import.meta.env?.DEV) {
     console.log('[ConversionEventLogger]', eventType, eventData);
   }
 

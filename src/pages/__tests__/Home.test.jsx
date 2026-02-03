@@ -130,6 +130,59 @@ describe('Home Page Rendering', () => {
       // Should mention studying in India
       expect(html).toContain('India');
     });
+
+    it('should display optimized meta description with MetaManager', () => {
+      renderHome();
+      
+      // Check that meta description is set in document
+      const metaDescription = document.querySelector('meta[name="description"]');
+      expect(metaDescription).toBeTruthy();
+      
+      const description = metaDescription?.getAttribute('content') || '';
+      
+      // Verify description length is within optimal range (155-160 chars)
+      expect(description.length).toBeGreaterThanOrEqual(155);
+      expect(description.length).toBeLessThanOrEqual(160);
+      
+      // Verify description contains key elements
+      // Should have emoji (check for common emojis)
+      const hasEmoji = /[\u{1F300}-\u{1F9FF}]/u.test(description);
+      expect(hasEmoji).toBe(true);
+      
+      // Should contain benefit-related keywords
+      const hasBenefit = description.includes('Compare') || 
+                        description.includes('courses') || 
+                        description.includes('universities') ||
+                        description.includes('tech');
+      expect(hasBenefit).toBe(true);
+      
+      // Should contain social proof (numbers, ratings, or student counts)
+      const hasSocialProof = /\d+/.test(description) || 
+                            description.includes('students') ||
+                            description.includes('universities');
+      expect(hasSocialProof).toBe(true);
+      
+      // Should contain CTA
+      const hasCTA = description.includes('Apply') || 
+                    description.includes('Browse') || 
+                    description.includes('Compare') ||
+                    description.includes('Explore');
+      expect(hasCTA).toBe(true);
+    });
+
+    it('should display optimized title tag with year', () => {
+      renderHome();
+      
+      // Check that title is set in document
+      const title = document.title;
+      expect(title).toBeTruthy();
+      
+      // Verify title length doesn't exceed 60 chars
+      expect(title.length).toBeLessThanOrEqual(60);
+      
+      // Verify title contains current year (2026)
+      expect(title).toContain('2026');
+    });
   });
 
   describe('Page Structure', () => {

@@ -12,7 +12,7 @@
  * @param {Object} criteria - Comparison criteria (optional)
  * @returns {number} Calculated comparison score
  */
-export function calculateComparisonScore(university, criteria = {}) {
+export function calculateComparisonScore(university) {
   if (!university || !university.profile) {
     return 0;
   }

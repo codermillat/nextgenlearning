@@ -19,12 +19,12 @@ import {
   generateCourseSchema,
   generateOrganizationSchema,
   generateFAQSchema,
-  generateReviewSchema,
-  generateBreadcrumbSchema,
-  generateArticleSchema,
-  generateHowToSchema,
+  _generateReviewSchema,
+  _generateBreadcrumbSchema,
+  _generateArticleSchema,
+  _generateHowToSchema,
   generateWebsiteSchema,
-  generateItemListSchema,
+  _generateItemListSchema,
   generateLocalBusinessSchema,
   generateSiteOrganizationSchema
 } from '../StructuredData.jsx';

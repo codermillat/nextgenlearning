@@ -215,6 +215,14 @@ urls.push({
   lastmod: TODAY
 });
 
+// Bangladesh landing page
+urls.push({
+  loc: '/for-bangladeshi-students',
+  changefreq: 'weekly',
+  priority: '0.9',
+  lastmod: TODAY
+});
+
 // Sharda University SEO pages
 urls.push({
   loc: '/sharda-university',
@@ -267,6 +275,45 @@ urls.push({
 
 urls.push({
   loc: '/sharda-university/indian-university-bangladeshi-students',
+  changefreq: 'monthly',
+  priority: '0.9',
+  lastmod: TODAY
+});
+
+// Sharda University program pages
+const shardaPrograms = [
+  'btech-cse',
+  'mba',
+  'mbbs',
+  'bba'
+];
+
+shardaPrograms.forEach(program => {
+  urls.push({
+    loc: `/sharda-university/programs/${program}`,
+    changefreq: 'monthly',
+    priority: '0.8',
+    lastmod: TODAY
+  });
+});
+
+// University comparison pages
+urls.push({
+  loc: '/sharda-vs-amity',
+  changefreq: 'monthly',
+  priority: '0.8',
+  lastmod: TODAY
+});
+
+urls.push({
+  loc: '/sharda-vs-chandigarh',
+  changefreq: 'monthly',
+  priority: '0.8',
+  lastmod: TODAY
+});
+
+urls.push({
+  loc: '/best-universities-bangladeshi-students-india',
   changefreq: 'monthly',
   priority: '0.9',
   lastmod: TODAY

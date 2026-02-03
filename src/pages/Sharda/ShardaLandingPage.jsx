@@ -24,12 +24,11 @@ import { useShardaAnalytics } from '../../hooks/useAnalytics';
  */
 const ShardaLandingPage = memo(function ShardaLandingPage({
   userCountry = 'International',
-  utmSource = 'organic',
 }) {
   // Initialize analytics tracking for this page
   useShardaAnalytics({ contentType: 'landing' });
 
-  const { profile, rankings, accreditations, programs, placements, campus, international, admissions } = shardaUniversityData;
+  const { profile, rankings, accreditations, programs, placements, campus } = shardaUniversityData;
 
   // SEO Configuration
   const pageTitle = 'Sharda University - Study in India | Admissions 2026-27 | NAAC A+ Accredited';
@@ -839,7 +838,7 @@ const CampusSection = memo(function CampusSection({ campus }) {
  * Testimonials Section Component
  * Displays student testimonials with focus on Bangladeshi students
  */
-const TestimonialsSection = memo(function TestimonialsSection({ userCountry }) {
+const TestimonialsSection = memo(function TestimonialsSection() {
   const { bangladeshContent } = shardaUniversityData;
   const testimonials = bangladeshContent.testimonials;
 

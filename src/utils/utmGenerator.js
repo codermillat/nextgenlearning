@@ -56,7 +56,7 @@ const UTM_MEDIUM = 'NextGenLearning';
  * })
  * // Returns: https://global.sharda.ac.in/?utm_source=studyatsharda_youtube&utm_medium=NextGenLearning&utm_campaign=SU_AdmissionsIntl_2026&utm_content=program_btech-cse_apply-now
  */
-export function generateUTMLink({ country, page, contentType, program, action = 'apply-now' }) {
+export function generateUTMLink({ country, contentType, program, action = 'apply-now' }) {
   // Determine base URL based on country
   const isBangladesh = country?.toLowerCase() === 'bangladesh';
   const baseUrl = isBangladesh ? BASE_URLS.bangladesh : BASE_URLS.international;
@@ -279,7 +279,7 @@ export function isValidUTMLink(url) {
     const hasContent = urlObj.searchParams.has('utm_content');
     
     return hasSource && hasMedium && hasCampaign && hasContent;
-  } catch (error) {
+  } catch {
     return false;
   }
 }

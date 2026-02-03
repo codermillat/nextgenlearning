@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
-import SEOHead from '../components/SEO/SEOHead';
+import MetaManager from '../components/SEO/MetaManager';
 import StructuredData from '../components/SEO/StructuredData';
 import { generateSiteOrganizationSchema, generateWebsiteSchema } from '../components/SEO/StructuredData';
+import UrgencyBanner from '../components/UI/UrgencyBanner';
 import Button from '../components/Common/Button';
 import Card from '../components/Common/Card';
 import { typography, spacing } from '../utils/designTokens';
+import { getPopularComparisons } from '../utils/linkingStrategy';
 
 export default function Home() {
   const siteOrgSchema = generateSiteOrganizationSchema();
@@ -12,42 +14,27 @@ export default function Home() {
 
   return (
     <>
-      <SEOHead
-        title="Tech Courses India | Sharda University & Top NIRF"
-        description="Compare 600+ tech courses at Sharda University & top NIRF universities. B.Tech CSE, AI/ML fees ₹2-8L/year. 20-60% scholarships for Bangladeshi students."
-        keywords={[
-          'galgotias university nirf ranking',
-          'galgotias university nirf ranking 2025',
-          'sharda university nirf ranking',
-          'sharda university nirf ranking 2025',
-          'chandigarh university nirf ranking',
-          'noida international university rankings',
-          'noida international university nirf ranking',
-          'galgotias university btech cse fees',
-          'galgotias university btech cse total fees',
-          'galgotias university btech cse total fees 4 years',
-          'sharda university btech cse fees',
-          'sharda university btech cse total fees',
-          'sharda university btech cse total fees 4 years',
-          'chandigarh university bsc forensic science fees',
-          'chandigarh university cyber security fees',
-          'B.Tech CSE fees',
-          'B.Tech AI ML courses',
-          'B.Tech data science courses',
-          'B.Tech cybersecurity courses',
-          'B.Tech cloud computing courses',
-          'BCA courses India',
-          'MCA courses India',
-          'NAAC A+ universities India',
-          'study in India from Bangladesh',
-          'scholarships for Bangladeshi students',
-          'compare courses universities'
-        ]}
+      <MetaManager
+        emoji="🎓"
+        benefit="Compare 600+ tech courses at India's top NIRF universities"
+        socialProof="10,000+ students enrolled"
+        price="Fees from ₹2-8L/year"
+        urgency="Apply by March 2026"
+        cta="Browse courses now"
+        baseTitle="Tech Courses India"
         url="/"
-        canonical="/"
       />
       {websiteSchema && <StructuredData data={websiteSchema} id="website-schema-dynamic" />}
       {siteOrgSchema && <StructuredData data={siteOrgSchema} id="site-org-schema" />}
+
+      {/* Urgency Banner */}
+      <UrgencyBanner
+        deadline="2026-03-31"
+        seatsLeft={45}
+        ctaText="Apply Now - Free"
+        ctaLink="/apply"
+        variant="homepage"
+      />
 
       {/* Hero Section */}
       <section className={`hero bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 text-white ${spacing.section} px-4 relative overflow-hidden`}>
@@ -237,6 +224,41 @@ export default function Home() {
               <h3 className={`font-bold ${typography.bodySmall} mb-2 text-gray-900 group-hover:text-teal-600 transition-colors`}>BCA</h3>
               <p className={typography.caption}>Computer applications</p>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Comparisons - Strategic Internal Linking */}
+      <section className={`${spacing.sectionMedium} px-4 bg-gradient-to-b from-gray-50 to-white`} data-testid="popular-comparisons-section">
+        <div className={`max-w-6xl mx-auto ${spacing.container}`}>
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className={`${typography.sectionTitle} mb-4 text-gray-900`}>Popular Course Comparisons</h2>
+            <p className={`${typography.body} max-w-2xl mx-auto`}>
+              Compare programs side-by-side to find the perfect fit for your career goals
+            </p>
+          </div>
+          <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ${spacing.gapLarge}`}>
+            {getPopularComparisons(6).map((comparison, index) => (
+              <Link
+                key={index}
+                to={comparison.url}
+                className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 group hover:border-blue-300"
+              >
+                <div className="flex items-start justify-between mb-3">
+                  <div className="text-3xl" aria-hidden="true">⚖️</div>
+                  <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">Compare</span>
+                </div>
+                <h3 className="font-semibold text-lg mb-2 group-hover:text-blue-600 transition-colors">
+                  {comparison.anchorText}
+                </h3>
+                <p className="text-sm text-gray-600 mb-3">
+                  View fees, rankings, and scholarships across universities
+                </p>
+                <div className="flex items-center text-blue-600 text-sm font-semibold group-hover:underline">
+                  Compare Now →
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

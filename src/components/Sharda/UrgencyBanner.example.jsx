@@ -9,7 +9,7 @@ export default function UrgencyBannerExamples() {
   // Example deadline dates
   const applicationDeadline = new Date('2026-06-30');
   const scholarshipDeadline = new Date('2026-05-15');
-  const earlyBirdDeadline = new Date('2026-03-31');
+  const _earlyBirdDeadline = new Date('2026-03-31');
 
   return (
     <div className="space-y-8 p-8 bg-gray-50">

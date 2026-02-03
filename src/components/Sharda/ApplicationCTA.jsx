@@ -47,7 +47,7 @@ const ApplicationCTA = memo(function ApplicationCTA({
   });
 
   // Handle click event with logging
-  const handleClick = (e) => {
+  const handleClick = () => {
     // Log conversion event
     logCTAClick({
       ctaType: action,

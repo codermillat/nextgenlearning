@@ -1,12 +1,13 @@
 import { useParams, Link } from 'react-router-dom';
 import { useData } from '../context/DataContext';
-import SEOHead from '../components/SEO/SEOHead';
+import MetaManager from '../components/SEO/MetaManager';
 import StructuredData from '../components/SEO/StructuredData';
+import UrgencyBanner from '../components/UI/UrgencyBanner';
 import Breadcrumbs from '../components/Common/Breadcrumbs';
 import FAQSection from '../components/SEO/FAQSection';
 import { generateOrganizationSchema, generateBreadcrumbSchema } from '../components/SEO/StructuredData';
 import { calculateTotalFees } from '../utils/rankings';
-import { SHARDA_APPLY_URL, WHATSAPP_DISPLAY, getWhatsAppUrl } from '../config/constants';
+import { SHARDA_APPLY_URL, WHATSAPP_DISPLAY } from '../config/constants';
 
 export default function UniversityDetail() {
   const { universitySlug } = useParams();
@@ -47,6 +48,41 @@ export default function UniversityDetail() {
 
   const orgSchema = generateOrganizationSchema(university, `/universities/${universitySlug}`);
 
+  // Generate optimized meta description data
+  const getUniversityMetaData = () => {
+    const studentCount = university.profile?.facilities?.international?.students || '17,000+';
+    const nirfRank = university.profile?.rankings?.nirf || 'Top 250';
+    const naacGrade = university.profile?.rankings?.naac || 'A+';
+    
+    // Determine scholarship range based on university
+    let scholarshipRange = '20-50%';
+    let feeRange = '₹2-6L/year';
+    
+    if (university.id === 'niu') {
+      scholarshipRange = '50%';
+      feeRange = '₹2-5L/year';
+    } else if (university.id === 'chandigarh') {
+      scholarshipRange = '35-50%';
+      feeRange = '₹2-8L/year';
+    } else if (university.id === 'galgotias') {
+      scholarshipRange = '50-60%';
+      feeRange = '₹2-6L/year';
+    }
+    
+    return {
+      emoji: '🎓',
+      benefit: `${university.name} NIRF ${nirfRank}`,
+      socialProof: `${studentCount} students, ${naacGrade} rated`,
+      price: `Fees ${feeRange}`,
+      urgency: `${scholarshipRange} scholarships`,
+      cta: 'Apply now',
+      baseTitle: `${university.name} ${nirfRank} 2026`,
+      url: `/universities/${universitySlug}`,
+    };
+  };
+
+  const metaData = getUniversityMetaData();
+
   const faqs = [
     {
       question: `What is ${university.name}'s ranking?`,
@@ -68,14 +104,20 @@ export default function UniversityDetail() {
 
   return (
     <>
-      <SEOHead
-        title={`${university.name} ${university.profile?.rankings?.nirf ? `NIRF Ranking ${university.profile.rankings.nirf}` : ''} 2025-26 | ${programs.length}+ Courses, Fees ₹${university.id === 'niu' ? '2-5L' : university.id === 'sharda' ? '2-6L' : university.id === 'chandigarh' ? '2-8L' : '2-6L'}/year, Scholarships ${university.id === 'niu' ? '50%' : university.id === 'sharda' ? '20-50%' : university.id === 'chandigarh' ? '35-50%' : '50-60%'} | ${university.profile?.rankings?.naac || 'NAAC A+'}`}
-        description={
-          university.id === 'sharda' || university.id === 'sharda-university'
-            ? `${university.name} NIRF ${university.profile?.rankings?.nirf || 'Top 250'}: ${programs.length}+ courses, fees ₹${university.id === 'niu' ? '2-5L' : university.id === 'sharda' ? '2-6L' : university.id === 'chandigarh' ? '2-8L' : '2-6L'}/year, ${university.id === 'niu' ? '50%' : university.id === 'sharda' ? '20-50%' : university.id === 'chandigarh' ? '35-50%' : '50-60%'} scholarships for Bangladeshi students. NAAC A+. Apply now.`
-            : `${university.name} vs Sharda University: Compare NIRF rankings (${university.profile?.rankings?.nirf || 'Top 250'} vs 101-150), fees, ${programs.length}+ courses, ${university.id === 'niu' ? '50%' : university.id === 'chandigarh' ? '35-50%' : '50-60%'} scholarships. Both NAAC A+. Find the best university for Bangladeshi students.`
-        }
-        keywords={[
+      <MetaManager
+        emoji={metaData.emoji}
+        benefit={metaData.benefit}
+        socialProof={metaData.socialProof}
+        price={metaData.price}
+        urgency={metaData.urgency}
+        cta={metaData.cta}
+        baseTitle={metaData.baseTitle}
+        url={metaData.url}
+      />
+      {/* Keywords meta tag */}
+      <meta
+        name="keywords"
+        content={[
           university.name,
           university.shortName,
           `${university.shortName} nirf ranking`,
@@ -111,13 +153,23 @@ export default function UniversityDetail() {
           'Indian universities for Bangladeshi students',
           'NIRF ranking universities India',
           'NAAC A+ universities India'
-        ]}
-        url={`/universities/${universitySlug}`}
-        canonical={`/universities/${universitySlug}`}
+        ].join(', ')}
       />
+      {/* Canonical link */}
+      <link rel="canonical" href={`https://www.nextgenlearning.dev/universities/${universitySlug}`} />
       <StructuredData data={orgSchema} />
       {generateBreadcrumbSchema(breadcrumbs) && <StructuredData data={generateBreadcrumbSchema(breadcrumbs)} />}
       {/* FAQ schema is generated by FAQSection component below */}
+      
+      {/* Urgency Banner */}
+      <UrgencyBanner
+        deadline="2026-03-31"
+        seatsLeft={32}
+        ctaText="Apply Now"
+        ctaLink={university.id === 'sharda' || university.id === 'sharda-university' ? SHARDA_APPLY_URL : '/apply'}
+        variant="university"
+      />
+      
       <Breadcrumbs items={breadcrumbs} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8">

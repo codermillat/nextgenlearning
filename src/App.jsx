@@ -45,6 +45,7 @@ const ShardaBBA = lazy(() => import('./pages/Sharda/programs/ShardaBBA'));
 const ShardaVsAmity = lazy(() => import('./pages/Sharda/ShardaVsAmity'));
 const ShardaVsChandigarh = lazy(() => import('./pages/Sharda/ShardaVsChandigarh'));
 const BestUniversitiesBangladeshiStudents = lazy(() => import('./pages/Sharda/BestUniversitiesBangladeshiStudents'));
+const ForBangladeshiStudents = lazy(() => import('./pages/ForBangladeshiStudents'));
 
 // Component to track page views on route changes and clean up query parameters
 function PageViewTracker() {
@@ -134,6 +135,7 @@ function App() {
                 <Route path="/sharda-vs-amity" element={<ShardaVsAmity />} />
                 <Route path="/sharda-vs-chandigarh" element={<ShardaVsChandigarh />} />
                 <Route path="/best-universities-bangladeshi-students-india" element={<BestUniversitiesBangladeshiStudents />} />
+                <Route path="/for-bangladeshi-students" element={<ForBangladeshiStudents />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

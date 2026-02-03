@@ -323,7 +323,7 @@ describe('Structured Data - Property Tests', () => {
       expect(schema.name).toBe('Test University');
       
       // Should not contain our contact number (this is university's schema)
-      const schemaString = JSON.stringify(schema);
+      const _schemaString = JSON.stringify(schema);
       // University schemas don't include our contact info, which is correct
     });
 
@@ -401,6 +401,7 @@ describe('Structured Data - Property Tests', () => {
         { maxLength: 3 }
       ),
       eligibility: fc.string({ minLength: 10, maxLength: 100 })
+        .filter(s => !s.toUpperCase().includes('WBE'))
     });
 
     const faqArbitrary = fc.array(
@@ -897,4 +898,1223 @@ describe('Structured Data - Property Tests', () => {
       );
     });
   });
+
+  /**
+   * Property 2: Course Schema Completeness
+   * Feature: seo-overhaul, Property 2
+   * **Validates: Requirements 3.1, 3.2**
+   * 
+   * For any course with available data (price, availability, rating, review count), 
+   * the generated Course schema should include the offers section with price and availability, 
+   * and should include aggregateRating when rating data is available.
+   */
+  describe('Property 2: Course Schema Completeness', () => {
+    const courseWithDataArbitrary = fc.record({
+      name: fc.string({ minLength: 5, maxLength: 50 }),
+      specialization: fc.string({ minLength: 5, maxLength: 50 }),
+      id: fc.string({ minLength: 3, maxLength: 20 }),
+      degree: fc.oneof(
+        fc.constant('B.Tech'),
+        fc.constant('M.Tech'),
+        fc.constant('BCA'),
+        fc.constant('MCA')
+      ),
+      duration: fc.integer({ min: 2, max: 5 }),
+      annualFees: fc.array(fc.integer({ min: 50000, max: 500000 }), { minLength: 1, maxLength: 4 }),
+      scholarships: fc.array(
+        fc.record({
+          percentage: fc.integer({ min: 10, max: 50 })
+        }),
+        { maxLength: 3 }
+      ),
+      eligibility: fc.string({ minLength: 10, maxLength: 100 })
+        .filter(s => !s.toUpperCase().includes('WBE')),
+      rating: fc.option(fc.float({ min: 1, max: 5, noNaN: true }), { nil: undefined })
+    });
+
+    const universityWithDataArbitrary = fc.record({
+      name: fc.string({ minLength: 5, maxLength: 50 }),
+      shortName: fc.string({ minLength: 2, maxLength: 10 }),
+      location: fc.string({ minLength: 5, maxLength: 50 }),
+      established: fc.integer({ min: 1900, max: 2024 }),
+      website: fc.webUrl(),
+      profile: fc.record({
+        rankings: fc.record({
+          nirf: fc.option(
+            fc.oneof(
+              fc.constant('100'),
+              fc.constant('101-150'),
+              fc.constant('151-200')
+            ),
+            { nil: undefined }
+          ),
+          naac: fc.option(
+            fc.oneof(
+              fc.constant('A++'),
+              fc.constant('A+'),
+              fc.constant('A')
+            ),
+            { nil: undefined }
+          )
+        })
+      }),
+      programs: fc.array(
+        fc.record({
+          name: fc.string({ minLength: 5, maxLength: 50 })
+        }),
+        { maxLength: 5 }
+      )
+    });
+
+    it('should include offers section with price and availability for any course with fee data', () => {
+      fc.assert(
+        fc.property(courseWithDataArbitrary, universityWithDataArbitrary, (course, university) => {
+          const schema = generateCourseSchema(course, university, '/courses/test');
+          
+          // Should have offers section
+          expect(schema.offers).toBeDefined();
+          expect(schema.offers['@type']).toBe('Offer');
+          
+          // Should have price
+          expect(schema.offers.price).toBeDefined();
+          expect(typeof schema.offers.price).toBe('number');
+          expect(schema.offers.price).toBeGreaterThanOrEqual(0);
+          
+          // Should have currency
+          expect(schema.offers.priceCurrency).toBeDefined();
+          expect(schema.offers.priceCurrency).toBe('INR');
+          
+          // Should have availability
+          expect(schema.offers.availability).toBeDefined();
+          expect(typeof schema.offers.availability).toBe('string');
+          expect(schema.offers.availability).toContain('schema.org');
+          
+          // Should have URL
+          expect(schema.offers.url).toBeDefined();
+          expect(typeof schema.offers.url).toBe('string');
+          expect(schema.offers.url).toContain('/courses/test');
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should include aggregateRating when rating data is available', () => {
+      fc.assert(
+        fc.property(
+          courseWithDataArbitrary.filter(c => c.rating !== undefined),
+          universityWithDataArbitrary,
+          (course, university) => {
+            const schema = generateCourseSchema(course, university, '/courses/test');
+            
+            // Should have aggregateRating section
+            expect(schema.aggregateRating).toBeDefined();
+            expect(schema.aggregateRating['@type']).toBe('AggregateRating');
+            
+            // Should have ratingValue
+            expect(schema.aggregateRating.ratingValue).toBeDefined();
+            expect(typeof schema.aggregateRating.ratingValue).toBe('number');
+            expect(schema.aggregateRating.ratingValue).toBeGreaterThanOrEqual(1);
+            expect(schema.aggregateRating.ratingValue).toBeLessThanOrEqual(5);
+            
+            // Should have reviewCount
+            expect(schema.aggregateRating.reviewCount).toBeDefined();
+            expect(typeof schema.aggregateRating.reviewCount).toBe('string');
+            
+            // Should have bestRating and worstRating
+            expect(schema.aggregateRating.bestRating).toBe('5');
+            expect(schema.aggregateRating.worstRating).toBe('1');
+          }
+        ),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should always include aggregateRating even when course rating is not provided', () => {
+      fc.assert(
+        fc.property(
+          courseWithDataArbitrary.filter(c => c.rating === undefined),
+          universityWithDataArbitrary,
+          (course, university) => {
+            const schema = generateCourseSchema(course, university, '/courses/test');
+            
+            // Should still have aggregateRating with default values
+            expect(schema.aggregateRating).toBeDefined();
+            expect(schema.aggregateRating['@type']).toBe('AggregateRating');
+            expect(schema.aggregateRating.ratingValue).toBeDefined();
+            expect(schema.aggregateRating.reviewCount).toBeDefined();
+          }
+        ),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should calculate price from annualFees array', () => {
+      fc.assert(
+        fc.property(courseWithDataArbitrary, universityWithDataArbitrary, (course, university) => {
+          const schema = generateCourseSchema(course, university, '/courses/test');
+          
+          // Calculate expected average fee
+          const fees = course.annualFees || [];
+          const expectedAvgFee = fees.length > 0 
+            ? fees.reduce((a, b) => a + b, 0) / fees.length 
+            : 0;
+          
+          // Schema price should match calculated average
+          expect(schema.offers.price).toBe(expectedAvgFee);
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should include priceSpecification with detailed pricing information', () => {
+      fc.assert(
+        fc.property(courseWithDataArbitrary, universityWithDataArbitrary, (course, university) => {
+          const schema = generateCourseSchema(course, university, '/courses/test');
+          
+          // Should have priceSpecification
+          expect(schema.offers.priceSpecification).toBeDefined();
+          expect(schema.offers.priceSpecification['@type']).toBe('UnitPriceSpecification');
+          
+          // Should have matching price
+          expect(schema.offers.priceSpecification.price).toBe(schema.offers.price);
+          expect(schema.offers.priceSpecification.priceCurrency).toBe('INR');
+          
+          // Should have unit code for annual pricing
+          expect(schema.offers.priceSpecification.unitCode).toBe('ANN');
+          
+          // Should indicate tax inclusion
+          expect(schema.offers.priceSpecification.valueAddedTaxIncluded).toBe(true);
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should include priceValidUntil date in offers', () => {
+      fc.assert(
+        fc.property(courseWithDataArbitrary, universityWithDataArbitrary, (course, university) => {
+          const schema = generateCourseSchema(course, university, '/courses/test');
+          
+          // Should have priceValidUntil
+          expect(schema.offers.priceValidUntil).toBeDefined();
+          expect(typeof schema.offers.priceValidUntil).toBe('string');
+          
+          // Should be a valid date format (YYYY-MM-DD)
+          expect(schema.offers.priceValidUntil).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should include eligibleRegion in offers', () => {
+      fc.assert(
+        fc.property(courseWithDataArbitrary, universityWithDataArbitrary, (course, university) => {
+          const schema = generateCourseSchema(course, university, '/courses/test');
+          
+          // Should have eligibleRegion
+          expect(schema.offers.eligibleRegion).toBeDefined();
+          expect(schema.offers.eligibleRegion['@type']).toBe('Country');
+          expect(schema.offers.eligibleRegion.name).toBe('India');
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should maintain offers and aggregateRating structure after JSON serialization', () => {
+      fc.assert(
+        fc.property(courseWithDataArbitrary, universityWithDataArbitrary, (course, university) => {
+          const schema = generateCourseSchema(course, university, '/courses/test');
+          
+          // Serialize and parse
+          const jsonString = JSON.stringify(schema);
+          const parsed = JSON.parse(jsonString);
+          
+          // Should maintain offers structure
+          expect(parsed.offers).toBeDefined();
+          expect(parsed.offers['@type']).toBe('Offer');
+          expect(parsed.offers.price).toBeDefined();
+          expect(parsed.offers.priceCurrency).toBe('INR');
+          expect(parsed.offers.availability).toBeDefined();
+          expect(parsed.offers.url).toBeDefined();
+          
+          // Should maintain aggregateRating structure
+          expect(parsed.aggregateRating).toBeDefined();
+          expect(parsed.aggregateRating['@type']).toBe('AggregateRating');
+          expect(parsed.aggregateRating.ratingValue).toBeDefined();
+          expect(parsed.aggregateRating.reviewCount).toBeDefined();
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should handle courses with zero fees gracefully', () => {
+      const courseWithZeroFees = {
+        name: 'Free Course',
+        specialization: 'Test',
+        id: 'test-course',
+        degree: 'B.Tech',
+        duration: 4,
+        annualFees: [0, 0, 0, 0],
+        scholarships: [],
+        eligibility: 'Open to all'
+      };
+
+      const university = {
+        name: 'Test University',
+        shortName: 'TU',
+        location: 'Delhi, Delhi',
+        established: 2000,
+        website: 'https://test.edu',
+        profile: { rankings: {} },
+        programs: []
+      };
+
+      const schema = generateCourseSchema(courseWithZeroFees, university, '/courses/test');
+      
+      // Should still have offers section
+      expect(schema.offers).toBeDefined();
+      expect(schema.offers.price).toBe(0);
+      expect(schema.offers.priceCurrency).toBe('INR');
+      
+      // Should still have aggregateRating
+      expect(schema.aggregateRating).toBeDefined();
+    });
+
+    it('should handle courses with empty annualFees array', () => {
+      const courseWithoutFees = {
+        name: 'Course Without Fees',
+        specialization: 'Test',
+        id: 'test-course',
+        degree: 'B.Tech',
+        duration: 4,
+        annualFees: [],
+        scholarships: [],
+        eligibility: 'Open to all'
+      };
+
+      const university = {
+        name: 'Test University',
+        shortName: 'TU',
+        location: 'Delhi, Delhi',
+        established: 2000,
+        website: 'https://test.edu',
+        profile: { rankings: {} },
+        programs: []
+      };
+
+      const schema = generateCourseSchema(courseWithoutFees, university, '/courses/test');
+      
+      // Should still have offers section with zero price
+      expect(schema.offers).toBeDefined();
+      expect(schema.offers.price).toBe(0);
+      
+      // Should still have aggregateRating
+      expect(schema.aggregateRating).toBeDefined();
+    });
+  });
 });
+
+  /**
+   * Property 3: University Schema Completeness
+   * Feature: seo-overhaul, Property 3
+   * **Validates: Requirements 3.3, 3.4**
+   * 
+   * For any university with available data (student count, rating, review count), 
+   * the generated University schema should include numberOfStudents when available 
+   * and should include aggregateRating when rating data is available.
+   */
+  describe('Property 3: University Schema Completeness', () => {
+    const universityWithStudentsArbitrary = fc.record({
+      name: fc.string({ minLength: 5, maxLength: 50 }),
+      shortName: fc.string({ minLength: 2, maxLength: 10 }),
+      location: fc.string({ minLength: 5, maxLength: 50 }),
+      established: fc.integer({ min: 1900, max: 2024 }),
+      website: fc.webUrl(),
+      numberOfStudents: fc.option(fc.integer({ min: 100, max: 50000 }), { nil: undefined }),
+      rating: fc.option(fc.float({ min: 1, max: 5, noNaN: true }), { nil: undefined }),
+      reviewCount: fc.option(fc.integer({ min: 10, max: 10000 }), { nil: undefined }),
+      profile: fc.record({
+        numberOfStudents: fc.option(fc.integer({ min: 100, max: 50000 }), { nil: undefined }),
+        rating: fc.option(fc.float({ min: 1, max: 5, noNaN: true }), { nil: undefined }),
+        reviewCount: fc.option(fc.integer({ min: 10, max: 10000 }), { nil: undefined }),
+        rankings: fc.record({
+          nirf: fc.option(
+            fc.oneof(
+              fc.constant('100'),
+              fc.constant('101-150'),
+              fc.constant('151-200')
+            ),
+            { nil: undefined }
+          ),
+          naac: fc.option(
+            fc.oneof(
+              fc.constant('A++'),
+              fc.constant('A+'),
+              fc.constant('A')
+            ),
+            { nil: undefined }
+          )
+        })
+      }),
+      programs: fc.array(
+        fc.record({
+          name: fc.string({ minLength: 5, maxLength: 50 })
+        }),
+        { maxLength: 5 }
+      )
+    });
+
+    it('should include numberOfStudents when available in university data', () => {
+      fc.assert(
+        fc.property(
+          universityWithStudentsArbitrary.filter(u => u.numberOfStudents !== undefined),
+          (university) => {
+            const schema = generateOrganizationSchema(university, '/universities/test');
+            
+            // Should have numberOfStudents field
+            expect(schema.numberOfStudents).toBeDefined();
+            expect(typeof schema.numberOfStudents).toBe('number');
+            expect(schema.numberOfStudents).toBeGreaterThan(0);
+            expect(schema.numberOfStudents).toBe(university.numberOfStudents);
+          }
+        ),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should include numberOfStudents from profile when available', () => {
+      fc.assert(
+        fc.property(
+          universityWithStudentsArbitrary.filter(u => 
+            u.numberOfStudents === undefined && 
+            u.profile?.numberOfStudents !== undefined
+          ),
+          (university) => {
+            const schema = generateOrganizationSchema(university, '/universities/test');
+            
+            // Should have numberOfStudents from profile
+            expect(schema.numberOfStudents).toBeDefined();
+            expect(typeof schema.numberOfStudents).toBe('number');
+            expect(schema.numberOfStudents).toBe(university.profile.numberOfStudents);
+          }
+        ),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should not include numberOfStudents when not available', () => {
+      fc.assert(
+        fc.property(
+          universityWithStudentsArbitrary.filter(u => 
+            u.numberOfStudents === undefined && 
+            u.profile?.numberOfStudents === undefined
+          ),
+          (university) => {
+            const schema = generateOrganizationSchema(university, '/universities/test');
+            
+            // Should not have numberOfStudents field
+            expect(schema.numberOfStudents).toBeUndefined();
+          }
+        ),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should include aggregateRating when rating data is available', () => {
+      fc.assert(
+        fc.property(
+          universityWithStudentsArbitrary.filter(u => 
+            u.rating !== undefined || u.profile?.rating !== undefined
+          ),
+          (university) => {
+            const schema = generateOrganizationSchema(university, '/universities/test');
+            
+            // Should have aggregateRating section
+            expect(schema.aggregateRating).toBeDefined();
+            expect(schema.aggregateRating['@type']).toBe('AggregateRating');
+            
+            // Should have ratingValue
+            expect(schema.aggregateRating.ratingValue).toBeDefined();
+            const ratingValue = typeof schema.aggregateRating.ratingValue === 'string' 
+              ? parseFloat(schema.aggregateRating.ratingValue) 
+              : schema.aggregateRating.ratingValue;
+            expect(ratingValue).toBeGreaterThanOrEqual(1);
+            expect(ratingValue).toBeLessThanOrEqual(5);
+            
+            // Should have reviewCount
+            expect(schema.aggregateRating.reviewCount).toBeDefined();
+            expect(typeof schema.aggregateRating.reviewCount).toBe('string');
+            
+            // Should have bestRating and worstRating
+            expect(schema.aggregateRating.bestRating).toBe('5');
+            expect(schema.aggregateRating.worstRating).toBe('1');
+          }
+        ),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should include aggregateRating with default values when NIRF ranking is available', () => {
+      fc.assert(
+        fc.property(
+          universityWithStudentsArbitrary.filter(u => 
+            u.rating === undefined && 
+            u.profile?.rating === undefined &&
+            u.profile?.rankings?.nirf !== undefined
+          ),
+          (university) => {
+            const schema = generateOrganizationSchema(university, '/universities/test');
+            
+            // Should have aggregateRating with default values
+            expect(schema.aggregateRating).toBeDefined();
+            expect(schema.aggregateRating['@type']).toBe('AggregateRating');
+            expect(schema.aggregateRating.ratingValue).toBe('4.5');
+            expect(schema.aggregateRating.reviewCount).toBe('1000');
+          }
+        ),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should not include aggregateRating when no rating data or NIRF ranking is available', () => {
+      fc.assert(
+        fc.property(
+          universityWithStudentsArbitrary.filter(u => 
+            u.rating === undefined && 
+            u.profile?.rating === undefined &&
+            u.profile?.rankings?.nirf === undefined
+          ),
+          (university) => {
+            const schema = generateOrganizationSchema(university, '/universities/test');
+            
+            // Should not have aggregateRating
+            expect(schema.aggregateRating).toBeUndefined();
+          }
+        ),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should prioritize direct rating over profile rating', () => {
+      const universityWithBothRatings = {
+        name: 'Test University',
+        shortName: 'TU',
+        location: 'Delhi, Delhi',
+        established: 2000,
+        website: 'https://test.edu',
+        rating: 4.8,
+        reviewCount: 500,
+        profile: {
+          rating: 4.2,
+          reviewCount: 300,
+          rankings: {}
+        },
+        programs: []
+      };
+
+      const schema = generateOrganizationSchema(universityWithBothRatings, '/universities/test');
+      
+      // Should use direct rating
+      expect(schema.aggregateRating).toBeDefined();
+      expect(schema.aggregateRating.ratingValue).toBe(4.8);
+      expect(schema.aggregateRating.reviewCount).toBe('500');
+    });
+
+    it('should use profile rating when direct rating is not available', () => {
+      const universityWithProfileRating = {
+        name: 'Test University',
+        shortName: 'TU',
+        location: 'Delhi, Delhi',
+        established: 2000,
+        website: 'https://test.edu',
+        profile: {
+          rating: 4.3,
+          reviewCount: 250,
+          rankings: {}
+        },
+        programs: []
+      };
+
+      const schema = generateOrganizationSchema(universityWithProfileRating, '/universities/test');
+      
+      // Should use profile rating
+      expect(schema.aggregateRating).toBeDefined();
+      expect(schema.aggregateRating.ratingValue).toBe(4.3);
+      expect(schema.aggregateRating.reviewCount).toBe('250');
+    });
+
+    it('should maintain numberOfStudents and aggregateRating after JSON serialization', () => {
+      fc.assert(
+        fc.property(
+          universityWithStudentsArbitrary.filter(u => 
+            u.numberOfStudents !== undefined && 
+            u.rating !== undefined
+          ),
+          (university) => {
+            const schema = generateOrganizationSchema(university, '/universities/test');
+            
+            // Serialize and parse
+            const jsonString = JSON.stringify(schema);
+            const parsed = JSON.parse(jsonString);
+            
+            // Should maintain numberOfStudents
+            expect(parsed.numberOfStudents).toBeDefined();
+            expect(parsed.numberOfStudents).toBe(university.numberOfStudents);
+            
+            // Should maintain aggregateRating structure
+            expect(parsed.aggregateRating).toBeDefined();
+            expect(parsed.aggregateRating['@type']).toBe('AggregateRating');
+            expect(parsed.aggregateRating.ratingValue).toBeDefined();
+            expect(parsed.aggregateRating.reviewCount).toBeDefined();
+          }
+        ),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should handle universities with very large student counts', () => {
+      const universityWithLargeStudentCount = {
+        name: 'Large University',
+        shortName: 'LU',
+        location: 'Mumbai, Maharashtra',
+        established: 1950,
+        website: 'https://large.edu',
+        numberOfStudents: 100000,
+        profile: {
+          rankings: {}
+        },
+        programs: []
+      };
+
+      const schema = generateOrganizationSchema(universityWithLargeStudentCount, '/universities/test');
+      
+      // Should handle large numbers correctly
+      expect(schema.numberOfStudents).toBe(100000);
+      expect(typeof schema.numberOfStudents).toBe('number');
+    });
+
+    it('should handle universities with minimal student counts', () => {
+      const universityWithSmallStudentCount = {
+        name: 'Small University',
+        shortName: 'SU',
+        location: 'Goa, Goa',
+        established: 2010,
+        website: 'https://small.edu',
+        numberOfStudents: 100,
+        profile: {
+          rankings: {}
+        },
+        programs: []
+      };
+
+      const schema = generateOrganizationSchema(universityWithSmallStudentCount, '/universities/test');
+      
+      // Should handle small numbers correctly
+      expect(schema.numberOfStudents).toBe(100);
+      expect(typeof schema.numberOfStudents).toBe('number');
+    });
+
+    it('should include all required EducationalOrganization fields along with enhancements', () => {
+      fc.assert(
+        fc.property(universityWithStudentsArbitrary, (university) => {
+          const schema = generateOrganizationSchema(university, '/universities/test');
+          
+          // Should have required fields
+          expect(schema['@context']).toBe('https://schema.org');
+          expect(schema['@type']).toBe('EducationalOrganization');
+          expect(schema.name).toBeDefined();
+          expect(schema.url).toBeDefined();
+          expect(schema.address).toBeDefined();
+          expect(schema.address['@type']).toBe('PostalAddress');
+          
+          // Should be valid JSON
+          expect(() => JSON.stringify(schema)).not.toThrow();
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should convert reviewCount to string format', () => {
+      fc.assert(
+        fc.property(
+          universityWithStudentsArbitrary.filter(u => u.reviewCount !== undefined),
+          (university) => {
+            const schema = generateOrganizationSchema(university, '/universities/test');
+            
+            if (schema.aggregateRating) {
+              // reviewCount should be a string
+              expect(typeof schema.aggregateRating.reviewCount).toBe('string');
+              
+              // Should be convertible to a number
+              const reviewCountNum = parseInt(schema.aggregateRating.reviewCount, 10);
+              expect(isNaN(reviewCountNum)).toBe(false);
+              expect(reviewCountNum).toBeGreaterThan(0);
+            }
+          }
+        ),
+        { numRuns: 100 }
+      );
+    });
+  });
+
+  /**
+   * Property 4: Organization Schema Completeness
+   * Feature: seo-overhaul, Property 4
+   * **Validates: Requirements 3.5**
+   * 
+   * For any organization with available rating data, the generated Organization schema 
+   * should include aggregateRating with ratingValue and reviewCount.
+   */
+  describe('Property 4: Organization Schema Completeness', () => {
+    it('should always include aggregateRating in SiteOrganization schema', () => {
+      fc.assert(
+        fc.property(fc.constant(null), () => {
+          const schema = generateSiteOrganizationSchema();
+          
+          // Should have aggregateRating section
+          expect(schema.aggregateRating).toBeDefined();
+          expect(schema.aggregateRating['@type']).toBe('AggregateRating');
+          
+          // Should have ratingValue
+          expect(schema.aggregateRating.ratingValue).toBeDefined();
+          expect(typeof schema.aggregateRating.ratingValue).toBe('string');
+          const ratingValue = parseFloat(schema.aggregateRating.ratingValue);
+          expect(ratingValue).toBeGreaterThanOrEqual(1);
+          expect(ratingValue).toBeLessThanOrEqual(5);
+          
+          // Should have reviewCount
+          expect(schema.aggregateRating.reviewCount).toBeDefined();
+          expect(typeof schema.aggregateRating.reviewCount).toBe('string');
+          const reviewCount = parseInt(schema.aggregateRating.reviewCount, 10);
+          expect(isNaN(reviewCount)).toBe(false);
+          expect(reviewCount).toBeGreaterThan(0);
+          
+          // Should have bestRating and worstRating
+          expect(schema.aggregateRating.bestRating).toBe('5');
+          expect(schema.aggregateRating.worstRating).toBe('1');
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should maintain aggregateRating structure after JSON serialization', () => {
+      fc.assert(
+        fc.property(fc.constant(null), () => {
+          const schema = generateSiteOrganizationSchema();
+          
+          // Serialize and parse
+          const jsonString = JSON.stringify(schema);
+          const parsed = JSON.parse(jsonString);
+          
+          // Should maintain aggregateRating structure
+          expect(parsed.aggregateRating).toBeDefined();
+          expect(parsed.aggregateRating['@type']).toBe('AggregateRating');
+          expect(parsed.aggregateRating.ratingValue).toBeDefined();
+          expect(parsed.aggregateRating.reviewCount).toBeDefined();
+          expect(parsed.aggregateRating.bestRating).toBe('5');
+          expect(parsed.aggregateRating.worstRating).toBe('1');
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should have consistent aggregateRating across multiple invocations', () => {
+      fc.assert(
+        fc.property(fc.constant(null), () => {
+          const schema1 = generateSiteOrganizationSchema();
+          const schema2 = generateSiteOrganizationSchema();
+          
+          // Should have same aggregateRating values
+          expect(schema1.aggregateRating.ratingValue).toBe(schema2.aggregateRating.ratingValue);
+          expect(schema1.aggregateRating.reviewCount).toBe(schema2.aggregateRating.reviewCount);
+          expect(schema1.aggregateRating.bestRating).toBe(schema2.aggregateRating.bestRating);
+          expect(schema1.aggregateRating.worstRating).toBe(schema2.aggregateRating.worstRating);
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should include all required Organization fields along with aggregateRating', () => {
+      fc.assert(
+        fc.property(fc.constant(null), () => {
+          const schema = generateSiteOrganizationSchema();
+          
+          // Should have required Organization fields
+          expect(schema['@context']).toBe('https://schema.org');
+          expect(schema['@type']).toBe('EducationalOrganization');
+          expect(schema.name).toBeDefined();
+          expect(schema.url).toBeDefined();
+          
+          // Should have aggregateRating
+          expect(schema.aggregateRating).toBeDefined();
+          
+          // Should be valid JSON
+          expect(() => JSON.stringify(schema)).not.toThrow();
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should have valid rating value range in aggregateRating', () => {
+      const schema = generateSiteOrganizationSchema();
+      
+      const ratingValue = parseFloat(schema.aggregateRating.ratingValue);
+      const bestRating = parseFloat(schema.aggregateRating.bestRating);
+      const worstRating = parseFloat(schema.aggregateRating.worstRating);
+      
+      // Rating value should be within range
+      expect(ratingValue).toBeGreaterThanOrEqual(worstRating);
+      expect(ratingValue).toBeLessThanOrEqual(bestRating);
+    });
+
+    it('should have positive review count in aggregateRating', () => {
+      const schema = generateSiteOrganizationSchema();
+      
+      const reviewCount = parseInt(schema.aggregateRating.reviewCount, 10);
+      
+      // Review count should be positive
+      expect(reviewCount).toBeGreaterThan(0);
+    });
+
+    it('should not have undefined or null values in aggregateRating', () => {
+      fc.assert(
+        fc.property(fc.constant(null), () => {
+          const schema = generateSiteOrganizationSchema();
+          
+          // Check all aggregateRating fields are defined
+          expect(schema.aggregateRating['@type']).not.toBeNull();
+          expect(schema.aggregateRating['@type']).not.toBeUndefined();
+          expect(schema.aggregateRating.ratingValue).not.toBeNull();
+          expect(schema.aggregateRating.ratingValue).not.toBeUndefined();
+          expect(schema.aggregateRating.reviewCount).not.toBeNull();
+          expect(schema.aggregateRating.reviewCount).not.toBeUndefined();
+          expect(schema.aggregateRating.bestRating).not.toBeNull();
+          expect(schema.aggregateRating.bestRating).not.toBeUndefined();
+          expect(schema.aggregateRating.worstRating).not.toBeNull();
+          expect(schema.aggregateRating.worstRating).not.toBeUndefined();
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should use string format for all rating fields', () => {
+      const schema = generateSiteOrganizationSchema();
+      
+      // All rating fields should be strings (schema.org convention)
+      expect(typeof schema.aggregateRating.ratingValue).toBe('string');
+      expect(typeof schema.aggregateRating.reviewCount).toBe('string');
+      expect(typeof schema.aggregateRating.bestRating).toBe('string');
+      expect(typeof schema.aggregateRating.worstRating).toBe('string');
+    });
+
+    it('should maintain schema validity with aggregateRating', () => {
+      fc.assert(
+        fc.property(fc.constant(null), () => {
+          const schema = generateSiteOrganizationSchema();
+          
+          // Should be valid JSON-LD
+          expect(schema['@context']).toBe('https://schema.org');
+          expect(schema['@type']).toBe('EducationalOrganization');
+          
+          // Should have aggregateRating with correct type
+          expect(schema.aggregateRating['@type']).toBe('AggregateRating');
+          
+          // Should not have circular references
+          expect(() => JSON.stringify(schema)).not.toThrow();
+          
+          // Should parse back correctly
+          const parsed = JSON.parse(JSON.stringify(schema));
+          expect(parsed.aggregateRating).toBeDefined();
+        }),
+        { numRuns: 100 }
+      );
+    });
+  });
+
+  /**
+   * Property 5: Schema JSON-LD Validity and Required Properties
+   * Feature: seo-overhaul, Property 5
+   * **Validates: Requirements 3.6, 3.7**
+   * 
+   * For any generated schema (Course, University, Organization), the output should be valid JSON-LD 
+   * that can be parsed without errors, and should include all required properties per schema.org 
+   * specifications for its type.
+   */
+  describe('Property 5: Schema JSON-LD Validity and Required Properties', () => {
+    const courseArbitrary = fc.record({
+      name: fc.string({ minLength: 5, maxLength: 50 }),
+      specialization: fc.string({ minLength: 5, maxLength: 50 }),
+      id: fc.string({ minLength: 3, maxLength: 20 }),
+      degree: fc.oneof(
+        fc.constant('B.Tech'),
+        fc.constant('M.Tech'),
+        fc.constant('BCA'),
+        fc.constant('MCA')
+      ),
+      duration: fc.integer({ min: 2, max: 5 }),
+      annualFees: fc.array(fc.integer({ min: 50000, max: 500000 }), { minLength: 1, maxLength: 4 }),
+      scholarships: fc.array(
+        fc.record({
+          percentage: fc.integer({ min: 10, max: 50 })
+        }),
+        { maxLength: 3 }
+      ),
+      eligibility: fc.string({ minLength: 10, maxLength: 100 }),
+      rating: fc.option(fc.float({ min: 1, max: 5, noNaN: true }), { nil: undefined })
+    });
+
+    const universityArbitrary = fc.record({
+      name: fc.string({ minLength: 5, maxLength: 50 }),
+      shortName: fc.string({ minLength: 2, maxLength: 10 }),
+      location: fc.string({ minLength: 5, maxLength: 50 }),
+      established: fc.integer({ min: 1900, max: 2024 }),
+      website: fc.webUrl(),
+      numberOfStudents: fc.option(fc.integer({ min: 100, max: 50000 }), { nil: undefined }),
+      rating: fc.option(fc.float({ min: 1, max: 5, noNaN: true }), { nil: undefined }),
+      reviewCount: fc.option(fc.integer({ min: 10, max: 10000 }), { nil: undefined }),
+      profile: fc.record({
+        numberOfStudents: fc.option(fc.integer({ min: 100, max: 50000 }), { nil: undefined }),
+        rating: fc.option(fc.float({ min: 1, max: 5, noNaN: true }), { nil: undefined }),
+        reviewCount: fc.option(fc.integer({ min: 10, max: 10000 }), { nil: undefined }),
+        rankings: fc.record({
+          nirf: fc.option(
+            fc.oneof(
+              fc.constant('100'),
+              fc.constant('101-150'),
+              fc.constant('151-200')
+            ),
+            { nil: undefined }
+          ),
+          naac: fc.option(
+            fc.oneof(
+              fc.constant('A++'),
+              fc.constant('A+'),
+              fc.constant('A')
+            ),
+            { nil: undefined }
+          )
+        })
+      }),
+      programs: fc.array(
+        fc.record({
+          name: fc.string({ minLength: 5, maxLength: 50 })
+        }),
+        { maxLength: 5 }
+      )
+    });
+
+    it('should generate valid JSON-LD for Course schema', () => {
+      fc.assert(
+        fc.property(courseArbitrary, universityArbitrary, (course, university) => {
+          const schema = generateCourseSchema(course, university, '/courses/test');
+          
+          // Should be valid JSON
+          expect(() => JSON.stringify(schema)).not.toThrow();
+          const jsonString = JSON.stringify(schema);
+          expect(() => JSON.parse(jsonString)).not.toThrow();
+          
+          // Should have required @context and @type
+          expect(schema['@context']).toBe('https://schema.org');
+          expect(schema['@type']).toBe('Course');
+          
+          // Should have required Course properties per schema.org
+          expect(schema.name).toBeDefined();
+          expect(schema.description).toBeDefined();
+          expect(schema.provider).toBeDefined();
+          expect(schema.provider['@type']).toContain('Organization');
+          expect(schema.provider.name).toBeDefined();
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should generate valid JSON-LD for University schema', () => {
+      fc.assert(
+        fc.property(universityArbitrary, (university) => {
+          const schema = generateOrganizationSchema(university, '/universities/test');
+          
+          // Should be valid JSON
+          expect(() => JSON.stringify(schema)).not.toThrow();
+          const jsonString = JSON.stringify(schema);
+          expect(() => JSON.parse(jsonString)).not.toThrow();
+          
+          // Should have required @context and @type
+          expect(schema['@context']).toBe('https://schema.org');
+          expect(schema['@type']).toBe('EducationalOrganization');
+          
+          // Should have required Organization properties per schema.org
+          expect(schema.name).toBeDefined();
+          expect(schema.url).toBeDefined();
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should generate valid JSON-LD for Site Organization schema', () => {
+      fc.assert(
+        fc.property(fc.constant(null), () => {
+          const schema = generateSiteOrganizationSchema();
+          
+          // Should be valid JSON
+          expect(() => JSON.stringify(schema)).not.toThrow();
+          const jsonString = JSON.stringify(schema);
+          expect(() => JSON.parse(jsonString)).not.toThrow();
+          
+          // Should have required @context and @type
+          expect(schema['@context']).toBe('https://schema.org');
+          expect(schema['@type']).toBe('EducationalOrganization');
+          
+          // Should have required Organization properties per schema.org
+          expect(schema.name).toBeDefined();
+          expect(schema.url).toBeDefined();
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should not have circular references in any schema', () => {
+      fc.assert(
+        fc.property(courseArbitrary, universityArbitrary, (course, university) => {
+          const schemas = [
+            generateCourseSchema(course, university, '/courses/test'),
+            generateOrganizationSchema(university, '/universities/test'),
+            generateSiteOrganizationSchema()
+          ];
+          
+          schemas.forEach(schema => {
+            // Should be able to stringify without circular reference errors
+            expect(() => JSON.stringify(schema)).not.toThrow();
+            
+            // Manual circular reference check
+            const seen = new WeakSet();
+            const checkCircular = (obj) => {
+              if (obj && typeof obj === 'object') {
+                if (seen.has(obj)) {
+                  throw new Error('Circular reference detected');
+                }
+                seen.add(obj);
+                Object.values(obj).forEach(checkCircular);
+              }
+            };
+            expect(() => checkCircular(schema)).not.toThrow();
+          });
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should maintain schema validity after round-trip serialization', () => {
+      fc.assert(
+        fc.property(courseArbitrary, universityArbitrary, (course, university) => {
+          const schemas = [
+            generateCourseSchema(course, university, '/courses/test'),
+            generateOrganizationSchema(university, '/universities/test'),
+            generateSiteOrganizationSchema()
+          ];
+          
+          schemas.forEach(schema => {
+            // Serialize and parse
+            const jsonString = JSON.stringify(schema);
+            const parsed = JSON.parse(jsonString);
+            
+            // Should maintain required fields
+            expect(parsed['@context']).toBe('https://schema.org');
+            expect(parsed['@type']).toBeDefined();
+            expect(typeof parsed['@type']).toBe('string');
+            expect(parsed['@type'].length).toBeGreaterThan(0);
+            
+            // Should be able to re-serialize
+            expect(() => JSON.stringify(parsed)).not.toThrow();
+          });
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should have @context as first property (JSON-LD convention)', () => {
+      fc.assert(
+        fc.property(courseArbitrary, universityArbitrary, (course, university) => {
+          const schemas = [
+            generateCourseSchema(course, university, '/courses/test'),
+            generateOrganizationSchema(university, '/universities/test'),
+            generateSiteOrganizationSchema()
+          ];
+          
+          schemas.forEach(schema => {
+            const keys = Object.keys(schema);
+            // @context should be the first key
+            expect(keys[0]).toBe('@context');
+          });
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should not contain undefined values in serialized JSON', () => {
+      fc.assert(
+        fc.property(courseArbitrary, universityArbitrary, (course, university) => {
+          const schemas = [
+            generateCourseSchema(course, university, '/courses/test'),
+            generateOrganizationSchema(university, '/universities/test'),
+            generateSiteOrganizationSchema()
+          ];
+          
+          schemas.forEach(schema => {
+            const jsonString = JSON.stringify(schema);
+            
+            // Should not contain the string "undefined"
+            expect(jsonString).not.toContain('undefined');
+            
+            // Parse and check critical fields are not null
+            const parsed = JSON.parse(jsonString);
+            expect(parsed['@context']).not.toBeNull();
+            expect(parsed['@type']).not.toBeNull();
+          });
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should have valid @type values (capitalized schema.org types)', () => {
+      fc.assert(
+        fc.property(courseArbitrary, universityArbitrary, (course, university) => {
+          const schemas = [
+            { schema: generateCourseSchema(course, university, '/courses/test'), expectedType: 'Course' },
+            { schema: generateOrganizationSchema(university, '/universities/test'), expectedType: 'EducationalOrganization' },
+            { schema: generateSiteOrganizationSchema(), expectedType: 'EducationalOrganization' }
+          ];
+          
+          schemas.forEach(({ schema, expectedType }) => {
+            // @type should match expected type
+            expect(schema['@type']).toBe(expectedType);
+            
+            // @type should start with capital letter (schema.org convention)
+            expect(schema['@type']).toMatch(/^[A-Z]/);
+            
+            // @type should not contain spaces
+            expect(schema['@type']).not.toContain(' ');
+          });
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should include all required properties for Course schema per schema.org', () => {
+      fc.assert(
+        fc.property(courseArbitrary, universityArbitrary, (course, university) => {
+          const schema = generateCourseSchema(course, university, '/courses/test');
+          
+          // Required properties per schema.org Course specification
+          const requiredProperties = ['@context', '@type', 'name', 'description', 'provider'];
+          
+          requiredProperties.forEach(prop => {
+            expect(schema[prop]).toBeDefined();
+            expect(schema[prop]).not.toBeNull();
+          });
+          
+          // Provider must be an Organization
+          expect(schema.provider['@type']).toBeDefined();
+          expect(schema.provider['@type']).toContain('Organization');
+          expect(schema.provider.name).toBeDefined();
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should include all required properties for Organization schema per schema.org', () => {
+      fc.assert(
+        fc.property(universityArbitrary, (university) => {
+          const schema = generateOrganizationSchema(university, '/universities/test');
+          
+          // Required properties per schema.org Organization specification
+          const requiredProperties = ['@context', '@type', 'name', 'url'];
+          
+          requiredProperties.forEach(prop => {
+            expect(schema[prop]).toBeDefined();
+            expect(schema[prop]).not.toBeNull();
+          });
+          
+          // URL should be a valid URL format
+          expect(schema.url).toMatch(/^https?:\/\//);
+        }),
+        { numRuns: 100 }
+      );
+    });
+
+    it('should handle special characters in schema values without breaking JSON', () => {
+      const courseWithSpecialChars = {
+        name: 'Course with "quotes" and \'apostrophes\'',
+        specialization: 'Test & Development',
+        id: 'test-course',
+        degree: 'B.Tech',
+        duration: 4,
+        annualFees: [100000],
+        scholarships: [],
+        eligibility: 'Test with <html> tags'
+      };
+
+      const universityWithSpecialChars = {
+        name: 'University with "quotes"',
+        shortName: 'UQ',
+        location: 'City, State',
+        established: 2000,
+        website: 'https://test.edu',
+        profile: { rankings: {} },
+        programs: []
+      };
+
+      const schema = generateCourseSchema(courseWithSpecialChars, universityWithSpecialChars, '/courses/test');
+      
+      // Should be able to stringify without errors
+      expect(() => JSON.stringify(schema)).not.toThrow();
+      
+      // Should be able to parse back
+      const jsonString = JSON.stringify(schema);
+      expect(() => JSON.parse(jsonString)).not.toThrow();
+      
+      // Should maintain special characters
+      const parsed = JSON.parse(jsonString);
+      expect(parsed.name).toContain('"');
+      expect(parsed.name).toContain("'");
+    });
+
+    it('should generate schemas that pass basic JSON-LD validation rules', () => {
+      fc.assert(
+        fc.property(courseArbitrary, universityArbitrary, (course, university) => {
+          const schemas = [
+            generateCourseSchema(course, university, '/courses/test'),
+            generateOrganizationSchema(university, '/universities/test'),
+            generateSiteOrganizationSchema()
+          ];
+          
+          schemas.forEach(schema => {
+            // Must have @context
+            expect(schema['@context']).toBeDefined();
+            expect(schema['@context']).toBe('https://schema.org');
+            
+            // Must have @type
+            expect(schema['@type']).toBeDefined();
+            expect(typeof schema['@type']).toBe('string');
+            
+            // Must be valid JSON
+            expect(() => JSON.stringify(schema)).not.toThrow();
+            
+            // Must not have circular references
+            const seen = new WeakSet();
+            const checkCircular = (obj) => {
+              if (obj && typeof obj === 'object') {
+                if (seen.has(obj)) throw new Error('Circular reference');
+                seen.add(obj);
+                Object.values(obj).forEach(checkCircular);
+              }
+            };
+            expect(() => checkCircular(schema)).not.toThrow();
+            
+            // Must be parseable
+            const jsonString = JSON.stringify(schema);
+            expect(() => JSON.parse(jsonString)).not.toThrow();
+          });
+        }),
+        { numRuns: 100 }
+      );
+    });
+  });

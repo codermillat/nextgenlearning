@@ -491,7 +491,7 @@ describe('ShardaLandingPage', () => {
             expect(data.address).toBeTruthy();
             expect(data.contactPoint).toBeTruthy();
           }
-        } catch (e) {
+        } catch {
           // Skip invalid JSON
         }
       });

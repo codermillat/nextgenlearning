@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useData } from '../context/DataContext';
 import SEOHead from '../components/SEO/SEOHead';
+import MetaManager from '../components/SEO/MetaManager';
 import StructuredData from '../components/SEO/StructuredData';
 import Breadcrumbs from '../components/Common/Breadcrumbs';
 import FAQSection from '../components/SEO/FAQSection';
@@ -147,6 +148,17 @@ export default function Scholarships() {
 
   return (
     <>
+      <MetaManager
+        emoji="💰"
+        benefit="Get Up to 60% Scholarship"
+        socialProof="4 top universities"
+        price="From ₹2.5L/year"
+        urgency="Limited seats"
+        cta="Apply Now"
+        baseTitle="Scholarships India 2025"
+        url="/scholarships"
+        image="/og-image.svg"
+      />
       <SEOHead
         title="Scholarships India 2025 | Up to 60% for Bangladeshi"
         description="Scholarships for Bangladeshi students: Sharda University 20-50%, NIU 50%, Chandigarh 35-50%, Galgotias 50-60%. Complete eligibility guide. Apply now."
@@ -191,7 +203,7 @@ export default function Scholarships() {
               if (b.id === 'sharda' || b.id === 'sharda-university') return 1;
               return 0;
             })
-            .map((university, index) => {
+            .map((university) => {
             const scholarships = getUniversityScholarships(university);
             if (scholarships.length === 0) return null;
             

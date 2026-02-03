@@ -54,6 +54,12 @@ export default function Header() {
               Guides
             </Link>
             <Link 
+              to="/for-bangladeshi-students" 
+              className="px-3 xl:px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium text-sm xl:text-base whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            >
+              For Bangladesh
+            </Link>
+            <Link 
               to="/compare" 
               className="px-3 xl:px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium text-sm xl:text-base whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
@@ -115,6 +121,13 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="mr-3" aria-hidden="true">📖</span> Guides
+            </Link>
+            <Link
+              to="/for-bangladeshi-students"
+              className="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-all duration-200 min-h-[44px] flex items-center font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="mr-3" aria-hidden="true">🇧🇩</span> For Bangladesh
             </Link>
             <Link
               to="/faq"

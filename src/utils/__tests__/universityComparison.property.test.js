@@ -540,7 +540,7 @@ describe('University Comparison - Property Tests', () => {
       // All universities should have the same criteria evaluated
       // (The function should attempt to evaluate all criteria for all universities)
       const firstUniversity = universities[0];
-      const firstCriteria = criteriaEvaluated.get(firstUniversity.id);
+      const _firstCriteria = criteriaEvaluated.get(firstUniversity.id);
       
       universities.forEach(university => {
         const universityCriteria = criteriaEvaluated.get(university.id);

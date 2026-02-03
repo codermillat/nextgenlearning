@@ -6,6 +6,7 @@
  * in different scenarios and configurations.
  */
 
+import { useState, useEffect, useRef } from 'react';
 import BangladeshSection from './BangladeshSection';
 import { bangladeshContent } from '../../data/shardaData';
 
@@ -173,7 +174,7 @@ class ErrorBoundary extends Component {
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError(_error) {
     return { hasError: true };
   }
 
@@ -213,8 +214,6 @@ export function WithErrorBoundaryExample() {
 // Example 8: With Analytics Tracking
 // ============================================================================
 
-import { useEffect } from 'react';
-
 export function WithAnalyticsExample() {
   useEffect(() => {
     // Track section view
@@ -236,8 +235,6 @@ export function WithAnalyticsExample() {
 // ============================================================================
 // Example 9: With Scroll Animation
 // ============================================================================
-
-import { useState, useEffect, useRef } from 'react';
 
 export function WithScrollAnimationExample() {
   const [isVisible, setIsVisible] = useState(false);

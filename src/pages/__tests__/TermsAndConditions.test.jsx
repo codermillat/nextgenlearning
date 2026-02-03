@@ -232,7 +232,7 @@ describe('TermsAndConditions Page Rendering', () => {
     });
 
     it('should render structured data schemas', () => {
-      const { container } = renderTermsAndConditions();
+      renderTermsAndConditions();
       
       // Check for structured data script tags
       const scripts = document.querySelectorAll('script[type="application/ld+json"]');

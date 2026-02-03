@@ -559,3 +559,399 @@ describe('StructuredData - Unit Tests', () => {
     });
   });
 });
+
+  describe('Schema Generation Edge Cases - SEO Overhaul Enhancements', () => {
+    describe('Course Schema Edge Cases', () => {
+      it('should handle missing optional fields in Course schema', () => {
+        const course = {
+          name: 'Test Course',
+          id: 'test',
+          duration: 4,
+          annualFees: []
+        };
+        
+        const university = {
+          name: 'Test University',
+          location: 'Test City'
+        };
+        
+        const schema = generateCourseSchema(course, university, '/test');
+        
+        // Should still generate valid schema
+        expect(schema['@context']).toBe('https://schema.org');
+        expect(schema['@type']).toBe('Course');
+        expect(schema.offers).toBeDefined();
+        expect(schema.offers.price).toBe(0);
+        expect(schema.aggregateRating).toBeDefined();
+      });
+
+      it('should handle invalid data types in Course schema', () => {
+        const course = {
+          name: 'Test Course',
+          id: 'test',
+          duration: 'four', // Invalid type
+          annualFees: ['not a number'], // Invalid type
+          rating: 'five' // Invalid type
+        };
+        
+        const university = {
+          name: 'Test University',
+          location: 'Test City'
+        };
+        
+        const schema = generateCourseSchema(course, university, '/test');
+        
+        // Should still generate schema without crashing
+        expect(schema['@context']).toBe('https://schema.org');
+        expect(schema['@type']).toBe('Course');
+      });
+
+      it('should handle Course with zero fees', () => {
+        const course = {
+          name: 'Free Course',
+          id: 'free',
+          duration: 1,
+          annualFees: [0, 0, 0, 0]
+        };
+        
+        const university = {
+          name: 'Test University',
+          location: 'Test City'
+        };
+        
+        const schema = generateCourseSchema(course, university, '/test');
+        
+        expect(schema.offers.price).toBe(0);
+        expect(schema.offers.priceCurrency).toBe('INR');
+      });
+
+      it('should handle Course with very high fees', () => {
+        const course = {
+          name: 'Premium Course',
+          id: 'premium',
+          duration: 4,
+          annualFees: [10000000, 10000000, 10000000, 10000000]
+        };
+        
+        const university = {
+          name: 'Test University',
+          location: 'Test City'
+        };
+        
+        const schema = generateCourseSchema(course, university, '/test');
+        
+        expect(schema.offers.price).toBe(10000000);
+        expect(typeof schema.offers.price).toBe('number');
+      });
+
+      it('should validate Course schema against schema.org specs', () => {
+        const course = {
+          name: 'B.Tech CS',
+          id: 'btech-cs',
+          duration: 4,
+          annualFees: [200000]
+        };
+        
+        const university = {
+          name: 'Test University',
+          location: 'Test City'
+        };
+        
+        const schema = generateCourseSchema(course, university, '/test');
+        const validation = validateSchema(schema);
+        
+        expect(validation.isValid).toBe(true);
+        expect(validation.errors).toHaveLength(0);
+      });
+    });
+
+    describe('University Schema Edge Cases', () => {
+      it('should handle missing optional fields in University schema', () => {
+        const university = {
+          name: 'Test University',
+          location: 'Test City'
+        };
+        
+        const schema = generateOrganizationSchema(university, '/test');
+        
+        // Should still generate valid schema
+        expect(schema['@context']).toBe('https://schema.org');
+        expect(schema['@type']).toBe('EducationalOrganization');
+        expect(schema.numberOfStudents).toBeUndefined();
+        expect(schema.aggregateRating).toBeUndefined();
+      });
+
+      it('should handle invalid data types in University schema', () => {
+        const university = {
+          name: 'Test University',
+          location: 'Test City',
+          numberOfStudents: 'many', // Invalid type
+          rating: 'high', // Invalid type
+          reviewCount: 'lots' // Invalid type
+        };
+        
+        const schema = generateOrganizationSchema(university, '/test');
+        
+        // Should still generate schema without crashing
+        expect(schema['@context']).toBe('https://schema.org');
+        expect(schema['@type']).toBe('EducationalOrganization');
+      });
+
+      it('should handle University with zero students', () => {
+        const university = {
+          name: 'New University',
+          location: 'Test City',
+          numberOfStudents: 0
+        };
+        
+        const schema = generateOrganizationSchema(university, '/test');
+        
+        // Zero is falsy, so it should be undefined
+        expect(schema.numberOfStudents).toBeUndefined();
+      });
+
+      it('should handle University with very large student count', () => {
+        const university = {
+          name: 'Large University',
+          location: 'Test City',
+          numberOfStudents: 1000000
+        };
+        
+        const schema = generateOrganizationSchema(university, '/test');
+        
+        expect(schema.numberOfStudents).toBe(1000000);
+        expect(typeof schema.numberOfStudents).toBe('number');
+      });
+
+      it('should validate University schema against schema.org specs', () => {
+        const university = {
+          name: 'Test University',
+          location: 'Test City',
+          website: 'https://test.edu',
+          numberOfStudents: 5000,
+          rating: 4.5,
+          reviewCount: 100
+        };
+        
+        const schema = generateOrganizationSchema(university, '/test');
+        const validation = validateSchema(schema);
+        
+        expect(validation.isValid).toBe(true);
+        expect(validation.errors).toHaveLength(0);
+      });
+    });
+
+    describe('Organization Schema Edge Cases', () => {
+      it('should always include aggregateRating in SiteOrganization schema', () => {
+        const schema = generateSiteOrganizationSchema();
+        
+        expect(schema.aggregateRating).toBeDefined();
+        expect(schema.aggregateRating['@type']).toBe('AggregateRating');
+        expect(schema.aggregateRating.ratingValue).toBeDefined();
+        expect(schema.aggregateRating.reviewCount).toBeDefined();
+      });
+
+      it('should validate SiteOrganization schema against schema.org specs', () => {
+        const schema = generateSiteOrganizationSchema();
+        const validation = validateSchema(schema);
+        
+        expect(validation.isValid).toBe(true);
+        expect(validation.errors).toHaveLength(0);
+      });
+
+      it('should have consistent aggregateRating values', () => {
+        const schema1 = generateSiteOrganizationSchema();
+        const schema2 = generateSiteOrganizationSchema();
+        
+        expect(schema1.aggregateRating.ratingValue).toBe(schema2.aggregateRating.ratingValue);
+        expect(schema1.aggregateRating.reviewCount).toBe(schema2.aggregateRating.reviewCount);
+      });
+    });
+
+    describe('Schema Validation Edge Cases', () => {
+      it('should handle schema with circular references', () => {
+        const circularSchema = {
+          '@context': 'https://schema.org',
+          '@type': 'Course',
+          name: 'Test'
+        };
+        circularSchema.self = circularSchema; // Create circular reference
+        
+        const validation = validateSchema(circularSchema);
+        
+        expect(validation.isValid).toBe(false);
+        expect(validation.errors).toContain('Schema contains circular references');
+      });
+
+      it('should handle schema with nested objects', () => {
+        const nestedSchema = {
+          '@context': 'https://schema.org',
+          '@type': 'Course',
+          name: 'Test Course',
+          description: 'Test',
+          provider: {
+            '@type': 'Organization',
+            name: 'Test University',
+            address: {
+              '@type': 'PostalAddress',
+              addressCountry: 'IN'
+            }
+          }
+        };
+        
+        const validation = validateSchema(nestedSchema);
+        
+        expect(validation.isValid).toBe(true);
+        expect(validation.errors).toHaveLength(0);
+      });
+
+      it('should handle schema with arrays', () => {
+        const arraySchema = {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: 'Q1?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'A1'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'Q2?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'A2'
+              }
+            }
+          ]
+        };
+        
+        const validation = validateSchema(arraySchema);
+        
+        expect(validation.isValid).toBe(true);
+        expect(validation.errors).toHaveLength(0);
+      });
+
+      it('should handle schema with special characters', () => {
+        const specialCharSchema = {
+          '@context': 'https://schema.org',
+          '@type': 'Course',
+          name: 'Course with "quotes" and \'apostrophes\'',
+          description: 'Test & Development <html>',
+          provider: {
+            '@type': 'Organization',
+            name: 'Test'
+          }
+        };
+        
+        const validation = validateSchema(specialCharSchema);
+        
+        expect(validation.isValid).toBe(true);
+        expect(validation.errors).toHaveLength(0);
+      });
+
+      it('should handle schema with unicode characters', () => {
+        const unicodeSchema = {
+          '@context': 'https://schema.org',
+          '@type': 'Course',
+          name: 'Course with émojis 🎓 and ünïcödé',
+          description: 'Test',
+          provider: {
+            '@type': 'Organization',
+            name: 'Test'
+          }
+        };
+        
+        const validation = validateSchema(unicodeSchema);
+        
+        expect(validation.isValid).toBe(true);
+        expect(validation.errors).toHaveLength(0);
+      });
+
+      it('should handle schema with empty strings', () => {
+        const emptyStringSchema = {
+          '@context': 'https://schema.org',
+          '@type': 'Course',
+          name: '',
+          description: '',
+          provider: {
+            '@type': 'Organization',
+            name: ''
+          }
+        };
+        
+        const validation = validateSchema(emptyStringSchema);
+        
+        // Should still validate structure even with empty strings
+        expect(validation.isValid).toBe(true);
+      });
+
+      it('should handle schema with null values in optional fields', () => {
+        const nullValueSchema = {
+          '@context': 'https://schema.org',
+          '@type': 'Course',
+          name: 'Test',
+          description: 'Test',
+          provider: {
+            '@type': 'Organization',
+            name: 'Test'
+          },
+          rating: null,
+          reviewCount: null
+        };
+        
+        const validation = validateSchema(nullValueSchema);
+        
+        expect(validation.isValid).toBe(true);
+      });
+
+      it('should handle schema with very long strings', () => {
+        const longString = 'A'.repeat(10000);
+        const longStringSchema = {
+          '@context': 'https://schema.org',
+          '@type': 'Course',
+          name: 'Test',
+          description: longString,
+          provider: {
+            '@type': 'Organization',
+            name: 'Test'
+          }
+        };
+        
+        const validation = validateSchema(longStringSchema);
+        
+        expect(validation.isValid).toBe(true);
+        expect(validation.errors).toHaveLength(0);
+      });
+
+      it('should handle schema with deeply nested objects', () => {
+        const deeplyNestedSchema = {
+          '@context': 'https://schema.org',
+          '@type': 'Course',
+          name: 'Test',
+          description: 'Test',
+          provider: {
+            '@type': 'Organization',
+            name: 'Test',
+            address: {
+              '@type': 'PostalAddress',
+              addressCountry: 'IN',
+              addressRegion: {
+                name: 'State',
+                containedIn: {
+                  name: 'Country'
+                }
+              }
+            }
+          }
+        };
+        
+        const validation = validateSchema(deeplyNestedSchema);
+        
+        expect(validation.isValid).toBe(true);
+      });
+    });
+  });

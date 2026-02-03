@@ -77,7 +77,7 @@ function loadAllUniversities() {
  * Arbitrary generator for search queries
  * Generates realistic search terms that might match programs
  */
-const searchQueryArbitrary = () => fc.oneof(
+const _searchQueryArbitrary = () => fc.oneof(
   // Degree types
   fc.constantFrom('B.Tech', 'BBA', 'MBA', 'BCA', 'MCA', 'B.Com', 'M.Tech', 'B.Sc', 'M.Sc'),
   // Fields

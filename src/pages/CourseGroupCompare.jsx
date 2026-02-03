@@ -9,6 +9,7 @@ import { getCourseGroupInfo, getProgramsForGroup } from '../utils/courseGrouping
 import { rankProgramsByValue, calculateTotalFees } from '../utils/rankings';
 import { generateBreadcrumbSchema } from '../components/SEO/StructuredData';
 import { redirectToWhatsApp, generateApplicationMessage } from '../utils/whatsappRedirect';
+import { getTopUniversities } from '../utils/linkingStrategy';
 
 export default function CourseGroupCompare() {
   const { groupId } = useParams();
@@ -392,6 +393,34 @@ export default function CourseGroupCompare() {
 
         {/* FAQ Section */}
         <FAQSection faqs={faqs} title={`Frequently Asked Questions about ${groupInfo.name}`} />
+
+        {/* Top Universities - Strategic Internal Linking */}
+        <section className="mb-12" data-testid="top-universities-section">
+          <h2 className="text-2xl font-bold mb-6">Explore Top Universities</h2>
+          <p className="text-gray-600 mb-6">
+            Discover more programs and information about India's leading universities offering {groupInfo.name}.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            {getTopUniversities(4, universities).map((university, index) => (
+              <Link
+                key={index}
+                to={university.url}
+                className="bg-white p-5 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 group hover:border-blue-300"
+              >
+                <div className="text-3xl mb-3" aria-hidden="true">🎓</div>
+                <h3 className="font-semibold text-lg mb-2 group-hover:text-blue-600 transition-colors">
+                  {university.title}
+                </h3>
+                <p className="text-sm text-gray-600 mb-3">
+                  {university.anchorText.split(' - ')[1] || 'Quality Education'}
+                </p>
+                <div className="flex items-center text-blue-600 text-sm font-semibold group-hover:underline">
+                  View University →
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
 
         {/* CTA Section */}
         <section className="bg-blue-50 p-8 rounded-lg text-center">

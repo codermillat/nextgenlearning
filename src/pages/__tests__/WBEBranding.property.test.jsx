@@ -36,11 +36,11 @@ import ProgramCategories from '../ProgramCategories.jsx';
 /**
  * Helper function to render a page component with Router and Data context
  */
-function renderPage(PageComponent) {
+function renderPage(_PageComponent) {
   return render(
     <BrowserRouter>
       <DataProvider>
-        <PageComponent />
+        <_PageComponent />
       </DataProvider>
     </BrowserRouter>
   );
@@ -247,7 +247,7 @@ describe('WBE Branding Absence - Property Tests', () => {
         fc.property(
           fc.constantFrom(...pageComponents),
           (pageInfo) => {
-            const { container } = renderPage(pageInfo.component);
+            renderPage(pageInfo.component);
             
             // Check meta tags in the document head
             const metaTags = document.querySelectorAll('meta');
@@ -255,7 +255,7 @@ describe('WBE Branding Absence - Property Tests', () => {
             
             metaTags.forEach(meta => {
               const content = (meta.getAttribute('content') || '').toLowerCase();
-              const name = (meta.getAttribute('name') || '').toLowerCase();
+              const _name = (meta.getAttribute('name') || '').toLowerCase();
               
               // Should not contain WBE in meta content
               expect(content).not.toContain('wbe');
