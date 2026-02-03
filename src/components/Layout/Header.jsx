@@ -9,8 +9,8 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo */}
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className="flex items-center min-w-0 flex-shrink-0 group"
             aria-label="NextGen Learning - Home"
           >
@@ -29,44 +29,50 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1" aria-label="Main navigation">
-            <Link 
-              to="/courses" 
+            <Link
+              to="/courses"
               className="px-3 xl:px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium text-sm xl:text-base whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               Courses
             </Link>
-            <Link 
-              to="/universities" 
+            <Link
+              to="/universities"
               className="px-3 xl:px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium text-sm xl:text-base whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               Universities
             </Link>
-            <Link 
-              to="/scholarships" 
+            <Link
+              to="/scholarships"
               className="px-3 xl:px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium text-sm xl:text-base whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               Scholarships
             </Link>
-            <Link 
-              to="/guides" 
+            <Link
+              to="/guides"
               className="px-3 xl:px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium text-sm xl:text-base whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               Guides
             </Link>
-            <Link 
-              to="/for-bangladeshi-students" 
+            <Link
+              to="/for-bangladeshi-students"
               className="px-3 xl:px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium text-sm xl:text-base whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               For Bangladesh
             </Link>
-            <Link 
-              to="/compare" 
+            <Link
+              to="/compare"
               className="px-3 xl:px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium text-sm xl:text-base whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               Compare
             </Link>
-            <Link 
-              to="/apply" 
+            <Link
+              to="/faq"
+              className="px-3 xl:px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium text-sm xl:text-base whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            >
+              FAQ
+            </Link>
+            <Link
+              to="/apply"
               className="ml-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 xl:px-5 py-2 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 font-semibold shadow-md hover:shadow-lg transform hover:scale-105 text-sm xl:text-base whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600"
             >
               Apply Now

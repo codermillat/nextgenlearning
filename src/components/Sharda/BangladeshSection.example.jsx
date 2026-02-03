@@ -29,7 +29,7 @@ export function BasicExample() {
 export function CustomStyledExample() {
   return (
     <div className="min-h-screen">
-      <BangladeshSection 
+      <BangladeshSection
         bangladeshContent={bangladeshContent}
         className="shadow-2xl border-t-4 border-green-600"
       />
@@ -241,6 +241,7 @@ export function WithScrollAnimationExample() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    const currentRef = sectionRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -250,13 +251,13 @@ export function WithScrollAnimationExample() {
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -265,9 +266,8 @@ export function WithScrollAnimationExample() {
     <div className="min-h-screen bg-gray-50">
       <div
         ref={sectionRef}
-        className={`transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
+        className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
       >
         <BangladeshSection bangladeshContent={bangladeshContent} />
       </div>
@@ -287,7 +287,7 @@ export function CustomWhatsAppExample() {
   return (
     <div className="min-h-screen bg-gray-50">
       <BangladeshSection bangladeshContent={bangladeshContent} />
-      
+
       {/* Additional context or information */}
       <section className="py-8 bg-blue-50">
         <div className="container mx-auto px-4 text-center">
