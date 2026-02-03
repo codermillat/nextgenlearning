@@ -99,7 +99,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <nav id="mobile-navigation" className="lg:hidden py-4 space-y-2 border-t border-gray-200 mt-2 animate-fade-in" aria-label="Main navigation">
+          <nav id="mobile-navigation" className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-40 py-4 space-y-2" aria-label="Main navigation">
             <Link
               to="/courses"
               className="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-all duration-200 min-h-[44px] flex items-center font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"

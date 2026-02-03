@@ -37,10 +37,10 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className={`hero bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 text-white ${spacing.section} px-4 relative overflow-hidden`}>
+      <section className="hero bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 text-white px-4 relative overflow-hidden min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] flex items-center">
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-        <div className="max-w-5xl mx-auto text-center relative z-10">
+        <div className="max-w-5xl mx-auto text-center relative z-10 w-full">
           <div className="mb-6 animate-fade-in">
             <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-6 border border-white/30">
               🎓 Your Gateway to Tech Education
@@ -80,7 +80,7 @@ export default function Home() {
           </div>
           <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ${spacing.gapLarge}`}>
             <Card variant="feature" hoverTextColor="group-hover:text-blue-600">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform will-change-transform" style={{ transformOrigin: 'center' }}>
                 💻
               </div>
               <h3 className={`${typography.cardTitle} mb-3 text-gray-900 group-hover:text-blue-600 transition-colors`}>Compare Tech Courses</h3>
@@ -89,7 +89,7 @@ export default function Home() {
               </p>
             </Card>
             <Card variant="feature" hoverTextColor="group-hover:text-green-600">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform will-change-transform" style={{ transformOrigin: 'center' }}>
                 💰
               </div>
               <h3 className={`${typography.cardTitle} mb-3 text-gray-900 group-hover:text-green-600 transition-colors`}>Fee Calculator</h3>
@@ -98,7 +98,7 @@ export default function Home() {
               </p>
             </Card>
             <Card variant="feature" hoverTextColor="group-hover:text-orange-600">
-              <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">
+              <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform will-change-transform" style={{ transformOrigin: 'center' }}>
                 🏆
               </div>
               <h3 className={`${typography.cardTitle} mb-3 text-gray-900 group-hover:text-orange-600 transition-colors`}>University Rankings</h3>

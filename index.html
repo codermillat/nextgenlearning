@@ -4,28 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B1MLPB5SJB"></script>
+    <!-- Google tag (gtag.js) - Delayed loading for better performance -->
     <script>
+      // Delay Google Analytics until page is interactive
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-B1MLPB5SJB', {
-        'send_page_view': true,
-        'anonymize_ip': false,
-        'cookie_flags': 'SameSite=None;Secure'
-      });
       
-      // Track all page views
-      gtag('event', 'page_view', {
-        'page_title': document.title,
-        'page_location': window.location.href,
-        'page_path': window.location.pathname
+      // Load GA after page becomes interactive
+      function loadGoogleAnalytics() {
+        const script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-B1MLPB5SJB';
+        script.async = true;
+        document.head.appendChild(script);
+        
+        script.onload = function() {
+          gtag('js', new Date());
+          gtag('config', 'G-B1MLPB5SJB', {
+            'send_page_view': true,
+            'anonymize_ip': false,
+            'cookie_flags': 'SameSite=None;Secure'
+          });
+          
+          // Track page view
+          gtag('event', 'page_view', {
+            'page_title': document.title,
+            'page_location': window.location.href,
+            'page_path': window.location.pathname
+          });
+        };
+      }
+      
+      // Delay GA loading until after page is interactive
+      if (document.readyState === 'complete') {
+        setTimeout(loadGoogleAnalytics, 3000);
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(loadGoogleAnalytics, 3000);
+        });
+      }
+      
+      // Or load on first user interaction
+      ['mousedown', 'touchstart', 'keydown', 'scroll'].forEach(function(event) {
+        window.addEventListener(event, function() {
+          if (!window.gaLoaded) {
+            window.gaLoaded = true;
+            loadGoogleAnalytics();
+          }
+        }, { once: true, passive: true });
       });
     </script>
     
-    <!-- DOMPurify for HTML sanitization -->
-    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js" crossorigin="anonymous"></script>
+    <!-- DOMPurify for HTML sanitization - Deferred to prevent render blocking -->
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js" crossorigin="anonymous" defer></script>
     
     <!-- Facebook Pixel - Add when you have Pixel ID -->
     <!-- 
@@ -50,6 +80,13 @@
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    
+    <!-- Preload critical fonts for CLS optimization -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+    
+    <!-- Preload LCP image/element -->
+    <link rel="preload" as="image" href="/hero-bg.webp" fetchpriority="high" />
     
     <!-- Favicon and App Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -157,6 +194,135 @@
     <meta name="twitter:description" content="Your gateway to tech and IT education. Compare computer science, data science, AI/ML, cybersecurity, cloud computing, and more tech courses." />
     
     <title>NextGen Learning - Tech & IT Courses | Computer Science, AI/ML, Data Science</title>
+    
+    <!-- Critical CSS - Inline for faster first paint -->
+    <style>
+      /* Critical above-the-fold styles */
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      
+      body {
+        font-family: 'Inter Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      /* Hero section - Reserve space to prevent CLS */
+      .hero {
+        min-height: 500px;
+        background: linear-gradient(135deg, #2563eb 0%, #4f46e5 50%, #7c3aed 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      @media (min-width: 640px) {
+        .hero { min-height: 600px; }
+      }
+      
+      @media (min-width: 1024px) {
+        .hero { min-height: 700px; }
+      }
+      
+      /* Header - Fixed height to prevent CLS */
+      header {
+        height: 64px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+      
+      @media (min-width: 640px) {
+        header { height: 80px; }
+      }
+      
+      /* Loading skeleton - Prevents CLS during initial load */
+      .skeleton {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s ease-in-out infinite;
+      }
+      
+      @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+      
+      /* Prevent layout shift from images */
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      
+      /* Accessibility - High contrast links */
+      a {
+        color: #2563eb;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 2px;
+      }
+      
+      a:hover {
+        color: #1d4ed8;
+        text-decoration-thickness: 2px;
+      }
+      
+      a:focus-visible {
+        outline: 2px solid #2563eb;
+        outline-offset: 2px;
+        border-radius: 2px;
+      }
+      
+      /* Button links - No underline but clear visual distinction */
+      .btn, button {
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        display: inline-block;
+        transition: all 0.2s;
+      }
+      
+      .btn-primary {
+        background: #2563eb;
+        color: white;
+        border: 2px solid #2563eb;
+      }
+      
+      .btn-primary:hover {
+        background: #1d4ed8;
+        border-color: #1d4ed8;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+      }
+      
+      /* Ensure sufficient contrast */
+      .text-gray-600 { color: #4b5563; } /* 7:1 contrast ratio */
+      .text-gray-700 { color: #374151; } /* 10:1 contrast ratio */
+      .text-gray-800 { color: #1f2937; } /* 14:1 contrast ratio */
+      
+      /* Skip to main content link */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: #2563eb;
+        color: white;
+        padding: 8px 16px;
+        text-decoration: none;
+        z-index: 100;
+      }
+      
+      .skip-link:focus {
+        top: 0;
+      }
+    </style>
   </head>
   <body>
     <!-- Initial content for SEO crawlers - visible before React loads -->

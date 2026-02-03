@@ -4,6 +4,14 @@ import './index.css'
 import './styles/article.css'
 import App from './App.jsx'
 import { DataProvider } from './context/DataContext.jsx'
+import { measureCLS, reportCLS } from './utils/clsMeasurement'
+
+// Initialize CLS monitoring in production
+if (import.meta.env.PROD) {
+  measureCLS((clsScore) => {
+    reportCLS(clsScore, window.location.pathname);
+  });
+}
 
 // Register service worker for offline capability
 if ('serviceWorker' in navigator && import.meta.env.PROD) {

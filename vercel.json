@@ -1,145 +1,8 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "framework": "vite",
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.studyinindiabd.vercel.app"
-        }
-      ],
-      "destination": "https://studyinindiabd.vercel.app/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/categories/:path*",
-      "destination": "/program-categories",
-      "permanent": true
-    },
-    {
-      "source": "/tags/:path*",
-      "destination": "/guides",
-      "permanent": true
-    },
-    {
-      "source": "/tags/:path*/",
-      "destination": "/guides",
-      "permanent": true
-    },
-    {
-      "source": "/posts/:path*",
-      "destination": "/guides",
-      "permanent": true
-    },
-    {
-      "source": "/linear-algebra-for-ml",
-      "destination": "/guides",
-      "permanent": true
-    },
-    {
-      "source": "/linear-algebra-for-ml/",
-      "destination": "/guides",
-      "permanent": true
-    },
-    {
-      "source": "/lora-vs-full-fine-tuning",
-      "destination": "/guides",
-      "permanent": true
-    },
-    {
-      "source": "/lora-vs-full-fine-tuning/",
-      "destination": "/guides",
-      "permanent": true
-    },
-    {
-      "source": "/lora-fine-tuning-explained",
-      "destination": "/guides",
-      "permanent": true
-    },
-    {
-      "source": "/lora-fine-tuning-explained/",
-      "destination": "/guides",
-      "permanent": true
-    },
-    {
-      "source": "/privacy-policy/",
-      "destination": "/privacy-policy",
-      "permanent": true
-    },
-    {
-      "source": "/terms-and-conditions/",
-      "destination": "/terms-and-conditions",
-      "permanent": true
-    },
-    {
-      "source": "/2025/:path*",
-      "destination": "/guides",
-      "permanent": true
-    },
-    {
-      "source": "/2024/:path*",
-      "destination": "/guides",
-      "permanent": true
-    },
-    {
-      "source": "/search/:path*",
-      "destination": "/courses",
-      "permanent": true
-    },
-    {
-      "source": "/search",
-      "destination": "/courses",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "query",
-          "key": "m"
-        }
-      ],
-      "destination": "/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/2025/09/:path*",
-      "destination": "/guides",
-      "permanent": true
-    },
-    {
-      "source": "/2025/09/:path*",
-      "has": [
-        {
-          "type": "query",
-          "key": "m"
-        }
-      ],
-      "destination": "/guides",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, s-maxage=86400"
-        },
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
@@ -161,52 +24,42 @@
           "value": "camera=(), microphone=(), geolocation=()"
         },
         {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cross-Origin-Embedder-Policy",
+          "value": "require-corp"
+        },
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "same-origin"
+        },
+        {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://cdn.jsdelivr.net https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://vitals.vercel-insights.com; frame-src 'self' https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"
         }
       ]
     },
     {
-      "source": "/sitemap.xml",
+      "source": "/sw.js",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=3600, s-maxage=3600"
+          "value": "public, max-age=0, must-revalidate"
         },
         {
-          "key": "Content-Type",
-          "value": "application/xml; charset=utf-8"
-        },
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
+          "key": "Service-Worker-Allowed",
+          "value": "/"
         }
       ]
     },
     {
-      "source": "/robots.txt",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=86400"
-        },
-        {
-          "key": "Content-Type",
-          "value": "text/plain; charset=utf-8"
-        }
-      ]
-    },
-    {
-      "source": "/index.xml",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        }
-      ]
-    },
-    {
-      "source": "/assets/(.*)",
+      "source": "/(.*).js",
       "headers": [
         {
           "key": "Cache-Control",
@@ -215,112 +68,37 @@
       ]
     },
     {
-      "source": "/",
+      "source": "/(.*).css",
       "headers": [
         {
-          "key": "Link",
-          "value": "<https://www.nextgenlearning.dev/>; rel=\"canonical\""
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     },
     {
-      "source": "/courses",
+      "source": "/(.*).woff2",
       "headers": [
         {
-          "key": "Link",
-          "value": "<https://www.nextgenlearning.dev/courses>; rel=\"canonical\""
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     },
     {
-      "source": "/universities",
+      "source": "/(.*).webp",
       "headers": [
         {
-          "key": "Link",
-          "value": "<https://www.nextgenlearning.dev/universities>; rel=\"canonical\""
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
-    },
+    }
+  ],
+  "rewrites": [
     {
-      "source": "/compare",
-      "headers": [
-        {
-          "key": "Link",
-          "value": "<https://www.nextgenlearning.dev/compare>; rel=\"canonical\""
-        }
-      ]
-    },
-    {
-      "source": "/apply",
-      "headers": [
-        {
-          "key": "Link",
-          "value": "<https://www.nextgenlearning.dev/apply>; rel=\"canonical\""
-        }
-      ]
-    },
-    {
-      "source": "/about",
-      "headers": [
-        {
-          "key": "Link",
-          "value": "<https://www.nextgenlearning.dev/about>; rel=\"canonical\""
-        }
-      ]
-    },
-    {
-      "source": "/contact",
-      "headers": [
-        {
-          "key": "Link",
-          "value": "<https://www.nextgenlearning.dev/contact>; rel=\"canonical\""
-        }
-      ]
-    },
-    {
-      "source": "/scholarships",
-      "headers": [
-        {
-          "key": "Link",
-          "value": "<https://www.nextgenlearning.dev/scholarships>; rel=\"canonical\""
-        }
-      ]
-    },
-    {
-      "source": "/guides",
-      "headers": [
-        {
-          "key": "Link",
-          "value": "<https://www.nextgenlearning.dev/guides>; rel=\"canonical\""
-        }
-      ]
-    },
-    {
-      "source": "/faq",
-      "headers": [
-        {
-          "key": "Link",
-          "value": "<https://www.nextgenlearning.dev/faq>; rel=\"canonical\""
-        }
-      ]
-    },
-    {
-      "source": "/privacy-policy",
-      "headers": [
-        {
-          "key": "Link",
-          "value": "<https://www.nextgenlearning.dev/privacy-policy>; rel=\"canonical\""
-        }
-      ]
-    },
-    {
-      "source": "/terms-and-conditions",
-      "headers": [
-        {
-          "key": "Link",
-          "value": "<https://www.nextgenlearning.dev/terms-and-conditions>; rel=\"canonical\""
-        }
-      ]
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }

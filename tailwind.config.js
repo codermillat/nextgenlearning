@@ -40,6 +40,10 @@ export default {
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
       },
+      willChange: {
+        'transform-opacity': 'transform, opacity',
+        'opacity': 'opacity',
+      },
     },
   },
   plugins: [],

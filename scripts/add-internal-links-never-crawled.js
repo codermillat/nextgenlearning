@@ -1,288 +1,183 @@
-/**
- * Script to add internal links to never-crawled pages
- * Feature: seo-overhaul
- * Task: 14 - Verify page reachability for indexing
- * 
- * This script identifies pages that have never been crawled by Google
- * and adds internal links to them from high-authority pages.
- * 
- * Requirements: 5.6
- */
-
-import { _readFileSync, writeFileSync } from 'fs';
-import { join } from 'path';
-
-// Pages that have never been crawled (from GSC data)
-const neverCrawledPages = [
-  '/courses/compare/bsc-computer-science',
-  '/courses/compare/btech-blockchain',
-  '/courses/compare/btech-iot',
-  '/universities/chandigarh-university/courses/be-cse-artificial-intelligence-machine-learning-with-ibm',
-  '/universities/galgotias-university/courses/bca-in-industry-oriented-specialization-artificial-intelligence-and-machine-learning',
-  '/universities/sharda-university/courses/ba-honsresearch-journalism-mass-communication',
-  '/universities/sharda-university/courses/ba-llb-hons-integrated',
-  '/universities/sharda-university/courses/bba-finance-accounting-with-acca-uk',
-  '/universities/sharda-university/courses/bca-cloud-computing-and-iot',
-  '/universities/sharda-university/courses/bsc-honsresearch-animation-vfx-and-gaming-design-specialisation-in-animation-vfxspecialisation-in-gaming-design',
-  '/universities/sharda-university/courses/bsc-honsresearch-environmental-science',
-  '/universities/sharda-university/courses/bsc-honsresearch-zoology',
-  '/universities/sharda-university/courses/btech-biotechnology-stem-cell-tissue-engg',
-  '/universities/sharda-university/courses/btech-lateral-entry-biotechnology-stem-cell-tissue-engg',
-  '/universities/sharda-university/courses/btech-lateral-entry-cse-ai-for-iot-applications-in-association-with-aeris',
-  '/universities/sharda-university/courses/btech-lateral-entry-cse-block-chain-technology',
-  '/universities/sharda-university/courses/msc-clinical-research',
-  '/universities/sharda-university/courses/msc-medical-anatomymedical-bio-chemistrymedical-microbiologymedical-pharmacologymedical-physiology',
-  '/universities/sharda-university/courses/mtech-electronics-communication-engg-digital-communicationvlsi-technology'
-];
-
-// High-authority pages to add links from
-const _highAuthorityPages = [
-  {
-    path: 'src/pages/Home.jsx',
-    type: 'homepage',
-    authority: 'highest'
-  },
-  {
-    path: 'src/pages/Courses.jsx',
-    type: 'courses-listing',
-    authority: 'high'
-  },
-  {
-    path: 'src/pages/Universities.jsx',
-    type: 'universities-listing',
-    authority: 'high'
-  },
-  {
-    path: 'src/pages/Compare.jsx',
-    type: 'compare-page',
-    authority: 'high'
-  },
-  {
-    path: 'src/pages/UniversityDetail.jsx',
-    type: 'university-detail',
-    authority: 'medium'
-  }
-];
+#!/usr/bin/env node
 
 /**
- * Categorize never-crawled pages by type
+ * Add Internal Links to Never-Crawled Pages
+ * Improves discoverability of pending URLs
  */
-function categorizePages() {
-  const categories = {
-    courseComparisons: [],
-    shardaCourses: [],
-    chandigarhCourses: [],
-    galgotiasCourses: []
-  };
 
-  neverCrawledPages.forEach(page => {
-    if (page.startsWith('/courses/compare/')) {
-      categories.courseComparisons.push(page);
-    } else if (page.includes('/sharda-university/courses/')) {
-      categories.shardaCourses.push(page);
-    } else if (page.includes('/chandigarh-university/courses/')) {
-      categories.chandigarhCourses.push(page);
-    } else if (page.includes('/galgotias-university/courses/')) {
-      categories.galgotiasCourses.push(page);
-    }
-  });
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-  return categories;
-}
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const rootDir = path.join(__dirname, '..');
 
-/**
- * Generate link recommendations
- */
-function generateLinkRecommendations() {
-  const categories = categorizePages();
-  const recommendations = [];
+console.log('\n🔗 Adding Internal Links to Improve Crawlability\n');
+console.log('='.repeat(70));
 
-  // Course comparison pages should be linked from Compare page
-  if (categories.courseComparisons.length > 0) {
-    recommendations.push({
-      targetPages: categories.courseComparisons,
-      linkFrom: 'src/pages/Compare.jsx',
-      section: 'Popular Course Comparisons',
-      priority: 'high',
-      implementation: 'Add these comparison pages to the "Popular Comparisons" section'
-    });
-  }
+// Read the discovered URLs (never crawled)
+const discoveredFile = path.join(rootDir, 'google search console/Discovered - currently not indexed.csv');
+const content = fs.readFileSync(discoveredFile, 'utf8');
+const lines = content.split('\n').slice(1);
 
-  // Sharda courses should be linked from Sharda university detail page
-  if (categories.shardaCourses.length > 0) {
-    recommendations.push({
-      targetPages: categories.shardaCourses,
-      linkFrom: 'src/pages/UniversityDetail.jsx (Sharda)',
-      section: 'Featured Programs or All Courses',
-      priority: 'high',
-      implementation: 'Add these courses to the university courses list or featured programs section'
-    });
-  }
+const neverCrawled = lines
+  .filter(line => line.trim())
+  .map(line => {
+    const [url] = line.split(',');
+    return url.trim();
+  })
+  .filter(url => url.includes('1970-01-01') || !url.includes('Last crawled'));
 
-  // Chandigarh courses should be linked from Chandigarh university detail page
-  if (categories.chandigarhCourses.length > 0) {
-    recommendations.push({
-      targetPages: categories.chandigarhCourses,
-      linkFrom: 'src/pages/UniversityDetail.jsx (Chandigarh)',
-      section: 'Featured Programs or All Courses',
-      priority: 'high',
-      implementation: 'Add these courses to the university courses list or featured programs section'
-    });
-  }
+console.log(`Found ${neverCrawled.length} never-crawled URLs\n`);
 
-  // Galgotias courses should be linked from Galgotias university detail page
-  if (categories.galgotiasCourses.length > 0) {
-    recommendations.push({
-      targetPages: categories.galgotiasCourses,
-      linkFrom: 'src/pages/UniversityDetail.jsx (Galgotias)',
-      section: 'Featured Programs or All Courses',
-      priority: 'high',
-      implementation: 'Add these courses to the university courses list or featured programs section'
-    });
-  }
+// Categorize URLs
+const comparisonUrls = neverCrawled.filter(url => url.includes('/courses/compare/'));
+const courseUrls = neverCrawled.filter(url => url.includes('/universities/') && url.includes('/courses/'));
 
-  return recommendations;
-}
+console.log(`📊 Breakdown:`);
+console.log(`   Course Comparison Pages: ${comparisonUrls.length}`);
+console.log(`   University Course Pages: ${courseUrls.length}\n`);
 
-/**
- * Generate report
- */
-function generateReport() {
-  const categories = categorizePages();
-  const recommendations = generateLinkRecommendations();
+// Generate React component for additional links
+const comparisonLinks = comparisonUrls.map(url => {
+  const slug = url.split('/courses/compare/')[1];
+  const name = slug
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+  return { slug, name, url };
+});
 
-  const report = {
-    summary: {
-      totalNeverCrawledPages: neverCrawledPages.length,
-      courseComparisons: categories.courseComparisons.length,
-      shardaCourses: categories.shardaCourses.length,
-      chandigarhCourses: categories.chandigarhCourses.length,
-      galgotiasCourses: categories.galgotiasCourses.length
-    },
-    categories,
-    recommendations,
-    nextSteps: [
-      '1. Review the recommendations below',
-      '2. Add internal links from high-authority pages to never-crawled pages',
-      '3. Ensure links use descriptive anchor text',
-      '4. Submit updated sitemap to Google Search Console',
-      '5. Request indexing for these pages in GSC'
-    ]
-  };
+console.log(`💡 Recommendations:\n`);
 
-  return report;
-}
+console.log(`1. Add these comparison links to Home.jsx:`);
+console.log(`   (Add to Tech Categories Section)\n`);
 
-/**
- * Main execution
- */
-function main() {
-  console.log('🔍 Analyzing never-crawled pages...\n');
+comparisonLinks.forEach(({ slug, name }) => {
+  console.log(`   <Card to="/courses/compare/${slug}">`);
+  console.log(`     <h3>${name}</h3>`);
+  console.log(`   </Card>\n`);
+});
 
-  const report = generateReport();
+console.log(`\n2. Add "Related Courses" component to CourseDetail.jsx:`);
+console.log(`   - Shows similar courses at same university`);
+console.log(`   - Shows same course at other universities`);
+console.log(`   - Links to course comparison pages\n`);
 
-  console.log('📊 SUMMARY');
-  console.log('─'.repeat(60));
-  console.log(`Total never-crawled pages: ${report.summary.totalNeverCrawledPages}`);
-  console.log(`  - Course comparisons: ${report.summary.courseComparisons}`);
-  console.log(`  - Sharda courses: ${report.summary.shardaCourses}`);
-  console.log(`  - Chandigarh courses: ${report.summary.chandigarhCourses}`);
-  console.log(`  - Galgotias courses: ${report.summary.galgotiasCourses}`);
-  console.log('');
+console.log(`3. Add course links to Universities page:`);
+console.log(`   - Add "Popular Courses" section to each university card`);
+console.log(`   - Link to top 5-10 courses per university\n`);
 
-  console.log('📋 RECOMMENDATIONS');
-  console.log('─'.repeat(60));
-  report.recommendations.forEach((rec, index) => {
-    console.log(`\n${index + 1}. Link from: ${rec.linkFrom}`);
-    console.log(`   Section: ${rec.section}`);
-    console.log(`   Priority: ${rec.priority.toUpperCase()}`);
-    console.log(`   Pages to link (${rec.targetPages.length}):`);
-    rec.targetPages.forEach(page => {
-      console.log(`     - ${page}`);
-    });
-    console.log(`   Implementation: ${rec.implementation}`);
-  });
+console.log(`4. Create comprehensive course navigation:`);
+console.log(`   - Add to main navigation or footer`);
+console.log(`   - Group courses by category`);
+console.log(`   - Link to all comparison pages\n`);
 
-  console.log('\n\n✅ NEXT STEPS');
-  console.log('─'.repeat(60));
-  report.nextSteps.forEach(step => {
-    console.log(step);
-  });
+// Generate component code
+const componentCode = `
+// Add to src/components/Course/RelatedCourses.jsx
 
-  // Save report to file
-  const reportPath = join(process.cwd(), 'NEVER-CRAWLED-PAGES-REPORT.md');
-  const reportContent = generateMarkdownReport(report);
-  writeFileSync(reportPath, reportContent, 'utf-8');
+import { Link } from 'react-router-dom';
+import { memo } from 'react';
 
-  console.log(`\n📄 Report saved to: ${reportPath}\n`);
-}
+const RelatedCourses = memo(function RelatedCourses({ 
+  currentCourse, 
+  university, 
+  category 
+}) {
+  // Get related courses from the same university
+  const sameUniversityCourses = [
+    // TODO: Fetch from data
+  ];
 
-/**
- * Generate markdown report
- */
-function generateMarkdownReport(report) {
-  let markdown = '# Never-Crawled Pages Report\n\n';
-  markdown += 'Generated: ' + new Date().toISOString() + '\n\n';
-  
-  markdown += '## Summary\n\n';
-  markdown += `- **Total never-crawled pages**: ${report.summary.totalNeverCrawledPages}\n`;
-  markdown += `- **Course comparisons**: ${report.summary.courseComparisons}\n`;
-  markdown += `- **Sharda courses**: ${report.summary.shardaCourses}\n`;
-  markdown += `- **Chandigarh courses**: ${report.summary.chandigarhCourses}\n`;
-  markdown += `- **Galgotias courses**: ${report.summary.galgotiasCourses}\n\n`;
+  // Get same course from other universities
+  const otherUniversities = [
+    // TODO: Fetch from data
+  ];
 
-  markdown += '## Categories\n\n';
-  
-  markdown += '### Course Comparison Pages\n\n';
-  report.categories.courseComparisons.forEach(page => {
-    markdown += `- ${page}\n`;
-  });
-  markdown += '\n';
+  return (
+    <section className="mt-12 bg-gray-50 p-6 rounded-xl">
+      <h2 className="text-2xl font-bold mb-6">Related Courses</h2>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Same University */}
+        <div>
+          <h3 className="text-lg font-semibold mb-4">
+            More courses at {university}
+          </h3>
+          <ul className="space-y-2">
+            {sameUniversityCourses.map(course => (
+              <li key={course.slug}>
+                <Link 
+                  to={\`/universities/\${university}/courses/\${course.slug}\`}
+                  className="text-blue-600 hover:underline"
+                >
+                  {course.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-  markdown += '### Sharda University Courses\n\n';
-  report.categories.shardaCourses.forEach(page => {
-    markdown += `- ${page}\n`;
-  });
-  markdown += '\n';
+        {/* Other Universities */}
+        <div>
+          <h3 className="text-lg font-semibold mb-4">
+            {currentCourse} at other universities
+          </h3>
+          <ul className="space-y-2">
+            {otherUniversities.map(uni => (
+              <li key={uni.slug}>
+                <Link 
+                  to={\`/universities/\${uni.slug}/courses/\${currentCourse}\`}
+                  className="text-blue-600 hover:underline"
+                >
+                  {uni.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
 
-  markdown += '### Chandigarh University Courses\n\n';
-  report.categories.chandigarhCourses.forEach(page => {
-    markdown += `- ${page}\n`;
-  });
-  markdown += '\n';
+      {/* Comparison Link */}
+      <div className="mt-6 pt-6 border-t border-gray-200">
+        <Link 
+          to={\`/courses/compare/\${category}\`}
+          className="inline-flex items-center text-blue-600 font-semibold hover:underline"
+        >
+          Compare all {category} programs →
+        </Link>
+      </div>
+    </section>
+  );
+});
 
-  markdown += '### Galgotias University Courses\n\n';
-  report.categories.galgotiasCourses.forEach(page => {
-    markdown += `- ${page}\n`;
-  });
-  markdown += '\n';
+export default RelatedCourses;
+`;
 
-  markdown += '## Recommendations\n\n';
-  report.recommendations.forEach((rec, index) => {
-    markdown += `### ${index + 1}. ${rec.linkFrom}\n\n`;
-    markdown += `**Section**: ${rec.section}\n\n`;
-    markdown += `**Priority**: ${rec.priority.toUpperCase()}\n\n`;
-    markdown += `**Pages to link** (${rec.targetPages.length}):\n\n`;
-    rec.targetPages.forEach(page => {
-      markdown += `- ${page}\n`;
-    });
-    markdown += `\n**Implementation**: ${rec.implementation}\n\n`;
-  });
+fs.writeFileSync(
+  path.join(rootDir, 'src/components/Course/RelatedCourses.jsx'),
+  componentCode
+);
 
-  markdown += '## Next Steps\n\n';
-  report.nextSteps.forEach((step, index) => {
-    markdown += `${index + 1}. ${step.replace(/^\d+\.\s*/, '')}\n`;
-  });
+console.log(`✅ Created src/components/Course/RelatedCourses.jsx\n`);
 
-  markdown += '\n## Implementation Notes\n\n';
-  markdown += '- All links should use descriptive anchor text\n';
-  markdown += '- Links should be naturally integrated into existing content\n';
-  markdown += '- After adding links, submit updated sitemap to Google Search Console\n';
-  markdown += '- Request indexing for these pages in GSC\n';
-  markdown += '- Monitor crawl status over the next 2-4 weeks\n';
+// Generate list of URLs to manually submit
+const priorityUrls = [...comparisonUrls, ...courseUrls.slice(0, 30)];
+fs.writeFileSync(
+  path.join(rootDir, 'never-crawled-urls.txt'),
+  priorityUrls.join('\n')
+);
 
-  return markdown;
-}
+console.log(`📝 Generated never-crawled-urls.txt`);
+console.log(`   (${priorityUrls.length} URLs for manual submission)\n`);
 
-// Run the script
-main();
+console.log('='.repeat(70));
+console.log(`\n✅ Internal linking improvements ready!`);
+console.log(`\nNext steps:`);
+console.log(`1. Review and integrate the RelatedCourses component`);
+console.log(`2. Add comparison links to Home.jsx`);
+console.log(`3. Add course links to Universities page`);
+console.log(`4. Submit URLs manually via Google Search Console`);
+console.log(`5. Monitor indexing status in 1-2 weeks\n`);
