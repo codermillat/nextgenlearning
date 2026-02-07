@@ -21,7 +21,7 @@ export default function FeesAndScholarships() {
   const feesSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "B.Tech CSE Fees & Scholarships 2025-26 - Complete Guide",
+    "name": "B.Tech CSE Fees & Scholarships 2026-27 - Complete Guide",
     "description": "Complete guide to B.Tech CSE fees and scholarships at top Indian universities. Compare fees: Galgotias (₹3.5L/year), Sharda (₹3L/year), Chandigarh (₹3-4L/year), NIU (₹2.5L/year). Scholarships: 20-60% for Bangladeshi students. Total fees 4 years breakdown.",
     "url": "https://www.nextgenlearning.dev/fees-scholarships",
     "inLanguage": "en"
@@ -89,7 +89,7 @@ export default function FeesAndScholarships() {
   return (
     <>
       <SEOHead
-        title="B.Tech CSE Fees 2025 | ₹10-16L Total | 20-60% Off"
+        title="B.Tech CSE Fees 2026 | ₹10-16L Total | 20-60% Off"
         description="B.Tech CSE fees guide: Sharda University ₹3L/year, Galgotias ₹3.5L/year. 20-60% scholarships for Bangladeshi students. Total fees 4 years ₹10-16L."
         keywords={[
           'btech cse fees',
@@ -124,7 +124,7 @@ export default function FeesAndScholarships() {
         {/* Header */}
         <header className="mb-8">
           <h1 className={`${typography.sectionTitle} mb-4 text-gray-900`}>
-            B.Tech CSE Fees & Scholarships 2025-26 - Complete Guide
+            B.Tech CSE Fees & Scholarships 2026-27 - Complete Guide
           </h1>
           <p className={`${typography.bodyLarge} mb-4 text-gray-700 leading-relaxed`}>
             Comprehensive guide to B.Tech CSE fees and scholarships at top Indian universities. 

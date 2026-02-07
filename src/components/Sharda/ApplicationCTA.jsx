@@ -1,7 +1,8 @@
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { generateUTMLink } from '../../utils/utmGenerator';
 import { logCTAClick } from '../../utils/conversionEventLogger';
+import { registerFloatingCtaPadding } from '../../utils/floatingCtaPadding';
 
 /**
  * ApplicationCTA Component
@@ -37,6 +38,14 @@ const ApplicationCTA = memo(function ApplicationCTA({
   ariaLabel,
   ...props
 }) {
+  useEffect(() => {
+    if (variant !== 'floating') {
+      return undefined;
+    }
+
+    return registerFloatingCtaPadding();
+  }, [variant]);
+
   // Generate UTM-tracked link
   const applicationUrl = generateUTMLink({
     country,
@@ -67,7 +76,7 @@ const ApplicationCTA = memo(function ApplicationCTA({
   const variantClasses = {
     primary: 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 shadow-xl hover:shadow-2xl transform hover:scale-105 focus:ring-blue-500 focus:ring-offset-2 px-6 sm:px-8 py-3 text-base sm:text-lg',
     secondary: 'bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-white focus:ring-offset-gray-800 px-6 sm:px-8 py-3 text-base sm:text-lg',
-    floating: 'fixed bottom-6 right-6 z-50 bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 shadow-2xl hover:shadow-3xl transform hover:scale-110 focus:ring-blue-500 focus:ring-offset-2 px-6 py-4 text-lg font-extrabold animate-pulse hover:animate-none rounded-full',
+    floating: 'hidden sm:flex fixed bottom-6 right-6 z-50 bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 shadow-2xl hover:shadow-3xl transform hover:scale-110 focus:ring-blue-500 focus:ring-offset-2 px-6 py-4 text-lg font-extrabold animate-pulse hover:animate-none rounded-full',
   };
 
   // Combine all classes

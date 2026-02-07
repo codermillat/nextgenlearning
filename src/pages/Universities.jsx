@@ -126,12 +126,12 @@ export default function Universities() {
         price="20-60% scholarships"
         urgency="Apply by March 2026"
         cta="Explore Now"
-        baseTitle="Top Universities 2025"
+        baseTitle="Top Universities 2026"
         url="/universities"
         image="/og-image.svg"
       />
       <SEOHead
-        title="Top Universities 2025 | Sharda & NIRF Ranked"
+        title="Top Universities 2026 | Sharda & NIRF Ranked"
         description="Compare Sharda University (NIRF 101-150) & top universities. 20-60% scholarships for Bangladeshi students. B.Tech CSE fees ₹2-8L/year. NAAC A+ accredited."
         keywords={[
           'galgotias university nirf ranking',
@@ -171,11 +171,11 @@ export default function Universities() {
         {/* SEO-Optimized Header */}
         <header className="mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold mb-4">
-            Top Indian Universities for Bangladeshi Students 2025-26
+            Top Indian Universities for Bangladeshi Students 2026-27
           </h1>
           <p className="text-base sm:text-lg text-gray-700 mb-4 leading-relaxed">
             Compare {sortedUniversities.length} top-ranked Indian universities offering {totalPrograms}+ programs for Bangladeshi students. 
-            Featured universities include Chandigarh University (NIRF 2025: 32nd), <Link to="/sharda" className="text-blue-600 font-semibold hover:underline">Sharda University</Link> (NIRF 2025: 101-150), 
+            Featured universities include Chandigarh University (NIRF 2025: 32nd), <Link to="/sharda-university" className="text-blue-600 font-semibold hover:underline">Sharda University</Link> (NIRF 2025: 101-150), 
             Galgotias University (NIRF 2025: 101-150), and Noida International University (NIRF 2025: 201-250). All have NAAC A+ accreditation 
             and offer generous scholarships ranging from 20% to 60% for Bangladeshi students. Compare rankings, fees, placements, infrastructure, 
             and find the perfect university for your higher education journey in India.
@@ -235,7 +235,7 @@ export default function Universities() {
               <h3 className={`${typography.cardTitle} mb-3 text-gray-900`}>Sharda University NIRF Ranking 2025</h3>
               <p className={`${typography.body} mb-3`}>
                 <strong>NIRF Ranking:</strong> Sharda University ranks 101-150 in NIRF 2025 overall rankings. The university has shown consistent improvement in rankings and is recognized for quality education and industry partnerships.
-                <Link to="/sharda" className="text-blue-600 font-semibold hover:underline ml-1">Explore Sharda University comprehensive guide →</Link>
+                <Link to="/sharda-university" className="text-blue-600 font-semibold hover:underline ml-1">Explore Sharda University comprehensive guide →</Link>
               </p>
               <p className={`${typography.body} mb-3`}>
                 <strong>B.Tech CSE Fees:</strong> Sharda University B.Tech CSE total fees for 4 years is approximately ₹12-15 lakh (after 20-50% GPA-based scholarship). 
@@ -541,4 +541,3 @@ export default function Universities() {
     </>
   );
 }
-

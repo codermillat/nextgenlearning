@@ -64,7 +64,12 @@ const BestUniversitiesBangladeshiStudents = () => {
 
   const pageTitle = 'Best Universities for Bangladeshi Students in India 2026 | Top Choices';
   const pageDescription = 'Discover the best universities in India for Bangladeshi students. Compare Sharda, Chandigarh, and Galgotias universities - scholarships, support services, rankings, and placements.';
-  const canonicalUrl = 'https://nextgenlearning.in/best-universities-bangladeshi-students-india';
+  const canonicalUrl = 'https://www.nextgenlearning.dev/best-universities-bangladeshi-students-india';
+  const universityUrls = {
+    sharda: 'https://www.nextgenlearning.dev/sharda-university',
+    chandigarh: 'https://www.nextgenlearning.dev/universities/chandigarh-university',
+    galgotias: 'https://www.nextgenlearning.dev/universities/galgotias-university',
+  };
 
   // Structured data for comparison
   const comparisonSchema = {
@@ -81,7 +86,7 @@ const BestUniversitiesBangladeshiStudents = () => {
         item: {
           '@type': 'EducationalOrganization',
           name: uni.name,
-          url: `https://nextgenlearning.in/universities/${uni.id}`,
+          url: universityUrls[uni.id] || 'https://www.nextgenlearning.dev/universities',
           address: {
             '@type': 'PostalAddress',
             addressLocality: uni.location
@@ -145,7 +150,7 @@ const BestUniversitiesBangladeshiStudents = () => {
           'scholarship for bangladeshi students in india'
         ]}
         canonicalUrl={canonicalUrl}
-        ogImage="https://nextgenlearning.in/og-best-universities-bangladeshi.jpg"
+        ogImage="/og-image.svg"
       />
 
       <StructuredData data={comparisonSchema} />

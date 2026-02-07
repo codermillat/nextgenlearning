@@ -150,7 +150,7 @@ const ProgramFinder = ({ programs = [], filters = {}, className = '' }) => {
     });
 
     // Navigate to program detail page
-    navigate(`/sharda/programs/${program.id}`);
+    navigate(`/sharda-university/programs/${program.id}`);
   }, [navigate]);
 
   // Format currency

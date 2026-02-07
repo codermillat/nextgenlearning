@@ -195,7 +195,7 @@ export default function Compare() {
         image="/og-image.svg"
       />
       <SEOHead
-        title="Compare Courses Between Universities - Side-by-Side Comparison Tool | Fees, Rankings, Scholarships 2025-26"
+        title="Compare Courses Between Universities - Side-by-Side Comparison Tool | Fees, Rankings, Scholarships 2026-27"
         description="Compare courses at Sharda University & top universities side-by-side. Compare fees, scholarships (20-60%), NIRF rankings. Free tool for Bangladeshi students."
         keywords={[
           'compare courses between universities',

@@ -358,7 +358,7 @@ export default function Home() {
               <p className={`${typography.caption} mb-3`}>NAAC: A+</p>
               <p className={`${typography.caption} mb-3`}>B.Tech CSE Fees: ₹3L/year</p>
               <p className={`${typography.caption} text-green-600 font-semibold`}>Scholarship: 20-50%</p>
-              <Link to="/sharda" className="text-blue-600 text-sm font-semibold mt-2 inline-block">
+              <Link to="/sharda-university" className="text-blue-600 text-sm font-semibold mt-2 inline-block">
                 Learn More About Sharda →
               </Link>
             </Card>
@@ -442,7 +442,7 @@ export default function Home() {
 
           {/* Quick Links for Rankings & Fees */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <Link to="/sharda" className="bg-white border-2 border-blue-300 rounded-lg p-4 hover:shadow-md transition-shadow">
+            <Link to="/sharda-university" className="bg-white border-2 border-blue-300 rounded-lg p-4 hover:shadow-md transition-shadow">
               <h4 className="font-semibold mb-2">Sharda University Complete Guide</h4>
               <p className="text-sm text-gray-600">NIRF 101-150 | NAAC A+ | Programs, Fees, Scholarships & Admissions</p>
             </Link>
@@ -464,7 +464,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-8">About NextGen Learning</h2>
           <div className="prose max-w-none text-gray-700 space-y-4">
             <p className="text-lg">
-              NextGen Learning is your comprehensive platform for exploring tech and IT education. We help you compare computer science, data science, AI/ML, cybersecurity, cloud computing, and other tech courses across top universities. Our platform features detailed information about tech programs including <Link to="/sharda" className="text-blue-600 font-semibold hover:underline">Sharda University</Link>, <Link to="/universities/chandigarh-university" className="text-blue-600 font-semibold hover:underline">Chandigarh University</Link>, <Link to="/universities/galgotias-university" className="text-blue-600 font-semibold hover:underline">Galgotias University</Link>, and <Link to="/universities/noida-international-university" className="text-blue-600 font-semibold hover:underline">Noida International University (NIU)</Link>.
+              NextGen Learning is your comprehensive platform for exploring tech and IT education. We help you compare computer science, data science, AI/ML, cybersecurity, cloud computing, and other tech courses across top universities. Our platform features detailed information about tech programs including <Link to="/sharda-university" className="text-blue-600 font-semibold hover:underline">Sharda University</Link>, <Link to="/universities/chandigarh-university" className="text-blue-600 font-semibold hover:underline">Chandigarh University</Link>, <Link to="/universities/galgotias-university" className="text-blue-600 font-semibold hover:underline">Galgotias University</Link>, and <Link to="/universities/noida-international-university" className="text-blue-600 font-semibold hover:underline">Noida International University (NIU)</Link>.
             </p>
             <p>
               The tech industry is rapidly growing, and quality tech education is essential for a successful career. With top-ranked universities offering cutting-edge programs in computer science, artificial intelligence, data science, cybersecurity, and more, you can find the perfect tech program to launch your career. Explore our comprehensive <Link to="/courses" className="text-blue-600 font-semibold hover:underline">tech course catalog</Link> featuring programs across various tech domains. Use our <Link to="/compare" className="text-blue-600 font-semibold hover:underline">comparison tool</Link> to compare courses side-by-side and find the perfect program for your career goals.

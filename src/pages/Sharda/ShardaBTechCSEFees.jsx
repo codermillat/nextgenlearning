@@ -51,19 +51,19 @@ const ShardaBTechCSEFees = () => {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: window.location.origin,
+        item: 'https://www.nextgenlearning.dev',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Sharda University',
-        item: `${window.location.origin}/sharda`,
+        item: 'https://www.nextgenlearning.dev/sharda-university',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'B.Tech CSE Fees',
-        item: window.location.href,
+        item: 'https://www.nextgenlearning.dev/sharda-university/btech-cse-fees',
       },
     ],
   };
@@ -136,7 +136,7 @@ const ShardaBTechCSEFees = () => {
           'sharda cse fees 2026',
           'sharda university fees for bangladeshi students',
         ]}
-        canonicalUrl={`${window.location.origin}/sharda/btech-cse-fees`}
+        canonicalUrl={`/sharda-university/btech-cse-fees`}
       />
       
       <StructuredData data={courseSchema} />
@@ -154,7 +154,7 @@ const ShardaBTechCSEFees = () => {
             </li>
             <li aria-hidden="true">/</li>
             <li>
-              <Link to="/sharda" className="hover:text-blue-600 transition-colors">
+              <Link to="/sharda-university" className="hover:text-blue-600 transition-colors">
                 Sharda University
               </Link>
             </li>
@@ -603,7 +603,7 @@ const ShardaBTechCSEFees = () => {
 
               <div className="mt-12 text-center">
                 <Link
-                  to="/sharda"
+                  to="/sharda-university"
                   className="inline-block text-blue-600 hover:text-blue-700 font-semibold text-lg"
                 >
                   Learn more about Sharda University →

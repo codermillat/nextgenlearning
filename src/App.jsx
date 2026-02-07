@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useEffect, lazy, Suspense } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
@@ -104,6 +104,8 @@ function App() {
                 <Route path="/universities/:universitySlug/courses/:courseSlug" element={<CourseDetail />} />
                 <Route path="/courses/compare/:groupId" element={<CourseGroupCompare />} />
                 <Route path="/universities" element={<Universities />} />
+                <Route path="/universities/sharda-university" element={<Navigate to="/sharda-university" replace />} />
+                <Route path="/universities/sharda-university/" element={<Navigate to="/sharda-university" replace />} />
                 <Route path="/universities/:universitySlug" element={<UniversityDetail />} />
                 <Route path="/universities/:universitySlug/courses" element={<UniversityCourses />} />
                 <Route path="/compare" element={<Compare />} />
@@ -119,7 +121,25 @@ function App() {
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/rankings" element={<Rankings />} />
                 <Route path="/fees-scholarships" element={<FeesAndScholarships />} />
-                <Route path="/sharda" element={<ShardaLandingPage />} />
+                <Route path="/sharda" element={<Navigate to="/sharda-university" replace />} />
+                <Route path="/sharda/" element={<Navigate to="/sharda-university" replace />} />
+                <Route path="/sharda/admissions" element={<Navigate to="/apply" replace />} />
+                <Route path="/sharda/rankings" element={<Navigate to="/sharda-university/ranking-2026" replace />} />
+                <Route path="/sharda/fees" element={<Navigate to="/sharda-university/btech-cse-fees" replace />} />
+                <Route path="/sharda/programs" element={<Navigate to="/sharda-university/programs/btech-cse" replace />} />
+                <Route path="/sharda/programs/btech-cse" element={<Navigate to="/sharda-university/programs/btech-cse" replace />} />
+                <Route path="/sharda/programs/mba" element={<Navigate to="/sharda-university/programs/mba" replace />} />
+                <Route path="/sharda/programs/mbbs" element={<Navigate to="/sharda-university/programs/mbbs" replace />} />
+                <Route path="/sharda/programs/bba" element={<Navigate to="/sharda-university/programs/bba" replace />} />
+                <Route path="/sharda/nirf-ranking" element={<Navigate to="/sharda-university/nirf-ranking" replace />} />
+                <Route path="/sharda/ranking-2026" element={<Navigate to="/sharda-university/ranking-2026" replace />} />
+                <Route path="/sharda/btech-cse-fees" element={<Navigate to="/sharda-university/btech-cse-fees" replace />} />
+                <Route path="/sharda/mba-fees" element={<Navigate to="/sharda-university/mba-fees" replace />} />
+                <Route path="/sharda/scholarship-bangladeshi-students" element={<Navigate to="/sharda-university/scholarship-bangladeshi-students-india" replace />} />
+                <Route path="/sharda/scholarship-bangladeshi-students-india" element={<Navigate to="/sharda-university/scholarship-bangladeshi-students-india" replace />} />
+                <Route path="/sharda/study-in-india-from-bangladesh" element={<Navigate to="/sharda-university/study-in-india-from-bangladesh" replace />} />
+                <Route path="/sharda/indian-university-bangladeshi-students" element={<Navigate to="/sharda-university/indian-university-bangladeshi-students" replace />} />
+                <Route path="/sharda/best-universities-bangladeshi-students" element={<Navigate to="/best-universities-bangladeshi-students-india" replace />} />
                 <Route path="/sharda-university" element={<ShardaLandingPage />} />
                 <Route path="/sharda-university/nirf-ranking" element={<ShardaNIRFRanking />} />
                 <Route path="/sharda-university/ranking-2026" element={<ShardaRanking2026 />} />

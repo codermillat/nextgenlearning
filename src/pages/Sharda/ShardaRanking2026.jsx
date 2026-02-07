@@ -39,19 +39,19 @@ const ShardaRanking2026 = () => {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: window.location.origin,
+        item: 'https://www.nextgenlearning.dev',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Sharda University',
-        item: `${window.location.origin}/sharda`,
+        item: 'https://www.nextgenlearning.dev/sharda-university',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Ranking 2026',
-        item: window.location.href,
+        item: 'https://www.nextgenlearning.dev/sharda-university/ranking-2026',
       },
     ],
   };
@@ -116,7 +116,7 @@ const ShardaRanking2026 = () => {
           'sharda university admission 2026',
           'sharda university placement 2026',
         ]}
-        canonicalUrl={`${window.location.origin}/sharda/ranking-2026`}
+        canonicalUrl={`/sharda-university/ranking-2026`}
       />
       
       <StructuredData data={organizationSchema} />
@@ -134,7 +134,7 @@ const ShardaRanking2026 = () => {
             </li>
             <li aria-hidden="true">/</li>
             <li>
-              <Link to="/sharda" className="hover:text-blue-600 transition-colors">
+              <Link to="/sharda-university" className="hover:text-blue-600 transition-colors">
                 Sharda University
               </Link>
             </li>

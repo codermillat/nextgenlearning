@@ -16,18 +16,24 @@ const rootDir = path.join(__dirname, '..');
 console.log('\n🔗 Adding Internal Links to Improve Crawlability\n');
 console.log('='.repeat(70));
 
-// Read the discovered URLs (never crawled)
+// Read the discovered URLs and filter never-crawled entries
 const discoveredFile = path.join(rootDir, 'google search console/Discovered - currently not indexed.csv');
 const content = fs.readFileSync(discoveredFile, 'utf8');
 const lines = content.split('\n').slice(1);
 
-const neverCrawled = lines
+const discoveredRows = lines
   .filter(line => line.trim())
   .map(line => {
-    const [url] = line.split(',');
-    return url.trim();
-  })
-  .filter(url => url.includes('1970-01-01') || !url.includes('Last crawled'));
+    const [url = '', lastCrawled = ''] = line.split(',');
+    return {
+      url: url.trim(),
+      lastCrawled: lastCrawled.trim()
+    };
+  });
+
+const neverCrawled = discoveredRows
+  .filter(({ lastCrawled }) => !lastCrawled || lastCrawled === '1970-01-01')
+  .map(({ url }) => url);
 
 console.log(`Found ${neverCrawled.length} never-crawled URLs\n`);
 
@@ -156,12 +162,15 @@ const RelatedCourses = memo(function RelatedCourses({
 export default RelatedCourses;
 `;
 
-fs.writeFileSync(
-  path.join(rootDir, 'src/components/Course/RelatedCourses.jsx'),
-  componentCode
-);
+const reportsDir = path.join(rootDir, 'reports');
+if (!fs.existsSync(reportsDir)) {
+  fs.mkdirSync(reportsDir, { recursive: true });
+}
 
-console.log(`✅ Created src/components/Course/RelatedCourses.jsx\n`);
+const suggestionPath = path.join(reportsDir, 'RelatedCourses.suggestion.jsx');
+fs.writeFileSync(suggestionPath, componentCode.trimStart());
+
+console.log(`✅ Generated ${path.relative(rootDir, suggestionPath)}\n`);
 
 // Generate list of URLs to manually submit
 const priorityUrls = [...comparisonUrls, ...courseUrls.slice(0, 30)];

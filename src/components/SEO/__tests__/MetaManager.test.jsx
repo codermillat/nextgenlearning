@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { render } from '@testing-library/react';
-import MetaManager, { generateDescription, generateTitle, validateLength } from '../MetaManager';
+import MetaManager from '../MetaManager';
+import { generateDescription, generateTitle, validateLength } from '../../../utils/metaUtils';
 
 describe('MetaManager Component', () => {
   beforeEach(() => {

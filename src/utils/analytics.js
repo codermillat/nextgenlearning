@@ -5,16 +5,27 @@
 
 import { GA_TRACKING_ID } from '../config/constants';
 
+function sendGtag(...args) {
+  if (typeof window === 'undefined') return;
+
+  if (typeof window.gtag === 'function') {
+    window.gtag(...args);
+    return;
+  }
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(args);
+}
 
 /**
  * Initialize Google Analytics
  */
 export function initGA() {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', GA_TRACKING_ID, {
-      page_path: window.location.pathname,
-    });
-  }
+  if (typeof window === 'undefined') return;
+  sendGtag('config', GA_TRACKING_ID, {
+    send_page_view: false,
+    page_path: window.location.pathname,
+  });
 }
 
 /**
@@ -22,11 +33,13 @@ export function initGA() {
  * Call this on route changes in React Router
  */
 export function trackPageView(path) {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', GA_TRACKING_ID, {
-      page_path: path,
-    });
-  }
+  if (typeof window === 'undefined') return;
+  sendGtag('event', 'page_view', {
+    page_title: document.title,
+    page_location: window.location.href,
+    page_path: path,
+    send_to: GA_TRACKING_ID,
+  });
 }
 
 /**
@@ -192,4 +205,3 @@ export function trackPhoneClick(phone, source) {
     });
   }
 }
-

@@ -11,7 +11,7 @@ const UniversityRankingsSection = memo(function UniversityRankingsSection() {
   const universities = [
     { icon: '🏆', name: 'Chandigarh University', nirf: 'NIRF Ranking: 32', naac: 'NAAC: A+', fees: 'B.Tech CSE Fees: ₹3-4L/year', scholarship: 'Scholarship: 35-50%', link: '/universities/chandigarh-university' },
     { icon: '🎓', name: 'Galgotias University', nirf: 'NIRF Ranking: 101-150', naac: 'NAAC: A+', fees: 'B.Tech CSE Fees: ₹3.5L/year', scholarship: 'Scholarship: 50-60%', link: '/universities/galgotias-university' },
-    { icon: '🌟', name: 'Sharda University', nirf: 'NIRF Ranking: 101-150', naac: 'NAAC: A+', fees: 'B.Tech CSE Fees: ₹3L/year', scholarship: 'Scholarship: 20-50%', link: '/universities/sharda-university' },
+    { icon: '🌟', name: 'Sharda University', nirf: 'NIRF Ranking: 101-150', naac: 'NAAC: A+', fees: 'B.Tech CSE Fees: ₹3L/year', scholarship: 'Scholarship: 20-50%', link: '/sharda-university' },
     { icon: '✨', name: 'Noida International University', nirf: 'NIRF Ranking: 201-250', naac: 'NAAC: A+', fees: 'B.Tech CSE Fees: ₹2.5L/year', scholarship: 'Scholarship: 50% Flat', link: '/universities/noida-international-university' },
   ];
 
@@ -70,7 +70,7 @@ const UniversityRankingsSection = memo(function UniversityRankingsSection() {
             <h4 className="font-semibold mb-2">Galgotias University NIRF Ranking</h4>
             <p className="text-sm text-gray-600">NIRF 101-150 | NAAC A+ | B.Tech CSE Fees & Details</p>
           </Link>
-          <Link to="/universities/sharda-university" className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+          <Link to="/sharda-university" className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
             <h4 className="font-semibold mb-2">Sharda University NIRF Ranking</h4>
             <p className="text-sm text-gray-600">NIRF 101-150 | NAAC A+ | B.Tech CSE Fees & Details</p>
           </Link>

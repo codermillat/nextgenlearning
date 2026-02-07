@@ -98,7 +98,7 @@ describe('Universities Page', () => {
     const { container } = renderComponent();
     const html = container.innerHTML;
     
-    expect(html).toContain('Top Indian Universities for Bangladeshi Students 2025-26');
+    expect(html).toContain('Top Indian Universities for Bangladeshi Students 2026-27');
     expect(html).toContain('Sharda');
     expect(html).toContain('Galgotias');
   });

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import fc from 'fast-check';
-import { generateDescription, generateTitle } from '../MetaManager';
+import { generateDescription, generateTitle } from '../../../utils/metaUtils';
 
 // Feature: seo-overhaul, Property 1: Meta Description Completeness and Length Constraint
 describe('Property 1: Meta Description Completeness and Length Constraint', () => {

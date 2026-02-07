@@ -59,7 +59,7 @@ describe('Home Page Rendering', () => {
       const { container } = renderHome();
       
       // Find links to Sharda University landing page
-      const shardaLinks = container.querySelectorAll('a[href="/sharda"]');
+      const shardaLinks = container.querySelectorAll('a[href="/sharda-university"]');
       
       // Should have at least one link
       expect(shardaLinks.length).toBeGreaterThan(0);
@@ -285,7 +285,7 @@ describe('Home Page Rendering', () => {
       const { container } = renderHome();
       
       // Check for university detail page links
-      const shardaLinks = container.querySelectorAll('a[href="/sharda"]');
+      const shardaLinks = container.querySelectorAll('a[href="/sharda-university"]');
       const chandigarhLinks = container.querySelectorAll('a[href="/universities/chandigarh-university"]');
       const galgotiasLinks = container.querySelectorAll('a[href="/universities/galgotias-university"]');
       

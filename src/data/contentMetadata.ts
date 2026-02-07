@@ -59,7 +59,7 @@ export const contentMetadataRegistry: ContentMetadata[] = [
   {
     id: 'sharda-landing',
     type: 'general',
-    path: '/sharda',
+    path: '/sharda-university',
     lastUpdated: '2026-01-15',
     nextReview: '2026-04-15',
     reviewFrequency: 3,
@@ -71,7 +71,7 @@ export const contentMetadataRegistry: ContentMetadata[] = [
   {
     id: 'btech-cse-fees',
     type: 'fees',
-    path: '/sharda/btech-cse-fees',
+    path: '/sharda-university/btech-cse-fees',
     lastUpdated: '2026-01-15',
     nextReview: '2026-07-15',
     reviewFrequency: 6,
@@ -81,7 +81,7 @@ export const contentMetadataRegistry: ContentMetadata[] = [
   {
     id: 'mba-fees',
     type: 'fees',
-    path: '/sharda/mba-fees',
+    path: '/sharda-university/mba-fees',
     lastUpdated: '2026-01-15',
     nextReview: '2026-07-15',
     reviewFrequency: 6,
@@ -93,7 +93,7 @@ export const contentMetadataRegistry: ContentMetadata[] = [
   {
     id: 'nirf-ranking',
     type: 'rankings',
-    path: '/sharda/nirf-ranking',
+    path: '/sharda-university/nirf-ranking',
     lastUpdated: '2025-12-20',
     nextReview: '2026-06-20',
     reviewFrequency: 6,
@@ -103,7 +103,7 @@ export const contentMetadataRegistry: ContentMetadata[] = [
   {
     id: 'ranking-2026',
     type: 'rankings',
-    path: '/sharda/ranking-2026',
+    path: '/sharda-university/ranking-2026',
     lastUpdated: '2025-12-20',
     nextReview: '2026-06-20',
     reviewFrequency: 6,
@@ -115,7 +115,7 @@ export const contentMetadataRegistry: ContentMetadata[] = [
   {
     id: 'program-btech-cse',
     type: 'programs',
-    path: '/sharda/programs/btech-cse',
+    path: '/sharda-university/programs/btech-cse',
     lastUpdated: '2026-01-10',
     nextReview: '2026-07-10',
     reviewFrequency: 6,
@@ -125,7 +125,7 @@ export const contentMetadataRegistry: ContentMetadata[] = [
   {
     id: 'program-mba',
     type: 'programs',
-    path: '/sharda/programs/mba',
+    path: '/sharda-university/programs/mba',
     lastUpdated: '2026-01-10',
     nextReview: '2026-07-10',
     reviewFrequency: 6,
@@ -135,7 +135,7 @@ export const contentMetadataRegistry: ContentMetadata[] = [
   {
     id: 'program-mbbs',
     type: 'programs',
-    path: '/sharda/programs/mbbs',
+    path: '/sharda-university/programs/mbbs',
     lastUpdated: '2026-01-10',
     nextReview: '2026-07-10',
     reviewFrequency: 6,
@@ -145,7 +145,7 @@ export const contentMetadataRegistry: ContentMetadata[] = [
   {
     id: 'program-bba',
     type: 'programs',
-    path: '/sharda/programs/bba',
+    path: '/sharda-university/programs/bba',
     lastUpdated: '2026-01-10',
     nextReview: '2026-07-10',
     reviewFrequency: 6,
@@ -157,7 +157,7 @@ export const contentMetadataRegistry: ContentMetadata[] = [
   {
     id: 'placements',
     type: 'placements',
-    path: '/sharda#placements',
+    path: '/sharda-university#placements',
     lastUpdated: '2025-12-01',
     nextReview: '2026-06-01',
     reviewFrequency: 6,
@@ -169,7 +169,7 @@ export const contentMetadataRegistry: ContentMetadata[] = [
   {
     id: 'bangladesh-scholarships',
     type: 'scholarships',
-    path: '/sharda/scholarship-bangladeshi-students',
+    path: '/sharda-university/scholarship-bangladeshi-students-india',
     lastUpdated: '2026-01-15',
     nextReview: '2026-07-15',
     reviewFrequency: 6,
@@ -181,7 +181,7 @@ export const contentMetadataRegistry: ContentMetadata[] = [
   {
     id: 'sharda-vs-amity',
     type: 'general',
-    path: '/sharda/vs-amity',
+    path: '/sharda-vs-amity',
     lastUpdated: '2026-01-15',
     nextReview: '2026-04-15',
     reviewFrequency: 3,
@@ -191,7 +191,7 @@ export const contentMetadataRegistry: ContentMetadata[] = [
   {
     id: 'sharda-vs-chandigarh',
     type: 'general',
-    path: '/sharda/vs-chandigarh',
+    path: '/sharda-vs-chandigarh',
     lastUpdated: '2026-01-15',
     nextReview: '2026-04-15',
     reviewFrequency: 3,
@@ -203,7 +203,7 @@ export const contentMetadataRegistry: ContentMetadata[] = [
   {
     id: 'study-india-bangladesh',
     type: 'admissions',
-    path: '/sharda/study-in-india-from-bangladesh',
+    path: '/sharda-university/study-in-india-from-bangladesh',
     lastUpdated: '2026-01-15',
     nextReview: '2026-04-15',
     reviewFrequency: 3,
@@ -213,7 +213,7 @@ export const contentMetadataRegistry: ContentMetadata[] = [
   {
     id: 'indian-university-bangladesh',
     type: 'admissions',
-    path: '/sharda/indian-university-bangladeshi-students',
+    path: '/sharda-university/indian-university-bangladeshi-students',
     lastUpdated: '2026-01-15',
     nextReview: '2026-04-15',
     reviewFrequency: 3,
@@ -223,7 +223,7 @@ export const contentMetadataRegistry: ContentMetadata[] = [
   {
     id: 'best-universities-bangladesh',
     type: 'general',
-    path: '/sharda/best-universities-bangladeshi-students',
+    path: '/best-universities-bangladeshi-students-india',
     lastUpdated: '2026-01-15',
     nextReview: '2026-04-15',
     reviewFrequency: 3,

@@ -28,6 +28,12 @@ describe('WhatsAppCTA Component', () => {
     vi.clearAllMocks();
   });
 
+  afterEach(() => {
+    document.body.classList.remove('has-floating-cta');
+    document.documentElement.classList.remove('has-floating-cta');
+    document.body.removeAttribute('data-floating-cta-count');
+  });
+
   describe('Basic Rendering', () => {
     it('renders with default props', () => {
       const { getByTestId } = render(<WhatsAppCTA />);
@@ -188,6 +194,18 @@ describe('WhatsAppCTA Component', () => {
       expect(button.className).toContain('bottom-6');
       expect(button.className).toContain('left-6');
       expect(button.className).toContain('rounded-full');
+    });
+
+    it('adds and removes floating CTA body spacing class', () => {
+      const { unmount } = render(<WhatsAppCTA variant="floating" />);
+
+      expect(document.body.classList.contains('has-floating-cta')).toBe(true);
+      expect(document.documentElement.classList.contains('has-floating-cta')).toBe(true);
+
+      unmount();
+
+      expect(document.body.classList.contains('has-floating-cta')).toBe(false);
+      expect(document.documentElement.classList.contains('has-floating-cta')).toBe(false);
     });
 
     it('renders inline variant with correct styles', () => {

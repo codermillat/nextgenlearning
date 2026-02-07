@@ -62,7 +62,12 @@ const ShardaVsChandigarh = () => {
 
   const pageTitle = 'Sharda University vs Chandigarh University: Complete Comparison 2026';
   const pageDescription = 'Detailed comparison of Sharda University and Chandigarh University - NIRF rankings, fees, placements, facilities, and international student support. Choose the best university for your future.';
-  const canonicalUrl = 'https://nextgenlearning.in/sharda-vs-chandigarh';
+  const canonicalUrl = 'https://www.nextgenlearning.dev/sharda-vs-chandigarh';
+  const getUniversityComparisonUrl = (uni) => {
+    if (uni.id === 'sharda') return 'https://www.nextgenlearning.dev/sharda-university';
+    if (uni.id === 'chandigarh') return 'https://www.nextgenlearning.dev/universities/chandigarh-university';
+    return 'https://www.nextgenlearning.dev/universities';
+  };
 
   // Structured data for comparison
   const comparisonSchema = {
@@ -79,7 +84,7 @@ const ShardaVsChandigarh = () => {
         item: {
           '@type': 'EducationalOrganization',
           name: uni.name,
-          url: `https://nextgenlearning.in/universities/${uni.id}`,
+          url: getUniversityComparisonUrl(uni),
           address: {
             '@type': 'PostalAddress',
             addressLocality: uni.location
@@ -103,7 +108,7 @@ const ShardaVsChandigarh = () => {
           'university comparison india'
         ]}
         canonicalUrl={canonicalUrl}
-        ogImage="https://nextgenlearning.in/og-sharda-vs-chandigarh.jpg"
+        ogImage="/og-image.svg"
       />
 
       <StructuredData data={comparisonSchema} />

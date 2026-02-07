@@ -5,20 +5,37 @@
  * Reduces image size by 25-35% on average
  */
 
-import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { execFileSync, spawnSync } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.join(__dirname, '..');
+
+function hasCommand(command) {
+  return spawnSync('which', [command], { stdio: 'ignore' }).status === 0;
+}
+
+const imageConverter = hasCommand('cwebp')
+  ? 'cwebp'
+  : hasCommand('sips')
+    ? 'sips'
+    : null;
+
+if (!imageConverter) {
+  console.error('❌ No image converter found.');
+  console.error('Install cwebp (preferred) or use macOS sips.');
+  process.exit(1);
+}
 
 const publicDir = path.join(rootDir, 'public');
 const srcDir = path.join(rootDir, 'src');
 
 console.log('\n🖼️  Converting images to WebP format\n');
 console.log('='.repeat(70));
+console.log(`Using converter: ${imageConverter}\n`);
 
 let converted = 0;
 let skipped = 0;
@@ -26,12 +43,14 @@ let errors = 0;
 
 async function convertImage(inputPath, outputPath) {
   try {
-    const info = await sharp(inputPath)
-      .webp({ quality: 85, effort: 6 })
-      .toFile(outputPath);
+    if (imageConverter === 'cwebp') {
+      execFileSync('cwebp', ['-quiet', '-q', '85', inputPath, '-o', outputPath], { stdio: 'ignore' });
+    } else {
+      execFileSync('sips', ['-s', 'format', 'webp', inputPath, '--out', outputPath], { stdio: 'ignore' });
+    }
     
     const inputSize = fs.statSync(inputPath).size;
-    const outputSize = info.size;
+    const outputSize = fs.statSync(outputPath).size;
     const savings = ((inputSize - outputSize) / inputSize * 100).toFixed(1);
     
     console.log(`✅ ${path.basename(inputPath)} → ${path.basename(outputPath)}`);

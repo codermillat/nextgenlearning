@@ -1,6 +1,7 @@
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { logWhatsAppClick } from '../../utils/conversionEventLogger';
+import { registerFloatingCtaPadding } from '../../utils/floatingCtaPadding';
 
 /**
  * WhatsAppCTA Component
@@ -32,6 +33,14 @@ const WhatsAppCTA = memo(function WhatsAppCTA({
   ariaLabel,
   ...props
 }) {
+  useEffect(() => {
+    if (variant !== 'floating') {
+      return undefined;
+    }
+
+    return registerFloatingCtaPadding();
+  }, [variant]);
+
   // Single phone number for all students (Bangladeshi and international)
   const WHATSAPP_NUMBER = '+918800996151'; // +91 88009 96151
   const DISPLAY_NUMBER = '+91 88009 96151';
@@ -124,7 +133,7 @@ const WhatsAppCTA = memo(function WhatsAppCTA({
   // Variant-specific styles
   const variantClasses = {
     button: 'bg-[#25D366] text-white hover:bg-[#20BA5A] shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-green-500 focus:ring-offset-2 px-6 sm:px-8 py-3 text-base sm:text-lg',
-    floating: 'fixed bottom-6 left-6 z-50 bg-[#25D366] text-white hover:bg-[#20BA5A] shadow-2xl hover:shadow-3xl transform hover:scale-110 focus:ring-green-500 focus:ring-offset-2 px-5 py-4 text-base font-bold animate-bounce hover:animate-none rounded-full',
+    floating: 'hidden sm:flex fixed bottom-6 left-6 z-50 bg-[#25D366] text-white hover:bg-[#20BA5A] shadow-2xl hover:shadow-3xl transform hover:scale-110 focus:ring-green-500 focus:ring-offset-2 px-5 py-4 text-base font-bold animate-bounce hover:animate-none rounded-full',
     inline: 'bg-[#25D366]/10 text-[#25D366] border-2 border-[#25D366] hover:bg-[#25D366] hover:text-white shadow-md hover:shadow-lg transform hover:scale-105 focus:ring-green-500 focus:ring-offset-2 px-4 sm:px-6 py-2 text-sm sm:text-base',
   };
 

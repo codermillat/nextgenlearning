@@ -190,7 +190,7 @@ describe('ProgramFinder Component - Property Tests', () => {
               fireEvent.click(programCard);
 
               // Verify navigation was called with correct path
-              expect(mockNavigate).toHaveBeenCalledWith(`/sharda/programs/${selectedProgram.id}`);
+              expect(mockNavigate).toHaveBeenCalledWith(`/sharda-university/programs/${selectedProgram.id}`);
             }
           } finally {
             unmount();

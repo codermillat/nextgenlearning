@@ -885,8 +885,9 @@ describe('StructuredData - Unit Tests', () => {
         
         const validation = validateSchema(emptyStringSchema);
         
-        // Should still validate structure even with empty strings
-        expect(validation.isValid).toBe(true);
+        // Required string fields should not be empty
+        expect(validation.isValid).toBe(false);
+        expect(validation.errors.length).toBeGreaterThan(0);
       });
 
       it('should handle schema with null values in optional fields', () => {

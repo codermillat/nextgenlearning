@@ -27,7 +27,7 @@ import { useEffect } from 'react';
  *   title="Sharda University B.Tech CSE Fees"
  *   description="Complete fee structure for B.Tech CSE at Sharda University"
  *   keywords={['sharda university fees', 'b.tech cse fees', 'engineering fees']}
- *   canonicalUrl="/sharda/programs/btech-cse/fees"
+ *   canonicalUrl="/sharda-university/programs/btech-cse/fees"
  *   ogImage="/images/sharda-btech-cse.jpg"
  * />
  */
@@ -46,12 +46,8 @@ export default function SEOMetaTags({
   // Ensure keywords is an array
   const keywordsArray = Array.isArray(keywords) ? keywords : [keywords].filter(Boolean);
   const keywordsString = keywordsArray.join(', ');
-  
+
   // Build full URLs
-  const fullCanonicalUrl = canonicalUrl 
-    ? (canonicalUrl.startsWith('http') ? canonicalUrl : `${siteUrl}${canonicalUrl}`)
-    : null;
-  
   const fullOgImage = ogImage
     ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`)
     : `${siteUrl}/og-image.svg`;
@@ -81,6 +77,33 @@ export default function SEOMetaTags({
       meta.setAttribute('content', content);
     };
 
+    const resolveCanonicalUrl = () => {
+      let canonicalPath = canonicalUrl;
+
+      if (!canonicalPath || !String(canonicalPath).trim()) {
+        canonicalPath = window.location.pathname || '/';
+      }
+
+      canonicalPath = String(canonicalPath).trim().split('?')[0].split('#')[0];
+
+      if (canonicalPath.startsWith('http')) {
+        try {
+          canonicalPath = new URL(canonicalPath).pathname || '/';
+        } catch {
+          canonicalPath = '/';
+        }
+      }
+
+      canonicalPath = canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`;
+      if (canonicalPath !== '/' && canonicalPath.endsWith('/')) {
+        canonicalPath = canonicalPath.slice(0, -1);
+      }
+
+      return `${siteUrl}${canonicalPath || '/'}`;
+    };
+
+    const canonicalHref = resolveCanonicalUrl();
+
     // Primary Meta Tags
     updateMetaTag('title', title);
     updateMetaTag('description', description);
@@ -92,20 +115,16 @@ export default function SEOMetaTags({
     updateMetaTag('robots', noindex ? 'noindex, nofollow' : 'index, follow');
     
     // Canonical URL
-    if (fullCanonicalUrl) {
-      // Remove any existing canonical links
-      document.querySelectorAll('link[rel="canonical"]').forEach(link => link.remove());
-      
-      // Create new canonical link
-      const canonicalLink = document.createElement('link');
-      canonicalLink.setAttribute('rel', 'canonical');
-      canonicalLink.setAttribute('href', fullCanonicalUrl);
-      document.head.appendChild(canonicalLink);
-    }
+    document.querySelectorAll('link[rel="canonical"]').forEach(link => link.remove());
+
+    const canonicalLink = document.createElement('link');
+    canonicalLink.setAttribute('rel', 'canonical');
+    canonicalLink.setAttribute('href', canonicalHref);
+    document.head.appendChild(canonicalLink);
     
     // Open Graph Tags
     updateMetaTag('og:type', ogType, true);
-    updateMetaTag('og:url', fullCanonicalUrl || window.location.href, true);
+    updateMetaTag('og:url', canonicalHref, true);
     updateMetaTag('og:title', title, true);
     updateMetaTag('og:description', description, true);
     updateMetaTag('og:image', fullOgImage, true);
@@ -117,7 +136,7 @@ export default function SEOMetaTags({
     
     // Twitter Card Tags
     updateMetaTag('twitter:card', 'summary_large_image');
-    updateMetaTag('twitter:url', fullCanonicalUrl || window.location.href);
+    updateMetaTag('twitter:url', canonicalHref);
     updateMetaTag('twitter:title', title);
     updateMetaTag('twitter:description', description);
     updateMetaTag('twitter:image', fullOgImage);
@@ -164,7 +183,7 @@ export default function SEOMetaTags({
         }
       }
     };
-  }, [title, description, keywordsString, fullCanonicalUrl, fullOgImage, ogType, structuredData, noindex]);
+  }, [title, description, keywordsString, fullOgImage, ogType, structuredData, noindex, canonicalUrl, siteUrl]);
 
   // This component doesn't render anything visible
   return null;

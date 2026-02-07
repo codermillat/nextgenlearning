@@ -79,7 +79,7 @@ describe('Page Status Codes (Requirement 8.4)', () => {
 
     it('should include university detail pages', () => {
       const universities = [
-        '/universities/sharda-university',
+        '/sharda-university',
         '/universities/noida-international-university',
         '/universities/chandigarh-university',
         '/universities/galgotias-university'

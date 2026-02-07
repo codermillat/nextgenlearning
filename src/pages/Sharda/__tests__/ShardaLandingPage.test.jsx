@@ -532,7 +532,7 @@ describe('ShardaLandingPage', () => {
       const { container } = render(<ShardaLandingPage />);
       
       // Check for internal links to programs
-      const programLinks = container.querySelectorAll('a[href*="/sharda/programs"]');
+      const programLinks = container.querySelectorAll('a[href*="/sharda-university/programs"]');
       expect(programLinks.length).toBeGreaterThan(0);
     });
 
@@ -540,7 +540,7 @@ describe('ShardaLandingPage', () => {
       const { container } = render(<ShardaLandingPage />);
       
       // Check for internal links to fees
-      const feeLinks = container.querySelectorAll('a[href*="/sharda/fees"]');
+      const feeLinks = container.querySelectorAll('a[href*="/sharda-university/btech-cse-fees"]');
       expect(feeLinks.length).toBeGreaterThan(0);
     });
 
@@ -548,7 +548,7 @@ describe('ShardaLandingPage', () => {
       const { container } = render(<ShardaLandingPage />);
       
       // Check for internal links to rankings
-      const rankingLinks = container.querySelectorAll('a[href*="/sharda/rankings"]');
+      const rankingLinks = container.querySelectorAll('a[href*="/sharda-university/ranking-2026"]');
       expect(rankingLinks.length).toBeGreaterThan(0);
     });
 
@@ -556,7 +556,7 @@ describe('ShardaLandingPage', () => {
       const { container } = render(<ShardaLandingPage />);
       
       // Check for internal links to admissions
-      const admissionLinks = container.querySelectorAll('a[href*="/sharda/admissions"]');
+      const admissionLinks = container.querySelectorAll('a[href*="/apply"]');
       expect(admissionLinks.length).toBeGreaterThan(0);
     });
 
@@ -564,7 +564,7 @@ describe('ShardaLandingPage', () => {
       const { container } = render(<ShardaLandingPage />);
       
       // Get all internal links
-      const internalLinks = container.querySelectorAll('a[href^="/sharda"]');
+      const internalLinks = container.querySelectorAll('a[href^="/sharda-university"]');
       
       // Check that links have meaningful text (not "click here" or just URLs)
       internalLinks.forEach(link => {

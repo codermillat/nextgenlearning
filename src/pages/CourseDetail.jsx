@@ -251,15 +251,19 @@ export default function CourseDetail() {
                   No separate scholarship application is required.
                 </p>
               ) : university.id === 'sharda' ? (
-                <p className={`${typography.body}`}>
+                <div className={typography.body}>
+                  <p>
                   <strong>Sharda University</strong> offers GPA-based scholarships for Bangladeshi students:
+                  </p>
                   <ul className="list-disc list-inside ml-4 mt-2 space-y-1">
                     <li>Up to <strong>50% scholarship</strong> for GPA 3.5+ (HSC/SSC)</li>
                     <li><strong>30% scholarship</strong> for GPA 3.0-3.49</li>
                     <li><strong>20% scholarship</strong> for GPA 3.0+</li>
                   </ul>
-                  Scholarships are automatically calculated based on your academic transcripts and are renewable annually.
-                </p>
+                  <p className="mt-2">
+                    Scholarships are automatically calculated based on your academic transcripts and are renewable annually.
+                  </p>
+                </div>
               ) : university.id === 'chandigarh' ? (
                 <p className={`${typography.body}`}>
                   <strong>Chandigarh University</strong> offers GPA-based scholarships ranging from <strong>35% to 50%</strong> for Bangladeshi students. 
@@ -425,4 +429,3 @@ export default function CourseDetail() {
     </>
   );
 }
-

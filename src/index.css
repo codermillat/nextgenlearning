@@ -27,6 +27,13 @@
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
+
+  /* Reserve space for floating CTAs on breakpoints where they are visible. */
+  @media (min-width: 640px) {
+    body.has-floating-cta {
+      padding-bottom: calc(7rem + env(safe-area-inset-bottom));
+    }
+  }
   
   /* Screen reader only class */
   .sr-only {

@@ -51,19 +51,19 @@ const ShardaMBAFees = () => {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: window.location.origin,
+        item: 'https://www.nextgenlearning.dev',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Sharda University',
-        item: `${window.location.origin}/sharda`,
+        item: 'https://www.nextgenlearning.dev/sharda-university',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'MBA Fees',
-        item: window.location.href,
+        item: 'https://www.nextgenlearning.dev/sharda-university/mba-fees',
       },
     ],
   };
@@ -136,7 +136,7 @@ const ShardaMBAFees = () => {
           'sharda mba fees 2026',
           'sharda university mba fees for bangladeshi students',
         ]}
-        canonicalUrl={`${window.location.origin}/sharda/mba-fees`}
+        canonicalUrl={`/sharda-university/mba-fees`}
       />
       
       <StructuredData data={courseSchema} />
@@ -154,7 +154,7 @@ const ShardaMBAFees = () => {
             </li>
             <li aria-hidden="true">/</li>
             <li>
-              <Link to="/sharda" className="hover:text-blue-600 transition-colors">
+              <Link to="/sharda-university" className="hover:text-blue-600 transition-colors">
                 Sharda University
               </Link>
             </li>
@@ -634,7 +634,7 @@ const ShardaMBAFees = () => {
 
               <div className="mt-12 text-center">
                 <Link
-                  to="/sharda"
+                  to="/sharda-university"
                   className="inline-block text-purple-600 hover:text-purple-700 font-semibold text-lg"
                 >
                   Learn more about Sharda University →

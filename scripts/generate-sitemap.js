@@ -155,6 +155,20 @@ urls.push({
   lastmod: TODAY
 });
 
+urls.push({
+  loc: '/rankings',
+  changefreq: 'weekly',
+  priority: '0.8',
+  lastmod: TODAY
+});
+
+urls.push({
+  loc: '/fees-scholarships',
+  changefreq: 'weekly',
+  priority: '0.8',
+  lastmod: TODAY
+});
+
 // Guide article pages
 const guideArticles = [
   {
@@ -320,15 +334,19 @@ urls.push({
 });
 
 // University pages
+let universityPageCount = 0;
 universities.forEach(uni => {
   const uniSlug = universitySlug(uni);
-  
-  urls.push({
-    loc: `/universities/${uniSlug}`,
-    changefreq: 'weekly',
-    priority: '0.8',
-    lastmod: TODAY
-  });
+
+  if (uniSlug !== 'sharda-university') {
+    urls.push({
+      loc: `/universities/${uniSlug}`,
+      changefreq: 'weekly',
+      priority: '0.8',
+      lastmod: TODAY
+    });
+    universityPageCount += 1;
+  }
   
   urls.push({
     loc: `/universities/${uniSlug}/courses`,
@@ -336,6 +354,7 @@ universities.forEach(uni => {
     priority: '0.7',
     lastmod: TODAY
   });
+  universityPageCount += 1;
 });
 
 // Course group comparison pages
@@ -405,10 +424,9 @@ fs.writeFileSync(sitemapPath, xml, 'utf8');
 
 console.log(`✅ Sitemap generated successfully!`);
 console.log(`   Total URLs: ${urls.length}`);
-console.log(`   Static pages: 12`);
+console.log(`   Static pages: 14`);
 console.log(`   Guide articles: ${guideArticles.length}`);
-console.log(`   University pages: ${universities.length * 2}`);
+console.log(`   University pages: ${universityPageCount}`);
 console.log(`   Course group pages: ${courseGroups.length}`);
 console.log(`   Individual course pages: ${allPrograms.length}`);
 console.log(`   File saved to: ${sitemapPath}`);
-

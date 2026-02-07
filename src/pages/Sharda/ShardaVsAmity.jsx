@@ -106,7 +106,12 @@ const ShardaVsAmity = () => {
 
   const pageTitle = 'Sharda University vs Amity University: Detailed Comparison 2026';
   const pageDescription = 'Compare Sharda University and Amity University - rankings, fees, placements, facilities, and international student support. Make an informed decision for your higher education.';
-  const canonicalUrl = 'https://nextgenlearning.in/sharda-vs-amity';
+  const canonicalUrl = 'https://www.nextgenlearning.dev/sharda-vs-amity';
+  const getUniversityComparisonUrl = (uni) => {
+    if (uni.id === 'sharda') return 'https://www.nextgenlearning.dev/sharda-university';
+    if (uni.id === 'amity') return 'https://www.amity.edu/';
+    return 'https://www.nextgenlearning.dev/universities';
+  };
 
   // Structured data for comparison
   const comparisonSchema = {
@@ -123,7 +128,7 @@ const ShardaVsAmity = () => {
         item: {
           '@type': 'EducationalOrganization',
           name: uni.name,
-          url: `https://nextgenlearning.in/universities/${uni.id}`,
+          url: getUniversityComparisonUrl(uni),
           address: {
             '@type': 'PostalAddress',
             addressLocality: uni.location
@@ -147,7 +152,7 @@ const ShardaVsAmity = () => {
           'sharda or amity which is better'
         ]}
         canonicalUrl={canonicalUrl}
-        ogImage="https://nextgenlearning.in/og-sharda-vs-amity.jpg"
+        ogImage="/og-image.svg"
       />
 
       <StructuredData data={comparisonSchema} />

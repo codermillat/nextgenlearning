@@ -54,7 +54,7 @@ const ProgramDetailPage = ({
       <div className="container mx-auto px-4 py-16 text-center">
         <h1 className="text-3xl font-bold text-gray-900 mb-4">Program Not Found</h1>
         <p className="text-gray-600 mb-8">The requested program could not be found.</p>
-        <Link to="/sharda" className="text-blue-600 hover:text-blue-700 font-semibold">
+        <Link to="/sharda-university" className="text-blue-600 hover:text-blue-700 font-semibold">
           Return to Sharda University
         </Link>
       </div>
@@ -90,19 +90,19 @@ const ProgramDetailPage = ({
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: window.location.origin,
+        item: 'https://www.nextgenlearning.dev',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Sharda University',
-        item: `${window.location.origin}/sharda`,
+        item: 'https://www.nextgenlearning.dev/sharda-university',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: program.name,
-        item: window.location.href,
+        item: `https://www.nextgenlearning.dev${canonicalPath}`,
       },
     ],
   };
@@ -126,7 +126,7 @@ const ProgramDetailPage = ({
         title={pageTitle}
         description={metaDescription}
         keywords={keywords}
-        canonicalUrl={`${window.location.origin}${canonicalPath}`}
+        canonicalUrl={canonicalPath}
       />
       
       <StructuredData data={courseSchema} />
@@ -144,7 +144,7 @@ const ProgramDetailPage = ({
             </li>
             <li aria-hidden="true">/</li>
             <li>
-              <Link to="/sharda" className="hover:text-blue-600 transition-colors">
+              <Link to="/sharda-university" className="hover:text-blue-600 transition-colors">
                 Sharda University
               </Link>
             </li>

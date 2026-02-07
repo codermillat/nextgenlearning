@@ -66,10 +66,10 @@ describe('Content Metadata System', () => {
 
   describe('getContentMetadataByPath', () => {
     it('should return metadata by path', () => {
-      const metadata = getContentMetadataByPath('/sharda');
+      const metadata = getContentMetadataByPath('/sharda-university');
       
       expect(metadata).toBeDefined();
-      expect(metadata?.path).toBe('/sharda');
+      expect(metadata?.path).toBe('/sharda-university');
     });
 
     it('should return undefined for non-existent path', () => {

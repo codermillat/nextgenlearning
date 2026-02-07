@@ -150,7 +150,7 @@ describe('SEOMetaTags Component', () => {
       expect(canonical?.getAttribute('href')).toBe('https://www.nextgenlearning.dev/sharda/programs/btech-cse');
     });
 
-    it('should not create canonical link when not provided', () => {
+    it('should create canonical link to root when not provided', () => {
       render(
         <SEOMetaTags
           title="Sharda University"
@@ -159,7 +159,8 @@ describe('SEOMetaTags Component', () => {
       );
 
       const canonical = document.querySelector('link[rel="canonical"]');
-      expect(canonical).toBeFalsy();
+      expect(canonical).toBeTruthy();
+      expect(canonical?.getAttribute('href')).toBe('https://www.nextgenlearning.dev/');
     });
 
     it('should replace existing canonical link', () => {

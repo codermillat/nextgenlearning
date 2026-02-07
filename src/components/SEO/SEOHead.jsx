@@ -139,8 +139,8 @@ export default function SEOHead({
       updateMetaTag('twitter:image', fullImage);
       updateMetaTag('twitter:image:alt', title);
     }
-    updateMetaTag('twitter:site', '@NextGenLearning', true);
-    updateMetaTag('twitter:creator', '@NextGenLearning', true);
+    updateMetaTag('twitter:site', '@NextGenLearning');
+    updateMetaTag('twitter:creator', '@NextGenLearning');
     
     // Additional Meta Tags
     updateMetaTag('author', 'NextGen Learning');

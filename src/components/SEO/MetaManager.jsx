@@ -63,7 +63,9 @@ export default function MetaManager({
   });
 
   // Build full URLs
-  const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
+  const fullUrl = url
+    ? (url.startsWith('http') ? url : `${siteUrl}${url}`)
+    : siteUrl;
   const fullImage = image
     ? (image.startsWith('http') ? image : `${siteUrl}${image}`)
     : `${siteUrl}/og-image.svg`;
@@ -93,6 +95,29 @@ export default function MetaManager({
       meta.setAttribute('content', content);
     };
 
+    // Canonical URL
+    let canonicalPath = url || window.location.pathname || '/';
+    canonicalPath = String(canonicalPath || '/').split('?')[0].split('#')[0];
+
+    if (canonicalPath.startsWith('http')) {
+      try {
+        canonicalPath = new URL(canonicalPath).pathname || '/';
+      } catch {
+        canonicalPath = '/';
+      }
+    }
+
+    canonicalPath = canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`;
+    if (canonicalPath !== '/' && canonicalPath.endsWith('/')) {
+      canonicalPath = canonicalPath.slice(0, -1);
+    }
+
+    document.querySelectorAll('link[rel="canonical"]').forEach(link => link.remove());
+    const canonicalLink = document.createElement('link');
+    canonicalLink.setAttribute('rel', 'canonical');
+    canonicalLink.setAttribute('href', `${siteUrl}${canonicalPath}`);
+    document.head.appendChild(canonicalLink);
+
     // Primary Meta Tags
     updateMetaTag('title', title);
     updateMetaTag('description', description);
@@ -111,7 +136,7 @@ export default function MetaManager({
     updateMetaTag('twitter:title', title);
     updateMetaTag('twitter:description', description);
     updateMetaTag('twitter:image', fullImage);
-  }, [title, description, fullUrl, fullImage, type, brandName]);
+  }, [title, description, fullUrl, fullImage, type, brandName, url]);
 
   // This component doesn't render anything visible
   return null;

@@ -24,7 +24,7 @@ https://www.nextgenlearning.dev
 
 ### Universities
 - https://www.nextgenlearning.dev/universities/chandigarh-university - Chandigarh University (NIRF 32, NAAC A+)
-- https://www.nextgenlearning.dev/universities/sharda-university - Sharda University (NIRF 101-150, NAAC A+)
+- https://www.nextgenlearning.dev/sharda-university - Sharda University (NIRF 101-150, NAAC A+)
 - https://www.nextgenlearning.dev/universities/galgotias-university - Galgotias University (NIRF 101-150, NAAC A+)
 - https://www.nextgenlearning.dev/universities/noida-international-university - Noida International University (NIRF 201-250, NAAC A+)
 
@@ -142,4 +142,3 @@ This platform focuses exclusively on technology and IT-related courses including
 
 ## Last Updated
 2026-01-21
-

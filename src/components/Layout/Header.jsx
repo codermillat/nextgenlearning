@@ -5,7 +5,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-soft sticky top-0 z-50 backdrop-blur-sm bg-white/95" id="main-navigation">
+    <header className="site-header bg-white shadow-soft sticky top-0 z-50 backdrop-blur-sm bg-white/95" id="main-navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo */}
@@ -162,4 +162,3 @@ export default function Header() {
     </header>
   );
 }
-

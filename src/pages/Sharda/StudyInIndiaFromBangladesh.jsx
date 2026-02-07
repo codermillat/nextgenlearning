@@ -13,7 +13,7 @@ import WhatsAppCTA from '../../components/Sharda/WhatsAppCTA';
 const StudyInIndiaFromBangladesh = () => {
   const pageTitle = 'Study in India from Bangladesh 2026-27 | Sharda University Admission Guide';
   const pageDescription = 'Complete guide for Bangladeshi students to study in India at Sharda University. Learn about admission process, scholarships up to 50%, visa requirements, and career opportunities.';
-  const canonicalUrl = 'https://nextgenlearning.com/sharda-university/study-in-india-from-bangladesh';
+  const canonicalUrl = 'https://www.nextgenlearning.dev/sharda-university/study-in-india-from-bangladesh';
 
   const faqSchema = {
     '@context': 'https://schema.org',

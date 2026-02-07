@@ -42,19 +42,19 @@ const ShardaNIRFRanking = () => {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: window.location.origin,
+        item: 'https://www.nextgenlearning.dev',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Sharda University',
-        item: `${window.location.origin}/sharda`,
+        item: 'https://www.nextgenlearning.dev/sharda-university',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'NIRF Ranking',
-        item: window.location.href,
+        item: 'https://www.nextgenlearning.dev/sharda-university/nirf-ranking',
       },
     ],
   };
@@ -72,7 +72,7 @@ const ShardaNIRFRanking = () => {
           'sharda university national ranking',
           'sharda university accreditation',
         ]}
-        canonicalUrl={`${window.location.origin}/sharda/nirf-ranking`}
+        canonicalUrl={`/sharda-university/nirf-ranking`}
       />
       
       <StructuredData data={organizationSchema} />
@@ -89,7 +89,7 @@ const ShardaNIRFRanking = () => {
             </li>
             <li aria-hidden="true">/</li>
             <li>
-              <Link to="/sharda" className="hover:text-blue-600 transition-colors">
+              <Link to="/sharda-university" className="hover:text-blue-600 transition-colors">
                 Sharda University
               </Link>
             </li>
@@ -360,7 +360,7 @@ const ShardaNIRFRanking = () => {
                   Sharda University's consistent performance in both national and international rankings demonstrates its commitment to academic excellence and global standards.
                 </p>
                 <Link
-                  to="/sharda"
+                  to="/sharda-university"
                   className="inline-block text-blue-600 hover:text-blue-700 font-semibold"
                 >
                   Learn more about Sharda University →

@@ -12,7 +12,7 @@
  * Validates: Requirements 1.3, 5.1, 5.5
  */
 
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, fireEvent } from '@testing-library/react';
 import ApplicationCTA from '../ApplicationCTA.jsx';
 import * as utmGenerator from '../../../utils/utmGenerator.js';
@@ -29,6 +29,12 @@ describe('ApplicationCTA Component', () => {
     // Default mock implementation
     utmGenerator.generateUTMLink.mockReturnValue('https://global.sharda.ac.in/?utm_source=test&utm_medium=test&utm_campaign=test&utm_content=test');
     conversionEventLogger.logCTAClick.mockReturnValue({});
+  });
+
+  afterEach(() => {
+    document.body.classList.remove('has-floating-cta');
+    document.documentElement.classList.remove('has-floating-cta');
+    document.body.removeAttribute('data-floating-cta-count');
   });
 
   describe('Rendering', () => {
@@ -105,6 +111,24 @@ describe('ApplicationCTA Component', () => {
       expect(button.className).toContain('z-50');
       expect(button.className).toContain('rounded-full');
       expect(button.getAttribute('data-variant')).toBe('floating');
+    });
+
+    it('adds and removes floating CTA body spacing class', () => {
+      const { unmount } = render(
+        <ApplicationCTA
+          variant="floating"
+          source="landing"
+          context="landing"
+        />
+      );
+
+      expect(document.body.classList.contains('has-floating-cta')).toBe(true);
+      expect(document.documentElement.classList.contains('has-floating-cta')).toBe(true);
+
+      unmount();
+
+      expect(document.body.classList.contains('has-floating-cta')).toBe(false);
+      expect(document.documentElement.classList.contains('has-floating-cta')).toBe(false);
     });
 
     it('applies custom className', () => {

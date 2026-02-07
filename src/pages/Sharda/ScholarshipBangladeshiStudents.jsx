@@ -14,7 +14,7 @@ import FeeCalculator from '../../components/Sharda/FeeCalculator';
 const ScholarshipBangladeshiStudents = () => {
   const pageTitle = 'Scholarship for Bangladeshi Students in India 2026-27 | Up to 50% at Sharda University';
   const pageDescription = 'Get up to 50% scholarship at Sharda University India for Bangladeshi students. Merit-based tuition fee waiver for GPA 3.5+. NAAC A+ accredited programs. Apply now for 2026-27 admission.';
-  const canonicalUrl = 'https://nextgenlearning.com/sharda-university/scholarship-bangladeshi-students-india';
+  const canonicalUrl = 'https://www.nextgenlearning.dev/sharda-university/scholarship-bangladeshi-students-india';
 
   const faqSchema = {
     '@context': 'https://schema.org',

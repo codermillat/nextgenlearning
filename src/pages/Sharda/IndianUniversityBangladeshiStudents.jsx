@@ -13,7 +13,7 @@ import WhatsAppCTA from '../../components/Sharda/WhatsAppCTA';
 const IndianUniversityBangladeshiStudents = () => {
   const pageTitle = 'Best Indian University for Bangladeshi Students 2026-27 | Sharda University';
   const pageDescription = 'Sharda University - #1 Indian university for international students with 95+ countries. Get 50% scholarship, NAAC A+ accreditation, and dedicated support for Bangladeshi students.';
-  const canonicalUrl = 'https://nextgenlearning.com/sharda-university/indian-university-bangladeshi-students';
+  const canonicalUrl = 'https://www.nextgenlearning.dev/sharda-university/indian-university-bangladeshi-students';
 
   const faqSchema = {
     '@context': 'https://schema.org',

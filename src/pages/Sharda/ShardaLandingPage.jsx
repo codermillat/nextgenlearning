@@ -45,7 +45,7 @@ const ShardaLandingPage = memo(function ShardaLandingPage({
     'engineering colleges in india',
     'naac a+ university',
   ];
-  const canonicalUrl = '/sharda';
+  const canonicalUrl = '/sharda-university';
 
   // Organization Structured Data
   const organizationSchema = {
@@ -198,7 +198,7 @@ const ShardaLandingPage = memo(function ShardaLandingPage({
         description={pageDescription}
         keywords={pageKeywords}
         canonicalUrl={canonicalUrl}
-        ogImage="/images/sharda-university-og.jpg"
+        ogImage="/og-image.svg"
         ogType="website"
       />
 
@@ -355,7 +355,7 @@ const AboutSection = memo(function AboutSection({ profile, accreditations }) {
               Established in <strong>{profile.established}</strong>, {profile.name} is a leading {profile.type.toLowerCase()} 
               located in {profile.location}. With a commitment to inspiring excellence, Sharda University has become 
               a preferred destination for students from around the world seeking quality education in{' '}
-              <a href="/sharda/programs" className="text-blue-600 hover:text-blue-800 underline font-semibold">
+              <a href="/sharda-university/programs/btech-cse" className="text-blue-600 hover:text-blue-800 underline font-semibold">
                 engineering, management, medical sciences, and more
               </a>.
             </p>
@@ -369,11 +369,11 @@ const AboutSection = memo(function AboutSection({ profile, accreditations }) {
 
             <p className="text-gray-700 mb-6">
               Sharda University is consistently{' '}
-              <a href="/sharda/rankings" className="text-blue-600 hover:text-blue-800 underline font-semibold">
+              <a href="/sharda-university/ranking-2026" className="text-blue-600 hover:text-blue-800 underline font-semibold">
                 ranked among India's top universities
               </a>{' '}
               by NIRF, QS Asia, and Times Higher Education. Our{' '}
-              <a href="/sharda/fees" className="text-blue-600 hover:text-blue-800 underline font-semibold">
+              <a href="/sharda-university/btech-cse-fees" className="text-blue-600 hover:text-blue-800 underline font-semibold">
                 competitive fee structure
               </a>{' '}
               and generous scholarship programs make quality education accessible to deserving students.
@@ -445,7 +445,7 @@ const RankingsSection = memo(function RankingsSection({ rankings }) {
         </h2>
         <p className="text-lg text-gray-600 mb-12 text-center max-w-3xl mx-auto">
           Sharda University is consistently{' '}
-          <a href="/sharda/rankings" className="text-blue-600 hover:text-blue-800 underline font-semibold">
+          <a href="/sharda-university/ranking-2026" className="text-blue-600 hover:text-blue-800 underline font-semibold">
             ranked among India's top universities
           </a>{' '}
           by prestigious ranking organizations including NIRF, QS Asia, and Times Higher Education.
@@ -480,10 +480,10 @@ const RankingsSection = memo(function RankingsSection({ rankings }) {
         <div className="mt-8 text-center">
           <p className="text-gray-700 mb-6">
             Learn more about our{' '}
-            <a href="/sharda/rankings" className="text-blue-600 hover:text-blue-800 underline font-semibold">
+            <a href="/sharda-university/ranking-2026" className="text-blue-600 hover:text-blue-800 underline font-semibold">
               NIRF ranking
             </a>,{' '}
-            <a href="/sharda/rankings" className="text-blue-600 hover:text-blue-800 underline font-semibold">
+            <a href="/sharda-university/ranking-2026" className="text-blue-600 hover:text-blue-800 underline font-semibold">
               QS Asia ranking
             </a>, and other recognitions.
           </p>
@@ -961,13 +961,13 @@ const FAQSection = memo(function FAQSection() {
         </h2>
         <p className="text-lg text-gray-600 mb-12 text-center">
           Find answers to common questions about{' '}
-          <a href="/sharda/admissions" className="text-blue-600 hover:text-blue-800 underline font-semibold">
+          <a href="/apply" className="text-blue-600 hover:text-blue-800 underline font-semibold">
             admissions
           </a>,{' '}
-          <a href="/sharda/programs" className="text-blue-600 hover:text-blue-800 underline font-semibold">
+          <a href="/sharda-university/programs/btech-cse" className="text-blue-600 hover:text-blue-800 underline font-semibold">
             programs
           </a>,{' '}
-          <a href="/sharda/fees" className="text-blue-600 hover:text-blue-800 underline font-semibold">
+          <a href="/sharda-university/btech-cse-fees" className="text-blue-600 hover:text-blue-800 underline font-semibold">
             fees
           </a>, and campus life.
         </p>

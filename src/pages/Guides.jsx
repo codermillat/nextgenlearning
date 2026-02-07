@@ -223,7 +223,7 @@ Thank you!`;
         <section className="bg-blue-50 rounded-lg p-4 sm:p-6 md:p-8 mb-6 sm:mb-8">
           <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Quick Links</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-            <Link to="/sharda" className="flex items-center p-3 sm:p-4 bg-white rounded-lg hover:shadow-md transition-shadow min-h-[80px]">
+            <Link to="/sharda-university" className="flex items-center p-3 sm:p-4 bg-white rounded-lg hover:shadow-md transition-shadow min-h-[80px]">
               <span className="text-2xl sm:text-3xl mr-3 sm:mr-4 flex-shrink-0">🌟</span>
               <div>
                 <h3 className="font-semibold text-sm sm:text-base">Sharda University Guide</h3>

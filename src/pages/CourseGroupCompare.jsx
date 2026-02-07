@@ -91,7 +91,7 @@ export default function CourseGroupCompare() {
   return (
     <>
       <SEOHead
-        title={`${groupInfo.name} 2025-26 - Compare Top Universities, Fees, Rankings & Scholarships`}
+        title={`${groupInfo.name} 2026-27 - Compare Top Universities, Fees, Rankings & Scholarships`}
         description={`Compare ${groupInfo.name} at Sharda University & top universities. Fees, scholarships (20-60%), NIRF rankings for Bangladeshi students. ${rankedPrograms.length} programs available.`}
         keywords={[
           ...groupInfo.keywords,

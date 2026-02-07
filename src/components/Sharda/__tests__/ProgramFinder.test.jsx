@@ -424,7 +424,7 @@ describe('ProgramFinder Component - Unit Tests', () => {
       
       fireEvent.click(programCard);
       
-      expect(mockNavigate).toHaveBeenCalledWith(`/sharda/programs/${firstProgram.id}`);
+      expect(mockNavigate).toHaveBeenCalledWith(`/sharda-university/programs/${firstProgram.id}`);
     });
   });
 
